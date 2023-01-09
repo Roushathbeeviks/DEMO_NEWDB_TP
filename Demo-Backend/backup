@@ -1,0 +1,240 @@
+
+  doLogin:(req,res) => {
+    let users = req.body;
+    console.log(users)
+    // getUserByFields(users.Userid,users.email,users.password,users.role).then((user) => {
+    query = "select Userid,email,password,role from users where Userid = ?";
+    connection.query(query, [users.Userid], (err, results) => {
+      if (!err) {
+        if (results.length <= 0 || results[0].password != users.password) {
+          return res.status(401).json({Message:"incorrect email or password"});
+        } else if (results[0].password == users.password) {
+          const response = { Userid: results[0].Userid, role: results[0].role };
+          const accesstoken = jwt.sign(response, process.env.ACCCESS_TOKEN, {
+            expiresIn: "8h",
+          });
+          res.status(200).json({ token: accesstoken });
+        } else {
+          return res.status(400).json({ message: "something went wrong" });
+        }
+      } else {
+        return res.status(500).json(err);
+      }
+    });
+  }
+
+
+
+
+
+
+ // forgot password backup
+
+ var transporter = nodemailer.createTransport({
+    service: "Gmail",
+    auth: {
+      user: process.env.EMAIL,
+      pass: process.env.PASSWORD,
+    },
+  });
+  
+  router.post("/forgotpassword", function (req, res) {
+    // userService.forgotPassword(req,res)
+    let user = req.body;
+    query = "select email,password from users where email=?";
+    connection.query(query, [user.email], (err, results) => {
+      if (!err) {
+        if (results.length <= 0) {
+          res.status(404).json({ Message: "No USER EXISTS WITH THIS EMAIL ID" });
+        } else {
+          var mailOptions = {
+            from: process.env.EMAIL,
+            to: results[0].email,
+            subject: "Forgot Password",
+            html:
+              "<p><b>Password Reset</b><br><b>Email: </b>" +
+              results[0].email +
+              "<br> <b>Password: </b>" +
+              results[0].password +
+              "<br>http://localhost:4200/ click the link to login</a></p>",
+          };
+          transporter.sendMail(mailOptions, (err, info) => {
+            if (err) {
+              console.log(err);
+            } else {
+              console.log(info);
+            }
+          });
+        }
+      } else {
+        return res.status(500).json(err);
+      }
+    });
+  });
+
+  //getuser
+
+  router.get("/getusers",auth.Authentication, (req, res) =>
+ {
+  var query = "select Userid,firstname,lastname,email,contactnumber from users where role='user'";
+  connection.query(query,(err,results)=>
+  {
+    if(results)
+    {
+      return res.status(500).json(results)
+    
+    }
+    else
+    {
+      return res.status(200).json(err)
+    }
+  })
+
+  // userService.GetUserDetails(req,res)
+})
+
+
+//authentication.js
+
+require('dotenv').config()
+const { response } = require('express')
+const jwt= require('jsonwebtoken')
+
+function Authentication(req,res,next) {
+    const authHeader = req.headers['authorization']
+    const token = authHeader && authHeader.split('')[1]
+    if(token==null)
+        return res.sendStatus(401)
+    else 
+     jwt.verify(token,process.env.ACCCESS_TOKEN,(err,response)=>
+    {
+        if(err) 
+            return res.sendStatus(403)
+        else
+        res.locals=response
+        next()
+    })
+    
+}
+
+module.exports = {Authentication:Authentication}
+
+//dologin-21-12-22
+
+doLogin: (req, res) => {
+  let user = req.body;
+  userTasks
+    .getUserByUserid(user.Userid)
+    .then((users) => {
+      // console.log(users);
+      if (users.length <= 0 || users[0].password != user.password) {
+        return res
+          .status(401)
+          .json({ Message: "Incorrect Username or password" });
+      } else if (users[0].password == user.password) {
+        const response = { userid: users[0].Userid, role: users[0].role };
+        const accesstoken = jwt.sign(response, process.env.ACCCESS_TOKEN, {
+          expiresIn: "8h",
+        });
+          // res.status(200).json({token: accesstoken});
+          res.status(200).json({role:response.role});
+          // res.json(users[0].role)
+          console.log(users[0].role)
+      } else {
+        return res.status(400).json({ message: "something went wrong" });
+      }
+    })
+    .catch((error) => {
+      return res.status(500).json("Internal server error:" + error);
+    });
+}
+
+
+//dologin with match
+
+doLogin: (req, res) => {
+  let user = req.body;
+  userTasks
+    .getUserByUserid(user.Userid)
+    .then((users) => {
+      console.log(users);
+      if (users.length <= 0) 
+      {
+        return res
+          .status(401)
+          .json({ Message: "Incorrect Username"});
+       
+      } 
+      else
+      {
+          bcrypt.compare(users[0].password,user.password).then(match=>
+          {
+            console.log(users[0].password)
+            console.log(user.password)
+            console.log(match);
+                if(match)
+                  {
+                  console.log("Logged in successfully")
+                  const response = { userid: users[0].Userid, role: users[0].role };
+                  const accesstoken = jwt.sign(response, process.env.ACCCESS_TOKEN, {
+                    expiresIn: "8h",
+                  });
+                  res.status(200).json({token: accesstoken});
+                  // res.status(200).json({role:response.role});
+                  // res.json(users[0].role)
+                  // console.log(users[0].role)
+                }
+                else
+                {
+                  console.log("Incorrect password")
+                  res.json({ Message: 'Incorrect password!!' })
+
+                }
+        }) .catch((error) => 
+            {
+              return res.status(500).json("Internal server error:" + error);
+          })
+                                 
+  
+  .catch((error) => 
+    {
+      return res.status(500).json("Internal server error:" + error);
+    });
+  
+}
+})
+<<<<<<< HEAD
+}
+
+
+
+//EDIT PROFILE
+
+ //   UpdateUser:(Userid,
+  //     firstname,
+  //     lastname,
+  //     email,
+  //     contactnumber
+  // ) => {
+  //     var query="update users set firstname=?,lastname=?,email=?,contactnumber=? where Userid=?"
+  //     const param = [
+  //       Userid,
+  //       firstname,
+  //       lastname,
+  //       email,
+  //       contactnumber
+
+  //     ];
+
+  //     return new Promise((resolve, reject) => {
+  //       connection.query(query, param, function (error, results) {
+  //         if (error) reject(error);
+  //         console.log(error);
+  //         resolve(true);
+
+  //       });
+  //     });
+  //   },
+=======
+}
+>>>>>>> cbadb4dc606a61228f0a1c79b0dfd2d373a60270

@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="child"> 
+        <div class="parent">
+            <app-header></app-header> 
+        </div>
+    </div>
+</div>
+
+<div class="row"> 
+<div  *ngFor="let vessel of data">
+  <mat-card class="example-card" routerLink="/vessel">
+    <div class="cardDiv1">
+      <div class="cardDiv2"><img src="../../../assets/flag1.png"></div>
+      <div class="cardDiv3">
+        <div class="title">
+          {{vessel.name}}
+          <br>
+          {{vessel.imo_number}}
+        </div>
+    
+    <div class="text">
+       <mat-icon style="color:rgb(64, 187, 64);font-size: 7px;">brightness_1</mat-icon> &nbsp;
+      Online
+  </div>
+  </div>
+</div>  
+</mat-card>
+</div>
+</div>

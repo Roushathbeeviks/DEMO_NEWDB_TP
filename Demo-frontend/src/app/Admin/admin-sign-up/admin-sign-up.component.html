@@ -1,0 +1,72 @@
+<div class="container1">
+      <div >
+          <app-admin-header></app-admin-header>
+      </div>
+      <div class="login">
+        <form [formGroup]="signup" (ngSubmit)="check()" autocomplete="off">
+          <!-- <img style="height:50px;" src="../../assets/MicrosoftTeams-image.png"><br> -->   
+            <div>
+              <input formControlName="username" class="input" type="text" id="username"   placeholder="Username" (keyup)="CheckId($event)"/>
+                <div class="errors" *ngIf="signup.controls['username'].errors?.['required'] && signup.controls['username'].touched">Username is required</div>
+                <div class="errors" *ngIf="signup.controls['username'].errors?.['minlength'] && signup.controls['username'].touched">User ID should have minimum length</div>
+                <div  class="errors" *ngIf="status==false">{{UsernameCheckmsg}}</div> 
+          
+            </div>&nbsp; 
+           
+                   
+            <div>
+               <input formControlName="first_name" class="input" type="text" id="first_name" placeholder="First Name"/>
+                <div class="errors" *ngIf="signup.controls['first_name'].errors?.['required'] && signup.controls['first_name'].touched">
+                First name is required
+                </div>
+                <div class="errors" *ngIf="signup.controls['first_name'].errors?.['minlength'] && signup.controls['first_name'].touched">First name should have minimum length</div>
+                <div class="errors" *ngIf="signup.controls['first_name'].errors?.['pattern'] && signup.controls['first_name'].touched">First name cannot have numbers</div>
+            </div>&nbsp;
+            <div>
+              <input formControlName="last_name" class="input" type="text" id="last_name" placeholder="Last Name"/>
+                <div class="errors" *ngIf="signup.controls['last_name'].errors?.['required'] && signup.controls['last_name'].touched">
+                Last name is required
+                </div>
+                <div class="errors" *ngIf="signup.controls['last_name'].errors?.['minlength'] && signup.controls['last_name'].touched">Last name should have minimum length</div>
+                <div class="errors" *ngIf="signup.controls['last_name'].errors?.['pattern'] && signup.controls['last_name'].touched">Last name cannot have numbers</div>
+            </div>&nbsp;
+            <div>
+              <input formControlName="email" class="input" type="email" id="email" placeholder="Email" (keyup)="CheckEmail()"/>
+                <div class="errors" *ngIf="signup.controls['email'].errors?.['required'] && signup.controls['email'].touched">
+                Email is required
+                </div>
+                <div class="errors" *ngIf="signup.controls['email'].errors?.['email'] && signup.controls['email'].touched">Enter valid email</div>
+                <div *ngIf="status==false" class="errors" >{{EmailCheckmsg}}</div>
+            </div>&nbsp;
+           
+            <div>
+              <input formControlName="contact_number" class="input" type="number" id="contact_number" placeholder="Contact Number"/>
+               <div class="errors" *ngIf="signup.controls['contact_number'].errors?.['required'] && signup.controls['contact_number'].touched">
+                Phone number is required
+                </div>
+                <div class="errors" *ngIf="signup.controls['contact_number'].errors?.['minlength'] && signup.controls['contact_number'].errors?.['maxlength']">Phone number should have minimum length</div>
+                <div class="errors" *ngIf="signup.controls['contact_number'].errors?.['pattern'] && signup.controls['contact_number'].touched">
+                  Please enter numbers
+                  </div>
+            </div>&nbsp;
+            <div>
+              <input formControlName="password" class="input" type="password" id="password" placeholder="Password"/>
+                <div class="errors" *ngIf="signup.controls['password'].errors?.['required'] && signup.controls['password'].touched">
+                Password is required
+                </div>
+                <div class="errors" *ngIf="">Incorrect password</div>
+            </div>&nbsp;
+            <div class="radio">
+                <label>Role :</label>&nbsp;  
+                <input type="radio" value="admin" id="Admin" formControlName="role">&nbsp;  
+                <label for="Admin">Admin</label>&nbsp;  &nbsp;  &nbsp;  
+                <input type="radio"  value="user" id="user" formControlName="role">&nbsp;  
+                <label for="user">User</label>&nbsp;  &nbsp;  
+                <div class="errors" *ngIf="signup.controls['role'].errors?.['required'] && signup.controls['role'].touched ">
+                Please assign a role
+                </div>
+              </div>&nbsp;          
+            <div class="move"><button  type="submit" [disabled]="signup.invalid" class=" btn" >Sign Up</button></div>
+        </form>
+    </div>
+</div>

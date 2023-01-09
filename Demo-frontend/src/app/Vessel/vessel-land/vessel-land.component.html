@@ -1,0 +1,66 @@
+<div class="child"> 
+    <div class="parent">
+        <app-vessel-header></app-vessel-header>
+    </div>
+</div>
+<button (click)="VesselForm()">ADD VESSEL</button>
+<ngx-datatable style="height: auto"
+class="material"
+[rows]="rows"
+[columns]="columns"
+fixed-header
+datatable-header
+[headerHeight]="50"
+[footerHeight]="50"
+[limit]="5"
+[columnMode]="'standard'"
+[reorderable]="false">
+    <ngx-datatable-column
+            name="imo_number"
+            prop="imo_number"
+            [width]="150"
+            [sortable]="true">
+            <ng-template let-column="column" ngx-datatable-header-template>IMO NUMBER</ng-template>
+        </ngx-datatable-column>
+
+    <ngx-datatable-column
+            name="vesselName"
+            prop="name"
+            [width]="150"
+            [sortable]="true">
+            <ng-template let-column="column" ngx-datatable-header-template>VESSEL NAME</ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column
+        name="vesselType"
+        prop="vesseltype"
+        [width]="150"
+        [sortable]="true">
+        <ng-template let-column="column" ngx-datatable-header-template>VESSEL TYPE</ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column
+        name="flag"
+        prop="countryname"
+        [width]="150"
+        [sortable]="true">
+        <ng-template let-column="column" ngx-datatable-header-template>FLAG</ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column
+        name="ACTIONS"
+        [minWidth]="150"
+        [flexGrow]="3"
+        [sortable]="false"
+        [resizeable]="false"
+        [draggable]="false"
+        prop="edit" >
+        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
+          <span md-icon-button placement="left" ngbTooltip="" (click)="delete($event,row.id)">
+            <mat-icon>delete</mat-icon>
+           <span ><mat-icon>build</mat-icon></span> 
+          </span>
+        </ng-template>
+      </ngx-datatable-column>
+
+</ngx-datatable>

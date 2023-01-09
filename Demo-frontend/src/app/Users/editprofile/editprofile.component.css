@@ -1,0 +1,111 @@
+*{
+    height: 50;
+    width: 80;
+    /* background-color: aqua; */
+}
+
+.login{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(32, 32, 104);
+    align-items: center;
+    font-size: 45px;
+    /* height:100%; */
+    margin:0px; 
+    min-width: 450px;
+    padding-top: 10%;
+    height:100%;
+    width:100%;  
+}
+.btn{
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    background-color: rgb(58, 120, 201);
+    display: flex;
+    color: aliceblue;
+    border: none;
+    font-size: 15px;
+    /* min-width: 75px;
+    min-height: 30px; */
+    align-items: center; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* .loginform{
+    padding-top: 10px;
+} */
+
+.pass{
+    color:aliceblue;
+    padding-left: 78%;
+    font-size: 12px; 
+}
+.color{
+    color:aliceblue;
+}
+.textbox{
+    display:flex;
+    size: 100px;
+    position: relative;
+    width:100%;
+    align-items: center;
+    flex-direction: column;
+}
+.input{
+    width:250px;
+    height: 20px;
+    font-size: 15px;
+    border-radius: 4px;
+}
+.move{
+    padding-left: 330px;
+}
+.container1{
+
+   
+    
+    /* background-repeat: no-repeat;
+    background-size:cover; */
+    /* position: absolute; */
+    
+}
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+.btnC{
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    background-color: rgb(221, 147, 35);
+    display: flex;
+    color: aliceblue;
+    border: none;
+    font-size: 15px;
+    min-width: 75px;
+    min-height: 30px;
+    align-items: center; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+.mat-dialog-container{
+    background-color: rgb(32, 32, 104);
+}
+.inputLabel{
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 85px;
+   align-content: center;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 8px;
+    color: white;
+    gap: 5px;
+}
+.LabIn{
+    gap: 10px;
+    display: flex;
+    justify-content:flex-start;
+}

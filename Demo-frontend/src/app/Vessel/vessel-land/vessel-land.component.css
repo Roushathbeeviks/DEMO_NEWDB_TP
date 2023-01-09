@@ -1,0 +1,7 @@
+.child{
+    background-color: rgb(102, 102, 102);
+    
+}
+.parent{
+    backdrop-filter: blur(10px);
+}

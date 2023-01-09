@@ -1,0 +1,46 @@
+.login{
+    display: flex;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(32, 32, 104);
+    align-items: center;
+    height:100%;
+    margin:0px; 
+}
+.button{
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    background-color: rgb(58, 120, 201);
+    color: aliceblue;
+    border: none;
+    font-size: 10px;
+    min-width: 50px;
+    min-height: 25px;
+    align-items: center; 
+    padding-top: 2px;
+    cursor: pointer;
+}
+/* .loginform{
+    padding-top: 10px;
+} */
+.version{
+    color: rgb(137, 137, 192);
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+}
+a{
+    text-decoration: none;
+}
+.pass{
+    /* color:aliceblue; */
+    padding-left: 78%;
+    font-size: 12px; 
+}
+input.ng-invalid.ng-touched {
+    border-bottom:  red 1px solid;
+}
+.pointer {
+    cursor: pointer;
+}

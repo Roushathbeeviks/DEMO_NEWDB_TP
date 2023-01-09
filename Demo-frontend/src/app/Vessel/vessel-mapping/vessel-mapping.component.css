@@ -1,0 +1,15 @@
+h3{
+text-align: center;
+}
+.mat-dialog-actions
+{
+    display: flex;
+    justify-content:space-between;
+
+}
+.error-message {
+    color: #f00;
+    font-size: 11px;
+    transform: translateY(-4px);
+    display: inline-block;
+  }

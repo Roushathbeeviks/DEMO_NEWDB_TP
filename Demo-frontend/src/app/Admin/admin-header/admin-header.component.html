@@ -1,0 +1,48 @@
+<div class="headerContainer1">
+   <div class="headerBody1">
+            <img class="image" src="../../assets/MicrosoftTeams-image.png">  
+            <a class="color ">
+                <div class="logo">
+                    <i class="material-icons" routerLink="/adminLand">travel_explore</i>
+                </div>
+                <div class="size" routerLink="/adminLand">MY FLEET</div>
+            </a>
+    </div>
+        <div class="headerBody2">
+        <a  class="color ">
+            <div class="set">
+                    <a mat-button [matMenuTriggerFor]="Settings" [routerLinkActive]="['active']">
+                        <div class="">
+                            <i class="material-icons">settings</i>
+                        </div></a>
+                    <mat-menu #Settings="matMenu" xPosition="after">
+                      <button mat-menu-item routerLink="/usermgt">View Users</button>
+                      <button mat-menu-item routerLink="/vessel">View Vessels</button>
+                    </mat-menu>  
+            </div>
+        </a>
+        <a href="#" class="color">
+            <div>
+                <i class="material-icons">search</i>
+            </div>
+        </a>
+        <a href="#" class="color ">
+            <div>
+                <mat-icon>help_outline</mat-icon>
+            </div>
+        </a>
+        <a  routerLinkActive="active" href="#" class="color ">
+            <div><mat-icon>sms</mat-icon></div>
+         </a>
+         <a mat-button [matMenuTriggerFor]="menu" class="color ">
+            <mat-icon>person</mat-icon>
+        </a>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="EditDialog()">Edit Profile</button>
+            <button mat-menu-item (click)="LogoutDialog()">Log Out</button>
+       </mat-menu>&nbsp;&nbsp;&nbsp;
+       
+       </div>
+    
+</div>
+

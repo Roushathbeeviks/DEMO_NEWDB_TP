@@ -1,0 +1,53 @@
+
+.container
+{
+    /* background-color: blue; */
+}
+h3
+{
+    color: rgb(190, 190, 29);
+    margin-top: 4px;
+   
+    
+}
+.card
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* background-color: rgb(100, 97, 97); */
+    border-radius: 5px;
+    border: 4px rgb(102, 100, 100);
+    
+}
+input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+}
+
+.flex
+{
+    display: flex;
+    justify-content: space-between;
+   
+}
+.flag
+{
+    margin-right:100px;
+}
+label
+{
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+input.ng-invalid.ng-touched {
+    border-bottom:  red 1px solid;
+}
+option
+{
+    text-transform: uppercase;
+}
+.move{
+    display: flex;
+    justify-content: space-between;
+}

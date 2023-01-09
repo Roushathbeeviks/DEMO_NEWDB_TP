@@ -1,0 +1,7 @@
+# Dependency directories
+Demo-Backend/node_modules/
+Demo-frontend/node_modules/
+Demo-frontend/.angular
+Demo-frontend/.vscode
+/jspm_packages
+
