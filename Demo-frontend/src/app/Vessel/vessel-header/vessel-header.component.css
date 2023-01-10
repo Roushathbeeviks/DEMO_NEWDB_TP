@@ -1,8 +1,9 @@
 .headerContainer1{
     display: flex;
-    max-height: 10%;
     backdrop-filter: blur(50px) saturate(120%) contrast(200%);
     justify-content: space-between;
+    flex-wrap: wrap;
+    padding-right: 10px;
     cursor: pointer;
 }
 .headerBody1{
@@ -10,7 +11,7 @@
     justify-content: space-between;
     align-items: center;
     gap:10px;
-    padding-left: 10px;
+    padding-left: 10px; 
 }
 .headerBody2{
    
@@ -32,6 +33,7 @@
 .logo{
     display: flex;
     text-align: center;
+    justify-content: center;
 }
 .size{
     font-size: 9px;

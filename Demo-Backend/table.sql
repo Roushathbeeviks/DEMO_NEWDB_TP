@@ -1,19 +1,21 @@
 -- CREATE QUERY FOR USER
 
-create table users
-(
-    Userid varchar(200) NOT NULL,
-    firstname varchar(200) NOT NULL,
-    lastname varchar(200) NOT NULL,
-    email varchar(200) NOT NULL,
-    contactnumber varchar(20),
-    role varchar(200) NOT NULL,
-    password varchar(200) NOT NULL,
-    PRIMARY KEY (Userid),
-    UNIQUE(email),
-    Id INT AUTO_INCREMENT UNIQUE,
-);
-
+CREATE TABLE `project`.`user` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(45) NOT NULL,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `contact_number` VARCHAR(45) NOT NULL,
+  `role` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
+  UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE,
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 -- INSERT QUERY FOR USER
 
 INSERT INTO users(userid,firstname,lastname,email,contactnumber,role,password)
@@ -69,15 +71,18 @@ insert into voyagepath( StartPortname,DestinationPortname)values('Japan','China'
 
 --CRETAE VESSEL FORM
 
-create table vessels(
-    VesselName varchar(255) NOT NULL UNIQUE,
-    IMONumber varchar(255) NOT NULL,
-    VesselType varchar(255) NOT NULL,
-    flag varchar(255) NOT NULL,
-    VesselId INT AUTO_INCREMENT UNIQUE,
-    -- VoyageId varchar(255) NOT NULL ,
-    -- assetId varchar(255) NOT NULL 
-)
+CREATE TABLE `project`.`vessel` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `imo_number` VARCHAR(45) NOT NULL,
+  `flag_id` INT NOT NULL,
+  `vessel_type_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE,
+  UNIQUE INDEX `imo_number_UNIQUE` (`imo_number` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 --CRETAE VESSEL FORM new table
 CREATE TABLE `smartshipdemo`.`vessel` (
@@ -110,3 +115,61 @@ create table vesselmapping( Userid varchar(200) NOT NULL,VesselName varchar(200)
 --INSERT IN TO vesselmapping
 
 insert into vesselmapping(Userid,VesselName,VesselId) values('Riswana.e','ATHIRA1 VESSEL,ATHIRA2 VESSEL','1');
+
+-- CREATE TABLE flag
+
+CREATE TABLE `project`.`flag` (
+  `id` INT NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+-- create table  vesselType
+
+CREATE TABLE `project`.`vessel_type` (
+  `id` INT NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+-- create table  vessel_user_mapping
+
+CREATE TABLE `project`.`vessel_user_mapping` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `vessel_name` VARCHAR(45) NOT NULL,
+  `vessel_id` VARCHAR(45) NOT NULL,
+  `user_id` INT NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+-- create table  voyage
+
+
+CREATE TABLE `project`.`voyage` (
+  `id` INT NOT NULL,
+  `start_port` VARCHAR(45) NOT NULL,
+  `destination_port` VARCHAR(45) NOT NULL,
+  `cosp_lat` VARCHAR(45) NOT NULL,
+  `cosp_long` VARCHAR(45) NOT NULL,
+  `eosp_lat` VARCHAR(45) NOT NULL,
+  `eosp_long` VARCHAR(45) NOT NULL,
+  `cosp_time` DATETIME NOT NULL,
+  `displacement` INT NULL,
+  `fuel_density` INT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+ALTER TABLE `project`.`voyage` 
+ADD COLUMN `lower_calorific` INT NULL AFTER `fuel_density`,
+ADD COLUMN `earliest_eta` DATETIME NOT NULL AFTER `lower_calorific`,
+ADD COLUMN `justeta` DATETIME NOT NULL AFTER `earliest_eta`,
+ADD COLUMN `bunker` VARCHAR(45) NULL AFTER `justeta`,
+ADD COLUMN `vessel_id` INT NULL AFTER `bunker`;

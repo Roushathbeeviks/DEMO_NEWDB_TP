@@ -63,23 +63,15 @@
 .move{
     padding-left: 330px;
 }
-.container1{
 
-   
-    
-    /* background-repeat: no-repeat;
-    background-size:cover; */
-    /* position: absolute; */
-    
-}
 .buttons{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    gap: 10px;
+    align-content: center;
+    padding-bottom: 10px;
 }
 .btnC{
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
     background-color: rgb(221, 147, 35);
     display: flex;
     color: aliceblue;
