@@ -26,7 +26,7 @@ const Vessel={
     },
     GetVesselByUserid:(req,res)=>
     {
-        var query = "select vessel.name,vessel.imo_number,flag.name as countryname from vessel  join flag  on flag.id=vessel.flag_id join vessel_user_mapping on vessel_user_mapping.vessel_id=vessel.id where vessel_user_mapping.user_id=?"
+        var query = "select vessel.id,vessel.name,vessel.imo_number,flag.name as countryname from vessel  join flag  on flag.id=vessel.flag_id join vessel_user_mapping on vessel_user_mapping.vessel_id=vessel.id where vessel_user_mapping.user_id=?"
         // var id=req.params.id;
         connection.query(query, [req.params.id], function(err,results)
         {
