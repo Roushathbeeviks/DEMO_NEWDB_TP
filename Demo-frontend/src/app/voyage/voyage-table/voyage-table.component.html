@@ -1,0 +1,51 @@
+<div class="child"> 
+    <div class="parent">
+        <app-vessel-header></app-vessel-header>
+    </div>
+</div>
+<button routerLink="/voyageform">ADD VOYAGE</button>
+<div>
+    <ngx-datatable
+      style="height: auto"
+      class="bootstrap"
+      [rows]="rows"
+      [columns]="columns"
+      fixed-header
+      datatable-header
+      [headerHeight]="50"
+      [footerHeight]="50"
+      [limit]="10"
+      [columnMode]="'standard'"
+      [reorderable]="false">
+      <ngx-datatable-column
+        name="name"
+        prop="name"
+        [width]="150"
+        [sortable]="true">
+        <ng-template let-column="column" ngx-datatable-header-template>VOYAGE NAME</ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column
+        name="lastname"
+        prop="last_name"
+        [width]="150"
+        [sortable]="true"
+      >
+        <ng-template let-column="column" ngx-datatable-header-template>COSP TIME</ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column
+        name="name"
+        prop="name"
+        [width]="150"
+        [sortable]="true">
+        <ng-template let-column="column" ngx-datatable-header-template>EARLIEST ETA</ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column
+        name="email"
+        prop="email"
+        [width]="150"
+        [sortable]="true">
+        <ng-template let-column="column" ngx-datatable-header-template>JUST IN TIME ETA</ng-template>
+      </ngx-datatable-column>
+  
+    </ngx-datatable>
+  </div>

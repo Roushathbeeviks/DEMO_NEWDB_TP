@@ -1,26 +1,29 @@
 const connection = require("../db/connection");
 
 const VoyageTasks={
-insertVoyage: (values) => {
-    // let voyage=req.body;
-    console.log(values)
+    insertVoyage: (values) => {
+    // console.log("values",values)
     const query =
-    "INSERT INTO voyageplan (StartPortname, DestinationPortname,Cosplat ,Cosplong,Eosplat,Eosplong,Cosptime,Displacement,FuelDensity,LowerCalorific,EarliestETA,JustETA) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-   const param = [
-    values.StartPortname,
-    values.DestinationPortname,
-    values.Cosplat,
-    values.Cosplong,
-    values.Eosplat,
-    values.Eosplong,
-    values.Cosptime,
-    values.Displacement,
-    values.FuelDensity,
-    values.LowerCalorific,
-    values.EarliestETA,
-    values.JustETA
+    "INSERT INTO voyage (startport_id, destinationport_id,cosp_lat,cosp_long, eosp_lat, eosp_long, cosp_time, displacement, fuel_density, lower_calorific, earliest_eta, just_eta, bunker,vessel_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    
+    const param = [
+    values.startport_id,
+    values.destinationport_id,
+    values.cosp_lat,
+    values.cosp_long,
+    values.eosp_lat,
+    values.eosp_long,
+    values.cosp_time,
+    values.displacement,
+    values.fuel_density,
+    values.lower_calorific,
+    values.earliest_eta,
+    values.just_eta,
+    values.bunker,
+    values.vessel_id
+    
   ];
-  console.log(param)
+  // console.log("param",param)
   return new Promise((resolve, reject) => {
     connection.query(query, param, function (error, results) {
       if (error) reject(error);
@@ -28,13 +31,6 @@ insertVoyage: (values) => {
     });
 })
 },
-
-// CheckVoyage:(StartPortname,DestinationPortname)=>
-// {
-//     const param = [StartPortname]
-//     const query = "SELECT * FROM voyageplan WHERE StartPortname=?";
-
-// }
 
 }
 module.exports =VoyageTasks;

@@ -7,7 +7,6 @@ import {
   MinLengthValidator,
 } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { SignupService } from 'src/app/services/signup.service';
 import { AdminService } from 'src/app/services/admin.service';
 
 @Component({

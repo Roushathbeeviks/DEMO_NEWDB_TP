@@ -5,22 +5,22 @@ var auth = require("./Authentication");
 var VoyageTAsks = require("../task/voyage.task");
 
 const VoyagePlan = {
-  VoyagePlanForm: (req, res) => {
-    let voyages = req.body;
-
-    VoyageTAsks.insertVoyage(voyages).then((err, results) => {
+  VoyagePlanForm: (req,res) => {
+    let voyage = req.body;
+    VoyageTAsks.insertVoyage(voyage).then((results,err) => {
       if (results) {
-        res.send({ message: results });
+        // console.log("Entered Results",results);
+        res.send({ message:"Result", results });
       } else {
-        res.send({ message: err });
+        // console.log("error",err)
+        res.send({ message:"Error", err });
       }
     });
   },
 
   GetVoyagePlan: (req, res) => {
-    var query =
-      "select StartPortname,DestinationPortname,Cosptime,EarliestETA,JustETA from voyageplan";
-    connection.query(query, (err, results) => {
+    var query ="select voyage.startport_id, voyage.destinationport_id, voyage.cosp_time, voyage.earliest_eta, voyage.just_eta,startport.name as startportname,destinationport.name as destinationportname,vessel.name as vesselname from voyage join startport on voyage.startport_id=startport.id join destinationport on voyage.destinationport_id=destinationport.id join vessel on vessel.id=voyage.vessel_id" ;
+    connection.query(query,(err, results) => {
       if (results) {
         res.send({ message: results });
       } else {
@@ -28,9 +28,20 @@ const VoyagePlan = {
       }
     });
   },
+GetVoyagePlanByVesselId:(req,res) =>
+{
+  var query ="select voyage.startport_id, voyage.destinationport_id, voyage.cosp_time, voyage.earliest_eta, voyage.just_eta,startport.name as startportname,destinationport.name as destinationportname,vessel.name as vesselname from voyage join startport on voyage.startport_id=startport.id join destinationport on voyage.destinationport_id=destinationport.id join vessel on vessel.id=voyage.vessel_id where vessel_id=?" ;
+  connection.query(query,  [req.params.id],(err, results) => {
+    if (results) {
+      res.send({ message: results });
+    } else {
+      res.send({ message: err });
+    }
+  });
 
-  GetVoyagePath: (req, res) => {
-    var query = "select StartPortname,DestinationPortname from voyagepath";
+},
+  GetStartPort: (req, res) => {
+    var query = "select * from startport";
     connection.query(query, (err, results) => {
       if (results) {
         res.send(results);
@@ -38,7 +49,19 @@ const VoyagePlan = {
         res.send({ message: err });
       }
     });
-  }
+  },
+  
+  GetDestinationPort: (req, res) => {
+    var query = "select * from destinationport";
+    connection.query(query, (err, results) => {
+      if (results) {
+        res.send(results);
+      } else {
+        res.send({ message: err });
+      }
+    });
+  },
+
 };
 
 
