@@ -3,7 +3,7 @@
         <app-vessel-header></app-vessel-header>
     </div>
 </div>
-<button routerLink="/voyageform">ADD VOYAGE</button>
+<button [routerLink]="['/voyageform/',id]">ADD VOYAGE</button>
 <div>
     <ngx-datatable
       style="height: auto"
@@ -12,37 +12,41 @@
       [columns]="columns"
       fixed-header
       datatable-header
-      [headerHeight]="50"
-      [footerHeight]="50"
+      [headerHeight]="40"
+      [footerHeight]="30"
       [limit]="10"
       [columnMode]="'standard'"
       [reorderable]="false">
+
       <ngx-datatable-column
-        name="name"
-        prop="name"
+        name="cosp_time"
+        prop="cosp_time"
+        [width]="200"
+        [sortable]="true">
+        <ng-template let-column="column" ngx-datatable-header-template>VOYAGE DATE</ng-template>
+      </ngx-datatable-column>
+      
+      <ngx-datatable-column
+        name="startportname"
+        prop="startportname"
         [width]="150"
         [sortable]="true">
-        <ng-template let-column="column" ngx-datatable-header-template>VOYAGE NAME</ng-template>
+        <ng-template let-column="column" ngx-datatable-header-template>STARTING PORT</ng-template>
       </ngx-datatable-column>
+
+
       <ngx-datatable-column
-        name="lastname"
-        prop="last_name"
-        [width]="150"
-        [sortable]="true"
-      >
-        <ng-template let-column="column" ngx-datatable-header-template>COSP TIME</ng-template>
-      </ngx-datatable-column>
-      <ngx-datatable-column
-        name="name"
-        prop="name"
+        name="destinationportname"
+        prop="destinationportname"
         [width]="150"
         [sortable]="true">
-        <ng-template let-column="column" ngx-datatable-header-template>EARLIEST ETA</ng-template>
+        <ng-template let-column="column" ngx-datatable-header-template>DESTINATION PORT</ng-template>
       </ngx-datatable-column>
+
       <ngx-datatable-column
-        name="email"
-        prop="email"
-        [width]="150"
+        name="just_eta"
+        prop="just_eta"
+        [width]="200"
         [sortable]="true">
         <ng-template let-column="column" ngx-datatable-header-template>JUST IN TIME ETA</ng-template>
       </ngx-datatable-column>

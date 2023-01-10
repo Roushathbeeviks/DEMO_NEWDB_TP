@@ -28,7 +28,7 @@ const routes: Routes = [
 {path:'VesselList',component:VesselListComponent},
 {path:'vessel',component:VesselLandComponent},
 {path:"voyagetable/:id",component:VoyageTableComponent},
-{path:"voyageform",component:VoyageFormComponent},
+{path:"voyageform/:id",component:VoyageFormComponent},
 ];
 
 @NgModule({

@@ -10,8 +10,8 @@ const Vessel={
         let vesseldata = req.body;
         VesselTask.insertvessel(vesseldata).then((err,result)=>
         {
-            console.log(result);
-            console.log(err);
+            // console.log(result);
+            // console.log(err);
             if(result)
             {
                 res.send({ message:result,success:false});
