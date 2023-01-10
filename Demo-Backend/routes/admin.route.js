@@ -7,18 +7,24 @@ var auth = require("../services/Authentication");
 const VoyagePlan = require("../services/voyageplan-service");
 const Vessel = require("../services/Vessel-service");
 
-router.post("/voyageplan", function (req, res) {
+router.post("/postvoyageplan", function (req, res) {
   VoyagePlan.VoyagePlanForm(req, res);
 });
 router.get("/voyageplandetails", function (req, res) {
   VoyagePlan.GetVoyagePlan(req, res);
 });
-router.post("/voyagepath", function (req, res) {
-  VoyagePlan.PostVoyagePath(req, res);
+router.get("/voyageplandetails/:id", function (req, res) {
+  VoyagePlan.GetVoyagePlanByVesselId(req, res);
 });
-router.get("/voyagepath", function (req, res) {
-  VoyagePlan.GetVoyagePath(req, res);
+router.get("/startport", function (req, res) {
+  VoyagePlan.GetStartPort(req, res);
 });
+router.get("/destinationport", function (req, res) {
+  VoyagePlan.GetDestinationPort(req, res);
+});
+
+
+
 router.post("/vesselform",function (req, res) {
  Vessel.VesselForm(req,res)
 });

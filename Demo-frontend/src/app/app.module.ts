@@ -49,6 +49,8 @@ import { VesselHeaderComponent } from './Vessel/vessel-header/vessel-header.comp
 import { VesselLandComponent } from './Vessel/vessel-land/vessel-land.component';
 import { UserListComponent } from './Admin/user-list/user-list.component';
 import { VesselMappingComponent } from './Vessel/vessel-mapping/vessel-mapping.component';
+import { VoyageTableComponent } from './voyage/voyage-table/voyage-table.component';
+import { VoyageFormComponent } from './voyage/voyage-form/voyage-form.component';
 
 
 @NgModule({
@@ -75,6 +77,8 @@ import { VesselMappingComponent } from './Vessel/vessel-mapping/vessel-mapping.c
     VesselLandComponent,
     UserListComponent,
     VesselMappingComponent,
+    VoyageTableComponent,
+    VoyageFormComponent,
    
   
   ],
