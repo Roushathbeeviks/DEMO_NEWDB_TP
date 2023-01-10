@@ -51,3 +51,10 @@
     padding:0px;
     min-width: 0px;
 }
+.custom-modalbox {
+    /* .mat-dialog-container {
+        padding: 0 !important; */
+        background-color: blue !important;
+    
+}
+

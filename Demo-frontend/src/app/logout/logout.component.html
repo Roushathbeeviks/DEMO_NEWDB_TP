@@ -1,13 +1,13 @@
-<div class="logoutContatiner">
-    <h1 class="family" >SIGN OUT</h1>
+ <div class="parent">
+  <div class="logoutContatiner">
+    <h3 style="color:rgb(214, 179, 63);">SIGN OUT</h3>
     <p>Would you like to sign out from SMARTSHIP?</p>
     <hr>
     </div>
-    <div class="logoutBody">
-    <div mat-dialog-actions>
-      <button   mat-dialog-close mat-button >NO,cancel</button>
-      <div class="move">
-        <button  mat-button mat-dialog-close  routerLink="/" (click)="LogoutUser()">YES,Sign out</button>
+      <div class="buttons" >
+        <button   mat-dialog-close  >NO,cancel</button>
+        <button   mat-dialog-close  routerLink="/" (click)="LogoutUser()">YES,Sign out</button>
         </div>
+    
     </div>
-    </div>
+    

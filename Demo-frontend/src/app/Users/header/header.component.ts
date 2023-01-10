@@ -38,7 +38,8 @@ export class HeaderComponent implements OnInit {
     this.dialog.open(EditprofileComponent, {
       data: {
         data: this.id,
-      }
+      },
+    
       
     })
   }
@@ -46,8 +47,8 @@ export class HeaderComponent implements OnInit {
 
   LogoutDialog(){
     this.dialog.open(LogoutComponent, {
-      
-        
+      width:'90%' 
+       
     });
   }
 
