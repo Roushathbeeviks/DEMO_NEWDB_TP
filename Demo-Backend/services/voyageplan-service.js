@@ -33,8 +33,10 @@ GetVoyagePlanByVesselId:(req,res) =>
   var query ="select voyage.startport_id, voyage.destinationport_id, voyage.cosp_time, voyage.earliest_eta, voyage.just_eta,startport.name as startportname,destinationport.name as destinationportname,vessel.name as vesselname from voyage join startport on voyage.startport_id=startport.id join destinationport on voyage.destinationport_id=destinationport.id join vessel on vessel.id=voyage.vessel_id where vessel_id=?" ;
   connection.query(query,  [req.params.id],(err, results) => {
     if (results) {
+      // console.log("voyage",results);
       res.send({ message: results });
     } else {
+      console.log("voyage err",err)
       res.send({ message: err });
     }
   });

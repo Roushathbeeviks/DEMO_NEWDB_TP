@@ -8,16 +8,16 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class VoyageplanService {
   URL = environment.apiUrl;
-  private vesselIdForVoyage = new BehaviorSubject('');
-  VesselIdVoyagetMessage = this.vesselIdForVoyage.asObservable();
-  
-  constructor(private http: HttpClient) {}
-  updateApprovalMessage(username:string) 
-  {
-    this.vesselIdForVoyage.next(username)
-  }
+  // private vesselIdForVoyage = new BehaviorSubject('');
+  // VesselIdVoyagetMessage = this.vesselIdForVoyage.asObservable();
 
-  VoyageForm(data: any) 
+  constructor(private http: HttpClient) {}
+  // updateApprovalMessage(vesselId:any) 
+  // {
+  //   this.vesselIdForVoyage.next(vesselId)
+  // }
+
+  VoyageForm(data: any,id:any) 
   {
     return this.http.post(this.URL +'/admin/postvoyageplan',data)
   }
@@ -27,7 +27,7 @@ export class VoyageplanService {
   }
   GetVoyagePlanByVesselId(id:any)
   {
-    return this.http.get(this.URL +`/admin/voyageplandetails${id}`)
+    return this.http.get(this.URL +`/admin/voyageplandetails/${id}`)
   }
   GetStartPort()
   {

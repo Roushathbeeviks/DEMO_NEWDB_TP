@@ -22,11 +22,7 @@
                         <div class="subCont1">
                         <div class="subCont2"> 
                             <div  class="name" ><label>Start Port Name</label> <span style="color:red;">*</span></div>
-                            <div class="move1">
-                                <select formControlName="startport_id" >
-                                    <option *ngFor="let start of StartPort" value="{{start.id}}">{{start.name}}</option>
-                                </select>
-                            </div> 
+                            
                         </div>&nbsp;&nbsp;
                         <div class="subCont2">
                             <div  class="move2"><label>Destination Port Name </label><span style="color:red;">*</span></div>
@@ -163,3 +159,14 @@
 
     </div >
 </div >
+
+
+
+
+
+
+<div class="move1">
+    <select formControlName="startport_id" >
+        <option *ngFor="let start of StartPort" value="{{start.id}}">{{start.name}}</option>
+    </select>
+</div> 

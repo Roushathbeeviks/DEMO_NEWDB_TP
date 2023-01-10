@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { VoyageplanService } from 'src/app/services/voyageplan.service';
 
 @Component({
@@ -11,7 +12,8 @@ export class VoyageFormComponent implements OnInit {
   voyageForm:any= FormGroup;
   StartPort:any
   DestinationPort:any
-  constructor(private voyageserv:VoyageplanService) { }
+  vesselId:any;
+  constructor(private voyageserv:VoyageplanService,private route:ActivatedRoute) { }
   ngOnInit(): void {
     
     this.voyageserv.GetStartPort().subscribe(startport =>{
@@ -22,10 +24,12 @@ export class VoyageFormComponent implements OnInit {
       this.DestinationPort=endport
       // console.log("endport",this.DestinationPort)
   })
+  this.vesselId=this.route.snapshot.paramMap.get('id')
+  // console.log("id",this.vesselId)
   }
   save()
-{
-  this.voyageserv.VoyageForm(this.voyageForm.value).subscribe((res:any)=>
+ {
+  this.voyageserv.VoyageForm(this.voyageForm.value,this.vesselId).subscribe((res:any)=>
   {
     console.log("res")
   })
