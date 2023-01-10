@@ -9,6 +9,7 @@ import { VesselService } from 'src/app/services/vessel.service';
 })
 export class LandingPageComponent implements OnInit {
 id:any
+vesselId:any
 data:any
   constructor(private route:Router
     ,private vesselserv:VesselService) { }
@@ -22,6 +23,13 @@ data:any
       this.data = res
       console.log("vessels of user",res)
     })
+  }
+  navigate(id:any)
+  {
+    this.vesselId=id
+    // this.route.navigate(['/voyagetable',this.vesselId])
+    console.log("vesselid",this.vesselId)
+    // this.route.navigate(['/vessel',this.vesselId])
   }
 
 }
