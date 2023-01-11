@@ -4,6 +4,8 @@
 
 @import '~@swimlane/ngx-datatable/assets/icons.css';
 
+@import "@danielmoncada/angular-datetime-picker/assets/style/picker.min.css";
+
 html,body{
     height:100%;
     margin:0px;

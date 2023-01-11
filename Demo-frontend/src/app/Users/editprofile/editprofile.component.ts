@@ -89,8 +89,6 @@ export class EditprofileComponent implements OnInit {
       
     });
   }
-
-
 }
 
 

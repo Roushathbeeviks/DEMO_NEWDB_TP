@@ -7,13 +7,14 @@ var VoyageTAsks = require("../task/voyage.task");
 const VoyagePlan = {
   VoyagePlanForm: (req, res) => {
     let voyage = req.body;
+    // console.log("voyage",voyage)
     VoyageTAsks.insertVoyage(voyage).then((results, err) => {
       if (results) {
         // console.log("Entered Results",results);
-        res.send({ message: "Result", results });
+        res.send({ message:"Result", results,success:false });
       } else {
         // console.log("error",err)
-        res.send({ message: "Error", err });
+        res.send({ message:"Error", err,success:true });
       }
     });
   },

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { VesselService } from 'src/app/services/vessel.service';
 import { VoyageplanService } from 'src/app/services/voyageplan.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { VoyageplanService } from 'src/app/services/voyageplan.service';
   styleUrls: ['./voyage-form.component.css']
 })
 export class VoyageFormComponent implements OnInit {
+  public date = new Date()
   voyageForm:any= FormGroup;
   StartPort:any
   DestinationPort:any
@@ -16,7 +18,8 @@ export class VoyageFormComponent implements OnInit {
   constructor(
     private voyageserv:VoyageplanService,
     private route:ActivatedRoute,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private vesselserv:VesselService
     ) { }
   ngOnInit(): void {
 
@@ -36,7 +39,10 @@ export class VoyageFormComponent implements OnInit {
     
     });
 
-
+// this.route.data.subscribe(value=>
+//   {
+//     console.log("sended id",value);
+//   })
     
     this.voyageserv.GetStartPort().subscribe(startport =>{
       this.StartPort = startport
@@ -51,10 +57,13 @@ export class VoyageFormComponent implements OnInit {
   }
   save()
  {
+  this.voyageForm.value.vessel_id=this.vesselId
   this.voyageserv.VoyageForm(this.voyageForm.value).subscribe((res:any)=>
   {
     console.log("res")
   })
+
+  // this.vesselserv.openSnackBar("Successfully save","ok")
 }
 
 }

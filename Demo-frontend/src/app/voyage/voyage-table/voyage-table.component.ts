@@ -16,7 +16,8 @@ export class VoyageTableComponent implements OnInit {
   StartPort:any
   DestinationPort:any
   id:any
-  data:any
+  datas:any
+  vesselId:any
   constructor(
     private voyageserv:VoyageplanService,
     private vesselserv:VesselService,
@@ -30,7 +31,7 @@ export class VoyageTableComponent implements OnInit {
      console.log("Snapshot id",this.id)
      this.vesselserv.GetVesselByVesselId(this.id).subscribe((res:any)=>
      {
-      this.data=res
+      this.datas=res
       console.log("res",res)
      })
     //  console.log("Snapshot id",this.id)
@@ -43,9 +44,12 @@ export class VoyageTableComponent implements OnInit {
 
 
 }
-navigate()
+AddVoyage(id:any)
 {
-  this.router.navigate(['/voyageform'])
+  this.vesselId = id
+  console.log("Vessel id",this.vesselId)
+  this.router.navigate(['/voyageform/',this.vesselId]
+  )
  
 }
 

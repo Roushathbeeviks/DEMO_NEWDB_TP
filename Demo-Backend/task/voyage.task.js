@@ -2,7 +2,7 @@ const connection = require("../db/connection");
 
 const VoyageTasks={
     insertVoyage: (values) => {
-    console.log("values",values)
+    // console.log("values",values)
     const query =
     `INSERT INTO voyage 
     (startport_id, destinationport_id,cosp_lat,cosp_long, eosp_lat, eosp_long, cosp_time, displacement, fuel_density, lower_calorific, earliest_eta, just_eta, bunker,vessel_id) 
@@ -24,7 +24,7 @@ const VoyageTasks={
     values.vessel_id
     
   ];
-  console.log("param",param)
+  // console.log("param",param)
   return new Promise((resolve, reject) => {
     connection.query(query, param, function (error, results) {
       if (error) reject(error);

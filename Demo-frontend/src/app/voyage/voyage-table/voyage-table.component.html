@@ -5,7 +5,7 @@
 </div>
 
 <div class="row"> 
-  <div *ngFor="let vessel of data">
+  <div *ngFor="let vessel of datas">
     <mat-card class="example-card">
       <div class="cardDiv1">
         <div class="cardDiv2"><img src="../../../assets/flag1.png"></div>
@@ -28,7 +28,7 @@
 
 
 
-<button [routerLink]="['/voyageform/',id]">ADD VOYAGE</button>
+<button (click)="AddVoyage(id)">ADD VOYAGE</button>
 <div>
     <ngx-datatable
       style="height: auto"
