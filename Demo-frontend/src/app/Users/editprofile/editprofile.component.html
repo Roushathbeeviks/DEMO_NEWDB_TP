@@ -1,6 +1,8 @@
-
-
+<div class="editProfileContainer">
+  
+ <h2 style="color:rgb(214, 179, 63);margin-left: 44px;margin-top: 10px;">EDIT PROFILE</h2>
   <div class="login">
+    
     <form [formGroup]="Editprofile" (ngSubmit)="check()" autocomplete="off">
       <!-- <img style="height:50px;" src="../../assets/MicrosoftTeams-image.png"><br> -->   
         <div class="LabIn">
@@ -32,9 +34,10 @@
         </div>&nbsp;   
         
         <div class="buttons">
-          <button mat-dialog-close  >Cancel</button>
-          <button  type="submit" mat-dialog-close  >SAVE</button>
+          <button mat-dialog-close class="btn">Cancel</button>
+          <button  type="submit" mat-dialog-close  class="btn" >SAVE</button>
         </div>
       
     </form>
+</div>
 </div>

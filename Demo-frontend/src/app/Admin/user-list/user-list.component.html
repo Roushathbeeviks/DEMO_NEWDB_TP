@@ -1,13 +1,9 @@
-<div class="child">
-  <div class="parent">
-    <app-vessel-header></app-vessel-header>
-  </div>
-</div>
-<div class="container1">
+ <app-vessel-header></app-vessel-header>
   
+<div class="container1">
   <div class="container2">
     <div class="heading">
-      USER MANAGEMENT
+      <h2>USER MANAGEMENT</h2>
         <button class="btn" (click)="navigate()">ADD USERS</button>
     </div>
   </div>
@@ -23,7 +19,6 @@
       [headerHeight]="50"
       [footerHeight]="50"
       [limit]="1"
-      
       [columnMode]="'standard'"
       [reorderable]="true">
       <ngx-datatable-column
@@ -88,12 +83,14 @@
       let-row="row"
       let-value="value"
       ngx-datatable-cell-template >
+      <div class="iconsPlace">
       <span (click)=" EditDialog(row.id)"> <mat-icon  class="adjust">visibility</mat-icon></span>
       <span
         md-icon-button
         placement="left"
         ngbTooltip="" (click)='delete($event,row.id)'>
         <mat-icon  class="adjust">delete</mat-icon>  </span>
+        </div>
       
     
     </ng-template>

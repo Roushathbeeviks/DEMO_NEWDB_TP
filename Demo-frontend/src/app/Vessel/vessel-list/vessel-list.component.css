@@ -2,6 +2,18 @@
 .container
 {
     /* background-color: blue; */
+    color:white;
+    min-width: 620px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 1px solid rgb(129, 128, 128);
+
+    /* #969696 */
 }
 h3
 {
@@ -12,25 +24,28 @@ h3
 }
 .card
 {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    /* background-color: rgb(100, 97, 97); */
-    border-radius: 5px;
-    border: 4px rgb(102, 100, 100);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+   
     
 }
 input {
     background: transparent;
     border: none;
-    border-bottom: 1px solid #000000;
-}
-
-.flex
-{
-    display: flex;
-    justify-content: space-between;
+    border-bottom: 1px solid white;
+    color: white;
+    border-width: none;
    
 }
+
+/* .flex
+{
+    display: block;
+    
+} */
 .flag
 {
     margin-right:100px;
@@ -38,7 +53,7 @@ input {
 label
 {
     margin-right: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
 }
 input.ng-invalid.ng-touched {
     border-bottom:  red 1px solid;
@@ -47,7 +62,15 @@ option
 {
     text-transform: uppercase;
 }
-.move{
+.buttons{
     display: flex;
-    justify-content: space-between;
+    gap:5px;
+    justify-content: flex-end;
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
+.display{
+    margin-bottom: 50px;
+
+}
+
