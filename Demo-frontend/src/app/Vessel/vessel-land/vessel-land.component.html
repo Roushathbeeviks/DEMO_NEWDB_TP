@@ -1,25 +1,32 @@
-<div  class="container">
-        <app-vessel-header></app-vessel-header>
-  
-<button (click)="VesselForm()">ADD VESSEL</button>
-<ngx-datatable style="height: auto"
-class="material"
-[rows]="rows"
-[columns]="columns"
-fixed-header
-datatable-header
-[headerHeight]="50"
-[footerHeight]="50"
-[limit]="10"
-[columnMode]="'standard'"
-[reorderable]="false">
+
+   <app-vessel-header></app-vessel-header>
+   <div class="container1">
+          <div class="container2">
+            <div class="heading">
+              <h2>USER MANAGEMENT</h2>
+                <button (click)="VesselForm()" class="btn">ADD VESSEL</button>
+            </div>
+          </div>
+        <div class="tabelC">
+          <ngx-datatable style="height: auto"
+          style="height: auto"
+          class="bootstrap"
+          [rows]="rows"
+          [columns]="columns"
+          fixed-header
+          datatable-header
+          [headerHeight]="50"
+          [footerHeight]="50"
+          [limit]="1"
+          [columnMode]="'standard'"
+          [reorderable]="true">
     <ngx-datatable-column
-            name="imo_number"
+            name="IMO NUMBER"
             prop="imo_number"
             [width]="150"
-            [sortable]="true">
-            <ng-template let-column="column" ngx-datatable-header-template>IMO NUMBER</ng-template>
-        </ngx-datatable-column>
+            [sortable]="true"> </ngx-datatable-column>
+            <!-- <ng-template let-column="column" ngx-datatable-header-template>IMO NUMBER</ng-template> -->
+        
 
     <ngx-datatable-column
             name="vesselName"
@@ -54,12 +61,15 @@ datatable-header
         [draggable]="false"
         prop="edit" >
         <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
+          <div class="iconsPlace">
           <span md-icon-button placement="left" ngbTooltip="" (click)="delete($event,row.id)">
-            <mat-icon>delete</mat-icon>
-           <span ><mat-icon>build</mat-icon></span> 
-          </span>
+            <mat-icon class="adjust">delete</mat-icon></span>
+           <span ><mat-icon class="adjust">build</mat-icon></span> 
+           </div>
+          
         </ng-template>
       </ngx-datatable-column>
 
 </ngx-datatable>
+ </div>
 </div>
