@@ -1,18 +1,19 @@
 .container{
-    background-image: url("../../../assets/map.png");
+    /* background-image: url("../../../assets/map.png"); */
+    background-color: rgb(29, 29, 90);
     height:100%;
     width:100%;  
     background-repeat: no-repeat;
     background-size:cover;
     position: fixed;
 }
-.child{
+/* .child{
     background-color: rgb(102, 102, 102);
     
 }
 .parent{
     backdrop-filter: blur(10px);
-}
+} */
 img{
     width: 60px; height: 30px
    

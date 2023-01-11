@@ -1,18 +1,13 @@
 .container{
-    background-image: url("../../../assets/map.png");
+    /* background-image: url("../../../assets/map.png"); */
+    background-color: rgb(29, 29, 90);
     height:100%;
     width:100%;  
     background-repeat: no-repeat;
     background-size:cover;
     position: fixed;
 }
-.child{
-    background-color: rgb(102, 102, 102);
-    
-}
-.parent{
-    backdrop-filter: blur(10px);
-}
+
 img{
     width: 60px; height: 30px
    
@@ -40,8 +35,9 @@ img{
   }
   .row{
     display: flex;
-    justify-content:space-evenly;
+    justify-content:flex-start;
     padding-top: 10px;
+    margin-left: 10px;
 }
 .Imagediv{
   display: flex;
@@ -91,4 +87,13 @@ img{
 }
 .mat-icon{
   width: 1px;
+}
+.row2{
+  display: flex;
+}
+.image{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  min-width: 120px;
 }

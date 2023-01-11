@@ -1,17 +1,16 @@
  <div class="login">
-    <form [formGroup]="LoginForm" (ngSubmit)="submit()" autocomplete="off">
+    <form [formGroup]="LoginForm" (ngSubmit)="submit()" autocomplete="on">
       <img src="../../assets/MicrosoftTeams-image.png"><br>
-         <!-- <label for="username">Username</label> -->
-         <div  style="color: red;" >
-            <h4>{{msg}}</h4>
+         <div  >
       <div class="input">
        <input style="outline:none" formControlName="username" type="text " id="username" placeholder="USERNAME"/>
        <input style="outline:none" formControlName="password"  type="password" id="password" placeholder="PASSWORD"/>
-       <button type="submit" class="btn" >LOGIN</button>
+       <button type="submit" class="Loginbtn" >LOGIN</button>
        </div>
        <hr >
        <div class="version">
        <div >Version 1.5.3.1</div>
+       <div style="color:red;font-size: 10px;">{{msg}}</div>
        <a  class="version" (click)="PasswordDialog()" >Forgot password?</a>
       </div>
    </div>
