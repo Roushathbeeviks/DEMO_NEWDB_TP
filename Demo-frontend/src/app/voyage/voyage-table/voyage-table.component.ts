@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ColumnMode } from '@swimlane/ngx-datatable';
+import { VesselService } from 'src/app/services/vessel.service';
 import { VoyageplanService } from 'src/app/services/voyageplan.service';
 @Component({
   selector: 'app-voyage-table',
@@ -15,12 +16,23 @@ export class VoyageTableComponent implements OnInit {
   StartPort:any
   DestinationPort:any
   id:any
-  constructor(private voyageserv:VoyageplanService,private route:ActivatedRoute) { }
+  data:any
+  constructor(
+    private voyageserv:VoyageplanService,
+    private vesselserv:VesselService,
+    private route:ActivatedRoute,
+    private router:Router) { }
 
   ngOnInit(): void 
   {
 
      this.id=this.route.snapshot.paramMap.get('id')
+     console.log("Snapshot id",this.id)
+     this.vesselserv.GetVesselByVesselId(this.id).subscribe((res:any)=>
+     {
+      this.data=res
+      console.log("res",res)
+     })
     //  console.log("Snapshot id",this.id)
       this.voyageserv.GetVoyagePlanByVesselId(this.id).subscribe((res:any)=>
       {
@@ -30,21 +42,11 @@ export class VoyageTableComponent implements OnInit {
       })
 
 
-
-
-  //   this.voyageserv.GetStartPort().subscribe(startport =>{
-  //     this.StartPort = startport
-  //     // console.log(port)
-  //   })
-  //   this.voyageserv.GetDestinationPort().subscribe(endport =>{
-  //     this.DestinationPort=endport
-  //     // console.log("endport",endport)
-  // })
-  // this.voyageserv.GetVoyagePlan().subscribe((data) =>{
-  //   console.log("voyagedetails",data)
-  // })
 }
-
-
+navigate()
+{
+  this.router.navigate(['/voyageform'])
+ 
+}
 
 }

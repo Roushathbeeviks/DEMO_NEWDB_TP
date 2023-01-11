@@ -3,6 +3,31 @@
         <app-vessel-header></app-vessel-header>
     </div>
 </div>
+
+<div class="row"> 
+  <div *ngFor="let vessel of data">
+    <mat-card class="example-card">
+      <div class="cardDiv1">
+        <div class="cardDiv2"><img src="../../../assets/flag1.png"></div>
+        <div class="cardDiv3">
+          <div class="title">
+            {{vessel.name}}
+            <br>
+            {{vessel.imo_number}}
+          </div>
+      
+      <div class="text">
+         <mat-icon style="color:rgb(64, 187, 64);font-size: 7px;">brightness_1</mat-icon> &nbsp;
+        Online
+    </div>
+    </div>
+  </div>  
+  </mat-card>
+  </div>
+  </div>
+
+
+
 <button [routerLink]="['/voyageform/',id]">ADD VOYAGE</button>
 <div>
     <ngx-datatable
@@ -22,7 +47,7 @@
         name="cosp_time"
         prop="cosp_time"
         [width]="200"
-        [sortable]="true">
+        [sortable]='true'>
         <ng-template let-column="column" ngx-datatable-header-template>VOYAGE DATE</ng-template>
       </ngx-datatable-column>
       

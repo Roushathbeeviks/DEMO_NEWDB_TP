@@ -8,7 +8,7 @@
     </div>
 
     <div class="container2">
-          <mat-accordion class="example-headers-align disabled" multi routerLink="inactive">
+          <mat-accordion class="example-headers-align disabled">
             <mat-expansion-panel class="color">
               <mat-expansion-panel-header class="color2" >
                 <mat-panel-title class="colorText" >
@@ -16,108 +16,75 @@
                 </mat-panel-title>
               </mat-expansion-panel-header>
                 
-              <div class="container1">
-                <div class="container2">
-                    <form [formGroup]="voyageForm" (ngSubmit)="save()" autocomplete="off">
-                        <div class="subCont1">
-                        <div class="subCont2"> 
-                            <div  class="name" ><label>Start Port Name</label> <span style="color:red;">*</span></div>
-                            
-                        </div>&nbsp;&nbsp;
-                        <div class="subCont2">
-                            <div  class="move2"><label>Destination Port Name </label><span style="color:red;">*</span></div>
-                            <div>
-                                <select formControlName="startport_id" >
-                                    <option *ngFor="let end of DestinationPort" value="{{end.id}}">{{end.name}}</option>
-                                </select>
-                            </div>
-                        </div>
-                       </div>
-                       <div class="subCont1">
-                        <div class="subCont2"> 
-                            <div  class="name" ><label>COSP Lat</label> <span style="color:red;">*</span></div>
-                            <div class="move1">
-                                <input class="" type="text" formControlName="cosp_lat" /><br>
-                                
-                            </div> 
-                        </div>&nbsp;&nbsp;
-                        <div class="subCont2">
-                            <div  class="move2"><label>EOSP Lat </label><span style="color:red;">*</span></div>
-                            <div>
-                                <input class="" type="text" formControlName="eosp_lat"/><br>
-                                
-                            </div>
-                        </div>
-                       </div>
-                       <div class="subCont1">
-                        <div class="subCont2"> 
-                            <div  class="name" ><label>COSP Long</label> <span style="color:red;">*</span></div>
-                            <div class="move1">
-                                <input class="" type="text" formControlName="cosp_long" /><br>
-                            </div> 
-                        </div>&nbsp;&nbsp;
-                        <div class="subCont2">
-                            <div  class="move2"><label>EOSP Long</label><span style="color:red;">*</span></div>
-                            <div>
-                                <input class="" type="text" formControlName="eosp_long"/><br>
-                                
-                            </div>
-                        </div>
-                       </div>
-                       <div class="subCont1">
-                        <div class="subCont2"> 
-                            <div  class="name" ><label>COSP TIME in UTC</label> <span style="color:red;">*</span></div>
-                            <div class="move1">
-                                <input class="" type="text" formControlName="cosp_time" /><br>
-                                
-                            </div> 
-                        </div>&nbsp;&nbsp;
-                        <!-- <div class="subCont2">
-                            <div  class="move2"><label>Displacement (in MT)</label><span style="color:red;">*</span></div>
-                            <div>
-                                <input class="" type="text" /><br>
-                            </div>
-                        </div> -->
-                       </div>
-                       <div class="subCont1">
-                        <div class="subCont2"> 
-                            <div  class="name" ><label>Earliest Estimated Time of Arrival in UTC</label> <span style="color:red;">*</span></div>
-                            <div class="move1">
-                                <input class="" type="text" formControlName="earliest_eta" /><br>
-                               
-                            </div> 
-                        </div>&nbsp;&nbsp;
-                        <!-- <div class="subCont2">
-                            <div  class="move2"><label>Fuel Density(in g/cc) </label><span style="color:red;">*</span></div>
-                            <div>
-                                <input class="" type="text" /><br>
-                            
-                            </div>
-                        </div> -->
-                       </div>
-                       <div class="subCont1">
-                        <div class="subCont2"> 
-                            <div  class="name" ><label>Just in Time Estimated Time of Arrival in UTC </label> <span style="color:red;">*</span></div>
-                            <div class="move1">
-                                <input class="" type="text" formControlName="just_eta"/><br>
-                                
-                            </div> 
-                        </div>&nbsp;&nbsp;
-                       </div>
-                    </form>
-
-                         </div>
-                        </div>
-                        
-            
-
-
-
-
-
-
-
              
+              <form [formGroup]="voyageForm">
+
+                <div>
+                    <input type="text" formControlName="vessel_id" value="{{vesselId}}">
+                </div>
+                <div class="display">
+                    <div>
+                        <label >START PORT NAME</label><span style="color:red;">*</span>
+                        <select formControlName="startport_id" >
+                            <option *ngFor="let start of StartPort" value="{{start.id}}">{{start.name}}</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label >DESTINATION PORT NAME</label><span style="color:red;">*</span>
+                        <select formControlName="destinationport_id" >
+                            <option *ngFor="let end of DestinationPort" value="{{end.id}}">{{end.name}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="display">
+                    <div>
+                        <label>COSP Lat</label> <span style="color:red;">*</span>
+                        <input type="text" formControlName="cosp_lat">
+                    </div>
+                    <div>
+                        <label>COSP Lon</label> <span style="color:red;">*</span>
+                        <input type="text" formControlName="cosp_long">
+                    </div>
+                </div>
+
+                <div class="display">
+                    <div>
+                        <label>EOSP Lat</label> <span style="color:red;">*</span>
+                        <input type="text" formControlName="eosp_lat">
+                    </div>
+                    <div>
+                        <label>EOSP Lon</label> <span style="color:red;">*</span>
+                        <input type="text" formControlName="eosp_long">
+                    </div>
+                </div>
+
+                <div class="display">
+                    <div>
+                        <label>COSP TIME</label> <span style="color:red;">*</span>
+                        <input type="text" formControlName="cosp_time">
+                    </div>
+                    <div>
+                        <label>DISPALCEMENT</label> <span style="color:red;">*</span>
+                        <input type="text" formControlName="displacement">
+                    </div>
+                </div>
+             
+                <div class="display">
+                    <div>
+                        <label>EARLIEST ETA</label> <span style="color:red;">*</span>
+                        <input type="text" formControlName="earliest_eta">
+                    </div>
+                    <div>
+                        <label>JUST ETA</label> <span style="color:red;">*</span>
+                        <input type="text" formControlName="just_eta">
+                    </div>
+                </div>
+
+
+
+
+              </form> 
             </mat-expansion-panel>
 
             <mat-expansion-panel class="color">
@@ -128,6 +95,8 @@
                 </mat-expansion-panel-header>
 
 
+
+
             
               </mat-expansion-panel>
               <mat-expansion-panel class="color">
@@ -136,7 +105,6 @@
                    WAYPOINTS
                   </mat-panel-title>      
                 </mat-expansion-panel-header>
-
 
             
               </mat-expansion-panel>
@@ -153,13 +121,13 @@
           </mat-accordion>
           
 
-          <div><button>Save</button></div>
+          <div><button (click)="save()">Save</button></div>
           <div><button>Cancel</button></div>
 
 
     </div >
 </div >
-
+<!-- 
 
 
 
@@ -169,4 +137,4 @@
     <select formControlName="startport_id" >
         <option *ngFor="let start of StartPort" value="{{start.id}}">{{start.name}}</option>
     </select>
-</div> 
+</div>  -->

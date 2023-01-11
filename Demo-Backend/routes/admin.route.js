@@ -31,6 +31,13 @@ router.post("/vesselform",function (req, res) {
 router.get("/getvessel/:id", function (req, res) {
   Vessel. GetVesselByUserid(req,res);
 });
+router.get("/getVesselByVesselId/:id", function (req, res) {
+  Vessel. GetVesselByVesselId(req,res);
+});
+//vessel-edit
+router.put("/editvessel/:id", function (req, res) {
+  Vessel.EditVessel(req,res)
+ })
 //vessel details - flag and vessel_type tables joined
 router.get("/getallvessel", function (req,res) {
   Vessel.GetAllVessels(req,res)

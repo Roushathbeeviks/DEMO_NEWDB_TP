@@ -41,6 +41,24 @@ const Vessel={
             }
         })
     },
+    GetVesselByVesselId:(req,res)=>
+    {
+        var query = "select vessel.name,vessel.imo_number,flag.name as countryname from vessel  join flag  on flag.id=vessel.flag_id where vessel.id=?"
+        // var id=req.params.id;
+        connection.query(query, [req.params.id], function(err,results)
+        {
+            if(results)
+            {
+                res.send(results);
+            }
+            else
+            {
+                res.send(err);
+                
+            }
+        })
+    },
+
     GetAllVessels:(req,res)=>
     {
         // var query = "select * from project.vessel v join flag f  on v.flag_id=f.id join  vessel_type vt on v.vessel_type_id=vt.id where v.id=?"
@@ -51,12 +69,12 @@ const Vessel={
             if(results)
             {
                 res.send(results);
-                console.log(results);
+                // console.log(results);
             }
             else
             {
                 res.send(err);
-                console.log(err);
+                // console.log(err);
                 
             }
         })
@@ -150,6 +168,24 @@ const Vessel={
                 
             }
         })
+    },
+    EditVessel:(req,res)=>
+    {
+        const id=req.params.id;
+        const newVesselName = req.body.name;
+        const newimo_number = req.body.imo_number;
+        // const newflag_id = req.body.flag_id;
+       var X= VesselTask.EditVessel(id,newVesselName,newimo_number)
+     
+       
+         if(X)
+         {
+           return res.json({message:"Updated the profile"});
+         }
+         else{
+           return res.json({message:"Updation Failed"});
+         }
+     
     },
     DeleteVessel:(req,res)=>
     {

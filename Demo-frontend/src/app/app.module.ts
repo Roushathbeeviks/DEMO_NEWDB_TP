@@ -32,6 +32,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { FormsModule } from '@angular/forms';
+// import { TitleCasePipe } from '@angular/common';
 // import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
@@ -107,6 +108,7 @@ import { VoyageFormComponent } from './voyage/voyage-form/voyage-form.component'
     NgMultiSelectDropDownModule.forRoot(),
     FormsModule,
     MatSnackBarModule,
+    // TitleCasePipe
     // SweetAlert2Module.forRoot() 
     
   ],

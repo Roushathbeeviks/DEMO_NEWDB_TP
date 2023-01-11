@@ -173,8 +173,8 @@ const userService = {
 
   EditUserProfile: (req,res)=>
   {
-  console.log(req.body)
-  console.log(req.params.id)
+  // console.log(req.body)
+  // console.log(req.params.id)
   const id=req.params.id;
    const newusername = req.body.username;
    const newfirst_name = req.body.first_name;

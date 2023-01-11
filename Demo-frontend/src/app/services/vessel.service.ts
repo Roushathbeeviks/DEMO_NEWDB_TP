@@ -21,6 +21,11 @@ GetVesselById(id:any)
 {
   return this.http.get(this.URL +`/admin/getvessel/${id}`)
 }
+GetVesselByVesselId(id:any)
+{
+  return this.http.get(this.URL +`/admin/getVesselByVesselId/${id}`)
+}
+
 GetAllFlags()
 {
   return this.http.get(this.URL +'/admin/getflag')
@@ -32,6 +37,10 @@ GetAllVesselType()
 DeleteVessel(id:any)
 {
   return this.http.delete(this.URL + `/admin/deletevessel/${id}`)
+}
+EditProfile(id:any,data:any)
+{
+  return this.http.put(this.URL +`/admin/editvessel/${id}`,data)
 }
 
 openSnackBar(message: string, action: string) {

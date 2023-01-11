@@ -46,6 +46,7 @@ export class VesselListComponent implements OnInit {
       {
         this.vesselserv.openSnackBar("succesfully saved","ok")
         this.route.navigate(['/vessel'])
+        this.reloadPage()
       }
       else{
         this.vesselserv.openSnackBar("Error Saving","error")
@@ -54,7 +55,9 @@ export class VesselListComponent implements OnInit {
   
   }
 
-
+  reloadPage(): void {
+    window.location.reload();
+  }
 
 
 

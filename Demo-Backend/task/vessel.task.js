@@ -68,10 +68,32 @@ const VesselTask=
             console.log("entered")
             resolve("success")
         });
-        // return true;
+        // return true;    
 
-        
-
+    },
+    EditVessel:(id,name,imo_number)=>
+    {
+        return new Promise((resolve, reject) => 
+        {
+          connection.query("update vessel set name=?, imo_number=? where id=?", 
+          [name,imo_number,id],(error,results)=>
+          {
+            if (!error)
+                if(results.affectedRows==0)
+                {
+                  console.log("Error in Updates: Userid does not exists")
+                }
+                else{
+                     console.log("Updated")
+                }
+               
+            
+            else
+            {
+              console.log(error)
+            }
+          })
+      }) 
     }
 }
 
