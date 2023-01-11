@@ -1,30 +1,26 @@
-<div class="VesselMapcontainer">
 <h3 mat-dialog-title>CHOOSE THE VESSELS</h3>
-    <form [formGroup]="VesselMappingForm">
-        <label>{{id}}</label>
-        
-        <ng-multiselect-dropdown
-        [settings]="dropdownSettings"
-        [data]="dropdownList" formControlName="vessel_name">
-    </ng-multiselect-dropdown>
+<form [formGroup]="VesselMappingForm">
+  <label>{{ id }}</label>
 
-   <span
-                class="error-message"
-                *ngIf="
-                  VesselMappingForm.controls['vessel_name'].errors?.required && VesselMappingForm.controls['vessel_name'].touched" >
-                vessel name is required
+  <ng-multiselect-dropdown
+    [settings]="dropdownSettings"
+    [data]="dropdownList"
+    formControlName="vessel_name">
+  </ng-multiselect-dropdown>
 
-              </span>
+  <span
+    class="error-message"
+    *ngIf="
+      VesselMappingForm.controls['vessel_name'].errors?.required &&
+      VesselMappingForm.controls['vessel_name'].touched">
+    vessel name is required
+  </span>
 
-    <!-- <ul *ngFor="let data of dropdownList">
+  <!-- <ul *ngFor="let data of dropdownList">
         <input type="checkbox" value="{{data.name}}">
     </ul>  -->
-    </form>
-
-   
-
-    <div mat-dialog-actions>
-        <button mat-button [mat-dialog-close]>CANCEL</button>
-        <button mat-button (click)="Save()">SAVE</button>
-    </div>
+</form>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]>CANCEL</button>
+  <button mat-button (click)="Save()">SAVE</button>
 </div>

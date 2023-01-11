@@ -17,7 +17,7 @@ export class VoyageplanService {
   //   this.vesselIdForVoyage.next(vesselId)
   // }
 
-  VoyageForm(data: any,id:any) 
+  VoyageForm(data: any) 
   {
     return this.http.post(this.URL +'/admin/postvoyageplan',data)
   }

@@ -105,3 +105,98 @@
              </div>
             </div>
             
+
+
+
+
+
+    <!-- new backup voyageform -->
+    <!-- <form [formGroup]="voyageForm" (ngSubmit)="save()" autocomplete="off"> -->
+        <div class="subCont1">
+        <div class="subCont2"> 
+            <div  class="name" ><label>Start Port Name</label> <span style="color:red;">*</span></div>
+            <select formControlName="startport_id" >
+                <!-- <option *ngFor="let start of StartPort" value="{{start.id}}">{{start.name}}</option> -->
+            </select>
+        </div>&nbsp;&nbsp;
+        <div class="subCont2">
+            <div  class="move2"><label>Destination Port Name </label><span style="color:red;">*</span></div>
+            <div>
+                <select formControlName="destinationport_id" >
+                    <!-- <option *ngFor="let end of DestinationPort" value="{{end.id}}">{{end.name}}</option> -->
+                </select>
+            </div>
+        </div>
+       </div>
+       <div class="subCont1">
+        <div class="subCont2"> 
+            <div  class="name" ><label>COSP Lat</label> <span style="color:red;">*</span></div>
+            <div class="move1">
+                <input class="" type="text" formControlName="cosp_lat" /><br>
+                
+            </div> 
+        </div>&nbsp;&nbsp;
+        <div class="subCont2">
+            <div  class="move2"><label>EOSP Lat </label><span style="color:red;">*</span></div>
+            <div>
+                <input class="" type="text" formControlName="eosp_lat"/><br>
+                
+            </div>
+        </div>
+       </div>
+       <div class="subCont1">
+        <div class="subCont2"> 
+            <div  class="name" ><label>COSP Long</label> <span style="color:red;">*</span></div>
+            <div class="move1">
+                <input class="" type="text" formControlName="cosp_long" /><br>
+            </div> 
+        </div>&nbsp;&nbsp;
+        <div class="subCont2">
+            <div  class="move2"><label>EOSP Long</label><span style="color:red;">*</span></div>
+            <div>
+                <input class="" type="text" formControlName="eosp_long"/><br>
+                
+            </div>
+        </div>
+       </div>
+       <div class="subCont1">
+        <div class="subCont2"> 
+            <div  class="name" ><label>COSP TIME in UTC</label> <span style="color:red;">*</span></div>
+            <div class="move1">
+                <input class="" type="text" formControlName="cosp_time" /><br>
+                
+            </div> 
+        </div>&nbsp;&nbsp;
+        <!-- <div class="subCont2">
+            <div  class="move2"><label>Displacement (in MT)</label><span style="color:red;">*</span></div>
+            <div>
+                <input class="" type="text" /><br>
+            </div>
+        </div> -->
+       </div>
+       <div class="subCont1">
+        <div class="subCont2"> 
+            <div  class="name" ><label>Earliest Estimated Time of Arrival in UTC</label> <span style="color:red;">*</span></div>
+            <div class="move1">
+                <input class="" type="text" formControlName="earliest_eta" /><br>
+               
+            </div> 
+        </div>&nbsp;&nbsp;
+        <!-- <div class="subCont2">
+            <div  class="move2"><label>Fuel Density(in g/cc) </label><span style="color:red;">*</span></div>
+            <div>
+                <input class="" type="text" /><br>
+            
+            </div>
+        </div> -->
+       </div>
+       <div class="subCont1">
+        <div class="subCont2"> 
+            <div  class="name" ><label>Just in Time Estimated Time of Arrival in UTC </label> <span style="color:red;">*</span></div>
+            <div class="move1">
+                <input class="" type="text" formControlName="just_eta"/><br>
+                
+            </div> 
+        </div>&nbsp;&nbsp;
+       </div>
+    <!-- </form> -->

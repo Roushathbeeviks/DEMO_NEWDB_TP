@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  MinLengthValidator,
-} from '@angular/forms';
+// import { TitleCasePipe } from '@angular/common';
+import {FormBuilder,FormControl,FormGroup,MinLengthValidator,} from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { AdminService } from 'src/app/services/admin.service';
 
@@ -23,11 +19,13 @@ export class AdminSignUpComponent implements OnInit {
   constructor(
     private route: Router,
     private formBuilder: FormBuilder,
-    private adminserv: AdminService
+    private adminserv: AdminService,
+    // private titleCasePipe: TitleCasePipe
   ) {}
 
   check() {
-    console.log(this.signup.value);
+    // this.signup.value=this.titleCasePipe.transform(this.signup.value)
+    // console.log(this.signup.value);
     this.adminserv.SignupUser(this.signup.value).subscribe((res) => {
       console.log(res);
     });
@@ -35,6 +33,7 @@ export class AdminSignUpComponent implements OnInit {
   }
   CheckEmail()
   {
+    
     this.adminserv.CheckEmail(this.signup.value).subscribe((res:any) => {
     if(res.status==true)
     {
@@ -68,6 +67,7 @@ export class AdminSignUpComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // this.signup.value.first_name.charAt(0).toUpperCase() + this.signup.value.first_name.slice(1)
     this.signup = this.formBuilder.group({
       username: ['', [Validators.required, Validators.minLength(2)]],
       first_name: [

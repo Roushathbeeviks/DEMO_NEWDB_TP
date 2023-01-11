@@ -28,7 +28,7 @@ export class VesselMappingComponent implements OnInit {
 
   ngOnInit()  {
    
-console.log(this.data)
+   console.log("kk",this.data)
     this.dropdownSettings = {
       singleSelection: false,
       idField: 'id',
@@ -38,31 +38,31 @@ console.log(this.data)
       itemsShowLimit: 3,
       allowSearchFilter: true
     };
-
     this.vesselmapserv.GetVesselNameFromVessel().subscribe((res:any)=>
     {
       this.dropdownList=res
-      console.log(this.dropdownList)
+      console.log("dropdownList",this.dropdownList)
     })
     this.vesselmapserv.currentApprovalStageMessage.subscribe((msg) =>
-    {console.log(msg)
-      this.id = msg});
-
-    this.VesselMappingForm=this.formBuilder.group({
+    {
+      console.log("service via id",msg)
+      this.id = msg
+    });
+    this.VesselMappingForm=this.formBuilder.group
+    ({
       username:[],
       vessel_name:['',Validators.required]
     })
-  }
+    }
  
-
-
  Save()
   {
     // this.VesselMappingForm.markAllAsTouched();
     if(this.VesselMappingForm.value['vessel_name'])
     {
       
-    this.VesselMappingForm.value['vessel_name'].forEach((e:any) => {
+    this.VesselMappingForm.value['vessel_name'].forEach((e:any) => 
+    {
       e['user_id'] = this.data
     });
     this.vesselmapserv.PostVesselMapping(this.VesselMappingForm.value['vessel_name']).subscribe((res:any)=>

@@ -15,6 +15,7 @@ import { VoyageTableComponent } from './voyage/voyage-table/voyage-table.compone
 import {VoyageFormComponent} from './voyage/voyage-form/voyage-form.component'
 
 
+
 const routes: Routes = [
 {path:'',component:LoginComponent},
 {path:'land',component:LandingPageComponent,canActivate:[]},
@@ -28,7 +29,8 @@ const routes: Routes = [
 {path:'VesselList',component:VesselListComponent},
 {path:'vessel',component:VesselLandComponent},
 {path:"voyagetable/:id",component:VoyageTableComponent},
-{path:"voyageform/:id",component:VoyageFormComponent},
+{path:"voyageform/:id",component:VoyageFormComponent}
+
 ];
 
 @NgModule({

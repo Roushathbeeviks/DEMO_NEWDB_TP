@@ -15,9 +15,9 @@ data: any;
   ngOnInit(): void {
     this.vesselserv.GetAllVessel().subscribe((res:any)=>
     {
-      console.log(res);
+      // console.log(res);
       this.data=res
-      console.log(this.data);
+      // console.log(this.data);
     })
   }
   navigate()

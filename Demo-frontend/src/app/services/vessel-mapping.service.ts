@@ -19,7 +19,7 @@ export class VesselMappingService {
   }
   PostVesselMapping(data:any)
   {
-    return this.http.post(this.URL + '/admin/vesselmapping',data)
+    return this.http.post(this.URL +'/admin/vesselmapping',data)
   }
   GetVesselMappingById(id:any)
   {

@@ -38,10 +38,9 @@
         name="Last Name"
         prop="last_name"
         [width]="150"
-        [sortable]="true"
-      >
-        <!-- <ng-template let-column="column" ngx-datatable-header-template>Last Name</ng-template> -->
-      </ngx-datatable-column>
+        [sortable]="true">
+        <ng-template let-column="column" ngx-datatable-header-template>Last Name</ng-template>
+     </ngx-datatable-column>
       <ngx-datatable-column
         name="User Id"
         prop="username"

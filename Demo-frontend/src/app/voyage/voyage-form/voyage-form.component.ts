@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { VoyageplanService } from 'src/app/services/voyageplan.service';
 
@@ -13,8 +13,30 @@ export class VoyageFormComponent implements OnInit {
   StartPort:any
   DestinationPort:any
   vesselId:any;
-  constructor(private voyageserv:VoyageplanService,private route:ActivatedRoute) { }
+  constructor(
+    private voyageserv:VoyageplanService,
+    private route:ActivatedRoute,
+    private formBuilder: FormBuilder
+    ) { }
   ngOnInit(): void {
+
+    this.voyageForm=this.formBuilder.group
+    ({
+      startport_id:[],
+      destinationport_id:[],
+      cosp_lat:[],
+      cosp_long:[],
+      eosp_lat:[],
+      eosp_long:[],
+      cosp_time:[],
+      displacement:[],
+      earliest_eta:[],
+      just_eta:[],
+      vessel_id:[]
+    
+    });
+
+
     
     this.voyageserv.GetStartPort().subscribe(startport =>{
       this.StartPort = startport
@@ -29,7 +51,7 @@ export class VoyageFormComponent implements OnInit {
   }
   save()
  {
-  this.voyageserv.VoyageForm(this.voyageForm.value,this.vesselId).subscribe((res:any)=>
+  this.voyageserv.VoyageForm(this.voyageForm.value).subscribe((res:any)=>
   {
     console.log("res")
   })

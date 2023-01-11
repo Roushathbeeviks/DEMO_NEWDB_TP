@@ -65,11 +65,10 @@ var:string=""
      if(confirm("Do you want to delete this user"))
      {
       this.id=id;
-       this.adminserv.DeleUser(this.id).subscribe((res:any)=>
+      this.adminserv.DeleUser(this.id).subscribe((res:any)=>
        {
          console.log(res)
-      //  this.toastr.success("Deleted successfully","sucees")
-       this.ngOnInit();
+        
       })
      
    }
