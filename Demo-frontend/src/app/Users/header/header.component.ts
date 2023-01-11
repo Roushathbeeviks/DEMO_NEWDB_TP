@@ -47,7 +47,7 @@ export class HeaderComponent implements OnInit {
 
   LogoutDialog(){
     this.dialog.open(LogoutComponent, {
-      width:'90%' 
+       
        
     });
   }
