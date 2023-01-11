@@ -55,13 +55,14 @@ var:string=""
     this.vesselmapserv.updateApprovalMessage(this.username)
     this.dialog.open(VesselMappingComponent,{
       data:id,
-      height: '100%',
-      width: '100%',})
+      height:"60%",
+      width:"80%",
+    })
   }
 
   delete($event:any,id:any) 
   {
-     if(confirm("Do you want to delete this recipe"))
+     if(confirm("Do you want to delete this user"))
      {
       this.id=id;
       this.adminserv.DeleUser(this.id).subscribe((res:any)=>

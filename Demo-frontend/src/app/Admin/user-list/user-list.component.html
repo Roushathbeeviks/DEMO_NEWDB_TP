@@ -4,16 +4,15 @@
   </div>
 </div>
 <div class="container1">
+  
   <div class="container2">
     <div class="heading">
       USER MANAGEMENT
-      <div class="importButton">
-        <button class="btnColor" (click)="navigate()">ADD USERS</button>
-      </div>
+        <button class="btn" (click)="navigate()">ADD USERS</button>
     </div>
   </div>
 
-  <div>
+  <div class="tabelC">
     <ngx-datatable
       style="height: auto"
       class="bootstrap"
@@ -23,75 +22,84 @@
       datatable-header
       [headerHeight]="50"
       [footerHeight]="50"
-      [limit]="10"
+      [limit]="1"
+      
       [columnMode]="'standard'"
-      [reorderable]="false">
+      [reorderable]="true">
       <ngx-datatable-column
-        name="firstname"
+        name="First Name"
         prop="first_name"
         [width]="150"
-        [sortable]="true">
-        <ng-template let-column="column" ngx-datatable-header-template>First Name</ng-template>
-      </ngx-datatable-column>
+        
+        [sortable]="true"></ngx-datatable-column>
+        <!-- <ng-template let-column="column" ngx-datatable-header-template>First Name</ng-template> -->
+      
       <ngx-datatable-column
-        name="lastname"
+        name="Last Name"
         prop="last_name"
         [width]="150"
         [sortable]="true">
         <ng-template let-column="column" ngx-datatable-header-template>Last Name</ng-template>
      </ngx-datatable-column>
       <ngx-datatable-column
-        name="Userid"
+        name="User Id"
         prop="username"
         [width]="150"
-        [sortable]="true">
-        <ng-template let-column="column" ngx-datatable-header-template>User Id</ng-template>
-      </ngx-datatable-column>
+        [sortable]="true"></ngx-datatable-column>
+        <!-- <ng-template let-column="column" ngx-datatable-header-template>User Id</ng-template> -->
+      
       <ngx-datatable-column
-        name="email"
+        name="Email id"
         prop="email"
         [width]="150"
         [sortable]="true">
-        <ng-template let-column="column" ngx-datatable-header-template>Email id</ng-template>
+        <!-- <ng-template let-column="column" ngx-datatable-header-template>Email id</ng-template> -->
       </ngx-datatable-column>
       <ngx-datatable-column
         name="contactnumber"
         prop="contact_number"
         [width]="150"
-        [sortable]="true">
+        [sortable]="false">
         <ng-template let-column="column" ngx-datatable-header-template>Contact No</ng-template>
       </ngx-datatable-column>
 
-      <ngx-datatable-column
-        name="Actions"
-        [minWidth]="150"
-        [flexGrow]="3"
-        [sortable]="false"
-        [resizeable]="false"
-        [draggable]="false"
-        prop="edit" >
-        <ng-template
-          let-row="row"
-          let-value="value"
-          ngx-datatable-cell-template >
-          <span (click)="  EditDialog(row.id)"> <mat-icon >build</mat-icon></span>
-          <span
-            md-icon-button
-            placement="left"
-            ngbTooltip="" (click)='delete($event,row.id)'>
-            <mat-icon>delete</mat-icon>  </span>
-          
-        
-        </ng-template>
-      </ngx-datatable-column>
-      <ngx-datatable-column name="Vessel Mapping">
+     
+      <ngx-datatable-column name="Vessel Mapping"
+      [sortable]="false">  
         <ng-template let-row="row"
         let-value="value"
         ngx-datatable-cell-template>
-            <span><mat-icon (click)="Addvessel(row.username,row.id)">add_box</mat-icon></span>
+          <span><mat-icon (click)="Addvessel(row.username,row.id)" class="adjust">add_box</mat-icon></span>
             
         </ng-template>
-    </ngx-datatable-column>    
+      </ngx-datatable-column> 
+    
+    <ngx-datatable-column
+    name="Actions"
+  
+    [minWidth]="150"
+    [flexGrow]="3"
+    [sortable]="false"
+    [resizeable]="false"
+    [draggable]="false"
+    prop="edit" >
+    
+    <ng-template
+      let-row="row"
+      let-value="value"
+      ngx-datatable-cell-template >
+      <span (click)=" EditDialog(row.id)"> <mat-icon  class="adjust">visibility</mat-icon></span>
+      <span
+        md-icon-button
+        placement="left"
+        ngbTooltip="" (click)='delete($event,row.id)'>
+        <mat-icon  class="adjust">delete</mat-icon>  </span>
+      
+    
+    </ng-template>
+  </ngx-datatable-column>
+
+
     </ngx-datatable>
   </div>
 </div>

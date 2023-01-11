@@ -1,6 +1,6 @@
-/* @import "@swimlane/ngx-datatable/themes/bootstrap.css"; */
+ /* @import "@swimlane/ngx-datatable/themes/bootstrap.css";  */
 .container1{
-    /* background-image: url("../../../assets/map.png"); */
+    
     background-color:  rgb(32, 32, 104);
     height:100%;
     width:100%;  
@@ -8,30 +8,14 @@
     color:white;
     padding-left: 10px;
     position: fixed;
-    /* background-repeat: no-repeat;
-    background-size:cover; */
-    /* position: absolute; */
-    
-}
-.btn{
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
-    background-color: rgb(58, 120, 201);
-    color: aliceblue;
-    border: none;
-    font-size: 15px;
-    min-width: 75px;
-    min-height: 30px;
-    align-items: center; 
-    padding-top: 3px;
-    
+   
 }
 .heading{
     color:yellow;
     display: flex;
     justify-content: space-between;
-    font-size: larger;
+    font-size: 16px;
+    align-items: center;
 }
 table {
     width: 100%;
@@ -47,3 +31,32 @@ table {
 element.style {
     transform: none;
 }
+.container2{
+    padding-top: 10px;
+    padding-right: 20px;
+}
+.tabelC{
+    display: flex;
+   
+    justify-content: center;padding-top: 10px;
+    border: 2px;
+    border-color: aliceblue;
+}
+.adjust{
+    padding-top: 5px;
+}
+.btn{  
+        
+        border-radius: 5px;
+        border-color:white;
+        background-color: transparent;
+        color: aliceblue;
+        cursor: pointer;
+        border-width: 1px;
+}
+.btn:hover {
+    background-color: rgb(58, 120, 201);
+    color:white;;
+    color: white;
+  }
+

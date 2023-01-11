@@ -1,12 +1,15 @@
 <div class="container">
-    <div class="child"> 
-        <div class="parent">
+    
+        
             <app-header></app-header> 
-        </div>
-    </div>
-</div>
-
+        
+    
 <div class="row"> 
+  <div class="row2">
+    <div class="image">
+      
+    </div>
+ 
 <div  *ngFor="let vessel of data">
   <mat-card class="example-card" [routerLink]="['/voyagetable/',vessel.id]">
     <div class="cardDiv1">
@@ -25,5 +28,8 @@
   </div>
 </div>  
 </mat-card>
+</div>
+
+</div>
 </div>
 </div>
