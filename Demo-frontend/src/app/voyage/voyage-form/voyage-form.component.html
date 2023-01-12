@@ -107,20 +107,23 @@
                 </div>
              
                 <div class="display">
-                    
-                    <!-- <label>EARLIEST ETA</label> <span style="color:red;">*</span>
-                    <input [(ngModel)]="date" [owlDateTime]="fromdatepicker" placeholder="Date Time" value="" class="form-control" formControlName="earliest_eta">
+                    <div>
+                    <label>EARLIEST ETA</label> <span style="color:red;">*</span>
+                    <input [(ngModel)]="date" [owlDateTime]="fromdatepicker" 
+                    placeholder="Date Time" 
+                    value="" 
+                    class="form-control" 
+                    formControlName="earliest_eta">
                     <owl-date-time #fromdatepicker></owl-date-time>
                     <span [owlDateTimeTrigger]="fromdatepicker" class="trigger">icon
                         <i class="fa fa-calendar"></i>
-                    </span> -->
-                    
-
-                    <div>
+                    </span>
+                </div>
+                    <!-- <div>
                         <label>EARLIEST ETA</label> <span style="color:red;">*</span>
                         <input type="text" formControlName="earliest_eta">
-                    </div>
-                    
+                    </div> -->
+
                     <div>
                         <label>JUST ETA</label> <span style="color:red;">*</span>
                         <input type="text" formControlName="just_eta">

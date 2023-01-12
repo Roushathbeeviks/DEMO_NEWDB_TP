@@ -17,6 +17,7 @@ export class AuthGuardGuard implements CanActivate {
   constructor(private authserv: AuthService, private route: Router) {}
   canActivate(): boolean {
     if (this.authserv.loggedIn()) {
+      
       if (localStorage.getItem('Role') == 'Admin' || 'user') {
         return true;
       } else {

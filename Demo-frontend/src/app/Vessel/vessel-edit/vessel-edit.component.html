@@ -1,0 +1,28 @@
+
+<div class="editProfileContainer">
+  
+    <h2 style="color:rgb(214, 179, 63);margin-left: 44px;margin-top: 10px;">EDIT VESSEL</h2>
+     <div class="login">
+       
+       <form [formGroup]="EditVessel" (ngSubmit)="check()" autocomplete="off">
+         <!-- <img style="height:50px;" src="../../assets/MicrosoftTeams-image.png"><br> -->   
+           <div class="LabIn">
+             <label class="inputLabel">VESSEL NAME</label>
+             <input formControlName="name" class="input" type="text" id="name"/>
+           </div>&nbsp; 
+          
+                  
+           <div  class="LabIn">
+             <label class="inputLabel">IMO NUMBER</label>
+              <input formControlName="imo_number" class="input" type="text" id="imo_number" placeholder="IMO NUMBER"/>
+              
+           </div>&nbsp;
+           <div class="buttons">
+             <button mat-dialog-close class="btn">Cancel</button>
+             <button  type="submit" mat-dialog-close  class="btn" >SAVE</button>
+           </div>
+         
+       </form>
+   </div>
+   </div>
+   

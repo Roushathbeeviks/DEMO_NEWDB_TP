@@ -17,7 +17,7 @@ export class EditprofileComponent implements OnInit {
   // alertOpt: SweetAlertOptions = {};
   constructor(
     private route: Router,
-    private formBuider: FormBuilder,
+    private formBuilder: FormBuilder,
     private adminserv: AdminService,
     private router:ActivatedRoute,
     @Inject(MAT_DIALOG_DATA) public data:any
@@ -57,7 +57,7 @@ export class EditprofileComponent implements OnInit {
    }) 
    })
 
-    this.Editprofile = this.formBuider.group({
+    this.Editprofile = this.formBuilder.group({
       username: ['', [Validators.required, Validators.minLength(2)]],
       first_name: [
         '',

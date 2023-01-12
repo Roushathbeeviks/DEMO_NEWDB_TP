@@ -18,7 +18,7 @@
       datatable-header
       [headerHeight]="50"
       [footerHeight]="50"
-      [limit]="1"
+      [limit]="5"
       [columnMode]="'standard'"
       [reorderable]="true">
       <ngx-datatable-column
@@ -46,7 +46,7 @@
       <ngx-datatable-column
         name="Email id"
         prop="email"
-        [width]="150"
+        [width]="200"
         [sortable]="true">
         <!-- <ng-template let-column="column" ngx-datatable-header-template>Email id</ng-template> -->
       </ngx-datatable-column>
@@ -84,7 +84,7 @@
       let-value="value"
       ngx-datatable-cell-template >
       <div class="iconsPlace">
-      <span (click)=" EditDialog(row.id)"> <mat-icon  class="adjust">visibility</mat-icon></span>
+      <span (click)=" EditDialog(row.id)"><mat-icon>edit</mat-icon></span>
       <span
         md-icon-button
         placement="left"

@@ -34,7 +34,7 @@ router.get("/getvessel/:id", function (req, res) {
 router.get("/getVesselByVesselId/:id", function (req, res) {
   Vessel. GetVesselByVesselId(req,res);
 });
-//vessel-edit
+//Vessel-Edit
 router.put("/editvessel/:id", function (req, res) {
   Vessel.EditVessel(req,res)
  })
