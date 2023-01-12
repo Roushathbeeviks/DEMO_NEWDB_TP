@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ColumnMode } from '@swimlane/ngx-datatable';
 import { VesselService } from 'src/app/services/vessel.service';
+import { VesselEditComponent } from '../vessel-edit/vessel-edit.component';
 import { VesselListComponent } from '../vessel-list/vessel-list.component';
 
 @Component({
@@ -30,6 +31,16 @@ id:any
   VesselForm()
   {
     this.dialog.open(VesselListComponent,{})
+  }
+  EditVessel(id:any)
+  {
+    this.id=id;
+    console.log("VesselId for Editing",this.id)
+    this.dialog.open(VesselEditComponent,
+      {
+        data:{data:this.id},
+      })
+
   }
 
   delete($event:any,id:any) 

@@ -19,9 +19,9 @@
              
               <form [formGroup]="voyageForm">
 
-                <div>
+                <!-- <div>
                     <input type="text" formControlName="vessel_id" value="{{vesselId}}">
-                </div>
+                </div> -->
                 <div class="display">
                     <div>
                         <label >START PORT NAME</label><span style="color:red;">*</span>
@@ -58,7 +58,7 @@
                         <input type="text" formControlName="eosp_long">
                     </div>
                 </div>
-
+<!-- 
                 <div class="display">
                     <div>
                         <label>COSP TIME</label> <span style="color:red;">*</span>
@@ -80,11 +80,11 @@
                         <input type="text" formControlName="just_eta">
                     </div>
                 </div>
+ -->
 
 
 
-
-              </form> 
+            </form> 
             </mat-expansion-panel>
 
             <mat-expansion-panel class="color">
@@ -94,6 +94,42 @@
                   </mat-panel-title>      
                 </mat-expansion-panel-header>
 
+                <form [formGroup]="voyageForm">
+                <div class="display">
+                    <div>
+                        <label>COSP TIME</label> <span style="color:red;">*</span>
+                        <input type="text" formControlName="cosp_time">
+                    </div>
+                    <div>
+                        <label>DISPALCEMENT</label> <span style="color:red;">*</span>
+                        <input type="text" formControlName="displacement">
+                    </div>
+                </div>
+             
+                <div class="display">
+                    <div>
+                    <label>EARLIEST ETA</label> <span style="color:red;">*</span>
+                    <input [(ngModel)]="date" [owlDateTime]="fromdatepicker" 
+                    placeholder="Date Time" 
+                    value="" 
+                    class="form-control" 
+                    formControlName="earliest_eta">
+                    <owl-date-time #fromdatepicker></owl-date-time>
+                    <span [owlDateTimeTrigger]="fromdatepicker" class="trigger">icon
+                        <i class="fa fa-calendar"></i>
+                    </span>
+                </div>
+                    <!-- <div>
+                        <label>EARLIEST ETA</label> <span style="color:red;">*</span>
+                        <input type="text" formControlName="earliest_eta">
+                    </div> -->
+
+                    <div>
+                        <label>JUST ETA</label> <span style="color:red;">*</span>
+                        <input type="text" formControlName="just_eta">
+                    </div>
+                </div>
+                </form>
 
 
 
@@ -108,7 +144,8 @@
 
             
               </mat-expansion-panel>
-              <mat-expansion-panel class="color">
+              
+              <!-- <mat-expansion-panel class="color">
                 <mat-expansion-panel-header  class="color2" >
                   <mat-panel-title class="colorText">
                    WAYPOINTS
@@ -117,7 +154,7 @@
 
 
             
-              </mat-expansion-panel>
+              </mat-expansion-panel> -->
           </mat-accordion>
           
 

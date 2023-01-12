@@ -32,14 +32,17 @@ import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { FormsModule } from '@angular/forms';
-// import { TitleCasePipe } from '@angular/common';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from '@danielmoncada/angular-datetime-picker';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+
+import { TitleCasePipe } from '@angular/common';
 // import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 import { ForgotpasswordComponent } from './Users/forgotpassword/forgotpassword.component';
 import { LogoutComponent } from './logout/logout.component';
 import { EditprofileComponent } from './Users/editprofile/editprofile.component';
-import {MatButtonModule} from '@angular/material/button';
 import { NgxDatatableModule} from '@swimlane/ngx-datatable';
 import { VoyagePlanComponent } from './Admin/voyage-plan/voyage-plan.component';
 import {MatStepperModule} from '@angular/material/stepper';
@@ -52,6 +55,8 @@ import { UserListComponent } from './Admin/user-list/user-list.component';
 import { VesselMappingComponent } from './Vessel/vessel-mapping/vessel-mapping.component';
 import { VoyageTableComponent } from './voyage/voyage-table/voyage-table.component';
 import { VoyageFormComponent } from './voyage/voyage-form/voyage-form.component';
+import { VesselEditComponent } from './Vessel/vessel-edit/vessel-edit.component';
+// import { TitleCasePipe } from './Admin/title-case.pipe';
 
 
 @NgModule({
@@ -80,6 +85,8 @@ import { VoyageFormComponent } from './voyage/voyage-form/voyage-form.component'
     VesselMappingComponent,
     VoyageTableComponent,
     VoyageFormComponent,
+    VesselEditComponent,
+    // TitleCasePipe
    
   
   ],
@@ -108,12 +115,14 @@ import { VoyageFormComponent } from './voyage/voyage-form/voyage-form.component'
     NgMultiSelectDropDownModule.forRoot(),
     FormsModule,
     MatSnackBarModule,
-    
-    // TitleCasePipe
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
+    MatDividerModule,
+   
     // SweetAlert2Module.forRoot() 
     
   ],
-  providers: [],
+  providers: [ TitleCasePipe],
   bootstrap: [AppComponent],
 
 })

@@ -13,18 +13,19 @@ import { VesselLandComponent } from './Vessel/vessel-land/vessel-land.component'
 import { UserListComponent } from './Admin/user-list/user-list.component';
 import { VoyageTableComponent } from './voyage/voyage-table/voyage-table.component';
 import {VoyageFormComponent} from './voyage/voyage-form/voyage-form.component'
+import { AuthGuardGuard } from './auth-guard.guard';
 
 
 
 const routes: Routes = [
 {path:'',component:LoginComponent},
-{path:'land',component:LandingPageComponent,canActivate:[]},
-{path:'adminLand',component:AdminLandComponent},
+{path:'land',component:LandingPageComponent,canActivate:[AuthGuardGuard]},
+{path:'adminLand',component:AdminLandComponent,canActivate:[AuthGuardGuard]},
 {path:'adminHeader',component:AdminHeaderComponent},
 {path:'adminSignUp',component:AdminSignUpComponent},
 {path:'forgotpassword',component:ForgotpasswordComponent},
 {path:'voyageplan',component:VoyagePlanComponent},
-{path:'usermgt',component:UserListComponent},
+{path:'usermgt',component:UserListComponent,canActivate:[AuthGuardGuard]},
 {path:'AssetList',component:AssetListComponent},
 {path:'VesselList',component:VesselListComponent},
 {path:'vessel',component:VesselLandComponent},

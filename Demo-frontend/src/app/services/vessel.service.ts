@@ -25,7 +25,6 @@ GetVesselByVesselId(id:any)
 {
   return this.http.get(this.URL +`/admin/getVesselByVesselId/${id}`)
 }
-
 GetAllFlags()
 {
   return this.http.get(this.URL +'/admin/getflag')
@@ -38,7 +37,7 @@ DeleteVessel(id:any)
 {
   return this.http.delete(this.URL + `/admin/deletevessel/${id}`)
 }
-EditProfile(id:any,data:any)
+EditVessel(id:any,data:any)
 {
   return this.http.put(this.URL +`/admin/editvessel/${id}`,data)
 }

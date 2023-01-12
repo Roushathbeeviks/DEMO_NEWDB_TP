@@ -17,7 +17,7 @@
           datatable-header
           [headerHeight]="50"
           [footerHeight]="50"
-          [limit]="1"
+          [limit]="5"
           [columnMode]="'standard'"
           [reorderable]="true">
     <ngx-datatable-column
@@ -62,9 +62,10 @@
         prop="edit" >
         <ng-template let-row="row" let-value="value" ngx-datatable-cell-template >
           <div class="iconsPlace">
+            <span (click)="EditVessel(row.id)">
+              <mat-icon>edit</mat-icon></span>
           <span md-icon-button placement="left" ngbTooltip="" (click)="delete($event,row.id)">
             <mat-icon class="adjust">delete</mat-icon></span>
-           <span ><mat-icon class="adjust">build</mat-icon></span> 
            </div>
           
         </ng-template>
