@@ -114,5 +114,54 @@ body { margin: 0; font-family:Arial, Helvetica, sans-serif; }
 
 
 
+.ngx-datatable.bootstrap .datatable-footer{
+    overflow: hidden;
+  }
+  .mat-menu-content{
+    padding: 0px;
+  }
+
+  .mat-menu-content:not(:empty) {
+    margin-top: 0px;
+    margin: 0px;
+    background-color:rgb(169, 173, 179);
+    
+    
+}
+
+
+/* .mat-menu-item {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0px;
+    color: white;
+} */
+
+/* .mat-menu-item {
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    line-height: 48px;
+    height: 48px;
+    padding: 0 16px;
+    text-align: left;
+    text-decoration: none;
+    max-width: 100%;
+    position: relative;
+    background-color: grey;
+    
+} */
+
+
+
 
 /* rgb(214, 179, 63) */
+
