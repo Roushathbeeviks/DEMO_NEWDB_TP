@@ -108,6 +108,7 @@ import { VoyageFormComponent } from './voyage/voyage-form/voyage-form.component'
     NgMultiSelectDropDownModule.forRoot(),
     FormsModule,
     MatSnackBarModule,
+    
     // TitleCasePipe
     // SweetAlert2Module.forRoot() 
     

@@ -97,3 +97,9 @@ img{
   justify-content: center;
   min-width: 120px;
 }
+.example-card{
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: 1px solid rgb(129, 128, 128);
+}

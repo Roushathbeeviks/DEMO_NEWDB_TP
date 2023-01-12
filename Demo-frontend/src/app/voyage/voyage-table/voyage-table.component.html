@@ -1,10 +1,10 @@
-<div class="child"> 
-    <div class="parent">
-        <app-vessel-header></app-vessel-header>
-    </div>
-</div>
+   <app-vessel-header></app-vessel-header>
 
+ <div class="container1">
 <div class="row"> 
+  <div class="row2">
+  <div class="image">
+  </div>
   <div *ngFor="let vessel of data">
     <mat-card class="example-card">
       <div class="cardDiv1">
@@ -15,7 +15,6 @@
             <br>
             {{vessel.imo_number}}
           </div>
-      
       <div class="text">
          <mat-icon style="color:rgb(64, 187, 64);font-size: 7px;">brightness_1</mat-icon> &nbsp;
         Online
@@ -25,11 +24,16 @@
   </mat-card>
   </div>
   </div>
+  </div>
 
+  <div class="container2">
+    
+      <div class="heading">
+        <h2>VOYAGE</h2>
+        <button [routerLink]="['/voyageform/',id]" class="btn">ADD VOYAGE</button></div>
+  
 
-
-<button [routerLink]="['/voyageform/',id]">ADD VOYAGE</button>
-<div>
+<div class="tabelC">
     <ngx-datatable
       style="height: auto"
       class="bootstrap"
@@ -44,24 +48,24 @@
       [reorderable]="false">
 
       <ngx-datatable-column
-        name="cosp_time"
+        name="VOYAGE DATE"
         prop="cosp_time"
         [width]="200"
         [sortable]='true'>
-        <ng-template let-column="column" ngx-datatable-header-template>VOYAGE DATE</ng-template>
+        <!-- <ng-template let-column="column" ngx-datatable-header-template>VOYAGE DATE</ng-template> -->
       </ngx-datatable-column>
       
       <ngx-datatable-column
-        name="startportname"
+        name="STARTING PORT"
         prop="startportname"
         [width]="150"
         [sortable]="true">
-        <ng-template let-column="column" ngx-datatable-header-template>STARTING PORT</ng-template>
+        <!-- <ng-template let-column="column" ngx-datatable-header-template>STARTING PORT</ng-template> -->
       </ngx-datatable-column>
 
 
       <ngx-datatable-column
-        name="destinationportname"
+        name="DESTINATION PORT"
         prop="destinationportname"
         [width]="150"
         [sortable]="true">
@@ -69,12 +73,14 @@
       </ngx-datatable-column>
 
       <ngx-datatable-column
-        name="just_eta"
+        name="JUST IN TIME ETA"
         prop="just_eta"
         [width]="200"
         [sortable]="true">
-        <ng-template let-column="column" ngx-datatable-header-template>JUST IN TIME ETA</ng-template>
+        <!-- <ng-template let-column="column" ngx-datatable-header-template>JUST IN TIME ETA</ng-template> -->
       </ngx-datatable-column>
   
     </ngx-datatable>
+  </div>
+  </div>
   </div>
