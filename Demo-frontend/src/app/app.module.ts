@@ -57,6 +57,7 @@ import { VesselMappingComponent } from './Vessel/vessel-mapping/vessel-mapping.c
 import { VoyageTableComponent } from './voyage/voyage-table/voyage-table.component';
 import { VoyageFormComponent } from './voyage/voyage-form/voyage-form.component';
 import { VesselEditComponent } from './Vessel/vessel-edit/vessel-edit.component';
+import { FirstCapDirective } from './first-cap.directive';
 
 
 @NgModule({
@@ -86,6 +87,7 @@ import { VesselEditComponent } from './Vessel/vessel-edit/vessel-edit.component'
     VoyageTableComponent,
     VoyageFormComponent,
     VesselEditComponent,
+    FirstCapDirective,
    
   
   ],
