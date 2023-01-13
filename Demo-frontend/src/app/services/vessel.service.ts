@@ -41,7 +41,10 @@ EditVessel(id:any,data:any)
 {
   return this.http.put(this.URL +`/admin/editvessel/${id}`,data)
 }
-
+GetVesselNameByVesselUserMapping(id:any)
+{
+  return this.http.get(this.URL +`/admin/vesselNameVU/${id}`)
+}
 openSnackBar(message: string, action: string) {
   this._snackBar.open(message,action, {
     horizontalPosition:'right',

@@ -10,11 +10,9 @@ const VoyagePlan = {
     // console.log("voyage",voyage)
     VoyageTAsks.insertVoyage(voyage).then((results, err) => {
       if (results) {
-        // console.log("Entered Results",results);
-        res.send({ message:"Result", results,success:false });
+        res.send({ message:results,success:true });
       } else {
-        // console.log("error",err)
-        res.send({ message:"Error", err,success:true });
+        res.send({ message:err,success:false });
       }
     });
   },

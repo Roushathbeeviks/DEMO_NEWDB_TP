@@ -28,6 +28,10 @@ router.get("/destinationport", function (req, res) {
 router.post("/vesselform",function (req, res) {
  Vessel.VesselForm(req,res)
 });
+//get vessel name from vessel_user_mapping table
+router.get("/vesselNameVU/:id",function (req, res) {
+  Vessel.VesselNameFromMApping(req,res)
+ });
 router.get("/getvessel/:id", function (req, res) {
   Vessel. GetVesselByUserid(req,res);
 });

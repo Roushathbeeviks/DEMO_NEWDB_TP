@@ -15,7 +15,7 @@
 <div  *ngFor="let vessel of data">
   <mat-card class="example-card" [routerLink]="['/voyagetable/',vessel.id]">
     <div class="cardDiv1">
-      <div class="cardDiv2"><img src="../../../assets/flag1.png"></div>
+      <div class="cardDiv2"><img src="../../../assets/{{vessel.countryname}}.png"></div>
       <div class="cardDiv3">
         <div class="title">
           {{vessel.name}}

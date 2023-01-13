@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { TitleCasePipe } from '@angular/common';
+// import { TitleCasePipe } from '@angular/common';
 import {FormBuilder,FormControl,FormGroup,MinLengthValidator,} from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { AdminService } from 'src/app/services/admin.service';
+import { VesselService } from 'src/app/services/vessel.service';
 // import { DatePipe } from "@angular/common";
 // import { DateTimeModel } from "./date-time.model";
 
@@ -23,7 +24,8 @@ export class AdminSignUpComponent implements OnInit {
     private route: Router,
     private formBuilder: FormBuilder,
     private adminserv: AdminService,
-    private titleCasePipe: TitleCasePipe
+    private vesselserv:VesselService,
+    // private titleCasePipe: TitleCasePipe
   ) {}
 
   check() {
@@ -32,7 +34,9 @@ export class AdminSignUpComponent implements OnInit {
     this.adminserv.SignupUser(this.signup.value).subscribe((res) => {
       console.log(res);
     });
+    this.vesselserv.openSnackBar("Succesfully Saved","ok")
      this.route.navigate(['/usermgt'])
+    
   }
   CheckEmail()
   {
@@ -66,6 +70,10 @@ export class AdminSignUpComponent implements OnInit {
     }
     )
   }
+  
+  reloadPage(): void {
+    window.location.reload();
+  }
 
   ngOnInit(): void {
     this.signup = this.formBuilder.group({
@@ -73,7 +81,7 @@ export class AdminSignUpComponent implements OnInit {
       first_name: ['',[  Validators.required,  Validators.minLength(2),  Validators.pattern('[a-zA-z].*'),]],
       last_name: [ '',[  Validators.required,  Validators.minLength(2),  Validators.maxLength(10),  Validators.pattern('[a-zA-z].*'),],],
       email: ['', [Validators.required, Validators.email]],
-      contact_number: [ '', [   Validators.required,   Validators.minLength(2),   Validators.maxLength(10),   Validators.pattern('[0-9]*'), ],],
+      contact_number: [ '', [ Validators.required,   Validators.minLength(10), Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       password: ['', [Validators.required]],
       role: ['', Validators.required]
     });
@@ -102,25 +110,4 @@ export class AdminSignUpComponent implements OnInit {
 
     
   }
-  // get username() {
-  //   return this.signup.get('Userid') as FormControl;
-  // }
-  // get first_name() {
-  //   return this.signup.get('firstname') as FormControl;
-  // }
-  // get last_name() {
-  //   return this.signup.get('lastname') as FormControl;
-  // }
-  // get email() {
-  //   return this.signup.get('email') as FormControl;
-  // }
-  // get contact_number() {
-  //   return this.signup.get('contactnumber') as FormControl;
-  // }
-  // get password() {
-  //   return this.signup.get('password') as FormControl;
-  // }
-  // get role() {
-  //   return this.signup.get('role') as FormControl;
-  // }
 }

@@ -11,7 +11,7 @@ import { LogoutComponent } from '../logout/logout.component';
 })
 export class AuthService {
   URL = environment.apiUrl;
-  constructor(private http: HttpClient,private route:Router,private dialog: MatDialog) { }
+  constructor(private http: HttpClient,private route:Router) { }
   loggedIn() 
   {
     return !!localStorage.getItem('Role')
