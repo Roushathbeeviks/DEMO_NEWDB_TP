@@ -1,0 +1,18 @@
+ <form action="" [formGroup]="searchForm">
+     <input type="text" name="" formControlName="search" id="" placeholder="Search vessel">
+     <button>Submit</button>
+     </form>
+    <ng-container *ngIf="vesselName.length;else notFound;">
+        <div>
+            <div *ngFor="let vessel of vesselName">
+                <!-- <app-vessel-land [vessel]="vessel"></app-vessel-land> -->
+                </div>
+                </div>
+
+
+
+    </ng-container>
+    <ng-template #notFound>
+        <div>Not Found</div>
+
+    </ng-template >

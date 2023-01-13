@@ -56,6 +56,10 @@ import { VesselMappingComponent } from './Vessel/vessel-mapping/vessel-mapping.c
 import { VoyageTableComponent } from './voyage/voyage-table/voyage-table.component';
 import { VoyageFormComponent } from './voyage/voyage-form/voyage-form.component';
 import { VesselEditComponent } from './Vessel/vessel-edit/vessel-edit.component';
+import { SearchComponent } from './search/search.component';
+// import {IvyCarouselModule} from 'angular-responsive-carousel';
+
+// import { SlickCarouselModule } from 'ngx-slick-carousel';
 // import { TitleCasePipe } from './Admin/title-case.pipe';
 
 
@@ -82,10 +86,14 @@ import { VesselEditComponent } from './Vessel/vessel-edit/vessel-edit.component'
     VesselHeaderComponent,
     VesselLandComponent,
     UserListComponent,
+    // IvyCarouselModule,
+   
     VesselMappingComponent,
     VoyageTableComponent,
     VoyageFormComponent,
     VesselEditComponent,
+    SearchComponent,
+   
     // TitleCasePipe
    
   
@@ -118,6 +126,7 @@ import { VesselEditComponent } from './Vessel/vessel-edit/vessel-edit.component'
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
     MatDividerModule,
+
    
     // SweetAlert2Module.forRoot() 
     

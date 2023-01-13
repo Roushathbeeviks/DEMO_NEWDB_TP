@@ -32,6 +32,7 @@
     display: flex;
     justify-content: space-between;
     cursor: pointer;
+    margin-top: 10px;
 }
 a{
     text-decoration: none;
@@ -49,6 +50,7 @@ input.ng-invalid.ng-touched {
     display: flex;
     outline: none;
     gap:5px;
+    padding-bottom: 10px;
 }
 .Loginbtn{
     background-color: rgb(58, 120, 201);
@@ -56,4 +58,8 @@ input.ng-invalid.ng-touched {
     font-size: 12px;
     outline: none;
     border: none;
+    border-radius: 1px;
+    padding-left: 2px;
+    padding-right: 2px;
+    cursor: pointer;
 }
