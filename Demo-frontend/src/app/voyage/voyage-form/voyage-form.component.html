@@ -98,7 +98,7 @@
                 <div class="display">
                     <div>
                         <label>COSP TIME</label> <span style="color:red;">*</span>
-                        <input type="text" formControlName="cosp_time">
+                        <input type="datetime-local" formControlName="cosp_time">
                     </div>
                     <div>
                         <label>DISPALCEMENT</label> <span style="color:red;">*</span>
@@ -107,7 +107,25 @@
                 </div>
              
                 <div class="display">
-                    <div>
+
+                    <!-- <div class="date-container">
+                        <input
+                                class="shadow-input"
+                                name="date_time"
+                                [(ngModel)]="currentDate"
+                                [owlDateTime]="dt1"
+                      
+                        >
+                        <input
+                                type="text"
+                                [owlDateTimeTrigger]="dt1"
+                                placeholder="Date Time"
+                                [value]="currentDate | dateFilter:dateFormat"
+                        >
+                    </div>  -->
+
+
+                    <!-- <div>
                     <label>EARLIEST ETA</label> <span style="color:red;">*</span>
                     <input [(ngModel)]="date" [owlDateTime]="fromdatepicker" 
                     placeholder="Date Time" 
@@ -115,18 +133,18 @@
                     class="form-control" 
                     formControlName="earliest_eta">
                     <owl-date-time #fromdatepicker></owl-date-time>
-                    <span [owlDateTimeTrigger]="fromdatepicker" class="trigger">icon
-                        <i class="fa fa-calendar"></i>
+                    <span [owlDateTimeTrigger]="fromdatepicker" class="trigger">
+                        <mat-icon>calendar_today</mat-icon>
                     </span>
-                </div>
-                    <!-- <div>
+                </div> -->
+                    <div>
                         <label>EARLIEST ETA</label> <span style="color:red;">*</span>
-                        <input type="text" formControlName="earliest_eta">
-                    </div> -->
+                        <input type="datetime-local" formControlName="earliest_eta">
+                    </div>
 
                     <div>
                         <label>JUST ETA</label> <span style="color:red;">*</span>
-                        <input type="text" formControlName="just_eta">
+                        <input type="datetime-local" formControlName="just_eta">
                     </div>
                 </div>
                 </form>
@@ -138,7 +156,7 @@
               <mat-expansion-panel class="color">
                 <mat-expansion-panel-header  class="color2" >
                   <mat-panel-title class="colorText">
-                   WAYPOINTS
+                   ADDITIONAL VOYAGE CRITERIA
                   </mat-panel-title>      
                 </mat-expansion-panel-header>
 

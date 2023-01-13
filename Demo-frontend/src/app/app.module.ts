@@ -1,22 +1,20 @@
 import { NgModule} from '@angular/core';
-
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
+
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from "./Users/login/login.component"
 import { LandingPageComponent } from './Users/landing-page/landing-page.component';
 import { HeaderComponent } from './Users/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatIconModule} from '@angular/material/icon';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-//import { AdminComponent } from './admin/admin/admin.component';
 import { AdminSignUpComponent } from './Admin/admin-sign-up/admin-sign-up.component';
-//import { AdminhomeComponent } from './Admin/adminhome/adminhome.component';
 import { AdminHomeComponent } from './Admin/admin-home/admin-home.component';
-//import { LandComponent } from './Admin/admin/land/land.component';
 import { AdminLandComponent } from './Admin/admin-land/admin-land.component';
 import { AdminHeaderComponent } from './Admin/admin-header/admin-header.component';
+
+import {MatIconModule} from '@angular/material/icon';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -36,8 +34,11 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from '@danielmoncada/angul
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 
-import { TitleCasePipe } from '@angular/common';
+// import {NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
+// import { TitleCasePipe } from '@angular/common';
 // import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
+
 
 
 import { ForgotpasswordComponent } from './Users/forgotpassword/forgotpassword.component';
@@ -56,7 +57,6 @@ import { VesselMappingComponent } from './Vessel/vessel-mapping/vessel-mapping.c
 import { VoyageTableComponent } from './voyage/voyage-table/voyage-table.component';
 import { VoyageFormComponent } from './voyage/voyage-form/voyage-form.component';
 import { VesselEditComponent } from './Vessel/vessel-edit/vessel-edit.component';
-// import { TitleCasePipe } from './Admin/title-case.pipe';
 
 
 @NgModule({
@@ -86,7 +86,6 @@ import { VesselEditComponent } from './Vessel/vessel-edit/vessel-edit.component'
     VoyageTableComponent,
     VoyageFormComponent,
     VesselEditComponent,
-    // TitleCasePipe
    
   
   ],
@@ -118,11 +117,15 @@ import { VesselEditComponent } from './Vessel/vessel-edit/vessel-edit.component'
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
     MatDividerModule,
-   
+
+    // NgxMatDatetimePickerModule,
+    // NgxMatTimepickerModule,
+    // NgxMatNativeDateModule,
+    // TitleCasePipe
     // SweetAlert2Module.forRoot() 
     
   ],
-  providers: [ TitleCasePipe],
+  providers: [],
   bootstrap: [AppComponent],
 
 })

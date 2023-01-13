@@ -169,6 +169,25 @@ const Vessel={
             }
         })
     },
+    VesselNameFromMApping:(req,res)=>
+    {
+        var query =`select vessel_name,vessel_id from vessel_user_mapping where vessel_user_mapping.user_id=?`;
+        connection.query(query,[req.params.id], function(err,results)
+        {
+            if(results)
+            {
+                res.send(results);
+                // console.log(results);
+            }
+            else
+            {
+                res.send(err);
+                // console.log(err);
+                
+            }
+        })
+
+    },
     EditVessel:(req,res)=>
     {
         const id=req.params.id;

@@ -11,7 +11,7 @@ import { EditprofileComponent } from 'src/app/Users/editprofile/editprofile.comp
 })
 export class VesselHeaderComponent implements OnInit {
   id:any
-
+  role:any
   constructor(private route:Router ,private dialog:MatDialog) { }
 
   ngOnInit(): void {
@@ -30,5 +30,19 @@ export class VesselHeaderComponent implements OnInit {
     this.dialog.open(LogoutComponent, {
         
     });
+  }
+
+  navigate()
+  {
+    this.role=localStorage.getItem('Role') 
+    if(this.role=='Admin')
+    {
+      this.route.navigate(['/adminLand'])
+    }
+    else
+    {
+      this.route.navigate(['/land'])
+    }
+    
   }
 }

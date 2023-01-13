@@ -7,6 +7,7 @@ import { IDropdownSettings} from 'ng-multiselect-dropdown';
 import { VesselMappingService } from 'src/app/services/vessel-mapping.service';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { VesselService } from 'src/app/services/vessel.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -21,14 +22,19 @@ export class VesselMappingComponent implements OnInit {
   selectedItems:any = [];
   dropdownSettings:IDropdownSettings={};
   id:any
+  list:any=[]
 
  
-  constructor(private vesselmapserv:VesselMappingService,  private formBuilder: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public data:any,private vesselserv:VesselService, public dialogRef: MatDialogRef<VesselMappingComponent>){ }
+  constructor(private vesselmapserv:VesselMappingService,  
+    private formBuilder: FormBuilder,
+    @Inject(MAT_DIALOG_DATA) public data:any,
+    private vesselserv:VesselService,
+     public dialogRef: MatDialogRef<VesselMappingComponent>,
+     private route:ActivatedRoute) { }
 
   ngOnInit()  {
    
-   console.log("kk",this.data)
+  //  console.log("kk",this.data)
     this.dropdownSettings = {
       singleSelection: false,
       idField: 'id',
@@ -53,8 +59,16 @@ export class VesselMappingComponent implements OnInit {
       username:[],
       vessel_name:['',Validators.required]
     })
-    }
- 
+
+    this.vesselserv.GetVesselNameByVesselUserMapping(this.data).subscribe((msg:any) =>
+    {
+     this.id= this.route.snapshot.paramMap.get('id')
+     this.list=msg
+      // console.log("vesselmapping",this.list)
+      // console.log("vesselmapping id ",this.data)
+    })
+  
+  }
  Save()
   {
     // this.VesselMappingForm.markAllAsTouched();
