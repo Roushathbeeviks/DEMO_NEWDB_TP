@@ -49,4 +49,8 @@ export class AdminService {
   {
     return this.http.delete(this.URL + `/user/deleteuser/${id}`, id);
   }
+  search(query:string,){
+    return this.http.get(this.URL+`/admin/getvesselname?q=${query}`);
+  }
+ 
 }
