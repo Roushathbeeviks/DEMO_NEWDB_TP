@@ -6,7 +6,7 @@
         <form [formGroup]="signup" (ngSubmit)="check()" autocomplete="off">
           <!-- <img style="height:50px;" src="../../assets/MicrosoftTeams-image.png"><br> -->   
             <div>
-              <input formControlName="username" class="input" type="text" id="username"   placeholder="Username" (keyup)="CheckId($event)"/>
+              <input appFirstCap formControlName="username" class="input" type="text" id="username"   placeholder="Username" (keyup)="CheckId($event)"/>
                 <div class="errors" *ngIf="signup.controls['username'].errors?.['required'] && signup.controls['username'].touched">Username is required</div>
                 <div class="errors" *ngIf="signup.controls['username'].errors?.['minlength'] && signup.controls['username'].touched">User ID should have minimum length</div>
                 <div  class="errors" *ngIf="status==false">{{UsernameCheckmsg}}</div> 
@@ -15,7 +15,7 @@
            
                    
             <div>
-               <input formControlName="first_name" class="input" type="text" id="first_name" placeholder="First Name"/>
+               <input appFirstCap formControlName="first_name" class="input" type="text" id="first_name" placeholder="First Name"/>
                 <div class="errors" *ngIf="signup.controls['first_name'].errors?.['required'] && signup.controls['first_name'].touched">
                 First name is required
                 </div>
@@ -23,7 +23,7 @@
                 <div class="errors" *ngIf="signup.controls['first_name'].errors?.['pattern'] && signup.controls['first_name'].touched">First name cannot have numbers</div>
             </div>&nbsp;
             <div>
-              <input formControlName="last_name" class="input" type="text" id="last_name" placeholder="Last Name"/>
+              <input appFirstCap formControlName="last_name" class="input" type="text" id="last_name" placeholder="Last Name"/>
                 <div class="errors" *ngIf="signup.controls['last_name'].errors?.['required'] && signup.controls['last_name'].touched">
                 Last name is required
                 </div>
