@@ -8,8 +8,9 @@
     [data]="dropdownList"
     formControlName="vessel_name">
   </ng-multiselect-dropdown>
-  <li></li>
-
+  <ul *ngFor="let names of list">
+  <li>{{names.vessel_name}}</li>
+</ul>
   <span
     class="error-message"
     *ngIf="

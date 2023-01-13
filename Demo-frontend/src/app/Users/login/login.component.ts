@@ -1,12 +1,6 @@
 import { Token } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import {
-  FormControl,
-  FormBuilder,
-  FormGroup,
-  Validators,
-  NgForm,
-} from '@angular/forms';
+import {FormBuilder,FormGroup,Validators} from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/services/admin.service';

@@ -1,1 +1,56 @@
-<p>admin-home works!</p>
+ <!-- <div id="slider">
+  <div> 
+    <mat-card class="example-card" routerLink="/vessel">
+      <div class="cardDiv1">
+        <div class="cardDiv2">
+          <img src="../../../assets/JAPAN.png" />
+        </div>
+        <div class="cardDiv3">
+          <div class="title">
+           ATHIRA 1
+            <br />
+            WERT67
+          </div>
+
+          <div class="text">
+            <mat-icon style="color: rgb(64, 187, 64); font-size: 7px"
+              >brightness_1</mat-icon
+            >
+            &nbsp; Online
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+  <a id="prev" href="#">&#8810;</a>
+  <a id="next" href="#">&#8811;</a>
+</div>  -->
+
+
+
+
+
+<div class="grid-container">
+  <div  *ngFor="let vessel of data">
+    <div class="grid-item">
+    <mat-card class="example-card" routerLink="/vessel">
+      <div class="cardDiv1">
+        <div class="cardDiv2"><img src="../../../assets/{{vessel.countryname}}.png"></div>
+        <div class="cardDiv3">
+          <div class="title">
+            {{vessel.name}}
+            <br>
+            {{vessel.imo_number}}
+          </div>
+      
+      <div class="text">
+         <mat-icon style="color:rgb(64, 187, 64);font-size: 7px;">brightness_1</mat-icon> &nbsp;
+        Online
+    </div>
+    </div>
+  </div>  
+  </mat-card>
+</div>
+</div>
+ </div>
+
