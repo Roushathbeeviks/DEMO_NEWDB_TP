@@ -4,6 +4,9 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { LogoutComponent } from 'src/app/logout/logout.component';
 import { EditprofileComponent } from 'src/app/Users/editprofile/editprofile.component';
 
+import { FormControl, FormGroup } from '@angular/forms';
+import { AdminService } from 'src/app/services/admin.service';
+
 
 @Component({
   selector: 'app-admin-header',
@@ -12,7 +15,11 @@ import { EditprofileComponent } from 'src/app/Users/editprofile/editprofile.comp
 })
 export class AdminHeaderComponent implements OnInit {
   id:any
-  constructor(private route:Router,private dialog: MatDialog) { }
+ 
+  searchResult:undefined|any;
+  
+  constructor(private route:Router,private dialog: MatDialog,private search :AdminService) { }
+   
 
   ngOnInit(): void {
   }
@@ -32,4 +39,34 @@ export class AdminHeaderComponent implements OnInit {
     });
   }
 
+  searchVessel(query:KeyboardEvent){
+    if(query){
+      const element=query.target as HTMLInputElement;
+      
+      // console.warn(element.value)
+      this.search.search(element.value).subscribe((result)=>{
+        // console.warn(result);
+        this.searchResult=result
+        
+        // if(result.length>5){
+        //   result.length=5;
+        // }
+      })
+    
+     
+
+
+    }
+
+  }
+  hideSearch(){
+    this.searchResult=undefined; 
+  }
+  submitSearch(val:string){
+    console.warn(val)
+    this.route.navigate([`voyagetable/${val}`])
+  }
+  navigate(){
+    console.warn("clicked1")
+  }
 }

@@ -14,6 +14,7 @@ import { UserListComponent } from './Admin/user-list/user-list.component';
 import { VoyageTableComponent } from './voyage/voyage-table/voyage-table.component';
 import {VoyageFormComponent} from './voyage/voyage-form/voyage-form.component'
 import { AuthGuardGuard } from './auth-guard.guard';
+import { SearchComponent } from './search/search.component';
 
 
 
@@ -30,7 +31,9 @@ const routes: Routes = [
 {path:'VesselList',component:VesselListComponent},
 {path:'vessel',component:VesselLandComponent},
 {path:"voyagetable/:id",component:VoyageTableComponent},
-{path:"voyageform/:id",component:VoyageFormComponent}
+{path:"voyageform/:id",component:VoyageFormComponent},
+{path:"search/:query",component:SearchComponent},
+
 
 ];
 

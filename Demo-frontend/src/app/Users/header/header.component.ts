@@ -14,7 +14,8 @@ export class HeaderComponent implements OnInit {
   check=false;
   id:any
   users:any=""
-  constructor(private dialog: MatDialog,private adminserv:AdminService,private router:Router) { }
+  searchResult:undefined|any
+  constructor(private dialog: MatDialog,private adminserv:AdminService,private router:Router,private search :AdminService) { }
 
   ngOnInit(): void {
     this.id=localStorage.getItem('Id')
@@ -50,6 +51,31 @@ export class HeaderComponent implements OnInit {
        
        
     });
+  }
+  searchVessel(query:KeyboardEvent){
+    if(query){
+      const element=query.target as HTMLInputElement;
+      
+      // console.warn(element.value)
+      this.search.search(element.value).subscribe((result)=>{
+        // console.warn(result);
+        this.searchResult=result
+        
+        // if(result.length>5){
+        //   result.length=5;
+        // }
+      })
+    
+     
+
+
+    }
+
+  }
+
+  submitSearch(val:string){
+    console.warn(val)
+    this.router.navigate([`voyagetable/${val}`])
   }
 
 }

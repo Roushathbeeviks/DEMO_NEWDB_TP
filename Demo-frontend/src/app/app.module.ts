@@ -58,6 +58,10 @@ import { VesselMappingComponent } from './Vessel/vessel-mapping/vessel-mapping.c
 import { VoyageTableComponent } from './voyage/voyage-table/voyage-table.component';
 import { VoyageFormComponent } from './voyage/voyage-form/voyage-form.component';
 import { VesselEditComponent } from './Vessel/vessel-edit/vessel-edit.component';
+import { SearchComponent } from './search/search.component';
+// import {IvyCarouselModule} from 'angular-responsive-carousel';
+
+// import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { FirstCapDirective } from './first-cap.directive';
 
 
@@ -84,10 +88,14 @@ import { FirstCapDirective } from './first-cap.directive';
     VesselHeaderComponent,
     VesselLandComponent,
     UserListComponent,
+    // IvyCarouselModule,
+   
     VesselMappingComponent,
     VoyageTableComponent,
     VoyageFormComponent,
     VesselEditComponent,
+    SearchComponent,
+   
     FirstCapDirective,
    
   
@@ -122,6 +130,7 @@ import { FirstCapDirective } from './first-cap.directive';
     MatDividerModule,
     SwiperModule 
  
+
 
     // NgxMatDatetimePickerModule,
     // NgxMatTimepickerModule,

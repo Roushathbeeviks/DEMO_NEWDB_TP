@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { LogoutComponent } from 'src/app/logout/logout.component';
+import { AdminService } from 'src/app/services/admin.service';
 import { EditprofileComponent } from 'src/app/Users/editprofile/editprofile.component';
 
 @Component({
@@ -12,7 +13,8 @@ import { EditprofileComponent } from 'src/app/Users/editprofile/editprofile.comp
 export class VesselHeaderComponent implements OnInit {
   id:any
   role:any
-  constructor(private route:Router ,private dialog:MatDialog) { }
+  searchResult:undefined|any
+  constructor(private route:Router ,private dialog:MatDialog,private search :AdminService) { }
 
   ngOnInit(): void {
   }
@@ -45,4 +47,30 @@ export class VesselHeaderComponent implements OnInit {
     }
     
   }
+  searchVessel(query:KeyboardEvent){
+    if(query){
+      const element=query.target as HTMLInputElement;
+      
+      // console.warn(element.value)
+      this.search.search(element.value).subscribe((result)=>{
+        // console.warn(result);
+        this.searchResult=result
+        
+        // if(result.length>5){
+        //   result.length=5;
+        // }
+      })
+    
+     
+
+
+    }
+
+  }
+
+  submitSearch(val:string){
+    console.warn(val)
+    this.route.navigate([`voyagetable/${val}`])
+  }
+
 }
