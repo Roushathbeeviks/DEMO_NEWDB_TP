@@ -26,7 +26,7 @@
   <a id="next" href="#">&#8811;</a>
 </div>  -->
 
-
+<!-- 
 
 
 
@@ -52,5 +52,42 @@
   </mat-card>
 </div>
 </div>
- </div>
+ </div> -->
 
+
+
+<!-- <h2>ji</h2>
+<swiper
+  [slidesPerView]="1"
+  [spaceBetween]="50"
+  [navigation]="true"
+  [pagination]="{ type: 'fraction' }"
+  [centeredSlides]="true"
+  [keyboard]="{
+    enabled: true
+  }"
+  [virtual]="true"
+  class="my-swiper"
+>
+  <ng-template *ngFor="let vessel of data">
+    <div class="swiper-slide-container"> 
+      <mat-card class="example-card" routerLink="/vessel">
+        <div class="cardDiv1">
+          <div class="cardDiv2"><img src="../../../assets/{{vessel.countryname}}.png"></div>
+          <div class="cardDiv3">
+            <div class="title">
+              {{vessel.name}}
+              <br>
+              {{vessel.imo_number}}
+            </div>
+        
+        <div class="text">
+           <mat-icon style="color:rgb(64, 187, 64);font-size: 7px;">brightness_1</mat-icon> &nbsp;
+          Online
+      </div>
+      </div>
+    </div>  
+    </mat-card>
+    </div> -->
+  <!-- </ng-template>
+</swiper> --> -->
