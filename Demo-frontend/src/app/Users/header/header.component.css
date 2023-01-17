@@ -1,7 +1,7 @@
 .headerContainer1{
     display: flex;
     filter: contrast(1.2);
-    background-color: rgb(29, 29, 90);
+    background-color: #031e44;
     justify-content: space-between;
     flex-wrap: wrap;
     padding-right: 10px;
@@ -85,7 +85,7 @@
   transition: all .5s ease-in-out;
   background-color: transparent;
   width: 110px;
-  
+
   color: white;
   border-color: white;
   cursor: pointer;
