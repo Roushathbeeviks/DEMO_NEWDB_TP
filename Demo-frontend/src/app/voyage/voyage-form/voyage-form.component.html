@@ -32,6 +32,7 @@
                     <div>
                         <label >DESTINATION PORT NAME</label><span style="color:red;">*</span>
                         <select formControlName="destinationport_id" >
+                            <option value="">Select  Vessel Type</option>
                             <option *ngFor="let end of DestinationPort" value="{{end.id}}">{{end.name}}</option>
                         </select>
                     </div>

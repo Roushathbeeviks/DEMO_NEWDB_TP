@@ -41,6 +41,7 @@ import { MatDividerModule } from '@angular/material/divider';
 
 import { SwiperModule } from 'swiper/angular';
 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { ForgotpasswordComponent } from './Users/forgotpassword/forgotpassword.component';
 import { LogoutComponent } from './logout/logout.component';
@@ -128,6 +129,7 @@ import { FirstCapDirective } from './first-cap.directive';
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
     MatDividerModule,
+    Ng2SearchPipeModule,
     SwiperModule 
  
 

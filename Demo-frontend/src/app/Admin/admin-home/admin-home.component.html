@@ -1,5 +1,6 @@
  <!-- <div id="slider">
   <div> 
+    <div  *ngFor="let vessel of data">
     <mat-card class="example-card" routerLink="/vessel">
       <div class="cardDiv1">
         <div class="cardDiv2">
@@ -7,9 +8,9 @@
         </div>
         <div class="cardDiv3">
           <div class="title">
-           ATHIRA 1
+           {{vessel.name}}
             <br />
-            WERT67
+           {{vessel.imo_number}}
           </div>
 
           <div class="text">
@@ -22,8 +23,10 @@
       </div>
     </mat-card>
   </div>
-  <a id="prev" href="#">&#8810;</a>
-  <a id="next" href="#">&#8811;</a>
+  <div *ngFor="let vessel of data;let i=index">
+  <a id="prev" onclick=[i]++ >&#8810;</a>
+  <a id="next" >&#8811;</a>
+</div>
 </div>  -->
 
 <!-- 
@@ -38,7 +41,7 @@
         <div class="cardDiv2"><img src="../../../assets/{{vessel.countryname}}.png"></div>
         <div class="cardDiv3">
           <div class="title">
-            {{vessel.name}}
+            { <div  *ngFor="let vessel of data">
             <br>
             {{vessel.imo_number}}
           </div>
@@ -90,4 +93,23 @@
     </mat-card>
     </div> -->
   <!-- </ng-template>
-</swiper> --> -->
+</swiper> --> 
+
+
+<!-- <h5>search</h5>
+
+<div>
+  <input type="text" [(ngModel)]="term"  #searchInput>
+  <button class="btn-search " (click)="submitSearch(searchInput.value)" class="search-box"></button>
+  <div *ngFor = "let item of name |filter:term" >
+    <p>
+      {{item.name}}
+    </p>
+  </div>
+</div> 
+
+
+<h2>slider</h2>
+<div>
+
+</div> -->

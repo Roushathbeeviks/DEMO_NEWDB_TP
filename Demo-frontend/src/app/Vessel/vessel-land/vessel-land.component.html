@@ -3,13 +3,13 @@
    <div class="container1">
           <div class="container2">
             <div class="heading">
-              <h2>USER MANAGEMENT</h2>
+              <h2>REGISTER VESSEL</h2>
                 <button (click)="VesselForm()" class="btn">ADD VESSEL</button>
             </div>
           </div>
         <div class="tabelC">
-          <ngx-datatable style="height: auto"
-          style="height: auto"
+          <ngx-datatable 
+          style="height:auto"
           class="bootstrap"
           [rows]="rows"
           [columns]="columns"
@@ -17,14 +17,15 @@
           datatable-header
           [headerHeight]="50"
           [footerHeight]="50"
-          [limit]="5"
+          [limit]="10"
           [columnMode]="'standard'"
           [reorderable]="true">
-    <ngx-datatable-column
+          <ngx-datatable-column
             name="IMO NUMBER"
             prop="imo_number"
             [width]="150"
-            [sortable]="true"> </ngx-datatable-column>
+            [sortable]="true">
+          </ngx-datatable-column>
             <!-- <ng-template let-column="column" ngx-datatable-header-template>IMO NUMBER</ng-template> -->
         
 

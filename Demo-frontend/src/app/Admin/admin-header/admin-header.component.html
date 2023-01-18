@@ -13,16 +13,13 @@
         <a class="color">
             <div class="search">
                 <div style="display: flex; justify-content: center;gap:10px">
-                    <input type="text" class="input-search" (keyup)="searchVessel($event)"  placeholder="Search vessel" #searchInput>
-                  <button class="btn-search " (click)="submitSearch(searchInput.value)" class="search-box"> <i class="material-icons">search</i></button>
-                
-                </div>
-             
-              </div> 
+                  <input type="text" class="input-search" (keyup)="searchVessel($event)"  placeholder="Search vessel" #searchInput>
+                  <button class="btn-search " (keyup)="submitSearch()" class="search-box"> <i class="material-icons">search</i></button>
+                </div>     
+            </div> 
               <ul class="searchClass" *ngIf="searchResult" >
                 <li *ngFor="let srch of searchResult">
                     <a style="text-decoration:none; color:white" [routerLink]="'../voyagetable/'+ srch.id" >{{srch.name}}</a>
-
                 </li>
               </ul>
         </a>
@@ -38,7 +35,7 @@
                     </mat-menu>  
             </div>
         </a>
-        <a href="#" class="color ">
+        <a href="#" class="color">
             <div>
                 <mat-icon>help_outline</mat-icon>
             </div>

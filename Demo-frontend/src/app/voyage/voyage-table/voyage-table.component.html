@@ -1,5 +1,4 @@
    <app-vessel-header></app-vessel-header>
-
  <div class="container1">
 <div class="row"> 
   <div class="row2">
@@ -29,8 +28,8 @@
   <div class="container2">
     
       <div class="heading">
-        <h2>VOYAGE</h2>
-        <button [routerLink]="['/voyageform/',id]" class="btn">ADD VOYAGE</button></div>
+        <h2>VOYAGE PLANS</h2>
+        <button [routerLink]="['/voyageform/',id]" class="btn">NEW VOYAGE</button></div>
   
 
 <div class="tabelC">
@@ -43,7 +42,7 @@
       datatable-header
       [headerHeight]="40"
       [footerHeight]="30"
-      [limit]="5"
+      [limit]="10"
       [columnMode]="'standard'"
       [reorderable]="false">
 

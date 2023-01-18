@@ -29,7 +29,7 @@ export class VoyageFormComponent implements OnInit {
     this.voyageForm=this.formBuilder.group
     ({
       startport_id:[],
-      destinationport_id:[],
+      destinationport_id:[''],
       cosp_lat:[],
       cosp_long:[],
       eosp_lat:[],
