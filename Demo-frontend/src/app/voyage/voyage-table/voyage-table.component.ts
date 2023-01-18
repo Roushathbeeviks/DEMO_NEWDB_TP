@@ -18,6 +18,8 @@ export class VoyageTableComponent implements OnInit {
   id:any
   datas:any
   vesselId:any
+  stport:any
+  dpPort:any
   constructor(
     private voyageserv:VoyageplanService,
     private vesselserv:VesselService,
@@ -41,7 +43,10 @@ export class VoyageTableComponent implements OnInit {
         // console.log(typeof res)
         this.rows=res.message
       })
-
+  
+      this.voyageserv.GetStartPort().subscribe((res)=>{
+        console.log(res)
+      })
 
 }
 AddVoyage(id:any)
