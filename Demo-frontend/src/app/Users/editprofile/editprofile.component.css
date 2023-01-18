@@ -95,3 +95,10 @@
     border: 1px solid rgb(129, 128, 128);
     
 }
+.errors{
+    padding-top: 10px;
+    padding-left: 5px;
+    color: red;
+    font-weight: 50%;
+    font-size: 15px;
+}

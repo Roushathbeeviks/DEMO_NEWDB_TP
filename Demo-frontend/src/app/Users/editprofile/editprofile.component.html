@@ -1,5 +1,4 @@
 <div class="editProfileContainer">
-  
  <h2 style="color:rgb(214, 179, 63);margin-left: 44px;margin-top: 10px;">EDIT PROFILE</h2>
   <div class="login">
     
@@ -7,18 +6,22 @@
       <!-- <img style="height:50px;" src="../../assets/MicrosoftTeams-image.png"><br> -->   
         <div class="LabIn">
           <label class="inputLabel">Username</label>
-          <input formControlName="username" class="input" type="text" id="username"/>
+          <input appFirstCap formControlName="username" class="input" type="text" id="username"/>
         </div>&nbsp; 
-       
                
         <div  class="LabIn">
           <label class="inputLabel">First Name</label>
-           <input formControlName="first_name" class="input" type="text" id="first_name" placeholder="First Name"/>
-           
+           <input  appFirstCap formControlName="first_name" class="input" type="text" id="first_name" placeholder="First Name"/>
+           <!-- <div class="errors" *ngIf="Editprofile.controls['first_name'].errors?.['required'] && Editprofile.controls['first_name'].touched">
+            First name is required
+            </div>
+            <div class="errors" *ngIf="Editprofile.controls['first_name'].errors?.['minlength'] && Editprofile.controls['first_name'].touched">First name should have minimum length</div>
+            <div class="errors" *ngIf="Editprofile.controls['first_name'].errors?.['pattern'] && Editprofile.controls['first_name'].touched">First name cannot have numbers</div> -->
+        
         </div>&nbsp;
         <div  class="LabIn">
           <label class="inputLabel">Last Name</label>
-          <input formControlName="last_name" class="input" type="text" id="last_name" placeholder="Last Name"/>
+          <input  appFirstCap formControlName="last_name" class="input" type="text" id="last_name" placeholder="Last Name"/>
 
         </div>&nbsp;
         <div  class="LabIn"> 
@@ -31,8 +34,8 @@
           <label class="inputLabel">Contact</label>
           <input formControlName="contact_number" class="input" type="number" id="contact_number" placeholder="Contact Number"/>
       
-        </div>&nbsp;   
-        
+        </div>&nbsp;  
+         
         <div class="buttons">
           <button mat-dialog-close class="btn">Cancel</button>
           <button  type="submit" mat-dialog-close  class="btn" >SAVE</button>

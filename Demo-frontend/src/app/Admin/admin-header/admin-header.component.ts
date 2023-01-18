@@ -42,16 +42,15 @@ export class AdminHeaderComponent implements OnInit {
   searchVessel(query:KeyboardEvent){
     if(query){
       const element=query.target as HTMLInputElement;
-      
-      // console.warn(element.value)
+      // console.log(element.value)
       this.search.search(element.value).subscribe((result)=>{
-        // console.warn(result);
+        console.warn(result);
         this.searchResult=result
         
         // if(result.length>5){
         //   result.length=5;
         // }
-      })
+    })
     
      
 
@@ -62,9 +61,9 @@ export class AdminHeaderComponent implements OnInit {
   hideSearch(){
     this.searchResult=undefined; 
   }
-  submitSearch(val:string){
-    console.warn(val)
-    this.route.navigate([`voyagetable/${val}`])
+  submitSearch(){
+    console.log("val")
+    // this.route.navigate([`voyagetable/${val}`])
   }
   navigate(){
     console.warn("clicked1")

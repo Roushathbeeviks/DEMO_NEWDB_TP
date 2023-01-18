@@ -1,5 +1,4 @@
    <app-vessel-header></app-vessel-header>
-
  <div class="container1">
 <div class="row"> 
   <div class="row2">
@@ -37,6 +36,17 @@
   </div>  
   </mat-card>
   </div>
+  </div>
+  </div>
+
+  <div class="container2">
+    
+      <div class="heading">
+        <h2>VOYAGE PLANS</h2>
+        <button [routerLink]="['/voyageform/',id]" class="btn">NEW VOYAGE</button></div>
+  
+
+<div class="tabelC">
   <div >
     <div style="display:flex;justify-content:center;">
     <ngx-datatable
@@ -48,7 +58,7 @@
       datatable-header
       [headerHeight]="40"
       [footerHeight]="30"
-      [limit]="5"
+      [limit]="10"
       [columnMode]="'standard'"
       [reorderable]="false">
 

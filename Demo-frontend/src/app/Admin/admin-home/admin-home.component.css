@@ -1,3 +1,5 @@
+
+
 body {
     margin: 10%;
   }
@@ -116,4 +118,22 @@ body {
 .grid-item {
   /* background-color:whitesmoke; */
   padding: 20px;
+}
+
+
+
+.my-swiper {
+  height: 100%;
+}
+
+.swiper-slide-container {
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+background: #fff;
+height: 100%;
+max-width: 600px;
+margin: auto;
+border-radius: 20px;
 }

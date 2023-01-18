@@ -18,7 +18,7 @@
       datatable-header
       [headerHeight]="50"
       [footerHeight]="50"
-      [limit]="5"
+      [limit]="10"
       [columnMode]="'standard'"
       [reorderable]="true">
       <ngx-datatable-column
@@ -91,7 +91,7 @@
         ngbTooltip="" (click)='delete($event,row.id)'>
         <mat-icon  class="adjust">delete</mat-icon>  </span>
         </div>
-      
+    
     
     </ng-template>
   </ngx-datatable-column>

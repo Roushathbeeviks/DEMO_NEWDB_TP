@@ -31,16 +31,12 @@ export class EditprofileComponent implements OnInit {
 
    this.adminserv.EditProfile(this.data.data,this.Editprofile.value).subscribe((res:any) => {
     console.log(res);
+    this.reloadPage();
    })
-  //  this.alertOpt = {
-  //   title: 'Success!',
-  //   text: 'Saved successfuly',
-  //   // type: 'success',
-  //   toast: false,
-  //   allowOutsideClick: false
-  // };
-
    
+  }
+  reloadPage(): void {
+    window.location.reload();
   }
 
 
@@ -81,9 +77,8 @@ export class EditprofileComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.minLength(2),
-          Validators.maxLength(10),
-          Validators.pattern('[0-9]*'),
+          Validators.minLength(10),
+          Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$"),
         ],
       ],
       

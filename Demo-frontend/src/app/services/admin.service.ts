@@ -34,7 +34,6 @@ export class AdminService {
   GetUserById(id: any) {
     return this.http.get(this.URL + `/user/getuserById/${id}`);
   }
-
   GetLoginDetails() {
     return this.http.get(this.URL + '/user/getlogin');
   }
@@ -45,11 +44,10 @@ export class AdminService {
   AllUsers() {
     return this.http.get(this.URL + '/user/getallusers');
   }
-  DeleUser(id:any)
-  {
+  DeleteUser(id:any){
     return this.http.delete(this.URL + `/user/deleteuser/${id}`, id);
   }
-  search(query:string,){
+  search(query:string) {
     return this.http.get(this.URL+`/admin/getvesselname?q=${query}`);
   }
   searchUser(query:any,){

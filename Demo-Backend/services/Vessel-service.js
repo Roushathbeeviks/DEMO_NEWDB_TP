@@ -41,6 +41,7 @@ const Vessel={
             }
         })
     },
+
     GetVesselByVesselId:(req,res)=>
     {
         var query = "select vessel.name,vessel.imo_number,flag.name as countryname from vessel  join flag  on flag.id=vessel.flag_id where vessel.id=?"
