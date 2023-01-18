@@ -9,6 +9,8 @@ html,body{
     margin:0px;
     padding: 0; 
     width:100%;
+    font-size: 12px;
+    font-family: sans-serif;
 }
 
 html, body { height: 100%; }
@@ -16,9 +18,10 @@ body { margin: 0; font-family:Arial, Helvetica, sans-serif; }
 
 .mat-dialog-container {
     padding: 0px !important ;
-     background-color:  rgb(29, 29, 90);
+     /* background-color:  rgb(29, 29, 90); */
      overflow: hidden;
-    
+    /* background-color:  rgb(6, 6, 71); */
+    background-color: #000d20;
     
 }
 .btn{  
@@ -31,14 +34,31 @@ body { margin: 0; font-family:Arial, Helvetica, sans-serif; }
     border-width: 1px;
     width: 100px;
     height:30px;
-    font-size: 14px;
+    font-size: 12px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 .btn:hover {
     background-color: rgb(58, 120, 201);
     color:white;;
     color: white;
   }
-
+  .btnC{  
+        
+    border-radius: 5px;
+    border-color:white;
+    background-color: transparent;
+    color: aliceblue;
+    cursor: pointer;
+    border-width: 1px;
+    width: 100px;
+    height:30px;
+    font-size: 14px;
+}
+.btnC:hover {
+    background-color: rgb(214, 179, 63);
+    color:white;;
+    color: white;
+  }
 .multiselect-dropdown {
     display: inline-block;
     border: 1px solid #adadad;
@@ -180,3 +200,11 @@ body { margin: 0; font-family:Arial, Helvetica, sans-serif; }
     margin: 0;
     padding: 0;
   }
+  .mat-expansion-indicator::after {
+    color: white !important;
+}
+
+.mat-expansion-panel-body {
+    padding: 0 24px 16px;
+    border-bottom: 2px solid white !important;
+}

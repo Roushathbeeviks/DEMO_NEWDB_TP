@@ -53,7 +53,7 @@
               </div> 
               <ul class="searchClass" *ngIf="searchResult" >
                 <li *ngFor="let srch of searchResult">
-                    <a style="text-decoration:none; color:white" [routerLink]="'../voyagetable/'+ srch.id" >{{srch.name}}</a>
+                    <a style="text-decoration:none; color:white" [routerLink]="'../voyagetable/'+ srch.id" ><div >{{srch.name}}</div></a>
 
                 </li>
               </ul>

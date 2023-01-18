@@ -2,8 +2,22 @@
  <div class="container1">
 <div class="row"> 
   <div class="row2">
-  <div class="image">
+  <!-- <div class="image">
+  </div> -->
+ 
   </div>
+  </div>
+
+  <div class="container2">
+    
+      <div class="heading">
+        <h2>VOYAGE</h2>
+        <button [routerLink]="['/voyageform/',id]" class="btn">ADD VOYAGE</button></div>
+
+        
+  
+
+<div class="tabelC">
   <div *ngFor="let vessel of datas">
     <mat-card class="example-card">
       <div class="cardDiv1">
@@ -33,9 +47,11 @@
   
 
 <div class="tabelC">
+  <div >
+    <div style="display:flex;justify-content:center;">
     <ngx-datatable
       style="height: auto"
-      class="bootstrap"
+      class="bootstrap class2"
       [rows]="rows"
       [columns]="columns"
       fixed-header
@@ -49,7 +65,7 @@
       <ngx-datatable-column
         name="VOYAGE DATE"
         prop="cosp_time"
-        [width]="200"
+        [width]="300"
         [sortable]='true'>
         <!-- <ng-template let-column="column" ngx-datatable-header-template>VOYAGE DATE</ng-template> -->
       </ngx-datatable-column>
@@ -57,7 +73,7 @@
       <ngx-datatable-column
         name="STARTING PORT"
         prop="startportname"
-        [width]="150"
+        [width]="250"
         [sortable]="true">
         <!-- <ng-template let-column="column" ngx-datatable-header-template>STARTING PORT</ng-template> -->
       </ngx-datatable-column>
@@ -66,7 +82,7 @@
       <ngx-datatable-column
         name="DESTINATION PORT"
         prop="destinationportname"
-        [width]="150"
+        [width]="250"
         [sortable]="true">
         <ng-template let-column="column" ngx-datatable-header-template>DESTINATION PORT</ng-template>
       </ngx-datatable-column>
@@ -80,6 +96,8 @@
       </ngx-datatable-column>
   
     </ngx-datatable>
+    </div>
+    </div>
   </div>
   </div>
   </div>

@@ -28,7 +28,7 @@ export class VoyageFormComponent implements OnInit {
 
     this.voyageForm=this.formBuilder.group
     ({
-      startport_id:[],
+      startport_id:[''],
       destinationport_id:[''],
       cosp_lat:[],
       cosp_long:[],
@@ -69,5 +69,8 @@ export class VoyageFormComponent implements OnInit {
 reloadPage(): void {
   window.location.reload();
 }
+reset(){
 
+  
+}
 }

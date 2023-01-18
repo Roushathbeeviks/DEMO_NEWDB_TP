@@ -54,21 +54,15 @@ export class HeaderComponent implements OnInit {
   }
   searchVessel(query:KeyboardEvent){
     if(query){
-      const element=query.target as HTMLInputElement;
+      const element= localStorage.getItem('Id')
       
       // console.warn(element.value)
-      this.search.search(element.value).subscribe((result)=>{
+      this.search.searchUser(element).subscribe((result)=>{
         // console.warn(result);
         this.searchResult=result
-        
-        // if(result.length>5){
-        //   result.length=5;
-        // }
+        console.warn(result)
       })
     
-     
-
-
     }
 
   }
@@ -77,5 +71,6 @@ export class HeaderComponent implements OnInit {
     console.warn(val)
     this.router.navigate([`voyagetable/${val}`])
   }
+ 
 
 }

@@ -1,6 +1,6 @@
 <div class="container1">
     <div class="container2">
-        <div class="heading">NEW VOYAGE PLAN
+        <div class="heading"><h2 style="color:rgb(214, 179, 63)">NEW VOYAGE PLAN</h2>
             <div class="importButton">
                 <!-- <button class="btnColor">Import Voyage Plan</button> -->
                 </div>
@@ -22,69 +22,45 @@
                 <!-- <div>
                     <input type="text" formControlName="vessel_id" value="{{vesselId}}">
                 </div> -->
-                <div class="display">
-                    <div>
-                        <label >START PORT NAME</label><span style="color:red;">*</span>
-                        <select formControlName="startport_id" >
+       <div class="display">
+        <div>
+                <div class="display 2">
+                  <div class="block1"><label  >START PORT NAME</label><span style="color:red;">*</span></div>
+                      <div  class="block1"><select formControlName="startport_id" class="block2" >
+                        <option value="">Select Port</option>
                             <option *ngFor="let start of StartPort" value="{{start.id}}">{{start.name}}</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label >DESTINATION PORT NAME</label><span style="color:red;">*</span>
-                        <select formControlName="destinationport_id" >
-                            <option value="">Select  Vessel Type</option>
+                        </select></div>
+                  </div>
+                  <div class="display 2">
+                       <div class="block1"> <label>COSP Lat</label> <span style="color:red;">*</span></div>
+                       <div  class="block1"><input type="text" class="block2" formControlName="cosp_lat" style="width:100%"></div>
+                </div>
+                <div class="display 2">
+                    <div class="block1"> <label>EOSP Lat</label> <span style="color:red;">*</span></div>
+                   <div  class="block1">  <input type="text" class="block2" formControlName="eosp_lat"></div>
+                 </div>
+               
+                </div>
+                <div>
+                    <div class="display 2">
+                        <div class="block1"><label >DESTINATION PORT NAME</label><span style="color:red;">*</span></div>
+                       <div  class="block1"> <select class="block2" formControlName="destinationport_id" >
+                        <option value="">Select Port</option>
                             <option *ngFor="let end of DestinationPort" value="{{end.id}}">{{end.name}}</option>
-                        </select>
+                        </select></div>
+                  </div>
+                  <div class="display 2">
+                    <div class="block1">  <label>COSP Lon</label> <span style="color:red;">*</span></div>
+                      <div  class="block1"><input type="text" class="block2" formControlName="cosp_long"></div>
+                  </div>
+                    <div class="display 2">
+                       <div class="block1"> <label>EOSP Lon</label> <span style="color:red;">*</span></div>
+                       <div  class="block1"> <input type="text" class="block2" formControlName="eosp_long"></div>
                     </div>
-                </div>
-
-                <div class="display">
-                    <div>
-                        <label>COSP Lat</label> <span style="color:red;">*</span>
-                        <input type="text" formControlName="cosp_lat">
-                    </div>
-                    <div>
-                        <label>COSP Lon</label> <span style="color:red;">*</span>
-                        <input type="text" formControlName="cosp_long">
-                    </div>
-                </div>
-
-                <div class="display">
-                    <div>
-                        <label>EOSP Lat</label> <span style="color:red;">*</span>
-                        <input type="text" formControlName="eosp_lat">
-                    </div>
-                    <div>
-                        <label>EOSP Lon</label> <span style="color:red;">*</span>
-                        <input type="text" formControlName="eosp_long">
-                    </div>
-                </div>
-<!-- 
-                <div class="display">
-                    <div>
-                        <label>COSP TIME</label> <span style="color:red;">*</span>
-                        <input type="text" formControlName="cosp_time">
-                    </div>
-                    <div>
-                        <label>DISPALCEMENT</label> <span style="color:red;">*</span>
-                        <input type="text" formControlName="displacement">
-                    </div>
-                </div>
-             
-                <div class="display">
-                    <div>
-                        <label>EARLIEST ETA</label> <span style="color:red;">*</span>
-                        <input type="text" formControlName="earliest_eta">
-                    </div>
-                    <div>
-                        <label>JUST ETA</label> <span style="color:red;">*</span>
-                        <input type="text" formControlName="just_eta">
-                    </div>
-                </div>
- -->
-
-
-
+            </div>   
+            
+            </div>
+            <div style="display:none"> <input type="reset" id="primaryButton"  /></div>
             </form> 
             </mat-expansion-panel>
 
@@ -96,58 +72,32 @@
                 </mat-expansion-panel-header>
 
                 <form [formGroup]="voyageForm">
-                <div class="display">
-                    <div>
-                        <label>COSP TIME</label> <span style="color:red;">*</span>
-                        <input type="datetime-local" formControlName="cosp_time">
+                    <div class="display">
+                   <div>     
+                 <div class="display2">
+                        <div class="block1"><label>COSP TIME</label> <span style="color:red;">*</span></div>
+                        <div class="block1"> <input  class="block2" type="datetime-local" formControlName="cosp_time"> </div>
                     </div>
-                    <div>
-                        <label>DISPALCEMENT</label> <span style="color:red;">*</span>
-                        <input type="text" formControlName="displacement">
+                    <div class="display2">
+                       <div class="block1"> <label>EARLIEST ETA</label> <span style="color:red;">*</span></div>
+                        <div class="block1"  ><input  class="block2" type="datetime-local" formControlName="earliest_eta"></div>
                     </div>
+
+                  </div>
+                <div >   
+                <div class="display2">
+                  <div class="block1">  <label>DISPALCEMENT</label> <span style="color:red;">*</span></div>
+                   <div class="block1"> <input type="text" class="block2" formControlName="displacement"></div>
                 </div>
-             
-                <div class="display">
 
-                    <!-- <div class="date-container">
-                        <input
-                                class="shadow-input"
-                                name="date_time"
-                                [(ngModel)]="currentDate"
-                                [owlDateTime]="dt1"
-                      
-                        >
-                        <input
-                                type="text"
-                                [owlDateTimeTrigger]="dt1"
-                                placeholder="Date Time"
-                                [value]="currentDate | dateFilter:dateFormat"
-                        >
-                    </div>  -->
-
-
-                    <!-- <div>
-                    <label>EARLIEST ETA</label> <span style="color:red;">*</span>
-                    <input [(ngModel)]="date" [owlDateTime]="fromdatepicker" 
-                    placeholder="Date Time" 
-                    value="" 
-                    class="form-control" 
-                    formControlName="earliest_eta">
-                    <owl-date-time #fromdatepicker></owl-date-time>
-                    <span [owlDateTimeTrigger]="fromdatepicker" class="trigger">
-                        <mat-icon>calendar_today</mat-icon>
-                    </span>
-                </div> -->
-                    <div>
-                        <label>EARLIEST ETA</label> <span style="color:red;">*</span>
-                        <input type="datetime-local" formControlName="earliest_eta">
+                    <div  class="display2">
+                        <div class="block1"><label>JUST ETA</label> <span style="color:red;">*</span></div>
+                       <div class="block1"> <input type="datetime-local"  class="block2" formControlName="just_eta"></div>
                     </div>
-
-                    <div>
-                        <label>JUST ETA</label> <span style="color:red;">*</span>
-                        <input type="datetime-local" formControlName="just_eta">
                     </div>
+              
                 </div>
+               <div style="display:none"> <input type="reset" id="primaryButton"  /></div>
                 </form>
 
 
@@ -163,34 +113,15 @@
 
             
               </mat-expansion-panel>
-              
-              <!-- <mat-expansion-panel class="color">
-                <mat-expansion-panel-header  class="color2" >
-                  <mat-panel-title class="colorText">
-                   WAYPOINTS
-                  </mat-panel-title>      
-                </mat-expansion-panel-header>
-
-
-            
-              </mat-expansion-panel> -->
           </mat-accordion>
           
-
-          <div><button (click)="save()">Save</button></div>
-          <div><button>Cancel</button></div>
-
-
+        <div class="buttons">
+          <input type="button" class="btnC" 
+       id="secondaryButton" 
+       onclick="document.getElementById('primaryButton').click()" value="Cancel" />
+            
+          <button class="btn" (click)="save()">Save</button>
+          
+            </div>
     </div >
 </div >
-<!-- 
-
-
-
-
-
-<div class="move1">
-    <select formControlName="startport_id" >
-        <option *ngFor="let start of StartPort" value="{{start.id}}">{{start.name}}</option>
-    </select>
-</div>  -->

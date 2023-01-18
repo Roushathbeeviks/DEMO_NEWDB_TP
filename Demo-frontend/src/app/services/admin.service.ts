@@ -50,4 +50,8 @@ export class AdminService {
   search(query:string) {
     return this.http.get(this.URL+`/admin/getvesselname?q=${query}`);
   }
+  searchUser(query:any,){
+    //  return this.http.get(this.URL +`/admin/getvessel/${query}`)
+    return this.http.get(this.URL +`/admin/getvessel/${query}`)
+  }
 }
