@@ -96,6 +96,7 @@ img{
   align-content: center;
   justify-content: center;
   min-width: 120px;
+  max-height: 105px;
 }
 .example-card{
   box-sizing: border-box;

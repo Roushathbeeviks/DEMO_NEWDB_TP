@@ -21,7 +21,7 @@
 .row{
   display: flex;
   justify-content:flex-start;
-  padding-top: 10px;
+  /* padding-top: 10px; */
   
   
 }
@@ -100,6 +100,7 @@ img{
 }
 .btn{
   min-width: 110px;
+  
 }
 .heading{
   /* color:rgb(214, 179, 63); */
@@ -107,7 +108,7 @@ img{
   justify-content: space-between;
   font-size: 16px;
   align-items: center;
-  padding-top: 10px;
+  /* padding-top: 10px; */
   margin-right: 35px;
 }
 .container2{
