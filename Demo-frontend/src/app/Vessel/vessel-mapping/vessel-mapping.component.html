@@ -5,12 +5,16 @@
 
   <ng-multiselect-dropdown
     [settings]="dropdownSettings"
+    placeholder="Select vessels"
     [data]="dropdownList"
-    formControlName="vessel_name">
+    [(ngModel)]="selectedItems"
+    formControlName="vessel_name"
+    (onSelect)="onItemSelect($event)"
+    (onDeSelect)="delete($event)">
   </ng-multiselect-dropdown>
-  <ul *ngFor="let names of list">
+  <!-- <ul *ngFor="let names of list">
   <li>{{names.vessel_name}}</li>
-</ul>
+</ul> -->
   <span
     class="error-message"
     *ngIf="

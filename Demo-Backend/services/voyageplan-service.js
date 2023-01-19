@@ -29,7 +29,7 @@ const VoyagePlan = {
     });
   },
   GetVoyagePlanByVesselId: (req, res) => {
-    var query = `SELECT voyage.startport_id, voyage.destinationport_id, 
+    var query = `SELECT voyage.id,voyage.startport_id, voyage.destinationport_id, 
   voyage.cosp_time, voyage.earliest_eta, 
   voyage.just_eta,
   startport.name as startportname,
@@ -71,6 +71,24 @@ const VoyagePlan = {
       }
     });
   },
+  EditVoyage:(req, res) => {
+    const id=req.params.id;
+    const newstartport_id=req.body.startport_id;
+    const newdestinationport_id=req.body.destinationport_id;
+    const newcosp_lat=req.body.cosp_lat;
+    const newcosp_long=req.body.cosp_long;
+    const neweosp_lat=req.body.eosp_lat;
+    const neweosp_long=req.body.eosp_long;
+    const newcosp_time=req.body.cosp_time;
+    const newdisplacement=req.body.displacement;
+    const newearliest_eta=req.body.earliest_eta;
+    const newjust_eta=req.body.just_eta;
+    const newvessel_id=req.body.vessel_id
+
+    var X=VoyageTAsks.EditVoyage(id,newstartport_id,newdestinationport_id,newcosp_lat,newcosp_long,
+      neweosp_lat,neweosp_long,newcosp_time,newdisplacement,newearliest_eta,newjust_eta,newvessel_id)
+
+  },
   GetStartPortById: (req, res) => {
     var query = "select name from startport where id=?";
     connection.query(query,[req.params.id], (err, results) => {
@@ -95,6 +113,14 @@ const VoyagePlan = {
 };
 
 module.exports = VoyagePlan;
+
+
+
+
+
+
+
+
 
 // const VoyagePlan = {
 //     VoyagePlanForm:(req,res)=>

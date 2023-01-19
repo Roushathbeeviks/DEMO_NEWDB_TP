@@ -19,10 +19,10 @@ import { ActivatedRoute } from '@angular/router';
 export class VesselMappingComponent implements OnInit {
   VesselMappingForm:any=FormGroup
   dropdownList:any = [];
-  selectedItems:any = [];
+  selectedItems: any = [];
   dropdownSettings:IDropdownSettings={};
   id:any
-  list:any=[]
+
 
  
   constructor(private vesselmapserv:VesselMappingService,  
@@ -34,16 +34,16 @@ export class VesselMappingComponent implements OnInit {
 
   ngOnInit()  {
    
-  //  console.log("kk",this.data)
     this.dropdownSettings = {
       singleSelection: false,
       idField: 'id',
       textField: 'name',
       selectAllText: 'Select All',
       unSelectAllText: 'UnSelect All',
-      itemsShowLimit: 3,
+      itemsShowLimit: 5,
       allowSearchFilter: true
     };
+
     this.vesselmapserv.GetVesselNameFromVessel().subscribe((res:any)=>
     {
       this.dropdownList=res
@@ -51,50 +51,69 @@ export class VesselMappingComponent implements OnInit {
     })
     this.vesselmapserv.currentApprovalStageMessage.subscribe((msg) =>
     {
-      console.log("service via id",msg)
+      // console.log("service via id",msg)
       this.id = msg
     });
     this.VesselMappingForm=this.formBuilder.group
     ({
       username:[],
-      vessel_name:['',Validators.required]
+      vessel_name:[this.selectedItems,Validators.required]
     })
 
     this.vesselserv.GetVesselNameByVesselUserMapping(this.data).subscribe((msg:any) =>
     {
      this.id= this.route.snapshot.paramMap.get('id')
-     this.list=msg
-      // console.log("vesselmapping",this.list)
+     this.selectedItems=msg
+      console.log("vesselmapping",this.selectedItems)
       // console.log("vesselmapping id ",this.data)
     })
   
   }
- Save()
-  {
-    // this.VesselMappingForm.markAllAsTouched();
-    if(this.VesselMappingForm.value['vessel_name'])
-    {
-      
-    this.VesselMappingForm.value['vessel_name'].forEach((e:any) => 
-    {
-      e['user_id'] = this.data
-    });
-    this.vesselmapserv.PostVesselMapping(this.VesselMappingForm.value['vessel_name']).subscribe((res:any)=>
-    {
-      console.log("Response",res)
-      if(res?.message=="success")
-      {
-      this.vesselserv.openSnackBar("Successfully save","ok")
-      this.dialogRef.close();
-      }
-      else
-      {
-        this.vesselserv.openSnackBar("Failed to save","error")
-      }
-    })
+  onItemSelect(item: any) {
+    console.log("onItemSelect", item);
   }
+  onSelectAll(items: any) {
+    console.log("onSelectAll", items);
   }
-
+  onItemDeSelect(items:any){
+    console.log("onDeSelect", items)
+    console.log("Existing",items.id)
   
+  }
 
+
+delete(items:any)
+{
+  this.vesselmapserv.DeleteExistingVesselsfromMap(this.data).subscribe((msg:any)=>
+  {
+    console.log("delete")
+  })
+}
+
+
+
+
+Save()
+{
+  if(this.VesselMappingForm.value['vessel_name'])
+  {
+  this.VesselMappingForm.value['vessel_name'].forEach((e:any) => 
+  {
+    e['user_id'] = this.data
+  });
+  this.vesselmapserv.PostVesselMapping(this.VesselMappingForm.value['vessel_name']).subscribe((res:any)=>
+  {
+    console.log("Response",res)
+    if(res?.message=="success")
+    {
+    this.vesselserv.openSnackBar("Successfully save","ok")
+    this.dialogRef.close();
+    }
+    else
+    {
+      this.vesselserv.openSnackBar("Failed to save","error")
+    }
+  })
+}
+}
 }
