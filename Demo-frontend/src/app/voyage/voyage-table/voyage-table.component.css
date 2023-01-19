@@ -82,12 +82,12 @@ img{
   }
   .tabelC{
     display: flex;
-    justify-content: flex-start ;
+    justify-content: space-between ;
     padding-top: 10px;
     gap:20px;
-
     border: 2px;
     border-color: aliceblue;
+  
 }
 .image{
   display: flex;
@@ -102,7 +102,7 @@ img{
   min-width: 110px;
 }
 .heading{
-  color:rgb(214, 179, 63);
+  /* color:rgb(214, 179, 63); */
   display: flex;
   justify-content: space-between;
   font-size: 16px;
@@ -139,4 +139,26 @@ img{
   color:white;display: flex;
   font-size: 11px;
   justify-content: space-between;
+}
+.iconsPlace{
+  display: flex;
+ 
+  gap:30px;
+  cursor: pointer;
+}
+
+.adjust{
+  
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.ngx-datatable.bootstrap .datatable-footer .page-count {
+  display: flex;
+  align-items: center;
+  line-height: 50px;
+  height: 50px;
+  padding: 10px;
+  overflow: hidden;
 }
