@@ -39,9 +39,9 @@ import { MatDividerModule } from '@angular/material/divider';
 // import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
-import { SwiperModule } from 'swiper/angular';
+// import { SwiperModule } from 'swiper/angular';
 
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
+// import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { ForgotpasswordComponent } from './Users/forgotpassword/forgotpassword.component';
 import { LogoutComponent } from './logout/logout.component';
@@ -131,8 +131,8 @@ import { EditVoyageComponent } from './voyage/edit-voyage/edit-voyage.component'
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
     MatDividerModule,
-    Ng2SearchPipeModule,
-    SwiperModule 
+    // Ng2SearchPipeModule,
+    // SwiperModule 
  
 
 
