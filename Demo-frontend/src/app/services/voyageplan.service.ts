@@ -37,6 +37,13 @@ export class VoyageplanService {
   {
     return this.http.get(this.URL +'/admin/destinationport')
   }
-
+  GeDestinationPortById(id:any)
+  {
+    return this.http.get(this.URL +`/admin/destinationportbyid/${id}`)
+  }
+  GetStartPortById(id:any)
+  {
+    return this.http.get(this.URL +`/admin/startportbyid/${id}`)
+  }
 
 }

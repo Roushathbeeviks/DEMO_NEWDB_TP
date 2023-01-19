@@ -97,6 +97,24 @@ const Vessel={
             }
         })
     },
+    GetVesselId:(req,res)=>
+    {
+        var query = "select vessel_id from vessel_user_mapping where user_id=?"
+        connection.query(query,[req.params.id] ,function(err,results)
+        {
+            if(results)
+            {
+                res.send(results);
+                // console.log(results);
+            }
+            else
+            {
+                res.send(err);
+                // console.log(err);
+                
+            }
+        })
+    },
     GetVesselFlag:(req,res)=>
     {
         var query = "select * from flag"
@@ -137,6 +155,7 @@ const Vessel={
     VesselMap:(req,res)=>
     {
         let data=req.body;
+        console.log("data",data)
         VesselTask.insertVesselMapping(data).then((err,result)=>
         {
             if(result)

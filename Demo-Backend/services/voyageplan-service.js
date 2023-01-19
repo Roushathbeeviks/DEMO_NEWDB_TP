@@ -71,6 +71,27 @@ const VoyagePlan = {
       }
     });
   },
+  GetStartPortById: (req, res) => {
+    var query = "select name from startport where id=?";
+    connection.query(query,[req.params.id], (err, results) => {
+      if (results) {
+        res.send(results);
+      } else {
+        res.send({ message: err });
+      }
+    });
+  },
+
+  GetDestinationPortBYId:(req, res) => {
+    var query = "select name from destinationport where id=?";
+    connection.query(query,[req.params.id], (err, results) => {
+      if (results) {
+        res.send(results);
+      } else {
+        res.send({ message: err });
+      }
+    });
+  },
 };
 
 module.exports = VoyagePlan;

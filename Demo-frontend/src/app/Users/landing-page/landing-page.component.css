@@ -116,3 +116,8 @@ img{
 .mat-focus-indicator {
   position: inherit;
 }
+.belowText{
+  color:white;display: flex;
+  font-size: 11px;
+  justify-content: space-between;
+}
