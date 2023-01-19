@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ColumnMode } from '@swimlane/ngx-datatable';
 import { AdminService } from 'src/app/services/admin.service';
 import { VesselMappingService } from 'src/app/services/vessel-mapping.service';
+import { VesselService } from 'src/app/services/vessel.service';
 import { EditprofileComponent } from 'src/app/Users/editprofile/editprofile.component';
 import { VesselMappingComponent } from 'src/app/Vessel/vessel-mapping/vessel-mapping.component';
 
@@ -21,7 +22,11 @@ id1:any
 id:any
 username:any
 var:string=""
-  constructor(private adminserv:AdminService,private route:Router,private dialog:MatDialog,private vesselmapserv:VesselMappingService) { }
+  constructor(private adminserv:AdminService,
+    private route:Router,
+    private dialog:MatDialog,
+    private vesselmapserv:VesselMappingService,
+    private vesselserv:VesselService) { }
 
   ngOnInit(): void {
     this.adminserv.AllUsers().subscribe((res:any)=>
@@ -62,6 +67,7 @@ var:string=""
 
   delete($event:any,id:any) 
   {
+
      if(confirm("Do you want to delete this user"))
      {
       this.id=id;

@@ -22,6 +22,9 @@ router.get("/startport", function (req, res) {
 router.get("/destinationport", function (req, res) {
   VoyagePlan.GetDestinationPort(req, res);
 });
+router.put("/editvoyage/:id", function (req, res) {
+  VoyagePlan.EditVoyage(req, res);
+});
 
 
 
