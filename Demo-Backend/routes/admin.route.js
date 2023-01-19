@@ -22,6 +22,14 @@ router.get("/startport", function (req, res) {
 router.get("/destinationport", function (req, res) {
   VoyagePlan.GetDestinationPort(req, res);
 });
+router.get("/destinationportbyid/:id", function (req, res) {
+  VoyagePlan.GetDestinationPortBYId(req, res);
+});
+router.get("/startportbyid/:id", function (req, res) {
+  VoyagePlan.GetStartPortById(req, res);
+});
+
+
 
 
 
@@ -34,6 +42,9 @@ router.get("/vesselNameVU/:id",function (req, res) {
  });
 router.get("/getvessel/:id", function (req, res) {
   Vessel. GetVesselByUserid(req,res);
+});
+router.get("/getvesselId/:id", function (req, res) {
+  Vessel. GetVesselId(req,res);
 });
 router.get("/getVesselByVesselId/:id", function (req, res) {
   Vessel. GetVesselByVesselId(req,res);
@@ -65,5 +76,4 @@ router.delete("/deletevessel/:id", function (req, res) {
 router.get("/getvesselmapping/:id", function (req,res) {
   Vessel.GetVesselMapping(req,res);
 });
-
 module.exports = router;
