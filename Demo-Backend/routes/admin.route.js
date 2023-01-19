@@ -66,4 +66,8 @@ router.get("/getvesselmapping/:id", function (req,res) {
   Vessel.GetVesselMapping(req,res);
 });
 
+router.delete("/deleteexitingmap/:id", function (req,res) {
+  Vessel.DeleteExistingMap(req,res);
+});
+
 module.exports = router;

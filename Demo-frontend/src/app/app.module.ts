@@ -64,6 +64,7 @@ import { SearchComponent } from './search/search.component';
 
 // import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { FirstCapDirective } from './first-cap.directive';
+import { EditVoyageComponent } from './voyage/edit-voyage/edit-voyage.component';
 
 
 @NgModule({
@@ -98,6 +99,7 @@ import { FirstCapDirective } from './first-cap.directive';
     SearchComponent,
    
     FirstCapDirective,
+         EditVoyageComponent,
    
   
   ],

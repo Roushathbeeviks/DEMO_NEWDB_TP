@@ -135,3 +135,9 @@ img{
   font-family: sans-serif;
   font-size: 12px;
 }
+.iconsPlace{
+  display: flex;
+  justify-content: space-between;
+  gap:40px;
+  cursor: pointer;
+}

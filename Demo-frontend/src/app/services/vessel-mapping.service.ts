@@ -29,4 +29,8 @@ export class VesselMappingService {
   {
     return this.http.get(this.URL + '/admin/getvesselname')
   }
+  DeleteExistingVesselsfromMap(id:any)
+{
+  return this.http.delete(this.URL +`/admin/deleteexitingmap/${id}`)
+}
 }

@@ -172,7 +172,7 @@ const Vessel={
     },
     VesselNameFromMApping:(req,res)=>
     {
-        var query =`select vessel_name,vessel_id from vessel_user_mapping where vessel_user_mapping.user_id=?`;
+        var query =`select vessel_name as name,vessel_id as id from vessel_user_mapping where vessel_user_mapping.user_id=?`;
         connection.query(query,[req.params.id], function(err,results)
         {
             if(results)
@@ -222,7 +222,23 @@ const Vessel={
 
             }
         })
-    }
+    },
+    DeleteExistingMap:(req,res)=>
+    {
+        var query = `delete from vessel_user_mapping where vessel_user_mapping.user_id=?`
+        connection.query(query,[req.params.id], function(err,results)
+        {
+            if(results)
+            {
+                res.send({message:results});
+            }
+            else
+            {
+                res.send({message:err});   
+
+            }
+        })
+    },
 }
 
 

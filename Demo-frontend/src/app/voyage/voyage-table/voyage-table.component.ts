@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ColumnMode } from '@swimlane/ngx-datatable';
 import { VesselService } from 'src/app/services/vessel.service';
 import { VoyageplanService } from 'src/app/services/voyageplan.service';
+import { MatDialog } from '@angular/material/dialog';
+import { EditVoyageComponent } from '../edit-voyage/edit-voyage.component';
 @Component({
   selector: 'app-voyage-table',
   templateUrl: './voyage-table.component.html',
@@ -22,7 +24,8 @@ export class VoyageTableComponent implements OnInit {
     private voyageserv:VoyageplanService,
     private vesselserv:VesselService,
     private route:ActivatedRoute,
-    private router:Router) { }
+    private router:Router,
+    private dialog:MatDialog) { }
 
   ngOnInit(): void 
   {
@@ -51,5 +54,17 @@ AddVoyage(id:any)
   this.router.navigate(['/voyageform/',this.vesselId]
   )
  
+}
+EditVoyage(id:any)
+{
+  this.vesselId = id
+  this.dialog.open(EditVoyageComponent,
+    {
+
+    })
+}
+delete(event:any,id:any)
+{
+
 }
 }

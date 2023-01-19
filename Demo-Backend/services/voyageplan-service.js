@@ -29,7 +29,7 @@ const VoyagePlan = {
     });
   },
   GetVoyagePlanByVesselId: (req, res) => {
-    var query = `SELECT voyage.startport_id, voyage.destinationport_id, 
+    var query = `SELECT voyage.id,voyage.startport_id, voyage.destinationport_id, 
   voyage.cosp_time, voyage.earliest_eta, 
   voyage.just_eta,
   startport.name as startportname,
