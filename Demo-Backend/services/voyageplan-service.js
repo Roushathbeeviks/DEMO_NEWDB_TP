@@ -88,7 +88,28 @@ const VoyagePlan = {
     var X=VoyageTAsks.EditVoyage(id,newstartport_id,newdestinationport_id,newcosp_lat,newcosp_long,
       neweosp_lat,neweosp_long,newcosp_time,newdisplacement,newearliest_eta,newjust_eta,newvessel_id)
 
-  }
+  },
+  GetStartPortById: (req, res) => {
+    var query = "select name from startport where id=?";
+    connection.query(query,[req.params.id], (err, results) => {
+      if (results) {
+        res.send(results);
+      } else {
+        res.send({ message: err });
+      }
+    });
+  },
+
+  GetDestinationPortBYId:(req, res) => {
+    var query = "select name from destinationport where id=?";
+    connection.query(query,[req.params.id], (err, results) => {
+      if (results) {
+        res.send(results);
+      } else {
+        res.send({ message: err });
+      }
+    });
+  },
 };
 
 module.exports = VoyagePlan;

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MaxLengthValidator } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ColumnMode } from '@swimlane/ngx-datatable';
+import { max } from 'rxjs';
 import { VesselService } from 'src/app/services/vessel.service';
 import { VoyageplanService } from 'src/app/services/voyageplan.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -20,8 +22,10 @@ export class VoyageTableComponent implements OnInit {
   id:any
   datas:any
   vesselId:any
-  stport:any
-  dpPort:any
+  stportId:any[]=[]
+  stPort:any
+  dstPortId:any[]=[]
+  dstPort:any
   constructor(
     private voyageserv:VoyageplanService,
     private vesselserv:VesselService,
@@ -47,8 +51,21 @@ export class VoyageTableComponent implements OnInit {
         this.rows=res.message
       })
   
-      this.voyageserv.GetStartPort().subscribe((res)=>{
-        console.log(res)
+      this.voyageserv.GetVoyagePlanByVesselId(this.id).subscribe((res:any)=>{
+        this.stportId=res.message[res.message.length-1].startport_id
+        
+        console.log("res",res)
+        console.log("port",this.stportId)
+       this.voyageserv.GetStartPortById(this.stportId).subscribe((res:any)=>{
+        this.stPort= res
+        console.log("dfdf",this.stPort)
+       })
+
+       this.dstPortId=res.message[res.message.length-1].destinationport_id
+       this.voyageserv.GeDestinationPortById(this.dstPortId).subscribe((res:any)=>{
+        this.dstPort=res
+       })
+       
       })
 
 }

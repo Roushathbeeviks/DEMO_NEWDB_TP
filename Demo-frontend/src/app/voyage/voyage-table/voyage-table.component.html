@@ -39,8 +39,8 @@
   <div class="belowText">
     <div style="min-width:60px;"></div>
     <div style="display:flex;width:100%;justify-content:space-between">
-    <div>{{StartPort}}</div>
-   <div>Destination Port :</div>
+    <div *ngFor="let names of stPort">{{names.name}}</div>
+    <div *ngFor="let dsnames of dstPort">{{dsnames.name}}</div>
    </div>
 </div>
 <div style="display:flex;color:whitesmoke;font-size:11px">
@@ -99,7 +99,7 @@
         <!-- <ng-template let-column="column" ngx-datatable-header-template>JUST IN TIME ETA</ng-template> -->
       </ngx-datatable-column>
       
-       <ngx-datatable-column
+       <!-- <ngx-datatable-column
     name="Actions"
     [minWidth]="100"
     [flexGrow]="3"
@@ -123,7 +123,7 @@
     
     
     </ng-template>
-  </ngx-datatable-column>
+  </ngx-datatable-column> -->
   
       
     </ngx-datatable>
