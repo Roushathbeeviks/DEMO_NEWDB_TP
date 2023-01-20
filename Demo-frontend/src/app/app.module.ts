@@ -65,6 +65,7 @@ import { SearchComponent } from './search/search.component';
 // import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { FirstCapDirective } from './first-cap.directive';
 import { EditVoyageComponent } from './voyage/edit-voyage/edit-voyage.component';
+import { CarouselModule } from 'node_modules/ngx-owl-carousel-o';
 
 
 @NgModule({
@@ -131,6 +132,7 @@ import { EditVoyageComponent } from './voyage/edit-voyage/edit-voyage.component'
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
     MatDividerModule,
+    CarouselModule
     // Ng2SearchPipeModule,
     // SwiperModule 
  
