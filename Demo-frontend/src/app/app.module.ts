@@ -37,7 +37,7 @@ import { MatDividerModule } from '@angular/material/divider';
 // import {NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 // import { TitleCasePipe } from '@angular/common';
 // import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 import { SwiperModule } from 'swiper/angular';
 
@@ -132,7 +132,8 @@ import { EditVoyageComponent } from './voyage/edit-voyage/edit-voyage.component'
     OwlNativeDateTimeModule,
     MatDividerModule,
     Ng2SearchPipeModule,
-    SwiperModule 
+    SwiperModule ,
+    CarouselModule
  
 
 

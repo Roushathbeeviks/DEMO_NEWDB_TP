@@ -31,7 +31,9 @@ router.get("/destinationportbyid/:id", function (req, res) {
 router.get("/startportbyid/:id", function (req, res) {
   VoyagePlan.GetStartPortById(req, res);
 });
-
+router.delete("/deletevoyage/:id", function (req, res) {
+  VoyagePlan.DeleteVoyage(req,res);
+})
 
 
 

@@ -26,6 +26,7 @@ export class VoyageTableComponent implements OnInit {
   stPort:any
   dstPortId:any[]=[]
   dstPort:any
+  voyageId:any
   constructor(
     private voyageserv:VoyageplanService,
     private vesselserv:VesselService,
@@ -79,7 +80,8 @@ AddVoyage(id:any)
 }
 EditVoyage(id:any)
 {
-  this.vesselId = id
+  this.voyageId = id
+  console.log("hifi",this.voyageId)
   this.dialog.open(EditVoyageComponent,
     {
 
@@ -87,6 +89,9 @@ EditVoyage(id:any)
 }
 delete(event:any,id:any)
 {
-
+  this.voyageId=id
+  this.voyageserv.DeletVoyage(this.voyageId).subscribe((res:any)=>{
+  this.ngOnInit();
+})
 }
 }

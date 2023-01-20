@@ -68,26 +68,38 @@ const VoyagePlan = {
         res.send(results);
       } else {
         res.send({ message: err });
-      }
+      }                         
     });
   },
+  
   EditVoyage:(req, res) => {
+    console.log(req.body)
     const id=req.params.id;
+    console.log(id)
     const newstartport_id=req.body.startport_id;
     const newdestinationport_id=req.body.destinationport_id;
-    const newcosp_lat=req.body.cosp_lat;
-    const newcosp_long=req.body.cosp_long;
-    const neweosp_lat=req.body.eosp_lat;
-    const neweosp_long=req.body.eosp_long;
     const newcosp_time=req.body.cosp_time;
-    const newdisplacement=req.body.displacement;
     const newearliest_eta=req.body.earliest_eta;
     const newjust_eta=req.body.just_eta;
-    const newvessel_id=req.body.vessel_id
 
-    var X=VoyageTAsks.EditVoyage(id,newstartport_id,newdestinationport_id,newcosp_lat,newcosp_long,
-      neweosp_lat,neweosp_long,newcosp_time,newdisplacement,newearliest_eta,newjust_eta,newvessel_id)
-
+    var X=VoyageTAsks.EditVoyage(id,newstartport_id,newdestinationport_id,newcosp_time,newearliest_eta,newjust_eta)
+      if(X)
+      {
+         return res.json({message:"Updated the voyage"});
+      }
+      else{
+        return res.json({message:"Updation voyage"});
+      }
+  },
+  DeleteVoyage:(req, res) => {
+    var query=`delete from voyage where id=?`
+    connection.query(query,[req.params.id], (err, results) => {
+      if (results) {
+        res.send(results);
+      } else {
+        res.send({ message: err });
+      }
+    })
   },
   GetStartPortById: (req, res) => {
     var query = "select name from startport where id=?";

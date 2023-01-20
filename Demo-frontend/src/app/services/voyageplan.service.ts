@@ -45,5 +45,12 @@ export class VoyageplanService {
   {
     return this.http.get(this.URL +`/admin/startportbyid/${id}`)
   }
-
+  EditVoyage(id:any,data:any)
+  {
+    return this.http.put(this.URL +`/admin/editvoyage/${id}`,data)
+  }
+  DeletVoyage(id:any)
+  {
+    return this.http.delete(this.URL+`/admin/deletevoyage/${id}`)
+  }
 }

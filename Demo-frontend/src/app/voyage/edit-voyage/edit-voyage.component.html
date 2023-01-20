@@ -1,1 +1,45 @@
-<p>edit-voyage works!</p>
+<form [formGroup]="voyageForm">
+
+    <!-- <div>
+        <input type="text" formControlName="vessel_id" value="{{vesselId}}">
+    </div> -->
+<div class="display">
+<div>
+    <div class="display 2">
+      <div class="block1"><label  >START PORT NAME</label><span style="color:red;">*</span></div>
+          <div  class="block1"><select formControlName="startport_id" class="block2" >
+            <option value="">Select Port</option>
+                <option *ngFor="let start of StartPort" value="{{start.id}}">{{start.name}}</option>
+            </select></div>
+      </div>
+      <div class="display 2">
+           <div class="block1"> <label>COSP Lat</label> <span style="color:red;">*</span></div>
+           <div  class="block1"><input type="text" class="block2" formControlName="cosp_lat" style="width:100%"></div>
+    </div>
+    <div class="display 2">
+        <div class="block1"> <label>EOSP Lat</label> <span style="color:red;">*</span></div>
+       <div  class="block1">  <input type="text" class="block2" formControlName="eosp_lat"></div>
+     </div>
+   
+    </div>
+    <div>
+        <div class="display 2">
+            <div class="block1"><label >DESTINATION PORT NAME</label><span style="color:red;">*</span></div>
+           <div  class="block1"> <select class="block2" formControlName="destinationport_id" >
+            <option value="">Select Port</option>
+                <option *ngFor="let end of DestinationPort" value="{{end.id}}">{{end.name}}</option>
+            </select></div>
+      </div>
+      <div class="display 2">
+        <div class="block1">  <label>COSP Lon</label> <span style="color:red;">*</span></div>
+          <div  class="block1"><input type="text" class="block2" formControlName="cosp_long"></div>
+      </div>
+        <div class="display 2">
+           <div class="block1"> <label>EOSP Lon</label> <span style="color:red;">*</span></div>
+           <div  class="block1"> <input type="text" class="block2" formControlName="eosp_long"></div>
+        </div>
+</div>   
+
+</div>
+<div style="display:none"> <input type="reset" id="primaryButton"  /></div>
+</form> 
