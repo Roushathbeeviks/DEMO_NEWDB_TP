@@ -1,52 +1,48 @@
 <div class="container">
-    <div class="child"> 
-        <div class="parent">
             <app-admin-header></app-admin-header>
-        </div>
-    </div>
-
-    <!-- <ng-image-slider 
-    ></ng-image-slider> -->
-    <div class="row">
-      <div>
-        <div class="image">
-          <img style="width:100%;height:100%" src="../../../assets/synergy-logo.png" alt="">
-        </div>
-      </div>
-      <div  *ngFor="let vessel of data">
-        <mat-card class="example-card" routerLink="/vessel">
-          <div class="cardDiv1">
-            <div class="cardDiv2"><img src="../../../assets/flag1.png"></div>
-            <div class="cardDiv3">
-              <div class="title">
-                {{vessel.VesselName}}
-                <br>
-                {{vessel.IMONumber}}
+            <div class="row">
+              <div class="row2">
+                <div class="image">
+                  <img style="width:100%;height:100%" src="../../../assets/synergy-logo.png" alt="">
+                </div>
+      <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let vessel of data;let i index">
+        <ng-template carouselSlide>
+          <mat-card class="example-card" [routerLink]="['/voyagetable/',vessel.id]">
+            <div class="cardDiv1">
+              <div class="cardDiv2"><img src="../../../assets/{{vessel.countryname}}.png"></div>
+              <div class="cardDiv3">
+                <div class="title">
+                  {{vessel.name}}
+                  <br>
+                  {{vessel.imo_number}}
+                </div>
+                <div class="text">
+                  <mat-icon style="color:rgb(64, 187, 64);font-size: 7px;">brightness_1</mat-icon> &nbsp;
+                  Online
+                </div>
               </div>
-          
-          <div class="text">
-             <mat-icon style="color:rgb(64, 187, 64);font-size: 7px;">brightness_1</mat-icon> &nbsp;
-            Online
-        </div>
-        </div>
-      </div>  
+  
+            </div>
+            <div class="belowText">
+              <div style="min-width:60px;"></div>
+              <div style="display:flex;width:100%;justify-content:space-between">
+                <div>{{stPort[i]?.name}}</div>
+                <div>{{dstPort[i]?.name}}</div>
+              </div>
+            </div>
+            <div style="display:flex;color:whitesmoke;font-size:11px">
+              <div style="min-width:60px;"></div>
+  
+              <div><img style="width:100%; height: 50%;" src="../../../assets/arrow.JPG"></div>
+            </div>
       </mat-card>
-    </div>
+      </ng-template>
+    </ng-container>
+    </owl-carousel-o>
    </div>
+</div>
 </div>
 
 
-<!-- <mat-card-header>
-  <div mat-card-avatar class="example-header-image"><span class="flag-icon flag-icon-au flag-icon-squared">j</span></div>
-  <mat-card-title class="title">16-Daily ship</mat-card-title>
-  <mat-card-subtitle class="subtitle">IMO NO:12WE6</mat-card-subtitle>
-</mat-card-header>
-<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-<mat-card-content>
-  <p></p>
-</mat-card-content>
-<mat-card-actions>
-  <button mat-button>LIKE</button>
-  <button mat-button>SHARE</button>
-</mat-card-actions> -->
 
