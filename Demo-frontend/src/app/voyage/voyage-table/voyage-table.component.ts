@@ -7,6 +7,7 @@ import { VesselService } from 'src/app/services/vessel.service';
 import { VoyageplanService } from 'src/app/services/voyageplan.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EditVoyageComponent } from '../edit-voyage/edit-voyage.component';
+
 @Component({
   selector: 'app-voyage-table',
   templateUrl: './voyage-table.component.html',
@@ -42,7 +43,7 @@ export class VoyageTableComponent implements OnInit {
      this.vesselserv.GetVesselByVesselId(this.id).subscribe((res:any)=>
      {
       this.datas=res
-      console.log("res",res)
+      // console.log("res",res)
      })
     //  console.log("Snapshot id",this.id)
       this.voyageserv.GetVoyagePlanByVesselId(this.id).subscribe((res:any)=>
@@ -73,7 +74,7 @@ export class VoyageTableComponent implements OnInit {
 AddVoyage(id:any)
 {
   this.vesselId = id
-  console.log("Vessel id",this.vesselId)
+  // console.log("Vessel id",this.vesselId)
   this.router.navigate(['/voyageform/',this.vesselId]
   )
  
@@ -81,10 +82,12 @@ AddVoyage(id:any)
 EditVoyage(id:any)
 {
   this.voyageId = id
-  console.log("hifi",this.voyageId)
+  // console.log("hifi",this.voyageId)
   this.dialog.open(EditVoyageComponent,
     {
-
+      data:this.voyageId,
+      height:"60%",
+      width:"80%",
     })
 }
 delete(event:any,id:any)

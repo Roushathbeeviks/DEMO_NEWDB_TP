@@ -58,7 +58,7 @@ export class AdminSignUpComponent implements OnInit {
   {
 
     this.adminserv.CheckId(this.signup.value).subscribe((res:any) => {
-      console.log(res)
+      // console.log(res)
       if(res.status==true)
       {
         this.UsernameCheckmsg = res?.message;

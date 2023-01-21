@@ -6,35 +6,56 @@
       <!-- <img style="height:50px;" src="../../assets/MicrosoftTeams-image.png"><br> -->   
         <div class="LabIn">
           <label class="inputLabel">Username</label>
-          <input appFirstCap formControlName="username" class="input" type="text" id="username"/>
+          <input appFirstCap formControlName="username" readonly="true" class="input" type="text" id="username"/>
         </div>&nbsp; 
                
         <div  class="LabIn">
           <label class="inputLabel">First Name</label>
+          <div>
            <input  appFirstCap formControlName="first_name" class="input" type="text" id="first_name" placeholder="First Name"/>
-           <!-- <div class="errors" *ngIf="Editprofile.controls['first_name'].errors?.['required'] && Editprofile.controls['first_name'].touched">
+          <div class="errors" *ngIf="Editprofile.controls['first_name'].errors?.['required'] && Editprofile.controls['first_name'].touched">
             First name is required
-            </div>
-            <div class="errors" *ngIf="Editprofile.controls['first_name'].errors?.['minlength'] && Editprofile.controls['first_name'].touched">First name should have minimum length</div>
-            <div class="errors" *ngIf="Editprofile.controls['first_name'].errors?.['pattern'] && Editprofile.controls['first_name'].touched">First name cannot have numbers</div> -->
+            </div> 
+          </div>
+            <!-- <div class="errors" *ngIf="Editprofile.controls['first_name'].errors?.['minlength'] && Editprofile.controls['first_name'].touched">First name should have minimum length</div>
+            <div class="errors" *ngIf="Editprofile.controls['first_name'].errors?.['pattern'] && Editprofile.controls['first_name'].touched">First name cannot have numbers</div> --> -->
         
         </div>&nbsp;
         <div  class="LabIn">
           <label class="inputLabel">Last Name</label>
+        <div>
           <input  appFirstCap formControlName="last_name" class="input" type="text" id="last_name" placeholder="Last Name"/>
+            <div class="errors" *ngIf="Editprofile.controls['last_name'].errors?.['required'] && Editprofile.controls['last_name'].touched">
+              Last name is required
+              </div> 
+          </div>
 
         </div>&nbsp;
         <div  class="LabIn"> 
           <label class="inputLabel">Email</label>
-          <input formControlName="email" class="input" type="email" id="email" placeholder="Email"/>
-            
+          <div>
+            <input formControlName="email" class="input" type="email" id="email" placeholder="Email" (keyup)="CheckEmail()"/>
+              <div class="errors" *ngIf="Editprofile.controls['email'].errors?.['required'] && Editprofile.controls['email'].touched">
+              Email is required
+              </div>
+              <div class="errors" *ngIf="Editprofile.controls['email'].errors?.['email'] && Editprofile.controls['email'].touched">Enter valid email</div>
+              <div *ngIf="status==false" class="errors" >{{EmailCheckmsg}}</div>
+          </div>&nbsp;
         </div>&nbsp;
-       
-        <div  class="LabIn">
+        
+        <div class="LabIn">
           <label class="inputLabel">Contact</label>
+          <div>
           <input formControlName="contact_number" class="input" type="number" id="contact_number" placeholder="Contact Number"/>
-      
-        </div>&nbsp;  
+           <div class="errors" *ngIf="Editprofile.controls['contact_number'].errors?.['required'] && Editprofile.controls['contact_number'].touched">
+            Phone number is required
+            </div>
+            <div class="errors" *ngIf="Editprofile.controls['contact_number'].errors?.['minlength'] && Editprofile.controls['contact_number'].errors?.['maxlength']">Phone number should have minimum length</div>
+            <div class="errors" *ngIf="Editprofile.controls['contact_number'].errors?.['pattern'] && Editprofile.controls['contact_number'].touched">
+              Please enter numbers
+              </div>
+            </div>
+        </div>&nbsp;
          
         <div class="buttons">
           <button mat-dialog-close class="btn">Cancel</button>

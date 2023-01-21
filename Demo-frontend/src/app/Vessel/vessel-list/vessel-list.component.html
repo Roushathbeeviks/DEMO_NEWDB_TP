@@ -7,8 +7,9 @@
 <div class="flex">
         <div class="display">
           <label>IMO Number<span style="color:red;padding-left: 5px;">*</span></label>
-          <input type="text" formControlName="imo_number" />
+          <input type="text" formControlName="imo_number" (keyup)="CheckIMO($event)" />
           <div class="errors" *ngIf="VesselForm.controls['imo_number'].errors?.required && VesselForm.controls.imo_number.touched"></div>
+          <div  class="errors" *ngIf="status==false">{{CheckImoNumber}}</div> 
         </div>
 
         <div>
@@ -17,16 +18,15 @@
             <option value="">Select  Vessel Type</option>
             <option *ngFor="let vessel of VesselType" value="{{vessel.id}}">{{vessel.name}}</option>
           </select>
-        </div>
-        
-      
+        </div> 
 </div>
 
 <div class="">
   <div class="display">
     <label>Vessel name<span style="color:red;padding-left: 5px;">*</span></label>
-    <input type="text" formControlName="name" />
+    <input type="text" formControlName="name" (keyup)="CheckVesselName($event)" />
     <div class="errors" *ngIf="VesselForm.controls['name'].errors?.required && VesselForm.controls.name.touched"></div>
+    <div  class="errors" *ngIf="status==false">{{CheckvesselName}}</div> 
   </div>  
 
        

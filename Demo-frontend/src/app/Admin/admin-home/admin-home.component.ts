@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { VesselMappingService } from 'src/app/services/vessel-mapping.service';
 import { VesselService } from 'src/app/services/vessel.service';
-import SwiperCore, { Keyboard, Pagination, Navigation, Virtual } from 'swiper';
+// import SwiperCore, { Keyboard, Pagination, Navigation, Virtual } from 'swiper';
 
-SwiperCore.use([Keyboard, Pagination, Navigation, Virtual]);
+// SwiperCore.use([Keyboard, Pagination, Navigation, Virtual]);
 
 @Component({
   selector: 'app-admin-home',

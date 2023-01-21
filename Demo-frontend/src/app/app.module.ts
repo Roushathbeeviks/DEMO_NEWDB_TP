@@ -30,18 +30,17 @@ import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { FormsModule } from '@angular/forms';
-import { OwlDateTimeModule, OwlNativeDateTimeModule } from '@danielmoncada/angular-datetime-picker';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 
 // import {NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 // import { TitleCasePipe } from '@angular/common';
 // import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-import { CarouselModule } from 'ngx-owl-carousel-o';
+// import { CarouselModule } from 'ngx-owl-carousel-o';
 
-import { SwiperModule } from 'swiper/angular';
+// import { SwiperModule } from 'swiper/angular';
 
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
+// import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { ForgotpasswordComponent } from './Users/forgotpassword/forgotpassword.component';
 import { LogoutComponent } from './logout/logout.component';
@@ -65,6 +64,7 @@ import { SearchComponent } from './search/search.component';
 // import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { FirstCapDirective } from './first-cap.directive';
 import { EditVoyageComponent } from './voyage/edit-voyage/edit-voyage.component';
+import { DeleteModalComponent } from './modal/delete-modal/delete-modal.component';
 
 
 @NgModule({
@@ -100,6 +100,7 @@ import { EditVoyageComponent } from './voyage/edit-voyage/edit-voyage.component'
    
     FirstCapDirective,
          EditVoyageComponent,
+         DeleteModalComponent,
    
   
   ],
@@ -128,12 +129,9 @@ import { EditVoyageComponent } from './voyage/edit-voyage/edit-voyage.component'
     NgMultiSelectDropDownModule.forRoot(),
     FormsModule,
     MatSnackBarModule,
-    OwlDateTimeModule,
-    OwlNativeDateTimeModule,
     MatDividerModule,
-    Ng2SearchPipeModule,
-    SwiperModule ,
-    CarouselModule
+    // Ng2SearchPipeModule,
+    // SwiperModule 
  
 
 

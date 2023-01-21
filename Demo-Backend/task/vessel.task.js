@@ -71,12 +71,12 @@ const VesselTask=
         // return true;    
 
     },
-    EditVessel:(id,name,imo_number)=>
+    EditVessel:(id,name,imo_number,flag_id,vessel_type_id)=>
     {
         return new Promise((resolve, reject) => 
         {
-          connection.query("update vessel set name=?, imo_number=? where id=?", 
-          [name,imo_number,id],(error,results)=>
+          connection.query("update vessel set name=?,imo_number=?,flag_id=?, vessel_type_id=? where id=?", 
+          [name,imo_number,flag_id,vessel_type_id,id],(error,results)=>
           {
             if (!error)
                 if(results.affectedRows==0)
@@ -94,7 +94,31 @@ const VesselTask=
             }
           })
       }) 
-    }
+    },
+    CheckIMO:(imo_number)=>{
+        const param=[imo_number];
+        const query=`select * from vessel where imo_number=?`
+        return new Promise((resolve, reject) => {
+            connection.query(query,param,(error,results)=>{
+              if(error){
+                reject (error)
+              }
+              resolve(results)
+            });
+          })
+    },
+    CheckVesselName:(name)=>{
+        const param=[name]
+        const query=`select * from vessel where name=?`
+        return new Promise((resolve, reject) => {
+            connection.query(query,param,(error,results)=>{
+              if(error){
+                reject (error)
+              }
+              resolve(results)
+            });
+          })
+    },
 }
 
 module.exports=VesselTask;

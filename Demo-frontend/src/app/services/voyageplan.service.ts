@@ -29,6 +29,10 @@ export class VoyageplanService {
   {
     return this.http.get(this.URL +`/admin/voyageplandetails/${id}`)
   }
+  GetVoyagePlanByVoyageId(id:any)
+  {
+    return this.http.get(this.URL +`/admin//voyageplandetailsbyvoyageid/${id}`)
+  }
   GetStartPort()
   {
     return this.http.get(this.URL +'/admin/startport')

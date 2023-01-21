@@ -14,6 +14,9 @@ export class VesselListComponent implements OnInit {
   VesselForm:any=FormGroup
   Vesselflag:any[]=[]
   VesselType:any[]=[]
+  CheckImoNumber:string=""
+  CheckvesselName:string=""
+  status:boolean=true
   constructor(private vesselserv:VesselService, 
       private formBuider: FormBuilder,
       private _snackBar: MatSnackBar,
@@ -53,6 +56,34 @@ export class VesselListComponent implements OnInit {
       }
     })
   
+  }
+  CheckIMO(e:any){
+    this.vesselserv.CheckIMONumber(this.VesselForm.value).subscribe((res:any)=>
+    {
+      if(res.status==true)
+      {
+        this.CheckImoNumber = res?.message;
+      }
+      else{
+        this.status=false
+        this.CheckImoNumber = ""
+      }
+    })
+
+  }
+  CheckVesselName(e:any){
+    this.vesselserv.CheckVesselName(this.VesselForm.value).subscribe((res:any)=>
+    {
+      if(res.status==true)
+      {
+        this.CheckvesselName = res?.message;
+      }
+      else{
+        this.status=false
+        this.CheckvesselName = ""
+      }
+    })
+
   }
 
   reloadPage(): void {

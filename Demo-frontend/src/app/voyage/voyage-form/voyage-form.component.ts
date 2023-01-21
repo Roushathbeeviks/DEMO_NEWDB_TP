@@ -66,11 +66,8 @@ export class VoyageFormComponent implements OnInit {
   // this.vesselserv.openSnackBar("Successfully save","ok")
 }
 
-reloadPage(): void {
-  window.location.reload();
-}
-reset(){
+// reloadPage(): void {
+//   window.location.reload();
+// }
 
-  
-}
 }

@@ -122,6 +122,17 @@ const VoyagePlan = {
       }
     });
   },
+  GetVoyagePlanByVoyageId:(req, res) => {
+    var query = `select startport_id, destinationport_id, cosp_lat, cosp_long, eosp_lat, eosp_long, cosp_time, displacement, earliest_eta, just_eta,vessel_id
+     from voyage  where id=?`;
+    connection.query(query,[req.params.id], (err, results) => {
+      if (results) {
+        res.send(results);
+      } else {
+        res.send({ message: err });
+      }
+    });
+  }
 };
 
 module.exports = VoyagePlan;
