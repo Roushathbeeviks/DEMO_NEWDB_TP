@@ -17,6 +17,10 @@ GetAllVessel()
 {
   return this.http.get(this.URL + '/admin/getallvessel')
 }
+GetAllVesselsIds()
+{
+  return this.http.get(this.URL + '/admin/getallvesselsIds')
+}
 GetVesselById(id:any)
 {
   return this.http.get(this.URL +`/admin/getvessel/${id}`)

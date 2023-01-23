@@ -65,6 +65,9 @@ router.put("/editvessel/:id", function (req, res) {
 router.get("/getallvessel", function (req,res) {
   Vessel.GetAllVessels(req,res)
 });
+router.get("/getallvesselsIds", function (req,res) {
+  Vessel.GetAllVesselsIds(req,res)
+});
 //vessel_name from vessel table
 router.get("/getvesselname", function (req,res) {
   Vessel.GetVesselName(req,res)

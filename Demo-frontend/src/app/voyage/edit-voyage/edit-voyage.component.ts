@@ -1,5 +1,5 @@
 import { Component,Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { VesselService } from 'src/app/services/vessel.service';
 import { VoyageplanService } from 'src/app/services/voyageplan.service';
@@ -23,14 +23,14 @@ export class EditVoyageComponent implements OnInit {
     ({
       startport_id:[''],
       destinationport_id:[''],
-      cosp_lat:[],
-      cosp_long:[],
-      eosp_lat:[],
-      eosp_long:[],
-      cosp_time:[''],
-      displacement:[],
-      earliest_eta:[''],
-      just_eta:[''],
+      cosp_lat:['',[Validators.required, Validators.minLength(2),Validators.pattern(/^[0-9]+([,.][0-9]+)?$/)],],
+      cosp_long:['',[Validators.required, Validators.minLength(2),Validators.pattern(/^[0-9]+([,.][0-9]+)?$/)],],
+      eosp_lat:['',[Validators.required, Validators.minLength(2),Validators.pattern(/^[0-9]+([,.][0-9]+)?$/)],],
+      eosp_long:['',[Validators.required, Validators.minLength(2),Validators.pattern(/^[0-9]+([,.][0-9]+)?$/)],],
+      cosp_time:['',[Validators.required]],
+      displacement:['',[Validators.required, Validators.minLength(2),Validators.pattern(/^[0-9]+([,.][0-9]+)?$/)],],
+      earliest_eta:['',[Validators.required]],
+      just_eta:['',[Validators.required]],
       vessel_id:[]
     
     });
@@ -51,10 +51,10 @@ this.voyageserv.GetVoyagePlanByVoyageId(this.data).subscribe((res:any) =>{
     cosp_long:res[0].cosp_long,
     eosp_lat:res[0].eosp_lat,
     eosp_long:res[0].eosp_long,
-    cosp_time:res[0].cosp_time,
+    cosp_time:new Date(res[0].cosp_time).toISOString().replace('Z', ''),
     displacement:res[0].displacement,
-    earliest_eta:res[0].earliest_eta,
-    just_eta:res[0].just_eta,
+    earliest_eta:new Date(res[0].earliest_eta).toISOString().replace('Z', ''),
+    just_eta:new Date(res[0].just_eta).toISOString().replace('Z',''),
     vessel_id:res[0].vessel_id
  
   })
@@ -66,10 +66,15 @@ this.voyageserv.GetVoyagePlanByVoyageId(this.data).subscribe((res:any) =>{
   // console.log("Saving...")
   this.voyageserv.EditVoyage(this.data, this.EditVoyageForm.value).subscribe((result:any)=>
   {
-    console.log("ffff",this.data)
+    // console.log("ffff",this.data)
     console.log(result)
+    this.reloadPage()
+
   })
  }
- 
+ reloadPage(): void {
+    window.location.reload();
+  }
+
 
 }

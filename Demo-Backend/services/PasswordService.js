@@ -25,11 +25,11 @@ const PasswordService = {
             to: results[0].email,
             subject: "Forgot Password",
             html:
-              "<p><b>Password Reset</b><br><b>Email: </b>" +
+              "<p>Hi <br>Forgot your Password ?<br><b>Email: </b>" +
               results[0].email +
-              "<br> <b>Password: </b>" +
+              "<br> <b>Your Password: </b>" +
               results[0].password +
-              "<br>http://localhost:4200/ click the link to login</a></p>",
+              "<br>click the link  and  login with the above password  http://localhost:4200/ </a></p>",
           };
           transporter.sendMail(mailOptions, (err, info) => {
             if (err) {

@@ -1,3 +1,4 @@
+<app-vessel-header></app-vessel-header>
 <div class="container1">
     <div class="container2">
         <div class="heading"><h2 style="color:rgb(214, 179, 63)">NEW VOYAGE PLAN</h2>
@@ -34,11 +35,22 @@
                   <div class="display 2">
                        <div class="block1"> <label>COSP Lat</label> <span style="color:red;">*</span></div>
                        <div  class="block1"><input type="text" class="block2" formControlName="cosp_lat" style="width:100%"></div>
-                </div>
+                      </div>
+                       <div class="errors" *ngIf="voyageForm.controls['cosp_lat'].errors?.['required'] && voyageForm.controls['cosp_lat'].touched">This Field is required</div>
+                       <div class="errors" *ngIf="voyageForm.controls['cosp_lat'].errors?.['minlength'] && voyageForm.controls['cosp_lat'].touched">This Field is too short</div>
+                       <div class="errors" *ngIf="voyageForm.controls['cosp_lat'].errors?.['pattern'] && voyageForm.controls['cosp_lat'].touched">
+                        Incorrect value
+                       </div>
+              
                 <div class="display 2">
                     <div class="block1"> <label>EOSP Lat</label> <span style="color:red;">*</span></div>
                    <div  class="block1">  <input type="text" class="block2" formControlName="eosp_lat"></div>
                  </div>
+                    <div class="errors" *ngIf="voyageForm.controls['eosp_lat'].errors?.['required'] && voyageForm.controls['eosp_lat'].touched">This Field is required</div>
+                    <div class="errors" *ngIf="voyageForm.controls['eosp_lat'].errors?.['minlength'] && voyageForm.controls['eosp_lat'].touched">This Field is too short</div>
+                    <div class="errors" *ngIf="voyageForm.controls['eosp_lat'].errors?.['pattern'] && voyageForm.controls['eosp_lat'].touched">
+                       Incorrect value
+                    </div>
                
                 </div>
                 <div>
@@ -53,9 +65,20 @@
                     <div class="block1">  <label>COSP Lon</label> <span style="color:red;">*</span></div>
                       <div  class="block1"><input type="text" class="block2" formControlName="cosp_long"></div>
                   </div>
+                  <div class="errors" *ngIf="voyageForm.controls['cosp_long'].errors?.['required'] && voyageForm.controls['cosp_long'].touched">This Field is required</div>
+                  <div class="errors" *ngIf="voyageForm.controls['cosp_long'].errors?.['minlength'] && voyageForm.controls['cosp_long'].touched">This Field is too short</div>
+                  <div class="errors" *ngIf="voyageForm.controls['cosp_long'].errors?.['pattern'] && voyageForm.controls['cosp_long'].touched">
+                     Incorrect value
+                  </div>
+
                     <div class="display 2">
                        <div class="block1"> <label>EOSP Lon</label> <span style="color:red;">*</span></div>
                        <div  class="block1"> <input type="text" class="block2" formControlName="eosp_long"></div>
+                    </div>
+                    <div class="errors" *ngIf="voyageForm.controls['eosp_long'].errors?.['required'] && voyageForm.controls['eosp_long'].touched">This Field is required</div>
+                    <div class="errors" *ngIf="voyageForm.controls['eosp_long'].errors?.['minlength'] && voyageForm.controls['eosp_long'].touched">This Field is too short</div>
+                    <div class="errors" *ngIf="voyageForm.controls['eosp_long'].errors?.['pattern'] && voyageForm.controls['eosp_long'].touched">
+                       Incorrect value
                     </div>
             </div>   
             
@@ -78,22 +101,30 @@
                         <div class="block1"><label>COSP TIME</label> <span style="color:red;">*</span></div>
                         <div class="block1"> <input  class="block2" type="datetime-local" formControlName="cosp_time"> </div>
                     </div>
+                    <div class="errors" *ngIf="voyageForm.controls['cosp_time'].errors?.['required'] && voyageForm.controls['cosp_time'].touched">This Field is required</div>
+
+
                     <div class="display2">
                        <div class="block1"> <label>EARLIEST ETA</label> <span style="color:red;">*</span></div>
                         <div class="block1"  ><input  class="block2" type="datetime-local" formControlName="earliest_eta"></div>
                     </div>
-
+                    <div class="errors" *ngIf="voyageForm.controls['earliest_eta'].errors?.['required'] && voyageForm.controls['earliest_eta'].touched">This Field is required</div>
                   </div>
                 <div >   
                 <div class="display2">
                   <div class="block1">  <label>DISPALCEMENT</label> <span style="color:red;">*</span></div>
                    <div class="block1"> <input type="text" class="block2" formControlName="displacement"></div>
                 </div>
+                <div class="errors" *ngIf="voyageForm.controls['displacement'].errors?.['required'] && voyageForm.controls['displacement'].touched">This Field is required</div>
+                <div class="errors" *ngIf="voyageForm.controls['displacement'].errors?.['pattern'] && voyageForm.controls['displacement'].touched">
+                   Please Enter Numeric value
+                </div>
 
                     <div  class="display2">
                         <div class="block1"><label>JUST ETA</label> <span style="color:red;">*</span></div>
                        <div class="block1"> <input type="datetime-local"  class="block2" formControlName="just_eta"></div>
                     </div>
+                    <div class="errors" *ngIf="voyageForm.controls['just_eta'].errors?.['required'] && voyageForm.controls['just_eta'].touched">This Field is required</div>
                     </div>
               
                 </div>

@@ -65,6 +65,9 @@ import { SearchComponent } from './search/search.component';
 import { FirstCapDirective } from './first-cap.directive';
 import { EditVoyageComponent } from './voyage/edit-voyage/edit-voyage.component';
 import { DeleteModalComponent } from './modal/delete-modal/delete-modal.component';
+import { CarouselModule } from 'node_modules/ngx-owl-carousel-o';
+import { VesselDeleteComponent } from './modal/vessel-delete/vessel-delete.component';
+import { VoyageDeleteComponent } from './modal/voyage-delete/voyage-delete.component';
 
 
 @NgModule({
@@ -101,6 +104,8 @@ import { DeleteModalComponent } from './modal/delete-modal/delete-modal.componen
     FirstCapDirective,
          EditVoyageComponent,
          DeleteModalComponent,
+         VesselDeleteComponent,
+         VoyageDeleteComponent,
    
   
   ],
@@ -130,6 +135,7 @@ import { DeleteModalComponent } from './modal/delete-modal/delete-modal.componen
     FormsModule,
     MatSnackBarModule,
     MatDividerModule,
+    CarouselModule
     // Ng2SearchPipeModule,
     // SwiperModule 
  

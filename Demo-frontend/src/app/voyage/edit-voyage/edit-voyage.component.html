@@ -60,6 +60,10 @@
                   />
                 </div>
               </div>
+              <div class="errors" *ngIf="EditVoyageForm.controls['eosp_lat'].errors?.['required'] && EditVoyageForm.controls['eosp_lat'].touched">
+                This Field is required
+              </div>
+
             </div>
             <div>
               <div class="display 2">
@@ -91,6 +95,10 @@
                   />
                 </div>
               </div>
+              <div class="errors" *ngIf="EditVoyageForm.controls['cosp_long'].errors?.['required'] && EditVoyageForm.controls['cosp_long'].touched">
+                This Field is required
+              </div>
+
               <div class="display 2">
                 <div class="block1">
                   <label>EOSP Lon</label> <span style="color: red">*</span>
@@ -103,6 +111,8 @@
                   />
                 </div>
               </div>
+              <div class="errors" *ngIf="EditVoyageForm.controls['eosp_long'].errors?.['required'] && EditVoyageForm.controls['eosp_long'].touched">This Field is required</div>
+
             </div>
           </div>
           <div style="display: none">
@@ -169,6 +179,7 @@
                     formControlName="just_eta"
                   />
                 </div>
+                
               </div>
             </div>
           </div>
@@ -187,15 +198,8 @@
     </mat-accordion>
 
     <div class="buttons">
-      <input
-        type="button"
-        class="btnC"
-        id="secondaryButton"
-        onclick="document.getElementById('primaryButton').click()"
-        value="Cancel"
-      />
-
-      <button class="btn" (click)="save()">Save</button>
+      <button mat-dialog-close class="btn">Cancel</button>
+      <button class="btn" mat-dialog-close  (click)="save()">Save</button>
     </div>
   </div>
 </div>

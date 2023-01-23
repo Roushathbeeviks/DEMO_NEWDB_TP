@@ -34,21 +34,16 @@ const VoyageTasks = {
     id,
     startport_id,
     destinationport_id,
-    cosp_time,
-    earliest_eta,
-    just_eta
+    cosp_lat,cosp_long,eosp_lat, 
+   eosp_long,cosp_time,displacement,earliest_eta,just_eta
   ) => {
     return new Promise((resolve, reject) => {
-      var query = `update voyage set startport_id=?,destinationport_id=?,cosp_time=?,earliest_eta=?,just_eta=? where id=?`;
+      var query = `update voyage set startport_id=?,destinationport_id=?,cosp_lat=?,cosp_long=?,eosp_lat=?,eosp_long=?,cosp_time=?,displacement=?,earliest_eta=?,just_eta=? where id=?`;
       connection.query(
         query,
         [
-          startport_id,
-          destinationport_id,
-          cosp_time,
-          earliest_eta,
-          just_eta,
-          id,
+          startport_id,destinationport_id,cosp_lat,cosp_long,eosp_lat, 
+          eosp_long,cosp_time,displacement,earliest_eta,just_eta,id
         ],
         (error, results) => {
           if (!error){

@@ -78,12 +78,17 @@ const VoyagePlan = {
     console.log(id)
     const newstartport_id=req.body.startport_id;
     const newdestinationport_id=req.body.destinationport_id;
+    const newcosp_lat=req.body.cosp_lat;
+    const newcosp_long=req.body.cosp_long;
+    const neweosp_lat=req.body.eosp_lat;
+    const neweosp_long=req.body.eosp_long;
     const newcosp_time=req.body.cosp_time;
+    const newdisplacement=req.body.displacement;
     const newearliest_eta=req.body.earliest_eta;
     const newjust_eta=req.body.just_eta;
 
-    var X=VoyageTAsks.EditVoyage(id,newstartport_id,newdestinationport_id,newcosp_time,newearliest_eta,newjust_eta)
-      if(X)
+    var X=VoyageTAsks.EditVoyage(id,newstartport_id,newdestinationport_id,newcosp_lat,newcosp_long,neweosp_lat,neweosp_long,newcosp_time,newdisplacement,newearliest_eta,newjust_eta)     
+     if(X)
       {
          return res.json({message:"Updated the voyage"});
       }

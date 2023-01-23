@@ -80,6 +80,23 @@ const Vessel={
             }
         })
     },
+    GetAllVesselsIds:(req,res)=>
+    {
+        var query="select id from vessel "
+
+        connection.query(query, function(err,results)
+        {
+            if(results)
+            {
+                res.send(results);
+
+            }
+            else
+            {
+                res.send(err);   
+            }
+        })
+    },
     GetVesselName:(req,res)=>
     {
         var query = "select id,name from vessel"

@@ -7,6 +7,7 @@ import { VesselService } from 'src/app/services/vessel.service';
 import { VoyageplanService } from 'src/app/services/voyageplan.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EditVoyageComponent } from '../edit-voyage/edit-voyage.component';
+import { VoyageDeleteComponent } from 'src/app/modal/voyage-delete/voyage-delete.component';
 
 @Component({
   selector: 'app-voyage-table',
@@ -21,6 +22,7 @@ export class VoyageTableComponent implements OnInit {
   StartPort:any
   DestinationPort:any
   id:any
+  Id:any
   datas:any
   vesselId:any
   stportId:any[]=[]
@@ -48,9 +50,11 @@ export class VoyageTableComponent implements OnInit {
     //  console.log("Snapshot id",this.id)
       this.voyageserv.GetVoyagePlanByVesselId(this.id).subscribe((res:any)=>
       {
-        console.log("voyage of that vessel",res)
-        // console.log(typeof res)
+        // console.log("voyage of that vessel",res)
+        // console.log("hhhhhhhhh",res.message[0].cosp_time.replace('T', '').replace('Z',''))
         this.rows=res.message
+        // 
+        
       })
   
       this.voyageserv.GetVoyagePlanByVesselId(this.id).subscribe((res:any)=>{
@@ -90,11 +94,16 @@ EditVoyage(id:any)
       width:"80%",
     })
 }
-delete(event:any,id:any)
+DeleteVoyage(id:any)
 {
-  this.voyageId=id
-  this.voyageserv.DeletVoyage(this.voyageId).subscribe((res:any)=>{
-  this.ngOnInit();
-})
+  this.Id = id
+  // console.log("hifi",this.Id)
+  this.dialog.open(VoyageDeleteComponent,
+    {
+      data: {
+        data: this.Id,
+      },
+    })
 }
+
 }
