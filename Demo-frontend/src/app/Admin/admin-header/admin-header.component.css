@@ -1,7 +1,7 @@
 .headerContainer1{
     display: flex;
-    filter: contrast(1.2);
-    background-color:#031e44;
+    /* filter: contrast(1.2); */
+    background-color: #000d20;
     justify-content: space-between;
     flex-wrap: wrap;
     cursor: pointer;
@@ -15,7 +15,7 @@
     gap:15px;
     padding-left: 10px;  
     min-height: 50px;
-    transition: background-color 0.5s linear;
+    /* transition: background-color 0.5s linear; */
 }
 .headerBody1:hover{ 
      background-color: transparent; }
@@ -30,7 +30,7 @@
 .color{
     color:aliceblue;
     text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: sans-serif;
     
 }
 .color:hover{
@@ -74,8 +74,8 @@
     height: fit-content;
     position: relative;
     background-color: transparent;
-    color: white;
-    border: NONE;
+    color: white !important;
+    border: none !important;
   }
   .search-box:hover{
     text-shadow: 0 -3px 3px #a0b8b8, 0 0 25px #dbdbe4;
@@ -140,15 +140,16 @@
     
   }
   .searchClass {
-    position: absolute;
+    /* position: absolute; */
     /* display: list-item !important; */
    
     list-style-type: none;
     z-index: 10;
-    width: 110px;
+    width: 150px;
     margin: 0px !important;
-    background-color: #000d20;
-    border: 1px solid rgb(58, 120, 201);
+    /* background-color: #000d20 !important; */
+    font-family: sans-serif;
+    /* border: 1px solid rgb(58, 120, 201); */
 }
 .searchClass li {
   border: 1px solid rgb(58, 120, 201);
@@ -162,6 +163,6 @@
 .color2{
   color:aliceblue;
   text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: sans-serif;
   
 }
