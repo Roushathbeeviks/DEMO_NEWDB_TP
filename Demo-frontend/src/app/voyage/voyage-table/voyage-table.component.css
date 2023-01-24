@@ -143,7 +143,6 @@ img{
 }
 .iconsPlace{
   display: flex;
- 
   gap:30px;
   cursor: pointer;
 }

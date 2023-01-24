@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ColumnMode } from '@swimlane/ngx-datatable';
+import { DeleteModalComponent } from 'src/app/modal/delete-modal/delete-modal.component';
 import { AdminService } from 'src/app/services/admin.service';
 import { VesselMappingService } from 'src/app/services/vessel-mapping.service';
 import { VesselService } from 'src/app/services/vessel.service';
@@ -20,6 +21,7 @@ columns = [];
 ColumnMode = ColumnMode;
 id1:any
 id:any
+deleteid:any
 username:any
 var:string=""
   constructor(private adminserv:AdminService,
@@ -49,6 +51,16 @@ var:string=""
       },
     })
   }
+  DeleteDialog(id:any)
+  {
+    this.deleteid=id
+    console.log(this.deleteid)
+    this.dialog.open(DeleteModalComponent,{
+      data: {
+        data: this.deleteid,
+      },
+    })
+  }
   navigate(){
     this.route.navigate(['/adminSignUp'])
   }
@@ -65,19 +77,19 @@ var:string=""
     })
   }
 
-  delete($event:any,id:any) 
-  {
+//   delete($event:any,id:any) 
+//   {
 
-     if(confirm("Do you want to delete this user"))
-     {
-      this.id=id;
-      this.adminserv.DeleteUser(this.id).subscribe((res:any)=>
-       {
-         console.log(res)
+//      if(confirm("Do you want to delete this user"))
+//      {
+//       this.id=id;
+//       this.adminserv.DeleteUser(this.id).subscribe((res:any)=>
+//        {
+//          console.log(res)
         
-      })
+//       })
      
-   }
- }
+//    }
+//  }
 
 }

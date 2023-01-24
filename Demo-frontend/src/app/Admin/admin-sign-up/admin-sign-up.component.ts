@@ -58,7 +58,7 @@ export class AdminSignUpComponent implements OnInit {
   {
 
     this.adminserv.CheckId(this.signup.value).subscribe((res:any) => {
-      console.log(res)
+      // console.log(res)
       if(res.status==true)
       {
         this.UsernameCheckmsg = res?.message;
@@ -85,29 +85,6 @@ export class AdminSignUpComponent implements OnInit {
       password: ['', [Validators.required]],
       role: ['', Validators.required]
     });
-
-  //   let first_name=this.signup.get("first_name");
-  //   let last_name=this.signup.get("last_name");
-  //   let username=this.signup.get("username");
-
-  //   first_name.valueChanges.subscribe((data:any) => {
-  //     this.signup.patchValue({
-  //       first_name:this.titleCasePipe.transform(data)
-  //     })
-  //   }),
-  //   last_name.valueChanges.subscribe((data:any) => {
-  //       this.signup.patchValue({
-  //         last_name:this.titleCasePipe.transform(data)
-  //  })
-  // }),
-  //  username.valueChanges.subscribe((data:any) => {
-  //         this.signup.patchValue({
-  //           username:this.titleCasePipe.transform(data)
-  //         })
-        
-  //   })
-
-
-    
+  
   }
 }

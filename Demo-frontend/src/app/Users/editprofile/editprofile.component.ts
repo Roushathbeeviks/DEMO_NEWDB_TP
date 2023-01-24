@@ -14,6 +14,8 @@ export class EditprofileComponent implements OnInit {
   users:any=[]
   paramid:any=[]
   id:any
+  EmailCheckmsg:string=""
+  status:boolean=true
   // alertOpt: SweetAlertOptions = {};
   constructor(
     private route: Router,
@@ -23,8 +25,6 @@ export class EditprofileComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data:any
 
   ) {}
-
-  
 
   check() 
   {
@@ -83,6 +83,23 @@ export class EditprofileComponent implements OnInit {
       ],
       
     });
+  }
+  CheckEmail()
+  {
+    
+    this.adminserv.CheckEmail(this.Editprofile.value).subscribe((res:any) => {
+    if(res.status==true)
+    {
+      this.EmailCheckmsg=res?.message
+      console.log("ttttttt",this.EmailCheckmsg)
+      // reload()
+    }
+    else{
+      this.status=false
+      this.EmailCheckmsg = ""
+    }
+    
+    })
   }
 }
 

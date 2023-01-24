@@ -7,6 +7,8 @@ import { VesselService } from 'src/app/services/vessel.service';
 import { VoyageplanService } from 'src/app/services/voyageplan.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EditVoyageComponent } from '../edit-voyage/edit-voyage.component';
+import { VoyageDeleteComponent } from 'src/app/modal/voyage-delete/voyage-delete.component';
+
 @Component({
   selector: 'app-voyage-table',
   templateUrl: './voyage-table.component.html',
@@ -20,12 +22,14 @@ export class VoyageTableComponent implements OnInit {
   StartPort:any
   DestinationPort:any
   id:any
+  Id:any
   datas:any
   vesselId:any
   stportId:any[]=[]
   stPort:any
   dstPortId:any[]=[]
   dstPort:any
+  voyageId:any
   constructor(
     private voyageserv:VoyageplanService,
     private vesselserv:VesselService,
@@ -41,14 +45,16 @@ export class VoyageTableComponent implements OnInit {
      this.vesselserv.GetVesselByVesselId(this.id).subscribe((res:any)=>
      {
       this.datas=res
-      console.log("res",res)
+      // console.log("res",res)
      })
     //  console.log("Snapshot id",this.id)
       this.voyageserv.GetVoyagePlanByVesselId(this.id).subscribe((res:any)=>
       {
-        console.log("voyage of that vessel",res)
-        // console.log(typeof res)
+        // console.log("voyage of that vessel",res)
+        // console.log("hhhhhhhhh",res.message[0].cosp_time.replace('T', '').replace('Z',''))
         this.rows=res.message
+        // 
+        
       })
   
       this.voyageserv.GetVoyagePlanByVesselId(this.id).subscribe((res:any)=>{
@@ -72,21 +78,32 @@ export class VoyageTableComponent implements OnInit {
 AddVoyage(id:any)
 {
   this.vesselId = id
-  console.log("Vessel id",this.vesselId)
+  // console.log("Vessel id",this.vesselId)
   this.router.navigate(['/voyageform/',this.vesselId]
   )
  
 }
 EditVoyage(id:any)
 {
-  this.vesselId = id
+  this.voyageId = id
+  // console.log("hifi",this.voyageId)
   this.dialog.open(EditVoyageComponent,
     {
-
+      data:this.voyageId,
+      height:"60%",
+      width:"80%",
     })
 }
-delete(event:any,id:any)
+DeleteVoyage(id:any)
 {
-
+  this.Id = id
+  // console.log("hifi",this.Id)
+  this.dialog.open(VoyageDeleteComponent,
+    {
+      data: {
+        data: this.Id,
+      },
+    })
 }
+
 }

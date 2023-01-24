@@ -30,14 +30,13 @@ import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { FormsModule } from '@angular/forms';
-import { OwlDateTimeModule, OwlNativeDateTimeModule } from '@danielmoncada/angular-datetime-picker';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 
 // import {NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 // import { TitleCasePipe } from '@angular/common';
 // import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-
+// import { CarouselModule } from 'ngx-owl-carousel-o';
 
 // import { SwiperModule } from 'swiper/angular';
 
@@ -65,7 +64,10 @@ import { SearchComponent } from './search/search.component';
 // import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { FirstCapDirective } from './first-cap.directive';
 import { EditVoyageComponent } from './voyage/edit-voyage/edit-voyage.component';
+import { DeleteModalComponent } from './modal/delete-modal/delete-modal.component';
 import { CarouselModule } from 'node_modules/ngx-owl-carousel-o';
+import { VesselDeleteComponent } from './modal/vessel-delete/vessel-delete.component';
+import { VoyageDeleteComponent } from './modal/voyage-delete/voyage-delete.component';
 
 
 @NgModule({
@@ -101,6 +103,9 @@ import { CarouselModule } from 'node_modules/ngx-owl-carousel-o';
    
     FirstCapDirective,
          EditVoyageComponent,
+         DeleteModalComponent,
+         VesselDeleteComponent,
+         VoyageDeleteComponent,
    
   
   ],
@@ -129,8 +134,6 @@ import { CarouselModule } from 'node_modules/ngx-owl-carousel-o';
     NgMultiSelectDropDownModule.forRoot(),
     FormsModule,
     MatSnackBarModule,
-    OwlDateTimeModule,
-    OwlNativeDateTimeModule,
     MatDividerModule,
     CarouselModule
     // Ng2SearchPipeModule,

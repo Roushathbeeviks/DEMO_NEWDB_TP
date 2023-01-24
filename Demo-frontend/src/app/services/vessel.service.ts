@@ -60,6 +60,14 @@ openSnackBar(message: string, action: string) {
     verticalPosition: 'top',
   });
 }
+CheckIMONumber(data:any) 
+{
+  return this.http.post(this.URL +`/admin/checkimonumber`,data)
+}
+CheckVesselName(data:any) 
+{
+  return this.http.post(this.URL +`/admin/checkvesselname`,data)
+}
 
 
 }
