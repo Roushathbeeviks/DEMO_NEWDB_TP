@@ -56,7 +56,7 @@ export class VoyagePlanComponent implements OnInit {
   {
     if(res?.success)
     {
-      this.vesselserv.openSnackBar("Successfully save","ok")
+      this.vesselserv.openSnackBar("Saved Succesfully","ok")
       this.router.navigate(['/voyagetable/',this.vesselId])
       
     }

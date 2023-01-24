@@ -34,7 +34,7 @@ export class AdminSignUpComponent implements OnInit {
     this.adminserv.SignupUser(this.signup.value).subscribe((res) => {
       console.log(res);
     });
-    this.vesselserv.openSnackBar("Succesfully Saved","ok")
+    this.vesselserv.openSnackBar("Saved Succesfully","ok")
      this.route.navigate(['/usermgt'])
     
   }

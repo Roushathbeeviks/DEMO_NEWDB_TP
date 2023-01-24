@@ -58,6 +58,10 @@ openSnackBar(message: string, action: string) {
   this._snackBar.open(message,action, {
     horizontalPosition:'right',
     verticalPosition: 'top',
+      duration: 3000,
+      panelClass: ['green-snackbar'],
+      
+    
   });
 }
 CheckIMONumber(data:any) 

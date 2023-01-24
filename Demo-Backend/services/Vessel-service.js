@@ -173,30 +173,20 @@ const Vessel={
     VesselMap:(req,res)=>
     {
         let data=req.body;
-        console.log("vesselData",data)
-
-        VesselTask.VesselAlreadyExists(data.name).then((vessel) => {
-            if(vessel.length > 0)
+        console.log("data",data)
+        VesselTask.InsertVessels(data).then((err,result)=>
+        {
+            if(result)
             {
-                res.send({message: "Vessel already exists"})
+                res.send({ message:result });
             }
             else
             {
-                VesselTask.insertVesselMapping(data).then((err,result)=>
-                {
-                    if(result)
-                    {
-                        res.send({ message:result });
-                    }
-                    else
-                    {
-                        res.send({ message:err});
-                        
-                    }
-                })
-        
+                res.send({ message:err});
+                
             }
         })
+
     },
     GetVesselMapping:(req,res)=>
     {

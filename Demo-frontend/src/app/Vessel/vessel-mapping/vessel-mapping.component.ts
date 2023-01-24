@@ -106,8 +106,11 @@ Save()
     console.log("Response",res)
     if(res?.message=="success")
     {
-    this.vesselserv.openSnackBar("Successfully save","ok")
+    this.vesselserv.openSnackBar("Saved Successfully","ok")
     this.dialogRef.close();
+
+
+    
     }
     else
     {

@@ -225,3 +225,23 @@ body { margin: 0; font-family: sans-serif; }
     padding: 0 24px 16px;
     border-bottom: 2px solid white !important;
 }
+
+
+.green-snackbar {
+    background: rgb(6, 95, 39);
+    color:  white;;
+}
+.green-snackbar button {
+    background-color: rgb(6, 95, 39);
+    color: white;
+    border: none;
+}
+.red-snackbar {
+    background: #F44336;
+    color: white;
+}
+.red-snackbar button {
+    background-color: #F44336;
+    color: white !important;
+       border: none;
+}
