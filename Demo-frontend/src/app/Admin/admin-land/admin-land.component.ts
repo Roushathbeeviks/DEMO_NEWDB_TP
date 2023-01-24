@@ -12,7 +12,7 @@ export class AdminLandComponent implements OnInit {
 data: any;
 id:any[]=[];
 vesselId:any
-stportId:any[]=[]
+
   stPort:any[]=[]
   dstPortId:any[]=[]
   dstPort:any[]=[]
@@ -25,50 +25,84 @@ stportId:any[]=[]
     {
       console.log("kk",res);
       this.data=res
-      this.vesselId=res
-      
-      // console.log(this.data);
+ 
+      let index = 0;
+      this.data.forEach((e:any) => 
+          {
+            this.voyageserv. GetVoyagePlanByVesselId(e.id).subscribe((res:any)=>{
+              this.data[index]['startportname'] = res.message.length ? res.message[res.message.length-1].startportname : '';
+              this.data[index]['destinationportname'] = res.message.length ? res.message[res.message.length-1].destinationportname : '';
+              index++;  
+              /*let stportId=  res.message.length ? res.message[res.message.length-1].startport_id : '';
+              
+              console.log("hihi",stportId)
+              if(stportId !== '') {
+                this.voyageserv.GetStartPortById(stportId).subscribe((res:any)=>{
+                  //this.stPort.push(res[0])
+                  //console.log("dfdf",this.stPort)
+                  this.data[index]['startport'] = res[0].name;
+                  this.data[index]['destinationportname'] = res[0].name;
+                  index++;  
+                 })
+              } */  
+              // let dstPortId=  res.message.length ? res.message[res.message.length-1].destinationport_id : '';
+              // console.log("jj",dstPortId)
+              // if(dstPortId !== '') {
+              //   this.voyageserv.GeDestinationPortById(dstPortId).subscribe((res:any)=>{
+           
+              //     this.data[index]['dstport'] = res[0].name;
+                  
+              //    })
+            
+              // }    
+                  
+          })
+          
+    
     })
-    this.vesselserv.GetAllVesselsIds().subscribe((res:any)=>{
+  })
+    /*this.vesselserv.GetAllVesselsIds().subscribe((res:any)=>{
        this.id=res
        console.log("jjjjj",this.id)
-
-    })
-
-    this.id.forEach((e:any)=>{
-    this.value=e['this.id']
-    console.log("jjjjj",this.value)
-    this.vesselserv.GetVesselId(this.value).subscribe((res:any)=>
-    {
-      // this.vesselId=res
-      res.forEach((e:any) => 
-      {
-      //  this.vesselId= e['this.id'] 
-      //  console.log("huhu",this.id)
-       
-       this.voyageserv. GetVoyagePlanByVesselId(this.vesselId).subscribe((res:any)=>{
-        this.stportId=res.message[res.message.length-1].startport_id
-        console.log("hihi")
-       this.voyageserv.GetStartPortById(this.stportId).subscribe((res:any)=>{
-        this.stPort.push(res[0])
-        console.log("dfdf",this.stPort)
-        
-       })
-  
-       this.dstPortId=res.message[res.message.length-1].destinationport_id
-       this.voyageserv.GeDestinationPortById(this.dstPortId).subscribe((res:any)=>{
-        this.dstPort.push(res[0])
-        console.log("kooi",this.dstPort)
-       })
-       
+       this.id.forEach((e:any)=>{
+        this.value=e['this.id']
+        console.log("jjjjj",this.value)
+        this.vesselserv.GetVesselId(e.id).subscribe((res:any)=>
+        {
+          // this.vesselId=res
+          res.forEach((e:any) => 
+          {
+          //  this.vesselId= e['this.id'] 
+          //  console.log("huhu",this.id)
+           console.log('e',e)
+           this.voyageserv. GetVoyagePlanByVesselId(e.id).subscribe((resp:any)=>{
+            this.stportId=resp.message[resp.message.length-1].startport_id
+            console.log("hihi")
+           this.voyageserv.GetStartPortById(this.stportId).subscribe((res:any)=>{
+            this.stPort.push(res[0])
+            console.log("dfdf",this.stPort)
+            
+           })
+    
       
-    })
-       
-      });
-     
-    })
+           this.dstPortId=res.message[res.message.length-1].destinationport_id
+           this.voyageserv.GeDestinationPortById(this.dstPortId).subscribe((res:any)=>{
+            this.dstPort.push(res[0])
+            console.log("kooi",this.dstPort)
+           })
+           
+          
+        })
+           
+          });
+         
+        })
+    
+      })
 
-  })
+    })*/
+
+
 
 
   }
@@ -86,7 +120,7 @@ stportId:any[]=[]
     navText: ['&#8249', '&#8250;'],
     responsive: {
       0: {
-        items: 4
+        items: 5
       },
       400: {
         items: 2

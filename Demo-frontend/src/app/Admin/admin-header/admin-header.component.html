@@ -17,11 +17,15 @@
                   <button class="btn-search " (keyup)="submitSearch()" class="search-box"> <i class="material-icons">search</i></button>
                 </div>     
             </div> 
-              <ul class="searchClass" *ngIf="searchResult" >
-                <li *ngFor="let srch of searchResult">
+              <select class="searchClass" *ngIf="searchResult" >
+                <option *ngFor="let srch of searchResult">
                     <a style="text-decoration:none; color:white" [routerLink]="'../voyagetable/'+ srch.id" >{{srch.name}}</a>
-                </li>
-              </ul>
+                </option>
+              </select>
+              <!-- <select >ggaga
+              <option *ngFor="let srch of searchResult" [routerLink]="'../voyagetable/'+ srch.id">{{srch.name}}</option>
+              <option></option>
+              <option></option></select> -->
         </a>
         <a  class="color ">
             <div class="set">
