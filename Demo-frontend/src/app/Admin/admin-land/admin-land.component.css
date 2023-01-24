@@ -63,7 +63,7 @@ min-width: 10px;
 }
 .mat-card{
 border-radius: 5px;
-background-color: #09192e;
+background-color: #030f1f;
 min-width: 250px;
 max-width: 150px;
 max-height: 100px;
@@ -123,3 +123,4 @@ color:white;display: flex;
 font-size: 11px;
 justify-content: space-between;
 }
+

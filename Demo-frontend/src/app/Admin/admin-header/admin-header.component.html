@@ -1,9 +1,9 @@
 <div class="headerContainer1">
    <div class="headerBody1">
             <img class="image" src="../../assets/MicrosoftTeams-image.png">  
-            <a class="color">
+            <a class="color" routerLinkActive="activeI">
                 <div class="logo">
-                    <i class="material-icons" routerLink="/adminLand">travel_explore</i>
+                    <i class="material-icons" routerLink="/adminLand" >travel_explore</i>
                 </div>
                 <div class="size" routerLink="/adminLand">MY FLEET</div>
             </a>
@@ -13,15 +13,20 @@
         <a class="color2">
             <div class="search">
                 <div style="display: flex; justify-content: center;gap:10px">
-                  <input type="text" class="input-search" (keyup)="searchVessel($event)"  placeholder="Search vessel" #searchInput>
-                  <button class="btn-search " (keyup)="submitSearch()" class="search-box"> <i class="material-icons">search</i></button>
+                    <ng-select [(ngModel)]="searchResult" class="searchClass" (keyup)="searchVessel($event)" #searchInput placeholder="Search"> 
+                        <ng-option *ngFor="let srch of searchResult"  ><a style="text-decoration:none; color:black" [routerLink]="'../voyagetable/'+ srch.id"  (keyup)="submitSearch()" class="search-box"> {{srch.name}} </a></ng-option>
+                     </ng-select>
+                 
                 </div>     
             </div> 
-              <ul class="searchClass" *ngIf="searchResult" >
-                <li *ngFor="let srch of searchResult">
-                    <a style="text-decoration:none; color:white" [routerLink]="'../voyagetable/'+ srch.id" >{{srch.name}}</a>
-                </li>
-              </ul>
+             
+              <!-- <ng-select [(ngModel)]="searchResult" class="searchClass" (keyup)="searchVessel($event)" #searchInput>
+                <ng-option *ngFor="let srch of searchResult"  ><a style="text-decoration:none; color:black" [routerLink]="'../voyagetable/'+ srch.id"> {{srch.name}} </a></ng-option>
+             </ng-select> -->
+              <!-- <select >ggaga
+              <option *ngFor="let srch of searchResult" [routerLink]="'../voyagetable/'+ srch.id">{{srch.name}}</option>
+              <option></option>
+              <option></option></select> -->
         </a>
         <a  class="color ">
             <div class="set">
@@ -30,8 +35,8 @@
                             <i class="material-icons">settings</i>
                         </div></a>
                     <mat-menu #Settings="matMenu" xPosition="after">
-                      <button mat-menu-item routerLink="/usermgt">View Users</button>
-                      <button mat-menu-item routerLink="/vessel">View Vessels</button>
+                      <button mat-menu-item routerLink="/usermgt">USERS</button>
+                      <button mat-menu-item routerLink="/vessel">VESSELS</button>
                     </mat-menu>  
             </div>
         </a>

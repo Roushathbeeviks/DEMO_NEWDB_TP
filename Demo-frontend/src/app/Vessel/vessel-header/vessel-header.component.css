@@ -5,8 +5,8 @@
     flex-wrap: wrap;
     padding-right: 10px;
    
-    filter: contrast(1.2);
-    background-color: #031e44;
+    /* filter: contrast(1.2); */
+    background-color: #000d20;
 }
 .headerBody1{
     display: flex;
@@ -149,3 +149,9 @@
 .searchClass li  a{
   width: 100%;
 }
+.active{
+  text-shadow: 0 -3px 3px #a0b8b8, 0 0 25px #dbdbe4;
+}
+/* .active:hover{
+  text-shadow:none
+} */

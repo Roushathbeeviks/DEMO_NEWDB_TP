@@ -58,7 +58,7 @@
     align-content: center;
     padding-bottom: 10px;
 }
-.btnC{
+/* .btnC{
     background-color: rgb(221, 147, 35);
     display: flex;
     color: aliceblue;
@@ -67,10 +67,10 @@
     min-width: 75px;
     min-height: 30px;
     align-items: center; 
-    font-family: Arial, Helvetica, sans-serif;
-}
+    font-family:  sans-serif;
+} */
 .mat-dialog-container{
-    background-color: rgb(32, 32, 104);
+    background-color:#000d20;
 }
 .inputLabel{
     display: flex;

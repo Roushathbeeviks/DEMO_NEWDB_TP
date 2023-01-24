@@ -1,7 +1,7 @@
 .headerContainer1{
     display: flex;
-    filter: contrast(1.2);
-    background-color: #031e44;
+    /* filter: contrast(1.2); */
+    background-color: #000d20;
     justify-content: space-between;
     flex-wrap: wrap;
     padding-right: 10px;
