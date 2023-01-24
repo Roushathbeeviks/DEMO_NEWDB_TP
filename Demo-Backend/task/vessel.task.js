@@ -71,6 +71,22 @@ const VesselTask=
         // return true;    
 
     },
+
+    VesselAlreadyExists:(vessel_name)=>
+    {
+      const param=[vessel_name];
+      const query=`select * from vessel_user_mapping where vessel_name=?`
+      return new Promise((resolve, reject) => {
+        connection.query(query, param, (error, results) => {
+          if (error) {
+            reject(error);
+            
+          }
+          resolve(results);
+          
+        });
+      });
+    },
     EditVessel:(id,name,imo_number,flag_id,vessel_type_id)=>
     {
         return new Promise((resolve, reject) => 
