@@ -44,7 +44,7 @@ const Vessel={
 
     GetVesselByVesselId:(req,res)=>
     {
-        var query = "select vessel.name,vessel.imo_number,flag.name as countryname from vessel  join flag  on flag.id=vessel.flag_id where vessel.id=?"
+        var query = "select vessel.name,vessel.imo_number,vessel.flag_id,vessel.vessel_type_id,flag.name as countryname from vessel  join flag  on flag.id=vessel.flag_id where vessel.id=?"
         // var id=req.params.id;
         connection.query(query, [req.params.id], function(err,results)
         {
@@ -173,20 +173,30 @@ const Vessel={
     VesselMap:(req,res)=>
     {
         let data=req.body;
-        console.log("data",data)
-        VesselTask.insertVesselMapping(data).then((err,result)=>
-        {
-            if(result)
+        console.log("vesselData",data)
+
+        VesselTask.VesselAlreadyExists(data.name).then((vessel) => {
+            if(vessel.length > 0)
             {
-                res.send({ message:result });
+                res.send({message: "Vessel already exists"})
             }
             else
             {
-                res.send({ message:err});
-                
+                VesselTask.insertVesselMapping(data).then((err,result)=>
+                {
+                    if(result)
+                    {
+                        res.send({ message:result });
+                    }
+                    else
+                    {
+                        res.send({ message:err});
+                        
+                    }
+                })
+        
             }
         })
-
     },
     GetVesselMapping:(req,res)=>
     {
@@ -230,8 +240,9 @@ const Vessel={
         const id=req.params.id;
         const newVesselName = req.body.name;
         const newimo_number = req.body.imo_number;
-        // const newflag_id = req.body.flag_id;
-       var X= VesselTask.EditVessel(id,newVesselName,newimo_number)
+        const newflag_id = req.body.flag_id;
+        const newvessel_type_id=req.body.vessel_type_id;
+       var X= VesselTask.EditVessel(id,newVesselName,newimo_number,newflag_id,newvessel_type_id)
      
        
          if(X)
@@ -275,8 +286,40 @@ const Vessel={
             }
         })
     },
+    CheckIMO:(req,res) => {
+        let vessel=req.body;
+        VesselTask.CheckIMO(vessel.imo_number).then((vessels)=>
+        {
+            if(vessels.length>0)
+            {
+                res.send({message:"IMO Number already exists",status:true});
+            }
+            else{
+                res.send({message:"IMO Number does not exist",status:false});
+            }
+        })
+        .catch((error)=>
+        {
+            res.send({message:"Internal Error",error});
+        })
+    },
+    CheckVesselName:(req,res) => {
+        let vessel=req.body;
+        VesselTask.CheckVesselName(vessel.name).then((vessels)=>
+        {
+            if(vessels.length>0)
+            {
+                res.send({message:"Vessel already exists",status:true});
+            }
+            else{
+                res.send({message:"New vessel",status:false});
+            }
+        })
+        .catch((error)=>
+        {
+            res.send({message:"Internal Error",error});
+        })
+    },
 }
-
-
 
 module.exports = Vessel;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { VesselService } from 'src/app/services/vessel.service';
 import { VoyageplanService } from 'src/app/services/voyageplan.service';
@@ -30,14 +30,14 @@ export class VoyageFormComponent implements OnInit {
     ({
       startport_id:[''],
       destinationport_id:[''],
-      cosp_lat:[],
-      cosp_long:[],
-      eosp_lat:[],
-      eosp_long:[],
-      cosp_time:[],
-      displacement:[],
-      earliest_eta:[],
-      just_eta:[],
+      cosp_lat:['',[Validators.required, Validators.minLength(2),Validators.pattern(/^[0-9]+([,.][0-9]+)?$/)],],
+      cosp_long:['',[Validators.required, Validators.minLength(2),Validators.pattern(/^[0-9]+([,.][0-9]+)?$/)],],
+      eosp_lat:['',[Validators.required, Validators.minLength(2),Validators.pattern(/^[0-9]+([,.][0-9]+)?$/)],],
+      eosp_long:['',[Validators.required, Validators.minLength(2),Validators.pattern(/^[0-9]+([,.][0-9]+)?$/)],],
+      cosp_time:['',[Validators.required]],
+      displacement:['',[Validators.required, Validators.minLength(2),Validators.pattern(/^[0-9]+([,.][0-9]+)?$/)],],
+      earliest_eta:['',[Validators.required]],
+      just_eta:['',[Validators.required]],
       vessel_id:[]
     
     });
@@ -66,11 +66,8 @@ export class VoyageFormComponent implements OnInit {
   // this.vesselserv.openSnackBar("Successfully save","ok")
 }
 
-reloadPage(): void {
-  window.location.reload();
-}
-reset(){
+// reloadPage(): void {
+//   window.location.reload();
+// }
 
-  
-}
 }

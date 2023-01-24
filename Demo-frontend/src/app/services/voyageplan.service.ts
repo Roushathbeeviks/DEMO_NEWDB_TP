@@ -29,6 +29,10 @@ export class VoyageplanService {
   {
     return this.http.get(this.URL +`/admin/voyageplandetails/${id}`)
   }
+  GetVoyagePlanByVoyageId(id:any)
+  {
+    return this.http.get(this.URL +`/admin//voyageplandetailsbyvoyageid/${id}`)
+  }
   GetStartPort()
   {
     return this.http.get(this.URL +'/admin/startport')
@@ -45,5 +49,12 @@ export class VoyageplanService {
   {
     return this.http.get(this.URL +`/admin/startportbyid/${id}`)
   }
-
+  EditVoyage(id:any,data:any)
+  {
+    return this.http.put(this.URL +`/admin/editvoyage/${id}`,data)
+  }
+  DeletVoyage(id:any)
+  {
+    return this.http.delete(this.URL+`/admin/deletevoyage/${id}`)
+  }
 }

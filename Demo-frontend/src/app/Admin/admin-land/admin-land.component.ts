@@ -8,15 +8,40 @@ import { VoyageplanService } from 'src/app/services/voyageplan.service';
   templateUrl: './admin-land.component.html',
   styleUrls: ['./admin-land.component.css']
 })
+
 export class AdminLandComponent implements OnInit {
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    },
+    nav: true
+  }
 data: any;
 id:any[]=[];
 vesselId:any
 stportId:any[]=[]
-  stPort:any[]=[]
-  dstPortId:any[]=[]
-  dstPort:any[]=[]
-  value:any
+stPort:any[]=[]
+dstPortId:any[]=[]
+dstPort:any[]=[]
+ value:any
   constructor(private route:Router,
     private vesselserv:VesselService,private voyageserv:VoyageplanService) { }
 
@@ -30,25 +55,16 @@ stportId:any[]=[]
       // console.log(this.data);
     })
     this.vesselserv.GetAllVesselsIds().subscribe((res:any)=>{
-       this.id=res
-       console.log("jjjjj",this.id)
-
-    })
-
-    this.id.forEach((e:any)=>{
-    this.value=e['this.id']
-    console.log("jjjjj",this.value)
-    this.vesselserv.GetVesselId(this.value).subscribe((res:any)=>
-    {
-      // this.vesselId=res
-      res.forEach((e:any) => 
+      //  this.id=res
+      //  console.log("jjjjj",this.id)
+       res.forEach((e:any) => 
       {
-      //  this.vesselId= e['this.id'] 
-      //  console.log("huhu",this.id)
-       
-       this.voyageserv. GetVoyagePlanByVesselId(this.vesselId).subscribe((res:any)=>{
+       this.value= e['id'] 
+      //  console.log("king",this.value)
+       this.voyageserv. GetVoyagePlanByVesselId(this.value).subscribe((res:any)=>{
+        // console.log("kk",res);
         this.stportId=res.message[res.message.length-1].startport_id
-        console.log("hihi")
+        // console.log("hihi")
        this.voyageserv.GetStartPortById(this.stportId).subscribe((res:any)=>{
         this.stPort.push(res[0])
         console.log("dfdf",this.stPort)
@@ -65,10 +81,44 @@ stportId:any[]=[]
     })
        
       });
-     
+      
+
     })
 
-  })
+  //   this.id.forEach((e:any)=>{
+  //   this.value=e['this.id']
+  //   console.log("jjjjj",this.value)
+  //   this.vesselserv.GetVesselId(this.value).subscribe((res:any)=>
+  //   {
+  //     // this.vesselId=res
+  //     res.forEach((e:any) => 
+  //     {
+  //     //  this.vesselId= e['this.id'] 
+  //     //  console.log("huhu",this.id)
+       
+  //      this.voyageserv. GetVoyagePlanByVesselId(this.vesselId).subscribe((res:any)=>{
+  //       this.stportId=res.message[res.message.length-1].startport_id
+  //       console.log("hihi")
+  //      this.voyageserv.GetStartPortById(this.stportId).subscribe((res:any)=>{
+  //       this.stPort.push(res[0])
+  //       console.log("dfdf",this.stPort)
+        
+  //      })
+  
+  //      this.dstPortId=res.message[res.message.length-1].destinationport_id
+  //      this.voyageserv.GeDestinationPortById(this.dstPortId).subscribe((res:any)=>{
+  //       this.dstPort.push(res[0])
+  //       console.log("kooi",this.dstPort)
+  //      })
+       
+      
+  //   })
+       
+  //     });
+     
+  //   })
+
+  // })
 
 
   }
@@ -76,28 +126,28 @@ stportId:any[]=[]
   {
     this.route.navigate(['/vessel']);
   }
-  customOptions: OwlOptions = {
-    loop: false,
-    mouseDrag: false,
-    touchDrag: false,
-    pullDrag: false,
-    dots: false,
-    navSpeed: 600,
-    navText: ['&#8249', '&#8250;'],
-    responsive: {
-      0: {
-        items: 4
-      },
-      400: {
-        items: 2
-      },
-      760: {
-        items: 3
-      },
-      1000: {
-        items: 4
-      }
-    },
-    nav: true
-  }
+  // customOptions: OwlOptions = {
+  //   loop: false,
+  //   mouseDrag: false,
+  //   touchDrag: false,
+  //   pullDrag: false,
+  //   dots: false,
+  //   navSpeed: 600,
+  //   navText: ['&#8249', '&#8250;'],
+  //   responsive: {
+  //     0: {
+  //       items: 4
+  //     },
+  //     400: {
+  //       items: 2
+  //     },
+  //     760: {
+  //       items: 3
+  //     },
+  //     1000: {
+  //       items: 4
+  //     }
+  //   },
+  //   nav: true
+  // }
 }

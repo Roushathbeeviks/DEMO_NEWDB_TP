@@ -41,7 +41,6 @@ stportId:any[]=[]
       res.forEach((e:any) => 
       {
        this.vesselId= e['vessel_id'] 
-       
        this.voyageserv. GetVoyagePlanByVesselId(this.vesselId).subscribe((res:any)=>{
         this.stportId=res.message[res.message.length-1].startport_id
         console.log("hihi")

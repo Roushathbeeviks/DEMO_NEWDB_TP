@@ -68,11 +68,14 @@ const VoyagePlan = {
         res.send(results);
       } else {
         res.send({ message: err });
-      }
+      }                         
     });
   },
+  
   EditVoyage:(req, res) => {
+    console.log(req.body)
     const id=req.params.id;
+    console.log(id)
     const newstartport_id=req.body.startport_id;
     const newdestinationport_id=req.body.destinationport_id;
     const newcosp_lat=req.body.cosp_lat;
@@ -83,11 +86,25 @@ const VoyagePlan = {
     const newdisplacement=req.body.displacement;
     const newearliest_eta=req.body.earliest_eta;
     const newjust_eta=req.body.just_eta;
-    const newvessel_id=req.body.vessel_id
 
-    var X=VoyageTAsks.EditVoyage(id,newstartport_id,newdestinationport_id,newcosp_lat,newcosp_long,
-      neweosp_lat,neweosp_long,newcosp_time,newdisplacement,newearliest_eta,newjust_eta,newvessel_id)
-
+    var X=VoyageTAsks.EditVoyage(id,newstartport_id,newdestinationport_id,newcosp_lat,newcosp_long,neweosp_lat,neweosp_long,newcosp_time,newdisplacement,newearliest_eta,newjust_eta)     
+     if(X)
+      {
+         return res.json({message:"Updated the voyage"});
+      }
+      else{
+        return res.json({message:"Updation voyage"});
+      }
+  },
+  DeleteVoyage:(req, res) => {
+    var query=`delete from voyage where id=?`
+    connection.query(query,[req.params.id], (err, results) => {
+      if (results) {
+        res.send(results);
+      } else {
+        res.send({ message: err });
+      }
+    })
   },
   GetStartPortById: (req, res) => {
     var query = "select name from startport where id=?";
@@ -110,6 +127,17 @@ const VoyagePlan = {
       }
     });
   },
+  GetVoyagePlanByVoyageId:(req, res) => {
+    var query = `select startport_id, destinationport_id, cosp_lat, cosp_long, eosp_lat, eosp_long, cosp_time, displacement, earliest_eta, just_eta,vessel_id
+     from voyage  where id=?`;
+    connection.query(query,[req.params.id], (err, results) => {
+      if (results) {
+        res.send(results);
+      } else {
+        res.send({ message: err });
+      }
+    });
+  }
 };
 
 module.exports = VoyagePlan;

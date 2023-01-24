@@ -73,4 +73,11 @@ option
     margin-bottom: 50px;
 
 }
+.errors{
+    padding-top: 10px;
+    padding-left: 5px;
+    color: red;
+    font-weight: 50%;
+    font-size: 15px;
+}
 

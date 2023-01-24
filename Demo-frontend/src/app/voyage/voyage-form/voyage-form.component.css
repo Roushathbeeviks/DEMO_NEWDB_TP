@@ -99,3 +99,10 @@
     min-height: 20px;
     font-size: 15px;
 }
+.errors{
+    padding-top: 10px;
+    padding-left: 15px;
+    color: red;
+    font-weight: 50%;
+    font-size: 15px;
+}

@@ -1,1 +1,205 @@
-<p>edit-voyage works!</p>
+<div class="container1">
+  <div class="container2">
+    <div class="heading">
+      <h2 style="color: rgb(214, 179, 63)">NEW VOYAGE PLAN</h2>
+      <div class="importButton">
+        <!-- <button class="btnColor">Import Voyage Plan</button> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="container2">
+    <mat-accordion class="example-headers-align disabled">
+      <mat-expansion-panel class="color">
+        <mat-expansion-panel-header class="color2">
+          <mat-panel-title class="colorText"> VOYAGE DETAILS </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <form [formGroup]="EditVoyageForm">
+          <div class="display">
+            <div>
+              <div class="display 2">
+                <div class="block1">
+                  <label>START PORT NAME</label
+                  ><span style="color: red">*</span>
+                </div>
+                <div class="block1">
+                  <select formControlName="startport_id" class="block2">
+                    <option value="">Select Port</option>
+                    <option
+                      *ngFor="let start of StartPort"
+                      value="{{ start.id }}"
+                    >
+                      {{ start.name }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="display 2">
+                <div class="block1">
+                  <label>COSP Lat</label> <span style="color: red">*</span>
+                </div>
+                <div class="block1">
+                  <input
+                    type="text"
+                    class="block2"
+                    formControlName="cosp_lat"
+                    style="width: 100%"
+                  />
+                </div>
+              </div>
+              <div class="display 2">
+                <div class="block1">
+                  <label>EOSP Lat</label> <span style="color: red">*</span>
+                </div>
+                <div class="block1">
+                  <input
+                    type="text"
+                    class="block2"
+                    formControlName="eosp_lat"
+                  />
+                </div>
+              </div>
+              <div class="errors" *ngIf="EditVoyageForm.controls['eosp_lat'].errors?.['required'] && EditVoyageForm.controls['eosp_lat'].touched">
+                This Field is required
+              </div>
+
+            </div>
+            <div>
+              <div class="display 2">
+                <div class="block1">
+                  <label>DESTINATION PORT NAME</label
+                  ><span style="color: red">*</span>
+                </div>
+                <div class="block1">
+                  <select class="block2" formControlName="destinationport_id">
+                    <option value="">Select Port</option>
+                    <option
+                      *ngFor="let end of DestinationPort"
+                      value="{{ end.id }}"
+                    >
+                      {{ end.name }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="display 2">
+                <div class="block1">
+                  <label>COSP Lon</label> <span style="color: red">*</span>
+                </div>
+                <div class="block1">
+                  <input
+                    type="text"
+                    class="block2"
+                    formControlName="cosp_long"
+                  />
+                </div>
+              </div>
+              <div class="errors" *ngIf="EditVoyageForm.controls['cosp_long'].errors?.['required'] && EditVoyageForm.controls['cosp_long'].touched">
+                This Field is required
+              </div>
+
+              <div class="display 2">
+                <div class="block1">
+                  <label>EOSP Lon</label> <span style="color: red">*</span>
+                </div>
+                <div class="block1">
+                  <input
+                    type="text"
+                    class="block2"
+                    formControlName="eosp_long"
+                  />
+                </div>
+              </div>
+              <div class="errors" *ngIf="EditVoyageForm.controls['eosp_long'].errors?.['required'] && EditVoyageForm.controls['eosp_long'].touched">This Field is required</div>
+
+            </div>
+          </div>
+          <div style="display: none">
+            <input type="reset" id="primaryButton" />
+          </div>
+        </form>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel class="color">
+        <mat-expansion-panel-header class="color2">
+          <mat-panel-title class="colorText"> WAYPOINTS </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <form [formGroup]="EditVoyageForm">
+          <div class="display">
+            <div>
+              <div class="display2">
+                <div class="block1">
+                  <label>COSP TIME</label> <span style="color: red">*</span>
+                </div>
+                <div class="block1">
+                  <input
+                    class="block2"
+                    type="datetime-local"
+                    formControlName="cosp_time"
+                  />
+                </div>
+              </div>
+              <div class="display2">
+                <div class="block1">
+                  <label>EARLIEST ETA</label> <span style="color: red">*</span>
+                </div>
+                <div class="block1">
+                  <input
+                    class="block2"
+                    type="datetime-local"
+                    formControlName="earliest_eta"
+                  />
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="display2">
+                <div class="block1">
+                  <label>DISPALCEMENT</label> <span style="color: red">*</span>
+                </div>
+                <div class="block1">
+                  <input
+                    type="text"
+                    class="block2"
+                    formControlName="displacement"
+                  />
+                </div>
+              </div>
+
+              <div class="display2">
+                <div class="block1">
+                  <label>JUST ETA</label> <span style="color: red">*</span>
+                </div>
+                <div class="block1">
+                  <input
+                    type="datetime-local"
+                    class="block2"
+                    formControlName="just_eta"
+                  />
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <div style="display: none">
+            <input type="reset" id="primaryButton" />
+          </div>
+        </form>
+      </mat-expansion-panel>
+      <mat-expansion-panel class="color">
+        <mat-expansion-panel-header class="color2">
+          <mat-panel-title class="colorText">
+            ADDITIONAL VOYAGE CRITERIA
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <div class="buttons">
+      <button mat-dialog-close class="btn">Cancel</button>
+      <button class="btn" mat-dialog-close  (click)="save()">Save</button>
+    </div>
+  </div>
+</div>
