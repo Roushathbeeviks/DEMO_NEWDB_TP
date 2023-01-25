@@ -91,6 +91,7 @@ width: 1px;
 }
 .row2{
 display: flex;
+justify-content: space-between;
 }
 .image{
 display: flex;
