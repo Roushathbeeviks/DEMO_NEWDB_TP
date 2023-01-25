@@ -65,7 +65,9 @@ export class AdminHeaderComponent implements OnInit {
     console.log("val")
     // this.route.navigate([`voyagetable/${val}`])
   }
-  navigate(){
-    console.warn("clicked1")
+  navigate(id:any){
+    console.log("ss",id)
+    this.route.navigate([`../voyagetable/${id}`])
+    console.log("ss",id)
   }
 }

@@ -12,20 +12,17 @@
         <a class="color2">
             <div class="search">
                 <div style="display: flex; justify-content: center;gap:10px">
-                    <ng-select [(ngModel)]="searchResult" class="searchClass" (keyup)="searchVessel($event)" #searchInput placeholder="Search"> 
-                        <ng-option *ngFor="let srch of searchResult"  ><a style="text-decoration:none; color:black" [routerLink]="'../voyagetable/'+ srch.id"  (keyup)="submitSearch()" class="search-box"> {{srch.name}} </a></ng-option>
+                    <ng-select class="searchClass"   [items]="searchResult" bindLabel="name"  (keyup)="searchVessel($event)" placeholder="Search Vessel"     (change)="navigate($event.id)" > 
+
                      </ng-select>
                  
                 </div>     
             </div> 
              
-              <!-- <ng-select [(ngModel)]="searchResult" class="searchClass" (keyup)="searchVessel($event)" #searchInput>
-                <ng-option *ngFor="let srch of searchResult"  ><a style="text-decoration:none; color:black" [routerLink]="'../voyagetable/'+ srch.id"> {{srch.name}} </a></ng-option>
+              <!-- <ng-select [(ngModel)]="searchResult" class="searchClass" (keyup)="searchVessel($event)"  placeholder="Search Vessel" >
+                <ng-option *ngFor="let srch of searchResult"  ><a style="text-decoration:none; color:black" [routerLink]="'../voyagetable/'+ srch.id"  class="search-box"> {{srch.name}} </a></ng-option>
              </ng-select> -->
-              <!-- <select >ggaga
-              <option *ngFor="let srch of searchResult" [routerLink]="'../voyagetable/'+ srch.id">{{srch.name}}</option>
-              <option></option>
-              <option></option></select> -->
+         
         </a>
         <a  class="color ">
             <div class="set">
@@ -39,14 +36,14 @@
                     </mat-menu>  
             </div>
         </a>
-        <a href="#" class="color">
+        <!-- <a href="#" class="color">
             <div>
                 <mat-icon>help_outline</mat-icon>
             </div>
         </a>
         <a  routerLinkActive="active" href="#" class="color ">
             <div><mat-icon>sms</mat-icon></div>
-         </a>
+         </a> -->
          <a mat-button [matMenuTriggerFor]="menu" class="color ">
             <mat-icon>person</mat-icon>
         </a>

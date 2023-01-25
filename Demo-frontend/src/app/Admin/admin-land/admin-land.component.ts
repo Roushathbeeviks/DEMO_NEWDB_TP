@@ -12,6 +12,7 @@ import { VoyageplanService } from 'src/app/services/voyageplan.service';
 export class AdminLandComponent implements OnInit {
   customOptions: OwlOptions = {
     loop: false,
+   
     mouseDrag: false,
     touchDrag: false,
     pullDrag: false,
@@ -58,29 +59,6 @@ vesselId:any
               this.data[index]['startportname'] = res.message.length ? res.message[res.message.length-1].startportname : '';
               this.data[index]['destinationportname'] = res.message.length ? res.message[res.message.length-1].destinationportname : '';
               index++;  
-              /*let stportId=  res.message.length ? res.message[res.message.length-1].startport_id : '';
-              
-              console.log("hihi",stportId)
-              if(stportId !== '') {
-                this.voyageserv.GetStartPortById(stportId).subscribe((res:any)=>{
-                  //this.stPort.push(res[0])
-                  //console.log("dfdf",this.stPort)
-                  this.data[index]['startport'] = res[0].name;
-                  this.data[index]['destinationportname'] = res[0].name;
-                  index++;  
-                 })
-              } */  
-              // let dstPortId=  res.message.length ? res.message[res.message.length-1].destinationport_id : '';
-              // console.log("jj",dstPortId)
-              // if(dstPortId !== '') {
-              //   this.voyageserv.GeDestinationPortById(dstPortId).subscribe((res:any)=>{
-           
-              //     this.data[index]['dstport'] = res[0].name;
-                  
-              //    })
-            
-              // }    
-                  
           })
           
     

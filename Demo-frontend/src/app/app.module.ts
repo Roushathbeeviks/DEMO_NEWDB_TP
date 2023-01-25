@@ -70,6 +70,7 @@ import { VoyageDeleteComponent } from './modal/voyage-delete/voyage-delete.compo
 import { NgSelectModule } from '@ng-select/ng-select';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
