@@ -43,9 +43,9 @@
               <label style="width:150px;height: 21px;border:1px solid white;border-radius: 4px;padding-left: 5px;color:rgb(182, 178, 178); padding-top: 3px;">Role </label>  
               <div style="display:flex;gap:20px;">
                 
-              <input type="radio" value="admin" id="Admin" formControlName="role"> 
+              <input type="radio" value="admin" id="Admin" formControlName="role" style="cursor: pointer;"> 
               <label for="Admin">Admin</label>
-              <input type="radio"  value="user" id="user" formControlName="role">
+              <input type="radio" style="cursor: pointer" value="user" id="user" formControlName="role">
               <label for="user">User</label>
               </div>
               <div class="errors" *ngIf="signup.controls['role'].errors?.['required'] && signup.controls['role'].touched ">

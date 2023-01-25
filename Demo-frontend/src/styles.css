@@ -241,12 +241,12 @@ body { margin: 0; font-family: sans-serif; }
 
 
 .green-snackbar {
-    background: rgb(6, 95, 39);
-    color:  white;;
+    background: #d0d5db;
+    color:  rgb(7, 136, 86);
 }
 .green-snackbar button {
-    background-color: rgb(6, 95, 39);
-    color: white;
+    background-color:#d0d5db;
+    color:rgb(7, 136, 86);
     border: none;
 }
 .red-snackbar {
@@ -261,6 +261,7 @@ body { margin: 0; font-family: sans-serif; }
 .owl-theme {
     /* z-index: -999 !important; */
     display: block;
+    /* width:1200px !important; */
   }
   .activeI{
     text-shadow: 0 -3px 3px #a0b8b8, 0 0 25px #dbdbe4;
