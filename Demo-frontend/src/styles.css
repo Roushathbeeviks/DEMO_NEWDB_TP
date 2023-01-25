@@ -241,6 +241,7 @@ body { margin: 0; font-family: sans-serif; }
 .owl-theme {
     /* z-index: -999 !important; */
     display: block;
+    width:1200px !important;
   }
   .activeI{
     text-shadow: 0 -3px 3px #a0b8b8, 0 0 25px #dbdbe4;
