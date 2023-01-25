@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { VesselService } from 'src/app/services/vessel.service';
 import { VoyageplanService } from 'src/app/services/voyageplan.service';
-import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-landing-page',
@@ -24,35 +23,10 @@ stportId:any[]=[]
     private voyageserv:VoyageplanService) { }
   veselCard:any[]=[]
   ngOnInit(): void 
-  { 
-    customOptions: OwlOptions = {
-      loop: false,
-      mouseDrag: false,
-      touchDrag: false,
-      pullDrag: false,
-      dots: false,
-      navSpeed: 700,
-      navText: ['&#8249', '&#8250'],
-      responsive: {
-        0: {
-          items: 1
-        },
-        400: {
-          items: 2
-        },
-        740: {
-          items: 3
-        },
-        940: {
-          items: 4
-        }
-      },
-      nav: true
-    }
+  {
     this.id=localStorage.getItem('Id')
     console.log("local storage id",this.id)
     // this.voyageserv.updateApprovalMessage(this.id)
-    
     this.vesselserv.GetVesselById(this.id).subscribe((res:any)=>
     {
       this.data = res
@@ -61,28 +35,34 @@ stportId:any[]=[]
       this.veselCard=this.data
       
     })
-    this.vesselserv.GetAllVessel().subscribe((res:any)=>
+    this.vesselserv.GetVesselId(this.id).subscribe((res:any)=>
     {
-      console.log("kk",res);
-      this.data=res
- 
-      let index = 0;
-      this.data.forEach((e:any) => 
-          {
-            this.voyageserv. GetVoyagePlanByVesselId(e.id).subscribe((res:any)=>{
-              this.data[index]['startportname'] = res.message.length ? res.message[res.message.length-1].startportname : '';
-              this.data[index]['destinationportname'] = res.message.length ? res.message[res.message.length-1].destinationportname : '';
-              index++;  
-          })
-          
-    
+      // this.vesselId=res
+      res.forEach((e:any) => 
+      {
+       this.vesselId= e['vessel_id'] 
+       this.voyageserv. GetVoyagePlanByVesselId(this.vesselId).subscribe((res:any)=>{
+        this.stportId=res.message[res.message.length-1].startport_id
+        console.log("hihi")
+       this.voyageserv.GetStartPortById(this.stportId).subscribe((res:any)=>{
+        this.stPort.push(res[0])
+        console.log("dfdf",this.stPort)
+        
+       })
+  
+       this.dstPortId=res.message[res.message.length-1].destinationport_id
+       this.voyageserv.GeDestinationPortById(this.dstPortId).subscribe((res:any)=>{
+        this.dstPort.push(res[0])
+        console.log("kooi",this.dstPort)
+       })
+       
+      
     })
-  })
+       
+      });
+     
+    })
 
 
   }
-      
-
 }
-
-  
