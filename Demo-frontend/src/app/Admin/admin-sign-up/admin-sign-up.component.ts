@@ -18,7 +18,8 @@ export class AdminSignUpComponent implements OnInit {
   UsernameCheckmsg:string=""
   EmailCheckmsg:string=""
   status:boolean=true
-  
+
+
 
   constructor(
     private route: Router,
@@ -28,11 +29,12 @@ export class AdminSignUpComponent implements OnInit {
     // private titleCasePipe: TitleCasePipe
   ) {}
 
+
   check() {
     // this.signup.value=this.titleCasePipe.transform(this.signup.value)
     // console.log(this.signup.value);
     this.adminserv.SignupUser(this.signup.value).subscribe((res) => {
-      console.log(res);
+      console.log("r");
     });
     this.vesselserv.openSnackBar("Saved Succesfully","ok")
      this.route.navigate(['/usermgt'])
@@ -79,7 +81,7 @@ export class AdminSignUpComponent implements OnInit {
     this.signup = this.formBuilder.group({
       username: ['', [Validators.required, Validators.minLength(2)]],
       first_name: ['',[  Validators.required,  Validators.minLength(2),  Validators.pattern('[a-zA-z].*'),]],
-      last_name: [ '',[  Validators.required,  Validators.minLength(2),  Validators.maxLength(10),  Validators.pattern('[a-zA-z].*'),],],
+      last_name: [ '',[  Validators.required,  Validators.minLength(1),  Validators.maxLength(10),  Validators.pattern('[a-zA-z].*'),],],
       email: ['', [Validators.required, Validators.email]],
       contact_number: [ '', [ Validators.required,   Validators.minLength(10), Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       password: ['', [Validators.required]],

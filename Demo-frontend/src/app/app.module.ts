@@ -67,6 +67,7 @@ import { DeleteModalComponent } from './modal/delete-modal/delete-modal.componen
 import { CarouselModule } from 'node_modules/ngx-owl-carousel-o';
 import { VesselDeleteComponent } from './modal/vessel-delete/vessel-delete.component';
 import { VoyageDeleteComponent } from './modal/voyage-delete/voyage-delete.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -134,7 +135,8 @@ import { VoyageDeleteComponent } from './modal/voyage-delete/voyage-delete.compo
     FormsModule,
     MatSnackBarModule,
     MatDividerModule,
-    CarouselModule
+    CarouselModule,
+    NgSelectModule
     // Ng2SearchPipeModule,
     // SwiperModule 
  

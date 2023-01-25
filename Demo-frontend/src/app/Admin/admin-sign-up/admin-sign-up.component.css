@@ -45,7 +45,7 @@
 }
 .container1{
     /* background-image: url("../../../assets/map.png"); */
-    background-color:#031e44;
+    background-color:#000d20;
     height:100%;
     width:100%;  
     /* background-repeat: no-repeat;
@@ -70,4 +70,8 @@
 .radio{
     font-size: 15px;
     color:aliceblue;
+}
+.icon{
+    color: aliceblue;
+    position: relative;
 }

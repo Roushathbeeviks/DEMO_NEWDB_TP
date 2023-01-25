@@ -15,7 +15,7 @@
           <mat-panel-title class="colorText"> VOYAGE DETAILS </mat-panel-title>
         </mat-expansion-panel-header>
 
-        <form [formGroup]="EditVoyageForm">
+        <form [formGroup]="EditVoyageForm" (ngSubmit)="save()">
           <div class="display">
             <div>
               <div class="display 2">
@@ -40,29 +40,22 @@
                   <label>COSP Lat</label> <span style="color: red">*</span>
                 </div>
                 <div class="block1">
-                  <input
-                    type="text"
-                    class="block2"
-                    formControlName="cosp_lat"
-                    style="width: 100%"
-                  />
+                  <input  type="text"  class="block2"  formControlName="cosp_lat"  style="width: 100%"  [ngClass]="{'is-invalid':submitted && EditVoyageForm.controls.cosp_lat.errors }"/>
                 </div>
               </div>
+
               <div class="display 2">
-                <div class="block1">
-                  <label>EOSP Lat</label> <span style="color: red">*</span>
-                </div>
-                <div class="block1">
-                  <input
-                    type="text"
-                    class="block2"
-                    formControlName="eosp_lat"
-                  />
+                  <div class="block1">
+                    <label>EOSP Lat</label> <span style="color: red">*</span>
+                  </div>
+                  <div class="block1">
+                    <input  type="text"  class="block2"  formControlName="eosp_lat"/>
                 </div>
               </div>
               <div class="errors" *ngIf="EditVoyageForm.controls['eosp_lat'].errors?.['required'] && EditVoyageForm.controls['eosp_lat'].touched">
                 This Field is required
               </div>
+              <span *ngIf="submitted && EditVoyageForm.controls.eosp_lat.errors?.required"></span>
 
             </div>
             <div>
@@ -116,7 +109,8 @@
             </div>
           </div>
           <div style="display: none">
-            <input type="reset" id="primaryButton" />
+            <input type="reset" id="primaryButton"
+            />
           </div>
         </form>
       </mat-expansion-panel>
@@ -198,8 +192,8 @@
     </mat-accordion>
 
     <div class="buttons">
-      <button mat-dialog-close class="btn">Cancel</button>
-      <button class="btn" mat-dialog-close  (click)="save()">Save</button>
+      <button mat-dialog-close class="btnC">Cancel</button>
+      <button class="btn" mat-dialog-close >Save</button>
     </div>
   </div>
 </div>
