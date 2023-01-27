@@ -6,7 +6,7 @@ require("dotenv").config();
 var auth = require("../services/Authentication");
 var checkrole = require("../services/checkRole");
 var bcrypt = require('bcrypt')
-
+const PasswordService = require("../services/PasswordService");
 
 const userService = {
   doCreate: (req, res) =>
@@ -23,6 +23,7 @@ const userService = {
           userTasks.insertUser(users).then((results) => {
             if (results) {
               // return res.status(200).json("User successfully added");
+              PasswordService.LoginDetails(req,res)
               res.send({message:"User successfully added"})
             }
           });

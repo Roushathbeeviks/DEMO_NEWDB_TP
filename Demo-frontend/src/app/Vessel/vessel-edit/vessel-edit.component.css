@@ -1,97 +1,82 @@
-*{
-    height: 50;
-    width: 80;
-    /* background-color: aqua; */
-}
 
-.login{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-family: Arial, Helvetica, sans-serif;
-    align-items: center;
-    font-size: 45px;
-    /* height:100%; */
-    margin:0px; 
-    min-width: 450px;
+.container
+{
+    /* background-color: blue; */
+    color:white;
+    min-width: 620px;
+    padding-left: 10px;
     padding-top: 10px;
-    height:100%;
-    width:100%;  
-   
-}
-
-/* .loginform{
-    padding-top: 10px;
-} */
-
-.pass{
-    color:aliceblue;
-    padding-left: 78%;
-    font-size: 12px; 
-}
-.color{
-    color:aliceblue;
-}
-.textbox{
-    display:flex;
-    size: 100px;
-    position: relative;
-    width:100%;
-    align-items: center;
-    flex-direction: column;
-}
-.input{
-    width:250px;
-    height: 20px;
-    font-size: 15px;
-    border-radius: 4px;
-}
-.move{
-    padding-left: 330px;
-}
-
-.buttons{
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    align-content: center;
-    padding-bottom: 10px;
-}
-.btnC{
-    background-color: rgb(221, 147, 35);
-    display: flex;
-    color: aliceblue;
-    border: none;
-    font-size: 15px;
-    min-width: 75px;
-    min-height: 30px;
-    align-items: center; 
-    font-family: Arial, Helvetica, sans-serif;
-}
-.mat-dialog-container{
-    background-color: #031e44;
-}
-.inputLabel{
-    display: flex;
-    flex-wrap: wrap;
-    min-width: 85px;
-   align-content: center;
-    height: 30px;
-    font-size: 15px;
-    border-radius: 8px;
-    color: white;
-    gap: 5px;
-}
-.LabIn{
-    gap: 10px;
-    display: flex;
-    justify-content:flex-start;
-}
-.editProfileContainer{
+    padding-right: 10px;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     border: 1px solid rgb(129, 128, 128);
+
+    /* #969696 */
+}
+h3
+{
+    color: rgb(190, 190, 29);
+    margin-top: 4px;
+   
     
 }
+.card
+{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+   
+    
+}
+input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+    border-width: none;
+   
+}
+
+/* .flex
+{
+    display: block;
+    
+} */
+.flag
+{
+    margin-right:100px;
+}
+label
+{
+    margin-right: 20px;
+    margin-bottom: 50px;
+}
+input.ng-invalid.ng-touched {
+    border-bottom:  red 1px solid;
+}
+option
+{
+    text-transform: uppercase;
+}
+.buttons{
+    display: flex;
+    gap:5px;
+    justify-content: flex-end;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.display{
+    margin-bottom: 50px;
+
+}
+.errors{
+    padding-top: 10px;
+    padding-left: 5px;
+    color: red;
+    font-weight: 50%;
+    font-size: 15px;
+}
+

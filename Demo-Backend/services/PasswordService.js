@@ -12,7 +12,7 @@ var transporter = nodemailer.createTransport({
 const PasswordService = {
   ForgotPassword: (req, res) => {
     let user = req.body;
-    query = "select email,password from user where email=?";
+    query = "select first_name,email,password from user where email=?";
     connection.query(query, [user.email], (err, results) => {
       if (!err) {
         if (results.length <= 0) {
@@ -25,7 +25,7 @@ const PasswordService = {
             to: results[0].email,
             subject: "Forgot Password",
             html:
-              "<p>Hi <br>Forgot your Password ?<br><b>Email: </b>" +
+              "<p>Hi "+results[0].first_name+"<br>Forgot your Password ?<br><b>Email: </b>" +
               results[0].email +
               "<br> <b>Your Password: </b>" +
               results[0].password +
@@ -44,5 +44,44 @@ const PasswordService = {
       }
     });
   },
+
+  LoginDetails: (req, res) => {
+    let user = req.body;
+    query = "select first_name,username,email,password from user where email=?";
+    connection.query(query, [user.email], (err, results) => {
+      if (!err) {
+        if (results.length <= 0) {
+          res
+            .status(404)
+            .json({Message: "No USER EXISTS WITH THIS EMAIL ID"});
+        } else {
+          console.log("results",results)
+          var mailOptions = {
+            from: process.env.EMAIL,
+            to: results[0].email,
+            subject: "Login Details",
+            html:
+              "<p>Hi "+results[0].first_name+"<br>"+
+              "Here your login details<br><b>Username: </b>" +
+              results[0].username +
+              "<br> <b>Password: </b>" +
+              results[0].password +
+              "<br>click the link  and  login with the above username and password  http://localhost:4200/ </a></p>",
+          };
+          transporter.sendMail(mailOptions, (err, info) => {
+            if (err) {
+              console.log(err);
+            } else {
+              console.log(info);
+            }
+          });
+        }
+      } else {
+        return res.status(500).json(err);
+      }
+    });
+  },
+
+
 };
 module.exports = PasswordService;
