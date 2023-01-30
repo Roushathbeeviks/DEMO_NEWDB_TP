@@ -60,7 +60,6 @@ import { VoyageFormComponent } from './voyage/voyage-form/voyage-form.component'
 import { VesselEditComponent } from './Vessel/vessel-edit/vessel-edit.component';
 import { SearchComponent } from './search/search.component';
 // import {IvyCarouselModule} from 'angular-responsive-carousel';
-
 // import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { FirstCapDirective } from './first-cap.directive';
 import { EditVoyageComponent } from './voyage/edit-voyage/edit-voyage.component';

@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   id:any
   users:any=""
   searchResult:undefined|any
-  constructor(private dialog: MatDialog,private adminserv:AdminService,private router:Router,private search :AdminService) { }
+  constructor(private dialog: MatDialog,private adminserv:AdminService,private route:Router,private router:Router,private search :AdminService) { }
 
   ngOnInit(): void {
     this.id=localStorage.getItem('Id')
@@ -72,5 +72,9 @@ export class HeaderComponent implements OnInit {
     this.router.navigate([`voyagetable/${val}`])
   }
  
-
+  navigate(id:any){
+    console.log("ss",id)
+    this.route.navigate([`../voyagetable/${id}`])
+    console.log("ss",id)
+  }
 }

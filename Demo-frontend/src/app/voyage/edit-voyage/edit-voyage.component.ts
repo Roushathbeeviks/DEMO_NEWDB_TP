@@ -12,6 +12,7 @@ export class EditVoyageComponent implements OnInit {
   EditVoyageForm:any= FormGroup
  StartPort:any
  DestinationPort:any
+ submitted:boolean=false;
   constructor(private voyageserv:VoyageplanService,
     private formBuilder: FormBuilder,
     private vesselserv:VesselService,
@@ -63,12 +64,15 @@ this.voyageserv.GetVoyagePlanByVoyageId(this.data).subscribe((res:any) =>{
   }
   save()
   {
+    this.submitted = true;
   // console.log("Saving...")
   this.voyageserv.EditVoyage(this.data, this.EditVoyageForm.value).subscribe((result:any)=>
   {
     // console.log("ffff",this.data)
-    console.log(result)
+    console.log("result",result)
     this.reloadPage()
+    this.submitted = false;
+    
 
   })
  }

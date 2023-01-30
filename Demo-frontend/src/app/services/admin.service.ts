@@ -44,6 +44,10 @@ export class AdminService {
   AllUsers() {
     return this.http.get(this.URL + '/user/getallusers');
   }
+  AllUsersForExcel() {
+    return this.http.get(this.URL + '/user/getallusersforexcel');
+  }
+ 
   DeleteUser(id:any){
     return this.http.delete(this.URL + `/user/deleteuser/${id}`, id);
   }

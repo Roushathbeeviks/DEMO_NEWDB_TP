@@ -17,6 +17,11 @@ GetAllVessel()
 {
   return this.http.get(this.URL + '/admin/getallvessel')
 }
+GetAllVesselForExcel()
+{
+  return this.http.get(this.URL + '/admin/getallvesselforexcel')
+}
+
 GetAllVesselsIds()
 {
   return this.http.get(this.URL + '/admin/getallvesselsIds')
@@ -58,6 +63,10 @@ openSnackBar(message: string, action: string) {
   this._snackBar.open(message,action, {
     horizontalPosition:'right',
     verticalPosition: 'top',
+      duration: 3000,
+      panelClass: ['green-snackbar'],
+      
+    
   });
 }
 CheckIMONumber(data:any) 

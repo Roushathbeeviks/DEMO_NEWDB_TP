@@ -100,3 +100,14 @@
     min-height: 20px;
     font-size: 15px;
 }
+.errors{
+    padding-top: 0px;
+    padding-left: 15px;
+    color: red;
+    font-weight: 50%;
+    font-size: 8px;
+}
+input.ng-invalid.ng-touched {
+    border-bottom:  red 1px solid;
+    
+}

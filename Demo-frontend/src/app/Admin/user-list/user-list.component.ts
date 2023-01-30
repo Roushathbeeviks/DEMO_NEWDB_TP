@@ -8,7 +8,7 @@ import { VesselMappingService } from 'src/app/services/vessel-mapping.service';
 import { VesselService } from 'src/app/services/vessel.service';
 import { EditprofileComponent } from 'src/app/Users/editprofile/editprofile.component';
 import { VesselMappingComponent } from 'src/app/Vessel/vessel-mapping/vessel-mapping.component';
-
+import * as XLSX from 'xlsx';
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -23,6 +23,8 @@ id1:any
 id:any
 deleteid:any
 username:any
+data:any[]=[]
+fileName= 'UserSheet.xlsx'
 var:string=""
   constructor(private adminserv:AdminService,
     private route:Router,
@@ -74,6 +76,17 @@ var:string=""
       data:id,
       height:"60%",
       width:"80%",
+    })
+  }
+  exportexcel()
+  {
+    this.adminserv.AllUsersForExcel().subscribe((data:any) =>
+    {
+      this.data=data.message
+      const ws:XLSX.WorkSheet=XLSX.utils.json_to_sheet(this.data)
+      const wb:XLSX.WorkBook=XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb,ws,'UserDetails')
+      XLSX.writeFile(wb,this.fileName)
     })
   }
 

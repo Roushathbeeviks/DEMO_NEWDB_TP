@@ -51,6 +51,10 @@ router.get("/getallUsersWithMapping", (req,res) => {
 router.get("/getallusers", (req,res) => {
   userService.GetAllDetails(req,res)
 })
+router.get("/getallusersforexcel", (req,res) => {
+  userService.GetUsersForExcel(req,res)
+})
+
 
 
 module.exports = router;

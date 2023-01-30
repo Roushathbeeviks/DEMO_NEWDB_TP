@@ -16,9 +16,6 @@ owl-carousel-o {
     display: flex;
 }
 
-
-
-
 html,body{
     height:100%;
     margin:0px;
@@ -130,6 +127,7 @@ body { margin: 0; font-family: sans-serif; }
     display: flex;
     justify-content: center;
     align-content: center;
+    background-color: #424242;
 }
 
  
@@ -137,7 +135,7 @@ body { margin: 0; font-family: sans-serif; }
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
-    font-size: 28px;
+    font-size: 24px;
     line-height: 1;
     letter-spacing: normal;
     text-transform: none;
@@ -238,7 +236,28 @@ body { margin: 0; font-family: sans-serif; }
     padding: 0 24px 16px;
     border-bottom: 2px solid white !important;
 }
+
+
+.green-snackbar {
+    background: #d0d5db;
+    color:  rgb(7, 136, 86);
+}
+.green-snackbar button {
+    background-color:#d0d5db;
+    color:rgb(7, 136, 86);
+    border: none;
+}
+.red-snackbar {
+    background: #F44336;
+    color: white;
+}
+.red-snackbar button {
+    background-color: #F44336;
+    color: white !important;
+       border: none;
+}
 .owl-theme {
+   
     /* z-index: -999 !important; */
     display: block;
     width:1200px !important;

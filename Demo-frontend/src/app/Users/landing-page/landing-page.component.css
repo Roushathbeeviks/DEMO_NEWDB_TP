@@ -1,6 +1,7 @@
 .container{
     /* background-image: url("../../../assets/map.png"); */
-    background-color:#000d20;
+    /* background-color:#000d20; */
+    background-image: url("../../../assets/map.JPG");
     height:100%;
     width:100%;  
     background-repeat: no-repeat;

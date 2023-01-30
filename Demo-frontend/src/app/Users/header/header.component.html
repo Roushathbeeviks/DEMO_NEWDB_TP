@@ -9,12 +9,7 @@
             </a>
     </div>
     <div class="headerBody2">
-        <!-- <a href="#" class="color">
-            <div>
-                <i class="material-icons">search</i>
-            </div>
-        </a> -->
-        <a class="color">
+        <!-- <a class="color">
             <div class="search">
                 <div style="display: flex; justify-content: center;gap:10px">
                     <input type="text" class="input-search" (keyup)="searchVessel($event)"  placeholder="Search vessel" #searchInput>
@@ -29,7 +24,26 @@
 
                 </li>
               </ul>
+        </a> -->
+
+        <a class="color2">
+            <div class="search">
+                <div style="display: flex; justify-content: center;gap:10px">
+                    <ng-select class="searchClass"   [items]="searchResult" bindLabel="name"  (keyup)="searchVessel($event)" placeholder="Search Vessel"     (change)="navigate($event.id)" > 
+
+                     </ng-select>
+                 
+                </div>     
+            </div> 
+             
+              <!-- <ng-select [(ngModel)]="searchResult" class="searchClass" (keyup)="searchVessel($event)"  placeholder="Search Vessel" >
+                <ng-option *ngFor="let srch of searchResult"  ><a style="text-decoration:none; color:black" [routerLink]="'../voyagetable/'+ srch.id"  class="search-box"> {{srch.name}} </a></ng-option>
+             </ng-select> -->
+         
         </a>
+
+
+
         <!-- <a href="#" class="color">
             <div>
                 <mat-icon>help_outline</mat-icon>

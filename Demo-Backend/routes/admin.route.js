@@ -65,6 +65,10 @@ router.put("/editvessel/:id", function (req, res) {
 router.get("/getallvessel", function (req,res) {
   Vessel.GetAllVessels(req,res)
 });
+router.get("/getallvesselforexcel", function (req,res) {
+  Vessel.GetAllVesselsForExcel(req,res)
+});
+
 router.get("/getallvesselsIds", function (req,res) {
   Vessel.GetAllVesselsIds(req,res)
 });

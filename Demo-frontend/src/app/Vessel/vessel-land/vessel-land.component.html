@@ -5,6 +5,8 @@
             <div class="heading">
               <h2>REGISTER VESSEL</h2>
                 <button (click)="VesselForm()" class="btn">ADD VESSEL</button>
+                <button (click)="exportexcel()">Export to Excel</button>
+ 
             </div>
           </div>
         <div class="tabelC">
@@ -24,7 +26,8 @@
             name="IMO NUMBER"
             prop="imo_number"
             [width]="150"
-            [sortable]="true">
+            [sortable]="true"
+            >
           </ngx-datatable-column>
             <!-- <ng-template let-column="column" ngx-datatable-header-template>IMO NUMBER</ng-template> -->
         
@@ -33,7 +36,9 @@
             name="vesselName"
             prop="name"
             [width]="150"
-            [sortable]="true">
+            [sortable]="true"
+          
+            >
             <ng-template let-column="column" ngx-datatable-header-template>VESSEL NAME</ng-template>
     </ngx-datatable-column>
 

@@ -60,7 +60,6 @@ vesselId:any
               this.data[index]['destinationportname'] = res.message.length ? res.message[res.message.length-1].destinationportname : '';
               index++;  
           })
-          
     
     })
   })
@@ -104,10 +103,10 @@ vesselId:any
       })
 
     })*/
-
-
-
-
+  }
+  reload()
+  {
+    window.location.reload();
   }
   navigate()
   {

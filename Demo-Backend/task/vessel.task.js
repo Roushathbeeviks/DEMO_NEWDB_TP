@@ -30,6 +30,7 @@ const VesselTask=
             })
         })
     },
+    //Not using-Reference
     insertVesselMapping:(values)=>
     {
         // var newArray = [];
@@ -71,21 +72,35 @@ const VesselTask=
         // return true;    
 
     },
-
-    VesselAlreadyExists:(vessel_name)=>
+    InsertVessels:(values)=>
     {
-      const param=[vessel_name];
-      const query=`select * from vessel_user_mapping where vessel_name=?`
-      return new Promise((resolve, reject) => {
-        connection.query(query, param, (error, results) => {
-          if (error) {
-            reject(error);
-            
-          }
-          resolve(results);
-          
-        });
+      // console.log("values",values)
+      values.forEach(element => {
+        const query =`INSERT INTO vessel_user_mapping (vessel_name,vessel_id,user_id) SELECT * FROM (SELECT ?,?,?) AS tmp
+        WHERE NOT EXISTS (
+            SELECT vessel_name FROM  vessel_user_mapping WHERE vessel_name = ? and user_id =?
+        ) LIMIT 1;`;
+        const param=[
+          element.name,
+          element.id,
+          element.user_id,
+          element.name,
+          element.user_id
+        ]
+         connection.query(query,param,(error,results)=>{
+            if(error){
+              console.log("Dummyerror",error)
+            }
+            console.log("Dummyresult",results)
+          });
+      
+      })
+      return  new Promise((resolve,reject)=>
+      {
+          console.log("entered")
+          resolve("success")
       });
+        
     },
     EditVessel:(id,name,imo_number,flag_id,vessel_type_id)=>
     {
