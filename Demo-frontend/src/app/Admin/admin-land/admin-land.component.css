@@ -39,6 +39,8 @@ img{
   justify-content:flex-start;
   padding-top: 10px;
   margin-left: 10px;
+  padding-right: 10px;
+ 
 }
 .Imagediv{
 display: flex;
@@ -91,7 +93,8 @@ width: 1px;
 }
 .row2{
 display: flex;
-justify-content: space-between;
+
+gap:5%;
 }
 .image{
 display: flex;

@@ -12,7 +12,7 @@ import { VoyageplanService } from 'src/app/services/voyageplan.service';
 export class AdminLandComponent implements OnInit {
   customOptions: OwlOptions = {
     loop: false,
-   
+    
     mouseDrag: false,
     touchDrag: false,
     pullDrag: false,
@@ -35,6 +35,7 @@ export class AdminLandComponent implements OnInit {
     },
     nav: true
   }
+ 
 data: any;
 id:any[]=[];
 vesselId:any
@@ -63,46 +64,7 @@ vesselId:any
     
     })
   })
-    /*this.vesselserv.GetAllVesselsIds().subscribe((res:any)=>{
-       this.id=res
-       console.log("jjjjj",this.id)
-       this.id.forEach((e:any)=>{
-        this.value=e['this.id']
-        console.log("jjjjj",this.value)
-        this.vesselserv.GetVesselId(e.id).subscribe((res:any)=>
-        {
-          // this.vesselId=res
-          res.forEach((e:any) => 
-          {
-          //  this.vesselId= e['this.id'] 
-          //  console.log("huhu",this.id)
-           console.log('e',e)
-           this.voyageserv. GetVoyagePlanByVesselId(e.id).subscribe((resp:any)=>{
-            this.stportId=resp.message[resp.message.length-1].startport_id
-            console.log("hihi")
-           this.voyageserv.GetStartPortById(this.stportId).subscribe((res:any)=>{
-            this.stPort.push(res[0])
-            console.log("dfdf",this.stPort)
-            
-           })
-    
-      
-           this.dstPortId=res.message[res.message.length-1].destinationport_id
-           this.voyageserv.GeDestinationPortById(this.dstPortId).subscribe((res:any)=>{
-            this.dstPort.push(res[0])
-            console.log("kooi",this.dstPort)
-           })
-           
-          
-        })
-           
-          });
-         
-        })
-    
-      })
-
-    })*/
+  
   }
   reload()
   {

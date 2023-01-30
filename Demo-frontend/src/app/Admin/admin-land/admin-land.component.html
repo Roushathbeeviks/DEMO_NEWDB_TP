@@ -1,11 +1,11 @@
+<app-admin-header></app-admin-header>
 <div class="container">
-            <app-admin-header></app-admin-header>
             <div class="row">
               <div class="row2">
                 <div class="image">
                   <img style="width:100%;height:100%" src="../../../assets/synergy-logo.png" alt="">
                 </div>
-      <owl-carousel-o [options]="customOptions">
+      <owl-carousel-o [options]="customOptions" >
       <ng-container *ngFor="let vessel of data;let i index">
         <ng-template carouselSlide>
           <mat-card  class="example-card" [routerLink]="['/voyagetable/',vessel.id]">
@@ -21,8 +21,9 @@
                   <mat-icon style="color:rgb(64, 187, 64);font-size: 7px;">brightness_1</mat-icon> &nbsp;
                   Online
                 </div>
+               
               </div>
-  
+            
             </div>
             <div class="belowText">
               <div style="min-width:51px;"></div>
@@ -45,19 +46,3 @@
 </div>
 
 
-
-<!-- <owl-carousel-o [options]="customOptions">   
-  <ng-template carouselSlide *ngFor="let vessel of data">
-    <mat-card > <div class="cardDiv1">
-      <div class="cardDiv2"><img src="../../../assets/flag1.png"></div>
-      <div class="cardDiv3">
-        <div class="title">
-          {{vessel.VesselName}}
-          <br>
-          {{vessel.IMONumber}}
-        </div>
-    </div>
-    </div> 
-    </mat-card>
-  </ng-template>
-  </owl-carousel-o> -->

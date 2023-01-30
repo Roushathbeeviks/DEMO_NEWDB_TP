@@ -3,10 +3,11 @@
   background-color:#000d20;
   height:100%;
   width:100%;  
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:sans-serif;
   color:white;
   padding-left: 10px;
   position: fixed;
+  display: flex;
  
 }
 .title
@@ -19,9 +20,11 @@
     text-transform: uppercase;
   }
 .row{
+  background-color:#000d20;
   display: flex;
-  justify-content:flex-start;
-  /* padding-top: 10px; */
+  justify-content:space-between;
+  padding-left: 10px;
+  padding-right: 10px;
   
   
 }
@@ -97,31 +100,19 @@ img{
 }
 .row2{
   display :flex;
+  justify-content: space-between;
 }
 .btn{
   min-width: 110px;
   
 }
 .heading{
-  /* color:rgb(214, 179, 63); */
   display: flex;
-  justify-content: space-between;
-  font-size: 16px;
-  align-items: center;
-  /* padding-top: 10px; */
+  gap:60px;
   margin-right: 35px;
+  
 }
-/* .container2{
-    
-  background-color: #031e44;
-  height:100%;
-  width:100%;  
-  font-family: Arial, Helvetica, sans-serif;
-  color:white;
- 
-  position: fixed;
- 
-} */
+
 .example-card{
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -130,7 +121,7 @@ img{
 }
 .class2{
   font-family: sans-serif;
-  font-size: 14px;
+  font-size: 12px;
 }
 .class3{
   font-family: sans-serif;
@@ -161,4 +152,11 @@ img{
   height: 50px;
   padding: 10px;
   overflow: hidden;
+}
+.tabelC{
+  display: flex;
+  justify-content: center;
+  
+  border-color: aliceblue;
+  color: white;
 }
