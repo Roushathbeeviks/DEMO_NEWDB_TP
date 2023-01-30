@@ -50,3 +50,21 @@
     gap:10px;
     cursor: pointer;
 }
+.btn2{  
+        
+    border-radius: 5px;
+    border-color:white;
+    background-color: transparent;
+    color: aliceblue;
+    cursor: pointer;
+    border-width: 1px;
+    width: 40px;
+    height:30px;
+    font-size: 12px;
+    font-family:sans-serif
+}
+.btn2:hover {
+    background-color: rgb(58, 120, 201);
+    color:white;;
+    color: white;
+  }
