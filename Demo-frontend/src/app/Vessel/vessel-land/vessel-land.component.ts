@@ -6,6 +6,7 @@ import { VesselDeleteComponent } from 'src/app/modal/vessel-delete/vessel-delete
 import { VesselService } from 'src/app/services/vessel.service';
 import { VesselEditComponent } from '../vessel-edit/vessel-edit.component';
 import { VesselListComponent } from '../vessel-list/vessel-list.component';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-vessel-land',
@@ -13,12 +14,14 @@ import { VesselListComponent } from '../vessel-list/vessel-list.component';
   styleUrls: ['./vessel-land.component.css']
 })
 export class VesselLandComponent implements OnInit {
+fileName= 'VesselSheet.xlsx'
 rows:any[]=[]
 columnMode='standard';
 columns = [];
 ColumnMode = ColumnMode;
 id:any
 deleteid:any
+data:any[]=[]
   constructor(private dialog:MatDialog,private vesselserv:VesselService) { }
 
   ngOnInit(): void 
@@ -29,6 +32,7 @@ deleteid:any
       this.rows = res;
     
     })  
+ 
   }
 
   VesselForm()
@@ -55,6 +59,24 @@ deleteid:any
       },
     })
   }
+
+  exportexcel(): void
+  {
+    this.vesselserv.GetAllVesselForExcel().subscribe((data:any )=> {
+      this.data=data;
+      const ws: XLSX.WorkSheet =XLSX.utils.json_to_sheet(this.data);
+    // const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.projectData.result_data);
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'VesselDetails');
+ 
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+    })
+  
+   
+ 
+} 
 
 //   delete($event:any,id:any) 
 //   {

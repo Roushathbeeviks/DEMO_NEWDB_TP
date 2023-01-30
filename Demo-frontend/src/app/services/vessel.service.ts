@@ -17,6 +17,11 @@ GetAllVessel()
 {
   return this.http.get(this.URL + '/admin/getallvessel')
 }
+GetAllVesselForExcel()
+{
+  return this.http.get(this.URL + '/admin/getallvesselforexcel')
+}
+
 GetAllVesselsIds()
 {
   return this.http.get(this.URL + '/admin/getallvesselsIds')

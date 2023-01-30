@@ -7,12 +7,16 @@ var auth = require("../services/Authentication");
 var checkrole = require("../services/checkRole");
 var bcrypt = require('bcrypt')
 const PasswordService = require("../services/PasswordService");
+const Password=require('../services/password')
 
 const userService = {
   doCreate: (req, res) =>
    {
     let users = req.body;
-    // console.log(users);
+    // let password = Password.encrypt(req.body.password)
+    // let password =AES_ENCRYPT(req.body.password)
+    
+    // console.log("encrypted pass",password);
     userTasks
       .getUserByEmailId(users.email)
       .then((user) => {
@@ -227,6 +231,19 @@ const userService = {
   GetAllDetails:(req,res) => 
   {
     var query = "select * from user where role='user'";
+    connection.query(query, (err, results) => {
+      if (results) {
+        res.send({message:results})
+      }
+      else{
+        res.send({message:err})
+
+      }
+    })
+  },
+  GetUsersForExcel:(req,res) => 
+  {
+    var query = `select username as USERNAME,first_name as FIRST_NAME, last_name as LAST_NAME, email as EMAIL, contact_number as PHONE from user where role='user';`
     connection.query(query, (err, results) => {
       if (results) {
         res.send({message:results})

@@ -74,7 +74,7 @@
                 </div>
                 <div class="errors" *ngIf="signup.controls['contact_number'].errors?.['minlength'] && signup.controls['contact_number'].errors?.['maxlength']">Phone number should have minimum length</div>
                 <div class="errors" *ngIf="signup.controls['contact_number'].errors?.['pattern'] && signup.controls['contact_number'].touched">
-                  Please enter numbers
+                  Please enter valid number
                   </div>
                 </div>
             </div>

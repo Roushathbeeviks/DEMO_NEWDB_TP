@@ -56,6 +56,7 @@ stportId:any[]=[]
     // this.voyageserv.updateApprovalMessage(this.id)
     this.vesselserv.GetVesselById(this.id).subscribe((res:any)=>
     {
+      console.log("kk",res);
       this.data = res
       let index = 0;
       this.data.forEach((e:any) => 

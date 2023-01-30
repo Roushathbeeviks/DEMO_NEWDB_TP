@@ -11,7 +11,7 @@
 
     <div class="container2">
           <mat-accordion class="example-headers-align disabled">
-            <mat-expansion-panel class="color">
+            <mat-expansion-panel class="color" *ngFor="let item of [1]; first as isFirst" [expanded]="isFirst" >
               <mat-expansion-panel-header class="color2" >
                 <mat-panel-title class="colorText" >
                  VOYAGE DETAILS
@@ -143,17 +143,33 @@
                   </mat-panel-title>      
                 </mat-expansion-panel-header>
 
+                <form [formGroup]="voyageForm">
+             <div class="display">
+                 <div>     
+                    <div class="display2">
+                          <div class="block1"><label>FUEL DENSITY</label></div>
+                          <div class="block1"> <input  class="block2" type="text" formControlName="cosp_time"> </div>
+                  </div>
+              </div>
+
+              <div >   
+                <div class="display2">
+                  <div class="block1">  <label>LOWR CALORIFIC VALUE</label></div>
+                  <div class="block1"> <input type="text" class="block2" formControlName="displacement"></div>
+                </div>
+             </div>
             
+              </div>
+             <div style="display:none"> <input type="reset" id="primaryButton"  /></div>
+              </form>
               </mat-expansion-panel>
           </mat-accordion>
           
         <div class="buttons">
-          <input type="button" class="btnC" 
-       id="secondaryButton" 
-       onclick="document.getElementById('primaryButton').click()" value="Cancel" />
-            
-          <button class="btn" (click)="save()">Save</button>
+          <button class="btn" (click)="save()">Save</button> 
+          <input type="button" class="btnC"  id="secondaryButton"  onclick="document.getElementById('primaryButton').click()" value="clear" />   
+          <button class="btn" (click)="navigate()">cancel</button>
           
-            </div>
+       </div>
     </div >
 </div >

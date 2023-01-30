@@ -15,7 +15,7 @@
           <mat-panel-title class="colorText"> VOYAGE DETAILS </mat-panel-title>
         </mat-expansion-panel-header>
 
-        <form [formGroup]="EditVoyageForm" (ngSubmit)="save()">
+        <form [formGroup]="EditVoyageForm">
           <div class="display">
             <div>
               <div class="display 2">
@@ -40,8 +40,11 @@
                   <label>COSP Lat</label> <span style="color: red">*</span>
                 </div>
                 <div class="block1">
-                  <input  type="text"  class="block2"  formControlName="cosp_lat"  style="width: 100%"  [ngClass]="{'is-invalid':submitted && EditVoyageForm.controls.cosp_lat.errors }"/>
+                  <input  type="text"  class="block2"  formControlName="cosp_lat"  style="width: 100%"/>
                 </div>
+              </div>
+              <div class="errors" *ngIf="EditVoyageForm.controls['cosp_lat'].errors?.['required'] && EditVoyageForm.controls['cosp_lat'].touched">
+                This Field is required
               </div>
 
               <div class="display 2">
@@ -55,7 +58,7 @@
               <div class="errors" *ngIf="EditVoyageForm.controls['eosp_lat'].errors?.['required'] && EditVoyageForm.controls['eosp_lat'].touched">
                 This Field is required
               </div>
-              <span *ngIf="submitted && EditVoyageForm.controls.eosp_lat.errors?.required"></span>
+              <!-- <span *ngIf="submitted && EditVoyageForm.controls.eosp_lat.errors?.required"></span> -->
 
             </div>
             <div>
@@ -193,7 +196,7 @@
 
     <div class="buttons">
       <button mat-dialog-close class="btnC">Cancel</button>
-      <button class="btn" mat-dialog-close >Save</button>
+      <button class="btn" mat-dialog-close (click)="save()" >Save</button>
     </div>
   </div>
 </div>

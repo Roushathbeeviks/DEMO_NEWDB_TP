@@ -69,9 +69,10 @@ this.voyageserv.GetVoyagePlanByVoyageId(this.data).subscribe((res:any) =>{
   this.voyageserv.EditVoyage(this.data, this.EditVoyageForm.value).subscribe((result:any)=>
   {
     // console.log("ffff",this.data)
-    console.log(result)
+    console.log("result",result)
     this.reloadPage()
     this.submitted = false;
+    
 
   })
  }

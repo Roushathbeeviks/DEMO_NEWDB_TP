@@ -80,6 +80,26 @@ const Vessel={
             }
         })
     },
+    GetAllVesselsForExcel:(req,res)=>
+    {
+        // var query = "select * from project.vessel v join flag f  on v.flag_id=f.id join  vessel_type vt on v.vessel_type_id=vt.id where v.id=?"
+        var query="select vessel.name as VESSEL_NAME,vessel.imo_number as IMO_NUMBER,flag.name as COUNTRY_NAME, vessel_type.name as VESSEL_TYPE from vessel join flag on vessel.flag_id=flag.id join vessel_type on vessel.vessel_type_id=vessel_type.id"
+        // var id=req.params.id
+        connection.query(query, function(err,results)
+        {
+            if(results)
+            {
+                res.send(results);
+                // console.log(results);
+            }
+            else
+            {
+                res.send(err);
+                // console.log(err);
+                
+            }
+        })
+    },
     GetAllVesselsIds:(req,res)=>
     {
         var query="select id from vessel "

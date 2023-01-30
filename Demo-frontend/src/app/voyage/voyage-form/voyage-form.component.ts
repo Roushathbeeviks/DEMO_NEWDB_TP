@@ -62,9 +62,11 @@ export class VoyageFormComponent implements OnInit {
       
     }
   })
-
-  // this.vesselserv.openSnackBar("Successfully save","ok")
 }
+navigate()
+  {
+    this.router.navigate(['/voyagetable/',this.vesselId])
+  }
 
 // reloadPage(): void {
 //   window.location.reload();

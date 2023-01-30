@@ -1,5 +1,6 @@
 const nodemailer = require("nodemailer");
 const connection = require("../db/connection");
+const Password= require('../services/password')
 
 var transporter = nodemailer.createTransport({
   service: "Gmail",
@@ -12,7 +13,7 @@ var transporter = nodemailer.createTransport({
 const PasswordService = {
   ForgotPassword: (req, res) => {
     let user = req.body;
-    query = "select first_name,email,password from user where email=?";
+    query = "select first_name,email,  password from user where email=?";
     connection.query(query, [user.email], (err, results) => {
       if (!err) {
         if (results.length <= 0) {
