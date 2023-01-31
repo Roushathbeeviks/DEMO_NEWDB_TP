@@ -18,10 +18,7 @@
                  
                 </div>     
             </div> 
-             
-              <!-- <ng-select [(ngModel)]="searchResult" class="searchClass" (keyup)="searchVessel($event)"  placeholder="Search Vessel" >
-                <ng-option *ngFor="let srch of searchResult"  ><a style="text-decoration:none; color:black" [routerLink]="'../voyagetable/'+ srch.id"  class="search-box"> {{srch.name}} </a></ng-option>
-             </ng-select> -->
+      
          
         </a>
         <a  class="color ">
@@ -31,8 +28,8 @@
                             <i class="material-icons">settings</i>
                         </div></a>
                     <mat-menu #Settings="matMenu" xPosition="after">
-                      <button mat-menu-item routerLink="/usermgt">USERS</button>
-                      <button mat-menu-item routerLink="/vessel">VESSELS</button>
+                      <button mat-menu-item routerLink="/usermgt">Users</button>
+                      <button mat-menu-item routerLink="/vessel">Vessels</button>
                     </mat-menu>  
             </div>
         </a>

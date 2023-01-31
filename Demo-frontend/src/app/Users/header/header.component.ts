@@ -11,6 +11,7 @@ import { EditprofileComponent } from '../editprofile/editprofile.component';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+ 
   check=false;
   id:any
   users:any=""

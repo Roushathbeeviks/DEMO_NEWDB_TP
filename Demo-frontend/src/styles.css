@@ -7,11 +7,9 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css");
 @import "~@ng-select/ng-select/themes/default.theme.css";
 
-owl-carousel-o {
+.owl-carousel-o {
   border-radius: 5px;
     background-color: transparent;
-    min-width: 1500px;
-    max-width: 300px;
     height: 100%;
     display: flex;
 }
@@ -355,3 +353,17 @@ body { margin: 0; font-family: sans-serif; }
             border: 1px solid #000d20 !important;
         }
      
+        .owl-theme .owl-nav [class*=owl-] {
+            color: #FFF;
+            font-size: 14px;
+            margin: 5px;
+            padding: 4px 7px;
+            background: #000d20 !important;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        .ng-select.ng-select-single .ng-select-container {
+            height: 25px;
+        }
+ 

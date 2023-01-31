@@ -38,6 +38,7 @@ export class LandingPageComponent implements OnInit
 
 
   trial:any[]=[]
+  null:any=0;
 id:any
 vesselId:any
 data:any

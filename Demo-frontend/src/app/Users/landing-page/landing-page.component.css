@@ -7,6 +7,7 @@
     background-repeat: no-repeat;
     background-size:cover;
     position: fixed;
+    
 }
 
 img{
@@ -91,6 +92,7 @@ img{
 }
 .row2{
   display: flex;
+  gap:5%;
 }
 .image{
   display: flex;

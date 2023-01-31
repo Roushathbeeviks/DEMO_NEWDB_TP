@@ -133,7 +133,7 @@
   .searchClass {
     /* position: absolute; */
     /* display: list-item !important; */
-   
+    height: 25px;
     list-style-type: none;
     z-index: 10;
     width: 150px;
@@ -156,4 +156,7 @@
   text-decoration: none;
   font-family: sans-serif;
   
+}
+.ng-select.ng-select-single .ng-select-container {
+  height: 25px !important;
 }
