@@ -10,7 +10,7 @@
 }
 
 img{
-  width: 60px; height: 30px
+  
  
 }
 
@@ -94,7 +94,7 @@ width: 1px;
 .row2{
 display: flex;
 
-gap:5%;
+
 }
 .image{
 display: flex;
@@ -127,4 +127,6 @@ color:white;display: flex;
 font-size: 11px;
 justify-content: space-between;
 }
-
+.flagImage{
+  width: 60px; height: 30px
+}

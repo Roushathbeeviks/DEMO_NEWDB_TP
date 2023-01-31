@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
   arr: any = [];
   public msg: any = [];
   public avail: boolean = true;
-
+  visible :boolean=true;
+  x :undefined|any;
   constructor(
     private route: Router,
     private adminserv: AdminService,
@@ -77,6 +78,15 @@ export class LoginComponent implements OnInit {
   PasswordDialog()
   {
     this.dialog.open(ForgotpasswordComponent,{})
+  }
+
+   viewPass() {
+    this.x = document.getElementById("password");
+    if (this.x.type === "password") {
+      this.x.type = "text";
+    } else {
+      this.x.type = "password";
+    }
   }
 
 }

@@ -1,6 +1,4 @@
 .container{
-    /* background-image: url("../../../assets/map.png"); */
-    /* background-color:#000d20; */
     background-image: url("../../../assets/map.JPG");
     height:100%;
     width:100%;  
@@ -9,11 +7,14 @@
     position: fixed;
     
 }
+.row{
+  display: flex;
+  justify-content: space-evenly;
+  margin-right: 10px;
+  padding-top: 10px;
+  margin-left: 10px;  
+}
 
-img{
-    width: 60px; height: 30px
-   
-  }
   
   .example-header-image {
     /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
@@ -35,12 +36,7 @@ img{
     text-transform: uppercase;
 
   }
-  .row{
-    display: flex;
-    justify-content:flex-start;
-    padding-top: 10px;
-    margin-left: 10px;
-}
+ 
 .Imagediv{
   display: flex;
   justify-content: center;
@@ -90,10 +86,7 @@ img{
 .mat-icon{
   width: 1px;
 }
-.row2{
-  display: flex;
-  gap:5%;
-}
+
 .image{
   display: flex;
   align-content: center;
@@ -124,4 +117,11 @@ img{
   color:white;display: flex;
   font-size: 11px;
   justify-content: space-between;
+}
+.text2{
+  font-size:25px;color:white;position: absolute;left:130px;top:45px;
+}
+.flagImage{
+  width: 60px; height: 30px
+
 }

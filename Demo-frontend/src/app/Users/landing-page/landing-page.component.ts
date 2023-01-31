@@ -38,7 +38,7 @@ export class LandingPageComponent implements OnInit
 
 
   trial:any[]=[]
-  null:any=0;
+  a:boolean=true;
 id:any
 vesselId:any
 data:any
@@ -54,82 +54,29 @@ stportId:any[]=[]
   {
     this.id=localStorage.getItem('Id')
     console.log("local storage id",this.id)
-    // this.voyageserv.updateApprovalMessage(this.id)
+    
     this.vesselserv.GetVesselById(this.id).subscribe((res:any)=>
     {
       console.log("kk",res);
       this.data = res
       let index = 0;
+      
       this.data.forEach((e:any) => 
-      {
+      {  
+      
+        console.log("null",this.a)
         this.voyageserv. GetVoyagePlanByVesselId(e.id).subscribe((res:any)=>{
           this.data[index]['startportname'] = res.message.length ? res.message[res.message.length-1].startportname : '';
           this.data[index]['destinationportname'] = res.message.length ? res.message[res.message.length-1].destinationportname : '';
           index++;  
-          /*let stportId=  res.message.length ? res.message[res.message.length-1].startport_id : '';
-          
-          console.log("hihi",stportId)
-          if(stportId !== '') {
-            this.voyageserv.GetStartPortById(stportId).subscribe((res:any)=>{
-              //this.stPort.push(res[0])
-              //console.log("dfdf",this.stPort)
-              this.data[index]['startport'] = res[0].name;
-              this.data[index]['destinationportname'] = res[0].name;
-              index++;  
-             })
-          } */  
-          // let dstPortId=  res.message.length ? res.message[res.message.length-1].destinationport_id : '';
-          // console.log("jj",dstPortId)
-          // if(dstPortId !== '') {
-          //   this.voyageserv.GeDestinationPortById(dstPortId).subscribe((res:any)=>{
-       
-          //     this.data[index]['dstport'] = res[0].name;
-              
-          //    })
-        
-          // }    
-              
+          this.a=false
       })
       
 
 })
 
-
-
-
-      // this.vesselId=res
-      // console.log("vessels of user",res)
-      // this.veselCard=this.data
       
     })
-    // this.vesselserv.GetVesselId(this.id).subscribe((res:any)=>
-    // {
-    //   // this.vesselId=res
-    //   res.forEach((e:any) => 
-    //   {
-    //    this.vesselId= e['vessel_id'] 
-    //    this.voyageserv. GetVoyagePlanByVesselId(this.vesselId).subscribe((res:any)=>{
-    //     this.stportId=res.message[res.message.length-1].startport_id
-    //     console.log("hihi")
-    //    this.voyageserv.GetStartPortById(this.stportId).subscribe((res:any)=>{
-    //     this.stPort.push(res[0])
-    //     console.log("dfdf",this.stPort)
-        
-    //    })
-  
-    //    this.dstPortId=res.message[res.message.length-1].destinationport_id
-    //    this.voyageserv.GeDestinationPortById(this.dstPortId).subscribe((res:any)=>{
-    //     this.dstPort.push(res[0])
-    //     console.log("kooi",this.dstPort)
-    //    })
-       
-      
-    // })
-       
-    //   });
-     
-    // })
-
 
   }
 }
