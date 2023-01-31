@@ -14,9 +14,11 @@ const userService = {
    {
     let users = req.body;
     // let password = Password.encrypt(req.body.password)
+    // let decrypt=Password.decrypt(Password.encrypt(req.body.password))
     // let password =AES_ENCRYPT(req.body.password)
     
-    // console.log("encrypted pass",password);
+    console.log("encrypted pass",password);
+    console.log("decrpted",decrypt)
     userTasks
       .getUserByEmailId(users.email)
       .then((user) => {
@@ -122,10 +124,13 @@ const userService = {
     userTasks
       .getUserByUserid(user.username)
       .then((users) => {
+        console.log("req",user.password)
+        console.log("db",users[0].password)
+        console.log("decrypteddb",Password.decrypt(Password.encrypt(users[0].password)))
         if (users.length <= 0 ) {
           res.send({ message: "Invalid username", status: false });
         } 
-        else if(users[0].password != user.password)
+        else if(Password.decrypt(Password.encrypt(users[0].password)) != user.password)
         {
           res.send({ message: "Invalid password", status: false });
         }

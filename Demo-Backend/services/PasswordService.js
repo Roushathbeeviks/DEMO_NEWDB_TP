@@ -13,7 +13,7 @@ var transporter = nodemailer.createTransport({
 const PasswordService = {
   ForgotPassword: (req, res) => {
     let user = req.body;
-    query = "select first_name,email,  password from user where email=?";
+    query = "select first_name,email,password from user where email=?";
     connection.query(query, [user.email], (err, results) => {
       if (!err) {
         if (results.length <= 0) {
@@ -29,7 +29,8 @@ const PasswordService = {
               "<p>Hi "+results[0].first_name+"<br>Forgot your Password ?<br><b>Email: </b>" +
               results[0].email +
               "<br> <b>Your Password: </b>" +
-              results[0].password +
+              results[0].password+ 
+              // Password.decrypt(Password.encrypt(results[0].password)) +
               "<br>click the link  and  login with the above password  http://localhost:4200/ </a></p>",
           };
           transporter.sendMail(mailOptions, (err, info) => {
@@ -66,7 +67,8 @@ const PasswordService = {
               "Here your login details<br><b>Username: </b>" +
               results[0].username +
               "<br> <b>Password: </b>" +
-              results[0].password +
+              results[0].password+ 
+              // Password.decrypt(Password.encrypt(results[0].password)) +
               "<br>click the link  and  login with the above username and password  http://localhost:4200/ </a></p>",
           };
           transporter.sendMail(mailOptions, (err, info) => {

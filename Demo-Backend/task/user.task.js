@@ -104,7 +104,7 @@ getUserByEmailId: (email) => {
     });
   },
 
-  getUserByUserid:(username) => {
+   getUserByUserid:(username) => {
   const param = [username];
   const query="select * from user where username = ?"
   return new Promise((resolve, reject) => {
