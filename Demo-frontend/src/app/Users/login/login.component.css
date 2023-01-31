@@ -69,3 +69,14 @@ input.ng-invalid.ng-touched {
     cursor: pointer;
     font-family: sans-serif;
 }
+
+
+.eye{
+   position: absolute;
+   right:360px;
+    color:rgb(10, 0, 0);
+    cursor: pointer;
+}
+.mat-icon{
+   
+}
