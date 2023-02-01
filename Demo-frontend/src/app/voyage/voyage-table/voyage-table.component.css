@@ -86,7 +86,7 @@ img{
   .tabelC{
     display: flex;
     justify-content: space-between ;
-    padding-top: 10px;
+
     gap:20px;
     border: 2px;
     border-color: aliceblue;
@@ -98,19 +98,16 @@ img{
   justify-content: center;
   min-width: 120px;
 }
-.row2{
-  display :flex;
-  justify-content: space-between;
-}
+
 .btn{
   min-width: 110px;
   
 }
 .heading{
   display: flex;
-  gap:60px;
-  margin-right: 35px;
-  
+  width: 100%;
+  justify-content: space-between;
+  margin-right: 40px;
 }
 
 .example-card{
