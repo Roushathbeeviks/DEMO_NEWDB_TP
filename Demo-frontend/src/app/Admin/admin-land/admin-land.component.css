@@ -9,10 +9,7 @@
   position: fixed;
 }
 
-img{
-  width: 60px; height: 30px
- 
-}
+
 
 .example-header-image {
   /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
@@ -36,11 +33,10 @@ img{
 }
 .row{
   display: flex;
-  justify-content:flex-start;
+  justify-content: space-evenly;
+  margin-right: 10px;
   padding-top: 10px;
-  margin-left: 10px;
-  padding-right: 10px;
- 
+  margin-left: 10px;  
 }
 .Imagediv{
 display: flex;
@@ -94,7 +90,7 @@ width: 1px;
 .row2{
 display: flex;
 
-gap:5%;
+
 }
 .image{
 display: flex;
@@ -127,4 +123,6 @@ color:white;display: flex;
 font-size: 11px;
 justify-content: space-between;
 }
-
+.flagImage{
+  width: 60px; height: 30px
+}

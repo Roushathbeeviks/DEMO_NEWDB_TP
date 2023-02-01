@@ -1,16 +1,16 @@
 <app-admin-header></app-admin-header>
 <div class="container">
             <div class="row">
-              <div class="row2">
-                <div class="image">
-                  <img style="width:100%;height:100%" src="../../../assets/synergy-logo.png" alt="">
-                </div>
+              <!-- <div class="row2"> -->
+              
+                  <img  class="image" src="../../../assets/synergy-logo.png" alt="">
+              
       <owl-carousel-o [options]="customOptions" >
       <ng-container *ngFor="let vessel of data;let i index">
         <ng-template carouselSlide>
           <mat-card  class="example-card" [routerLink]="['/voyagetable/',vessel.id]">
             <div class="cardDiv1">
-              <div class="cardDiv2"><img src="../../../assets/{{vessel.countryname}}.png"></div>
+              <div class="cardDiv2"><img class="flagImage" src="../../../assets/{{vessel.countryname}}.png"></div>
               <div class="cardDiv3">
                 <div class="title">
                   {{vessel.name}}
@@ -42,7 +42,9 @@
     </ng-container>
     </owl-carousel-o>
    </div>
-</div>
+<!-- 
+  
+ -->
 </div>
 
 
