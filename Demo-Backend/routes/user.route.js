@@ -10,7 +10,7 @@ const PasswordService = require("../services/PasswordService");
 const jwt = require('jsonwebtoken')
 
 router.post("/signup", function (req, res) {
-  userService.doCreate(req, res);
+ userService.doCreate (req, res);
 });
 
 router.post("/Checkemail", function (req, res) {

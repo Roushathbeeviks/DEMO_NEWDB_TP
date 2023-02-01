@@ -14,11 +14,13 @@ const userService = {
    {
     let users = req.body;
     // let password = Password.encrypt(req.body.password)
-    // let decrypt=Password.decrypt(Password.encrypt(req.body.password))
+    // let decrypt=Password.decrypt(password)
+    // let test=Password.decrypt()
     // let password =AES_ENCRYPT(req.body.password)
     
     console.log("encrypted pass",password);
     console.log("decrpted",decrypt)
+    // console.log("test",)
     userTasks
       .getUserByEmailId(users.email)
       .then((user) => {
@@ -123,15 +125,19 @@ const userService = {
     let user = req.body;
     userTasks
       .getUserByUserid(user.username)
-      .then((users) => {
-        console.log("req",user.password)
-        console.log("db",users[0].password)
-        console.log("decrypteddb",Password.decrypt(Password.encrypt(users[0].password)))
+      .then(async(users) => {
+        // console.log("req",user.password)
+        // console.log("db",users[0].password)
+        // console.log("decrypteddb",Password.decrypt(Password.encrypt(users[0].password)))
         if (users.length <= 0 ) {
           res.send({ message: "Invalid username", status: false });
         } 
         else if(Password.decrypt(Password.encrypt(users[0].password)) != user.password)
         {
+          // console.log("rq",user.password)
+          // console.log("b",Password.decrypt(Password.encrypt(users[0].password)))
+          // console.log("b",Password.encrypt(users[0].password))
+          // console.log(await bcrypt.compare(password, hashedPassword))
           res.send({ message: "Invalid password", status: false });
         }
         else if (users[0].password == user.password) {

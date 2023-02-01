@@ -13,9 +13,27 @@ var transporter = nodemailer.createTransport({
 const PasswordService = {
   ForgotPassword: (req, res) => {
     let user = req.body;
-    query = "select first_name,email,password from user where email=?";
+    query = "select first_name,email,password,iv from user where email=?";
     connection.query(query, [user.email], (err, results) => {
       if (!err) {
+
+
+        
+        // let password = Password.encrypt(req.body.password)
+        // let test=results[0].password
+        // let iv=results[0].iv;
+        // console.log("ggg",Object.assign(iv, test))
+        // let encrypts=results[0].password
+        // let decrypt=Password.decrypt(iv,test)
+      
+        // let password =AES_ENCRYPT(req.body.password)
+        // console.log("iv",iv)
+        // // console.log("encrypted pass",encrypts);
+        // // console.log("decrpted",decrypt)
+        // console.log("test",test)
+
+
+
         if (results.length <= 0) {
           res
             .status(404)
@@ -30,7 +48,7 @@ const PasswordService = {
               results[0].email +
               "<br> <b>Your Password: </b>" +
               results[0].password+ 
-              // Password.decrypt(Password.encrypt(results[0].password)) +
+              Password.decrypt(Password.encrypt(results[0].password)) +
               "<br>click the link  and  login with the above password  http://localhost:4200/ </a></p>",
           };
           transporter.sendMail(mailOptions, (err, info) => {
@@ -48,6 +66,7 @@ const PasswordService = {
   },
 
   LoginDetails: (req, res) => {
+    
     let user = req.body;
     query = "select first_name,username,email,password from user where email=?";
     connection.query(query, [user.email], (err, results) => {

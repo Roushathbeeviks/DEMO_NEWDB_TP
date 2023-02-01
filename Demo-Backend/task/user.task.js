@@ -3,12 +3,12 @@ const pass=require('../services/password')
 var bcrypt = require('bcrypt')
 
 const userTasks = {
-  insertUser: (values) => {
+  insertUser: (values,password) => {
     // console.log("values",password)
     // bcrypt.hash(values.password,10, function(err, hash) {
     // console.log("hash",hash)
     const query =
-      "INSERT INTO user (username,first_name,last_name,email,contact_number,role,password) VALUES (?,?,?,?,?,?,?)";
+      "INSERT INTO user (username,first_name,last_name,email,contact_number,role,password) VALUES (?,?,?,?,?,?,?,?)";
      const param = [
       values.username,
       values.first_name,
@@ -16,8 +16,8 @@ const userTasks = {
       values.email,
       values.contact_number,
       values.role,
-      // password.encryptedData
-      values.password
+      password.encryptedData,
+      // password.iv
     
     ];
   
