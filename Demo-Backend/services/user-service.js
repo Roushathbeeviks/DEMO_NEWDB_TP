@@ -13,8 +13,8 @@ const userService = {
   doCreate: (req, res) =>
    {
     let users = req.body;
-    // let password = Password.encrypt(req.body.password)
-    // let decrypt=Password.decrypt(password)
+    let password = Password.encrypt(req.body.password)
+    let decrypt=Password.decrypt(Password.encrypt(req.body.password))
     // let test=Password.decrypt()
     // let password =AES_ENCRYPT(req.body.password)
     
@@ -28,7 +28,7 @@ const userService = {
           // return res.status(200).json("User already exists");
           res.send({message:"User already exists"})
         } else {
-          userTasks.insertUser(users).then((results) => {
+          userTasks.insertUser(users,password).then((results) => {
             if (results) {
               // return res.status(200).json("User successfully added");
               PasswordService.LoginDetails(req,res)

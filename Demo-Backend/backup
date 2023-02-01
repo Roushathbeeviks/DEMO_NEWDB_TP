@@ -234,3 +234,39 @@ doLogin: (req, res) => {
   //       });
   //     });
   //   },
+
+
+
+  //login
+
+
+  // else if(Password.decrypt(Password.encrypt(users[0].password)) != user.password)
+  // {
+  //   // console.log("rq",user.password)
+  //   // console.log("b",Password.decrypt(Password.encrypt(users[0].password)))
+  //   // console.log("b",Password.encrypt(users[0].password))
+  //   // console.log(await bcrypt.compare(password, hashedPassword))
+  //   res.send({ message: "Invalid password", status: false });
+  // }
+  // else if (users[0].password == user.password) {
+  //   console.log(users)
+  //   const response = { username: users[0].username, role:users[0].role ,Id:users[0].id};
+  //   const accesstoken = jwt.sign(response, process.env.ACCCESS_TOKEN, {
+  //     expiresIn: "8h",
+  //   });
+  //   userTasks.getUserByUserid(response.username).then((users) => {
+  //     // console.log(users);
+  //     res
+  //       .status(200)
+  //       .json({
+  //         token: accesstoken,
+  //         Detail: users[0].role,
+  //         status: true,
+  //         Id:users[0].id
+  //       });
+  //       console.log("id" ,users[0].id)
+  //   });
+  //   // res.status(200).json({token: accesstoken});
+  //   // res.status(200).json({Message:response.role})
+  //   // console.log(users[0].role)
+  // } 
