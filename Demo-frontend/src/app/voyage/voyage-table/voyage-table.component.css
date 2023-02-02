@@ -85,7 +85,7 @@ img{
   }
   .tabelC{
     display: flex;
-    justify-content: space-between ;
+    justify-content: space-evenly ;
 
     gap:20px;
     border: 2px;
@@ -115,6 +115,7 @@ img{
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   border: 1px solid rgb(129, 128, 128);
+  cursor:auto;
 }
 .class2{
   font-family: sans-serif;
