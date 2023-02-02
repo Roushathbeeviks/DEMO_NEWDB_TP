@@ -120,6 +120,7 @@
 }
 .text2{
   font-size:25px;color:white;position: absolute;left:130px;top:45px;
+  text-transform: uppercase;
 }
 .flagImage{
   width: 60px; height: 30px
