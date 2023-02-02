@@ -14,23 +14,32 @@ const userService = {
    {
     let users = req.body;
     // let password = Password.encrypt(req.body.password)
-    // let password =AES_ENCRYPT(req.body.password)
+    // // let password=password2.toString();
+    // let decrypt=Password.decrypt(Password.encrypt(req.body.password))
     
-    // console.log("encrypted pass",password);
-    userTasks
-      .getUserByEmailId(users.email)
-      .then((user) => {
-        if (user.length > 0) {
-          // return res.status(200).json("User already exists");
+
+    userTasks.getUserByEmailId(users.email).then(async(user) => {
+        if (user.length > 0) 
+        {
           res.send({message:"User already exists"})
-        } else {
-          userTasks.insertUser(users).then((results) => {
-            if (results) {
-              // return res.status(200).json("User successfully added");
-              PasswordService.LoginDetails(req,res)
-              res.send({message:"User successfully added"})
+        } 
+        else 
+        {
+           userTasks.insertUser(users).then((results,err) => {
+            if (results) 
+            {
+
+              PasswordService.LoginDetails(users.email,res)
+              // console.log("result1 in inserting user",results)
+              // console.log("result3 in mail in user variable",users.email)
+              // console.log("result2 in inserting user",results)
+              // res.send({message:"User successfully added"})
             }
-          });
+            else
+            {
+              console.log("error in inserting user",err)
+            }
+          }); 
         }
       })
       .catch((error) => {
@@ -117,49 +126,111 @@ const userService = {
 
 
 
+  // doLogin: (req, res) => {
+  //   let user = req.body;
+  //   userTasks
+  //     .getUserByUserid(user.username)
+  //     .then(async(users) => {
+  //       // console.log("req",user.password)
+  //       // console.log("db",users[0].password)
+  //       // console.log("decrypteddb",Password.decrypt(Password.encrypt(users[0].password)))
+  //       if (users.length <= 0 ) {
+  //         res.send({ message: "Invalid username", status: false });
+  //       } 
+  //       else if(Password.decrypt(Password.encrypt(users[0].password)) != user.password)
+  //       {
+  //         // console.log("rq",user.password)
+  //         // console.log("b",Password.decrypt(Password.encrypt(users[0].password)))
+  //         // console.log("b",Password.encrypt(users[0].password))
+  //         // console.log(await bcrypt.compare(password, hashedPassword))
+  //         res.send({ message: "Invalid password", status: false });
+  //       }
+  //       else if (users[0].password == user.password) {
+  //         console.log(users)
+  //         const response = { username: users[0].username, role:users[0].role ,Id:users[0].id};
+  //         const accesstoken = jwt.sign(response, process.env.ACCCESS_TOKEN, {
+  //           expiresIn: "8h",
+  //         });
+  //         userTasks.getUserByUserid(response.username).then((users) => {
+  //           // console.log(users);
+  //           res
+  //             .status(200)
+  //             .json({
+  //               token: accesstoken,
+  //               Detail: users[0].role,
+  //               status: true,
+  //               Id:users[0].id
+  //             });
+  //             console.log("id" ,users[0].id)
+  //         });
+  //         // res.status(200).json({token: accesstoken});
+  //         // res.status(200).json({Message:response.role})
+  //         // console.log(users[0].role)
+  //       } else {
+  //         res.send({ message: "something went wrong" });
+  //         // return res.status(400).json({ Message: "something went wrong" });
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       // return res.status(500).json("Internal server error:" + error);
+  //       res.send({ message: "Internal server error:" + error });
+  //     });
+  // },
+
+
   doLogin: (req, res) => {
     let user = req.body;
-    userTasks
-      .getUserByUserid(user.username)
-      .then((users) => {
-        if (users.length <= 0 ) {
+    userTasks.getUserByUserid(user.username).then(async(users) => {
+        if (users.length <= 0 ) 
+        {
           res.send({ message: "Invalid username", status: false });
         } 
-        else if(users[0].password != user.password)
+        else{
+        userTasks.GetDecryptPassword(user.username).then(async(results)=>
         {
-          res.send({ message: "Invalid password", status: false });
-        }
-        else if (users[0].password == user.password) {
-          console.log(users)
-          const response = { username: users[0].username, role:users[0].role ,Id:users[0].id};
-          const accesstoken = jwt.sign(response, process.env.ACCCESS_TOKEN, {
-            expiresIn: "8h",
-          });
-          userTasks.getUserByUserid(response.username).then((users) => {
-            // console.log(users);
-            res
-              .status(200)
-              .json({
-                token: accesstoken,
-                Detail: users[0].role,
-                status: true,
-                Id:users[0].id
-              });
-              console.log("id" ,users[0].id)
-          });
-          // res.status(200).json({token: accesstoken});
-          // res.status(200).json({Message:response.role})
-          // console.log(users[0].role)
-        } else {
-          res.send({ message: "something went wrong" });
-          // return res.status(400).json({ Message: "something went wrong" });
-        }
-      })
-      .catch((error) => {
-        // return res.status(500).json("Internal server error:" + error);
-        res.send({ message: "Internal server error:" + error });
-      });
-  },
+                 
+          if(results!= user.password)
+          {
+            console.log("dddd",results);
+            console.log("dddddddddd",user.password)
+            res.send({ message: "Invalid password", status: false });
+          }
+          else
+          {
+            const response = { username: users[0].username, role:users[0].role ,Id:users[0].id};
+            const accesstoken = jwt.sign(response, process.env.ACCCESS_TOKEN, {
+              expiresIn: "8h",
+            });
+            userTasks.getUserByUserid(response.username).then((users) => {
+              // console.log(users);
+              res
+                .status(200)
+                .json({
+                  token: accesstoken,
+                  Detail: users[0].role,
+                  status: true,
+                  Id:users[0].id
+                });
+                console.log("id" ,users[0].id)
+            });
+          }
+        })
+        .catch((error) => {
+          // return res.status(500).json("Internal server error:" + error);
+          res.send({ message: "Something went wrong:" + error });
+        });
+      }
+    })
+        .catch((error) => {
+          // return res.status(500).json("Internal server error:" + error);
+          res.send({ message: "Internal server error:" + error });
+        });
+    },
+
+
+
+
+
 
   GetUserById: (req, res) => {
     var query =

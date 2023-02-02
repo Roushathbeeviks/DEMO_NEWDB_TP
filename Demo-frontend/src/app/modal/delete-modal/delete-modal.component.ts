@@ -20,6 +20,14 @@ id:any
   reloadPage(): void {
     window.location.reload();
   }
+
+//   reloadPage() {
+//     setTimeout(()=>{
+//       window.location.reload();
+//     }, 100);
+// }
+
+
   DeleteUser(id:any) 
   {
 
