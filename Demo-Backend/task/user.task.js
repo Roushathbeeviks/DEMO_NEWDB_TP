@@ -3,12 +3,9 @@ const pass=require('../services/password')
 var bcrypt = require('bcrypt')
 
 const userTasks = {
-  insertUser: (values,password) => {
-    // console.log("values",password)
-    // bcrypt.hash(values.password,10, function(err, hash) {
-    // console.log("hash",hash)
+  insertUser: (values) => {
     const query =
-      "INSERT INTO user (username,first_name,last_name,email,contact_number,role,password) VALUES (?,?,?,?,?,?,?,?)";
+      "INSERT INTO user (username,first_name,last_name,email,contact_number,role,password) VALUES (?,?,?,?,?,?,AES_ENCRYPT(?,'PASS'))";
      const param = [
       values.username,
       values.first_name,
@@ -16,18 +13,17 @@ const userTasks = {
       values.email,
       values.contact_number,
       values.role,
-      password.encryptedData,
-      // password.iv
+      values.password
     
     ];
   
     return new Promise((resolve, reject) => {
-      connection.query(query, param, function (error, results) {
-        if (error) reject(error);
-        resolve(true);
+      connection.query (query, param, function (error, results) {
+        if (results){resolve(results) }
+        else{reject(error)}
       });
     });
-  // })
+ 
   },
 
 
@@ -58,7 +54,31 @@ Editprofile:(id,username,first_name,last_name,email,contact_number)=>
       })
     },
 
+GetDecryptPassword:(username)=>
+{
+ const query =`select cast(aes_decrypt(password, 'PASS') AS char)as password from user where username=?`
+ const param = [username];
+ return new Promise((resolve, reject) => {
+  connection.query(query,param,(error,results)=>{
+    if(error){
+      reject (error)
+      
+    }
+    console.log("1",results[0].password)
+    resolve(results[0].password)
+  });
+})
 
+
+
+//   connection.query(query, param, function (error, results) {
+//     // return results[0].password
+//     console.log("1",results[0].password)
+//     // console.log("2",results)
+//   });
+
+// // })
+},
 
 
 
@@ -89,9 +109,9 @@ Editprofile:(id,username,first_name,last_name,email,contact_number)=>
 //     });
 //   },
 
-getUserByEmailId: (email) => {
-    const param = [email];
-    const query = `SELECT * FROM user WHERE email = ?;`;
+ getUserByEmailId: (username) => {
+    const param = [username];
+    const query = `SELECT * FROM user WHERE username = ?`;
     return new Promise((resolve, reject) => {
       connection.query(query, param, (error, results) => {
         if (error) {
