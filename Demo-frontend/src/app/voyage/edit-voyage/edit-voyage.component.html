@@ -18,13 +18,13 @@
         <form [formGroup]="EditVoyageForm">
           <div class="display">
             <div>
-              <div class="display 2">
-                <div class="block1">
+              <div class="inputLine">
+                <div class="label">
                   <label>START PORT NAME</label
                   ><span style="color: red">*</span>
                 </div>
-                <div class="block1">
-                  <select formControlName="startport_id" class="block2">
+                <div >
+                  <select formControlName="startport_id" style="min-width:150px;height: 25px; outline: none;" >
                     <option value="">Select Port</option>
                     <option
                       *ngFor="let start of StartPort"
@@ -35,40 +35,43 @@
                   </select>
                 </div>
               </div>
-              <div class="display 2">
-                <div class="block1">
+              <div class="inputLine">
+                <div class="label">
                   <label>COSP Lat</label> <span style="color: red">*</span>
                 </div>
-                <div class="block1">
-                  <input  type="text"  class="block2"  formControlName="cosp_lat"  style="width: 100%"/>
-                </div>
-              </div>
+                <div >
+                  <input  type="text"  class="input"  formControlName="cosp_lat"  style="width: 100%"/>
+                
+              
               <div class="errors" *ngIf="EditVoyageForm.controls['cosp_lat'].errors?.['required'] && EditVoyageForm.controls['cosp_lat'].touched">
                 This Field is required
               </div>
+            </div>
+            </div>
 
-              <div class="display 2">
-                  <div class="block1">
+              <div class="inputLine">
+                  <div class="label">
                     <label>EOSP Lat</label> <span style="color: red">*</span>
                   </div>
-                  <div class="block1">
-                    <input  type="text"  class="block2"  formControlName="eosp_lat"/>
-                </div>
-              </div>
+                  <div>
+                    <input  type="text"  class="input"  formControlName="eosp_lat"/>
+               
+              
               <div class="errors" *ngIf="EditVoyageForm.controls['eosp_lat'].errors?.['required'] && EditVoyageForm.controls['eosp_lat'].touched">
                 This Field is required
               </div>
               <!-- <span *ngIf="submitted && EditVoyageForm.controls.eosp_lat.errors?.required"></span> -->
-
+            </div>
+          </div>
             </div>
             <div>
-              <div class="display 2">
-                <div class="block1">
+              <div class=" inputLine">
+                <div class="label">
                   <label>DESTINATION PORT NAME</label
                   ><span style="color: red">*</span>
                 </div>
-                <div class="block1">
-                  <select class="block2" formControlName="destinationport_id">
+                <div >
+                  <select  formControlName="destinationport_id" style="min-width:150px;height: 25px;outline: none;">
                     <option value="">Select Port</option>
                     <option
                       *ngFor="let end of DestinationPort"
@@ -79,36 +82,38 @@
                   </select>
                 </div>
               </div>
-              <div class="display 2">
-                <div class="block1">
+              <div class="inputLine">
+                <div class="label">
                   <label>COSP Lon</label> <span style="color: red">*</span>
                 </div>
-                <div class="block1">
+                <div >
                   <input
                     type="text"
-                    class="block2"
-                    formControlName="cosp_long"
-                  />
-                </div>
-              </div>
+                    class="input"
+                    formControlName="cosp_long">
+                
+              
               <div class="errors" *ngIf="EditVoyageForm.controls['cosp_long'].errors?.['required'] && EditVoyageForm.controls['cosp_long'].touched">
                 This Field is required
               </div>
+            </div>
+            </div>
 
-              <div class="display 2">
-                <div class="block1">
+              <div class="inputLine">
+                <div class="label">
                   <label>EOSP Lon</label> <span style="color: red">*</span>
                 </div>
-                <div class="block1">
+                <div >
                   <input
                     type="text"
-                    class="block2"
+                    class="input"
                     formControlName="eosp_long"
-                  />
-                </div>
-              </div>
+                  >
+                
+             
               <div class="errors" *ngIf="EditVoyageForm.controls['eosp_long'].errors?.['required'] && EditVoyageForm.controls['eosp_long'].touched">This Field is required</div>
-
+            </div>
+          </div>
             </div>
           </div>
           <div style="display: none">
@@ -126,25 +131,25 @@
         <form [formGroup]="EditVoyageForm">
           <div class="display">
             <div>
-              <div class="display2">
-                <div class="block1">
+              <div class="inputLine">
+                <div class="label">
                   <label>COSP TIME</label> <span style="color: red">*</span>
                 </div>
-                <div class="block1">
+                <div >
                   <input
-                    class="block2"
+                    class="input"
                     type="datetime-local"
                     formControlName="cosp_time"
-                  />
+                  >
                 </div>
               </div>
-              <div class="display2">
-                <div class="block1">
+              <div class="inputLine">
+                <div class="label">
                   <label>EARLIEST ETA</label> <span style="color: red">*</span>
                 </div>
-                <div class="block1">
+                <div >
                   <input
-                    class="block2"
+                    class="input"
                     type="datetime-local"
                     formControlName="earliest_eta"
                   />
@@ -152,27 +157,27 @@
               </div>
             </div>
             <div>
-              <div class="display2">
-                <div class="block1">
+              <div class="inputLine">
+                <div class="label">
                   <label>DISPALCEMENT</label> <span style="color: red">*</span>
                 </div>
-                <div class="block1">
+                <div >
                   <input
                     type="text"
-                    class="block2"
+                    class="input"
                     formControlName="displacement"
                   />
                 </div>
               </div>
 
-              <div class="display2">
-                <div class="block1">
+              <div class="inputLine">
+                <div class="label">
                   <label>JUST ETA</label> <span style="color: red">*</span>
                 </div>
-                <div class="block1">
+                <div >
                   <input
                     type="datetime-local"
-                    class="block2"
+                    class="input"
                     formControlName="just_eta"
                   />
                 </div>
