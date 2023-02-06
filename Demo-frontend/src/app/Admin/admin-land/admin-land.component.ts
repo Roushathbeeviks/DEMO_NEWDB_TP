@@ -57,10 +57,11 @@ vesselId:any
       this.data.forEach((e:any) => 
           {
             this.voyageserv. GetVoyagePlanByVesselId(e.id).subscribe((res:any)=>{
-              this.data[index]['startportname'] = res.message.length ? res.message[res.message.length-1].startportname : '';
-              this.data[index]['destinationportname'] = res.message.length ? res.message[res.message.length-1].destinationportname : '';
+              this.data[index]['startportname'] = res.message.length && res.message[res.message.length-1].startportname ? res.message[res.message.length-1].startportname : '';
+              this.data[index]['destinationportname'] = res.message.length && res.message[res.message.length-1].destinationportname ? res.message[res.message.length-1].destinationportname : '';
               index++;  
           })
+          // console.lo
     
     })
   })

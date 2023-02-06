@@ -25,9 +25,9 @@ export class VoyageTableComponent implements OnInit {
   Id:any
   datas:any
   vesselId:any
-  stportId:any[]=[]
+  // stportId:any
   stPort:any
-  dstPortId:any[]=[]
+  // dstPortId:any[]=[]
   dstPort:any
   voyageId:any
   constructor(
@@ -58,20 +58,22 @@ export class VoyageTableComponent implements OnInit {
       })
   
       this.voyageserv.GetVoyagePlanByVesselId(this.id).subscribe((res:any)=>{
-        this.stportId=res.message[res.message.length-1].startport_id
+        let stportId=res.message.length && res.message[res.message.length-1].startport_id ? res.message[res.message.length-1].startport_id:''
         
         console.log("res",res)
-        console.log("port",this.stportId)
-       this.voyageserv.GetStartPortById(this.stportId).subscribe((res:any)=>{
+        console.log("port",stportId)
+        if(stportId != ''){
+       this.voyageserv.GetStartPortById(stportId).subscribe((res:any)=>{
         this.stPort= res
         console.log("dfdf",this.stPort)
        })
-
-       this.dstPortId=res.message[res.message.length-1].destinationport_id
-       this.voyageserv.GeDestinationPortById(this.dstPortId).subscribe((res:any)=>{
+      }
+       let dstPortId=res.message.length && res.message[res.message.length-1].destinationport_id ? res.message[res.message.length-1].destinationport_id:''
+       if(dstPortId != ''){
+        this.voyageserv.GeDestinationPortById(dstPortId).subscribe((res:any)=>{
         this.dstPort=res
        })
-       
+      }
       })
 
 }
