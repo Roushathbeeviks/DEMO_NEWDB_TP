@@ -28,7 +28,7 @@ export class EditprofileComponent implements OnInit {
 
   check() 
   {
-
+    
    this.adminserv.EditProfile(this.data.data,this.Editprofile.value).subscribe((res:any) => {
     console.log(res);
     this.reloadPage();

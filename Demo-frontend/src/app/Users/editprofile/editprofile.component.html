@@ -4,12 +4,12 @@
     
     <form [formGroup]="Editprofile" (ngSubmit)="check()" autocomplete="off">
       <!-- <img style="height:50px;" src="../../assets/MicrosoftTeams-image.png"><br> -->   
-        <div class="LabIn">
+        <div class="inputLine">
           <label class="inputLabel">Username</label>
           <input appFirstCap formControlName="username" readonly="true" class="input" type="text" id="username"/>
-        </div>&nbsp; 
+        </div>
                
-        <div  class="LabIn">
+        <div  class="inputLine">
           <label class="inputLabel">First Name</label>
           <div>
            <input  appFirstCap formControlName="first_name" class="input" type="text" id="first_name" placeholder="First Name"/>
@@ -17,11 +17,8 @@
             First name is required
             </div> 
           </div>
-            <!-- <div class="errors" *ngIf="Editprofile.controls['first_name'].errors?.['minlength'] && Editprofile.controls['first_name'].touched">First name should have minimum length</div>
-            <div class="errors" *ngIf="Editprofile.controls['first_name'].errors?.['pattern'] && Editprofile.controls['first_name'].touched">First name cannot have numbers</div> --> 
-        
-        </div>&nbsp;
-        <div  class="LabIn">
+        </div>
+        <div  class="inputLine">
           <label class="inputLabel">Last Name</label>
         <div>
           <input  appFirstCap formControlName="last_name" class="input" type="text" id="last_name" placeholder="Last Name"/>
@@ -30,8 +27,8 @@
               </div> 
           </div>
 
-        </div>&nbsp;
-        <div  class="LabIn"> 
+        </div>
+        <div  class="inputLine"> 
           <label class="inputLabel">Email</label>
           <div>
             <input formControlName="email" class="input" type="email" id="email" placeholder="Email" (keyup)="CheckEmail()"/>
@@ -40,10 +37,10 @@
               </div>
               <div class="errors" *ngIf="Editprofile.controls['email'].errors?.['email'] && Editprofile.controls['email'].touched">Enter valid email</div>
               <div *ngIf="status==false" class="errors" >{{EmailCheckmsg}}</div>
-          </div>&nbsp;
-        </div>&nbsp;
+          </div>
+        </div>
         
-        <div class="LabIn">
+        <div class="inputLine">
           <label class="inputLabel">Contact</label>
           <div>
           <input formControlName="contact_number" class="input" type="number" id="contact_number" placeholder="Contact Number"/>
@@ -55,7 +52,7 @@
               Please enter numbers
               </div>
             </div>
-        </div>&nbsp;
+        </div>
          
         <div class="buttons">
           <button mat-dialog-close class="btnC">Cancel</button>
