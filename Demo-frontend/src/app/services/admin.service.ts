@@ -41,6 +41,10 @@ export class AdminService {
   ForgotPassword(data: any) {
     return this.http.post(this.URL + '/user/forgotpassword', data);
   }
+  UpdatePassword(data: any) {
+    return this.http.post(this.URL +'/user/updatepassword',data);
+  }
+
   AllUsers() {
     return this.http.get(this.URL + '/user/getallusers');
   }
