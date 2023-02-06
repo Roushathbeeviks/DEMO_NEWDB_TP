@@ -52,6 +52,9 @@ export class VoyageFormComponent implements OnInit {
   }
   save()
  {
+    if(!this.voyageForm.valid) {
+      this.voyageForm.markAllAsTouched();
+    }else{
   this.voyageForm.value.vessel_id=this.vesselId
   this.voyageserv.VoyageForm(this.voyageForm.value).subscribe((res:any)=>
   {
@@ -62,6 +65,7 @@ export class VoyageFormComponent implements OnInit {
       
     }
   })
+}
 }
 navigate()
   {

@@ -52,10 +52,14 @@ this.vesselserv.GetAllVesselType().subscribe((res:any)=>{
   }
   check()
   {
+    if(!this.EditVessel.valid) {
+      this.EditVessel.markAllAsTouched();
+    }else{
     this.vesselserv.EditVessel(this.data.data,this.EditVessel.value).subscribe((res:any)=>
     {
       this.reloadPage()
     })
+  }
   }
   reloadPage()
   {
