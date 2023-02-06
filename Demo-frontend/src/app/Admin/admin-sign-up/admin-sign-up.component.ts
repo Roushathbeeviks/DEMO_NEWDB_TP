@@ -32,13 +32,16 @@ export class AdminSignUpComponent implements OnInit {
 
   check() {
     // this.signup.value=this.titleCasePipe.transform(this.signup.value)
-    // console.log(this.signup.value);
+    if(!this.signup.valid) {
+      this.signup.markAllAsTouched();
+    }else{
+    console.log("submitted");
     this.adminserv.SignupUser(this.signup.value).subscribe((res) => {
       console.log("r");
     });
     this.vesselserv.openSnackBar("Saved Succesfully","ok")
      this.route.navigate(['/usermgt'])
-    
+  }
   }
   CheckEmail()
   {
