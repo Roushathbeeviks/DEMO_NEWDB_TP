@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { AdminService } from 'src/app/services/admin.service';
+import { VesselService } from 'src/app/services/vessel.service';
 
 @Component({
   selector: 'app-forgotpassword',
@@ -19,7 +20,8 @@ export class ForgotpasswordComponent implements OnInit {
   constructor(
     private route: Router,
     private formBuider: FormBuilder,
-    private adminserv: AdminService
+    private adminserv: AdminService,
+    private vesselserv:VesselService
   ) {}
 
   ngOnInit(): void {
@@ -37,9 +39,14 @@ export class ForgotpasswordComponent implements OnInit {
     var data={
       email:formData.email
     }
-    this.adminserv.ForgotPassword(data).subscribe((res)=>
+    this.adminserv.ForgotPassword(data).subscribe((res:any)=>
     {
-      console.log(res)
+      // console.log(res.status)
+      // console.log(data.email)
+      if(res.status === false)
+      {
+        this.vesselserv.openForgotSnackBar("No user exists with this email","ok")
+      }
     });
   }
 }

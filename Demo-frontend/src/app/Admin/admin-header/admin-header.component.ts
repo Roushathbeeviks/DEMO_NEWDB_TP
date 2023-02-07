@@ -6,6 +6,7 @@ import { EditprofileComponent } from 'src/app/Users/editprofile/editprofile.comp
 
 import { FormControl, FormGroup } from '@angular/forms';
 import { AdminService } from 'src/app/services/admin.service';
+import { UpdatePasswordComponent } from 'src/app/Users/update-password/update-password.component';
 
 
 @Component({

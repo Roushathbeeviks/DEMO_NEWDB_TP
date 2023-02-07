@@ -24,12 +24,14 @@ const PasswordService = {
     console.log("param",param)
     connection.query(query,param, (err, results) => {
       console.log("results",results)
-      console.log("results[0].password1",results[0].password1)
+      // console.log("results[0].password1",results[0].password1)
       if (!err) {
         if (results.length <= 0) {
-          res
-            .status(404)
-            .json({Message: "No USER EXISTS WITH THIS EMAIL ID"});
+          // res
+          //   .status(404)
+          //   .json({Message: "No USER EXISTS WITH THIS EMAIL ID"});
+          res.send({Message: "No USER EXISTS WITH THIS EMAIL ID",status: false})
+          // res.send({ message: "Email id already exists", status: true });
         } else {
           var mailOptions = {
             from: process.env.EMAIL,
@@ -55,6 +57,49 @@ const PasswordService = {
       }
     });
   },
+
+  UpdatePassword:(req,res) => {
+    let user = req.body
+    const query=`select username,(select cast(aes_decrypt(password, 'PASS') AS char) from user where email=? ) as password  from user where email=?`
+    const param=[user.email,user.email]
+    connection.query(query,param, (err, results) => {
+      if(results.length > 0)
+      {
+        // console.log("update password select query result",results.length)
+        const query= `UPDATE user SET password=AES_ENCRYPT(?,'PASS') WHERE email = ?`
+        const param=[user.password,user.email]
+        connection.query(query,param, (err, results) => {
+          if(results){
+            // console.log("updated result",results)
+            res.send({message:"Password Updated Successfully",status:true})
+          }
+          else{
+            res.send({message:"Password Updated Failed"})
+            console.log("updated err",err)
+          }
+        })
+      }
+      else{
+        res.send({message:"No user Exists with this emailid",status:false})
+        console.log("update password select query ERROR",err)
+      }
+    })
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   LoginDetails: (email,res) => {
     let user = email;

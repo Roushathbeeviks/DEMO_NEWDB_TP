@@ -69,6 +69,18 @@ openSnackBar(message: string, action: string) {
     
   });
 }
+
+openForgotSnackBar(message: string, action: string) {
+  this._snackBar.open(message,action, {
+    horizontalPosition:'center',
+    verticalPosition: 'bottom',
+      duration: 3000,
+      panelClass: ['green-snackbar'],
+      
+    
+  });
+}
+
 CheckIMONumber(data:any) 
 {
   return this.http.post(this.URL +`/admin/checkimonumber`,data)

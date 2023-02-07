@@ -31,6 +31,10 @@ router.get("/getlogin", function (req, res) {
 router.post("/forgotpassword", function (req, res) {
   PasswordService.ForgotPassword(req, res);
 });
+router.post("/updatepassword", function (req, res) {
+  PasswordService.UpdatePassword(req, res);
+});
+
  router.put("/editprofile/:id", function (req, res) {
   userService.EditUserProfile(req,res)
  })

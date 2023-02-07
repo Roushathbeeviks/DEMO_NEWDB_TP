@@ -10,7 +10,7 @@
 
   <div class="container2">
     <mat-accordion class="example-headers-align disabled">
-      <mat-expansion-panel class="color">
+      <mat-expansion-panel class="color" *ngFor="let item of [1]; first as isFirst" [expanded]="isFirst">
         <mat-expansion-panel-header class="color2">
           <mat-panel-title class="colorText"> VOYAGE DETAILS </mat-panel-title>
         </mat-expansion-panel-header>
