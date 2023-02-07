@@ -43,10 +43,10 @@ export class ForgotpasswordComponent implements OnInit {
     {
       // console.log(res.status)
       // console.log(data.email)
-      // if(res.status === false)
-      // {
-      //   this.vesselserv.openSnackBar("No user exists with this email","ok")
-      // }
+      if(res.status === false)
+      {
+        this.vesselserv.openForgotSnackBar("No user exists with this email","ok")
+      }
     });
   }
 }

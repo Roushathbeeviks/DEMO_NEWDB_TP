@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AdminService } from 'src/app/services/admin.service';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { VesselService } from 'src/app/services/vessel.service';
 
 @Component({
@@ -13,15 +14,25 @@ export class UpdatePasswordComponent implements OnInit {
   msg:string=""
   constructor(private formBuilder: FormBuilder,
     private adminserv: AdminService,
-    private vesselserv:VesselService) { }
+    private vesselserv:VesselService,
+    @Inject(MAT_DIALOG_DATA) public data:any) { }
 
   ngOnInit(): void {
+    this.adminserv.GetUserById(this.data.data).subscribe((res:any) => {
+      this.UpdatePassword.patchValue
+      ({ 
+        email:res.message[0].email
+      })
+    })
     this.UpdatePassword = this.formBuilder.group
     ({
     email:[],
     password:[],
     password2:[] 
   });
+ 
+
+
   }
 
   update()

@@ -58,7 +58,7 @@ export class VoyageTableComponent implements OnInit {
       })
   
       this.voyageserv.GetVoyagePlanByVesselId(this.id).subscribe((res:any)=>{
-        let stportId=res.message.length && res.message[res.message.length-1].startport_id ? res.message[res.message.length-1].startport_id:''
+      let stportId=res.message.length && res.message[res.message.length-1].startport_id ? res.message[res.message.length-1].startport_id : ''
         
         console.log("res",res)
         console.log("port",stportId)
