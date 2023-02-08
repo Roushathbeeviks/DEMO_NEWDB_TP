@@ -75,7 +75,7 @@ var:string=""
     this.dialog.open(VesselMappingComponent,{
       data:id,
       height:"60%",
-      width:"80%",
+      width: "820px",
     })
   }
   exportexcel()

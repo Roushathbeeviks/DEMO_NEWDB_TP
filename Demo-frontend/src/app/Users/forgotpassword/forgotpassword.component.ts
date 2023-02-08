@@ -19,7 +19,7 @@ export class ForgotpasswordComponent implements OnInit {
   constructor(
     private route: Router,
     private formBuider: FormBuilder,
-    private adminserv: AdminService
+    private adminserv: AdminService,
   ) {}
 
   ngOnInit(): void {
@@ -37,9 +37,20 @@ export class ForgotpasswordComponent implements OnInit {
     var data={
       email:formData.email
     }
-    this.adminserv.ForgotPassword(data).subscribe((res)=>
+
+    if(!this.forgotPassword.valid) {
+      this.forgotPassword.markAllAsTouched();
+    }
+    else{
+    this.adminserv.ForgotPassword(data).subscribe((res:any)=>
     {
-      console.log(res)
+      // console.log(res.status)
+      // console.log(data.email)
+      if(res.status === false)
+      {
+        // this.vesselserv.openForgotSnackBar("No user exists with this email","ok")
+      }
     });
   }
+}
 }

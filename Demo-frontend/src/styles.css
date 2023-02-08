@@ -53,7 +53,6 @@ body { margin: 0; font-family: sans-serif; }
     color: white;
   }
   .btnC{  
-        
     border-radius: 5px;
     border-color:white;
     background-color: transparent;
@@ -62,10 +61,11 @@ body { margin: 0; font-family: sans-serif; }
     border-width: 1px;
     width: 100px;
     height:30px;
-    font-size: 14px;
+    font-size: 12px;
+    font-family:sans-serif
 }
 .btnC:hover {
-    background-color: rgb(214, 179, 63);
+    background-color: rgb(58, 120, 201);
     color:white;;
     color: white;
   }
@@ -378,3 +378,18 @@ body { margin: 0; font-family: sans-serif; }
             min-height: inherit;
             max-height: inherit;
         } */
+      .dropdown-btn{
+            display: inline-block;
+            border: 1px solid #adadad;
+            width: 100%;
+            padding: 6px 12px;
+            margin-bottom: 0;
+            font-weight: 400;
+            line-height: 1.52857143;
+            text-align: left;
+            vertical-align: middle;
+            cursor: pointer;
+            background-image: none;
+            border-radius: 4px;
+            border: none !important;
+        }
