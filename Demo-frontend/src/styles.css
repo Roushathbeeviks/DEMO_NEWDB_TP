@@ -51,7 +51,7 @@ body { margin: 0; font-family: sans-serif; }
     padding: 0px !important;
  
     overflow: hidden !important;
-  
+    outline: 1px solid #adadad !important;
     background-color: #000d20;
 
 
@@ -432,9 +432,10 @@ body { margin: 0; font-family: sans-serif; }
             border-radius: 4px;
         }
         .backdropBackground{
-         /* background: #000d20;
+         /* background: #000d20; */
+         backdrop-filter: blur(1px);
          opacity: 1;
-         filter: blur(20px);
+         /* filter: blur(20px);
          -webkit-filter: blur(20px); */
          
         }
