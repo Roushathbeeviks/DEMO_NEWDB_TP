@@ -50,6 +50,8 @@ var:string=""
     this.dialog.open(EditprofileComponent, {
       data: {
         data: this.id,
+        height:"400px",
+       
       },
     })
   }
@@ -60,6 +62,7 @@ var:string=""
     this.dialog.open(DeleteModalComponent,{
       data: {
         data: this.deleteid,
+        
       },
     })
   }
@@ -74,8 +77,9 @@ var:string=""
     this.vesselmapserv.updateApprovalMessage(this.username)
     this.dialog.open(VesselMappingComponent,{
       data:id,
-      height:"60%",
-      width:"80%",
+      height:"520px",
+      width: "620px",
+      backdropClass: 'backdropBackground'
     })
   }
   exportexcel()

@@ -8,7 +8,7 @@
         <div class="inputLine">
           <div>
           <label class="label">IMO Number<span style="color:red;padding-left: 5px;">*</span></label></div><div>
-          <input type="text" formControlName="imo_number" (keyup)="CheckIMO($event)" class="input">
+          <input type="text" formControlName="imo_number" (keyup)="CheckIMO($event)" class="input" appFirstCap>
           <div class="errors" *ngIf="VesselForm.controls['imo_number'].errors?.required && VesselForm.controls.imo_number.touched"></div>
           <div  class="errors" *ngIf="status==false">{{CheckImoNumber}}</div> 
         </div>

@@ -31,13 +31,14 @@
     /* text-transform: uppercase; */
     display: flex;
     justify-content: space-between;
-    cursor: pointer;
+    
     margin-top: 5px;
     font-size: 12px;
     font-family: sans-serif;
 }
 a{
     text-decoration: none;
+    cursor: pointer;
 }
 .pass{
     /* color:aliceblue; */
@@ -45,8 +46,9 @@ a{
     font-size: 12px; 
 }
 input.ng-invalid.ng-touched {
+    
     border-bottom:  red 1px solid;
-    padding-left: 2px;
+    /* padding-left: 2px; */
     font-family: sans-serif;
 }
 
@@ -77,6 +79,12 @@ input.ng-invalid.ng-touched {
     color:rgb(10, 0, 0);
     cursor: pointer;
 }
-.mat-icon{
-   
+input {
+    padding: 1px 2px;
+    border-width: 2px;
+    border-style: none;
+    /* border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133)); */
+    border-image: initial;
+    border-color:none;
+  
 }

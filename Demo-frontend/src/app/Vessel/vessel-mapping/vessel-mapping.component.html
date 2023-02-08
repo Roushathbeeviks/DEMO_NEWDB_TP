@@ -1,5 +1,7 @@
 <div class="VesselMapcontainer">
-  <h3 mat-dialog-title>CHOOSE THE VESSELS</h3>
+  <div class="heading">
+  <h3 style="padding-top: 15px;  padding-left: 10px;color:rgb(214, 179, 63)" >CHOOSE THE VESSELS</h3>
+  </div>
 <form [formGroup]="VesselMappingForm">
   <label>{{ id }}</label>
 
@@ -15,20 +17,20 @@
   <!-- <ul *ngFor="let names of list">
   <li>{{names.vessel_name}}</li>
 </ul> -->
-  <span
+  <!-- <div
     class="error-message"
     *ngIf="
       VesselMappingForm.controls['vessel_name'].errors?.required &&
       VesselMappingForm.controls['vessel_name'].touched">
-    vessel name is required
-  </span>
+    Vessel name is required
+</div> -->
 
   <!-- <ul *ngFor="let data of dropdownList">
         <input type="checkbox" value="{{data.name}}">
     </ul>  -->
 </form>
-<div mat-dialog-actions>
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button (click)="Save()">Save</button>
+<div class="buttons">
+  <button  mat-dialog-close class="btn">Cancel</button>
+  <button  (click)="Save()" class="btn">Save</button>
 </div>
 </div>
