@@ -1,67 +1,55 @@
 <div class="container">
   <div class="heading"><h3>VESSEL REGISTRATION</h3></div>
   
-    <form [formGroup]="VesselForm">
+    <form [formGroup]="VesselForm" (ngSubmit)="Submit()">
       <div class="card">
 
-<div class="flex">
-        <div class="display">
-          <label>IMO Number<span style="color:red;padding-left: 5px;">*</span></label>
-          <input type="text" formControlName="imo_number" (keyup)="CheckIMO($event)" />
+<div >
+        <div class="inputLine">
+          <div>
+          <label class="label">IMO Number<span style="color:red;padding-left: 5px;">*</span></label></div><div>
+          <input type="text" formControlName="imo_number" (keyup)="CheckIMO($event)" class="input">
           <div class="errors" *ngIf="VesselForm.controls['imo_number'].errors?.required && VesselForm.controls.imo_number.touched"></div>
           <div  class="errors" *ngIf="status==false">{{CheckImoNumber}}</div> 
         </div>
+        </div>
 
-        <div>
-          <label>Vessel Type<span style="color:red;padding-left: 5px;">*</span></label>
-          <select  formControlName="vessel_type_id" >
+        <div class="inputLine">
+          <div>
+          <label class="label">Vessel Type<span style="color:red;padding-left: 5px;">*</span></label></div><div>
+          <select  formControlName="vessel_type_id" class=" input">
             <option value="">Select  Vessel Type</option>
             <option *ngFor="let vessel of VesselType" value="{{vessel.id}}">{{vessel.name}}</option>
           </select>
         </div> 
+        </div>
 </div>
 
-<div class="">
-  <div class="display">
-    <label>Vessel name<span style="color:red;padding-left: 5px;">*</span></label>
-    <input type="text" formControlName="name" (keyup)="CheckVesselName($event)" />
+
+<div >
+  <div class="inputLine">
+    <div>
+    <label class="label">Vessel name<span style="color:red;padding-left: 5px;">*</span></label></div><div>
+    <input type="text" formControlName="name" (keyup)="CheckVesselName($event)" class="input">
     <div class="errors" *ngIf="VesselForm.controls['name'].errors?.required && VesselForm.controls.name.touched"></div>
     <div  class="errors" *ngIf="status==false">{{CheckvesselName}}</div> 
-  </div>  
-
-       
         <div class="errors" *ngIf="VesselForm.controls['vessel_type_id'].errors?.required && VesselForm.controls.vessel_type_id.touched" style="color:red;">required</div>
-        
-        <div class="flag">
-          <label>Flag<span style="color:red;padding-left: 5px;" >*</span></label>
-          <span  style="padding-left: 55px;"> </span>
-          <select id="flags" formControlName="flag_id" >
-          <option value="">Select Flag</option>
+      </div> 
+    </div> 
+        <div class="inputLine">
+          <label class="label">Flag<span style="color:red;padding-left: 5px;" >*</span></label>
+          
+          <select id="flags" formControlName="flag_id" class=" input">
+          <option value="" >Select Flag</option>
           <option *ngFor="let flag of Vesselflag" value="{{flag.id}}">{{flag.name}}</option>
           </select>
-          
-      </div>
       <div class="errors" *ngIf="VesselForm.controls['flag_id'].errors?.required && VesselForm.controls.flag_id.touched" style="color:red;">required</div>
+    </div>
  </div>
 </div>
  <div  class="buttons ">
-  <button   mat-dialog-close  class="btn">NO,cancel</button>
-    <button   mat-dialog-close  (click)="Submit()"  class="btn">SAVE</button>
-    
+  <button  [mat-dialog-close]="true" class="btnC">NO,cancel</button>
+    <button class="btn">SAVE</button>
 </div>
-
 </form>
-
-  
 </div>
-<!-- <mat-form-field appearance="fill">
-  <mat-label>Message</mat-label>
-  <input matInput value="Successfully Saved" #message>
-</mat-form-field>
-
-<mat-form-field appearance="fill">
-  <mat-label>Action</mat-label>
-  <input matInput value="ok" #action>
-</mat-form-field> -->
-
-<!-- <button mat-stroked-button (click)="openSnackBar(message.value, action.value)">Show snack-bar</button> -->

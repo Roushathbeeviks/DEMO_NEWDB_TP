@@ -138,3 +138,11 @@ input.ng-invalid.ng-touched {
      
      /* border:1px solid white; */
  }
+ input {
+    padding: 1px 2px;
+    border-width: 2px;
+    border-style: none;
+    /* border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133)); */
+    border-image: initial;
+    border-color:none;
+}

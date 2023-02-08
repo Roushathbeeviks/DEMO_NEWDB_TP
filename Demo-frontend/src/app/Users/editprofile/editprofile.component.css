@@ -45,8 +45,9 @@
     width:150px;
     height: 25px;
     font-size: 12px;
-    border-radius: 4px;
-    outline-color:  rgb(58, 120, 201);
+    border-radius: 3px;
+    /* outline-color:  rgb(58, 120, 201); */
+    outline: none;
 }
 .move{
     padding-left: 330px;
@@ -55,18 +56,18 @@
 .buttons{
     display: flex;
     justify-content: flex-end;
-    gap: 10px;
+    gap: 5px;
     align-content: center;
     padding-bottom: 10px;
    
 }
 .btnC{
- max-width: 60px;
- max-height: 25px;
+ max-width: 70px;
+ max-height: 30px;
 }
 .btn{
-    max-width: 60px;
-    max-height: 25px;
+    max-width: 70px;
+    max-height: 30px;
    }
 /* .btnC{
     background-color: rgb(221, 147, 35);
@@ -126,4 +127,12 @@
     display: flex;
     gap:10px;
     height: 60px;
+}
+input {
+    padding: 1px 2px;
+    border-width: 2px;
+    border-style: none;
+    /* border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133)); */
+    border-image: initial;
+    border-color:none;
 }

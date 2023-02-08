@@ -24,8 +24,8 @@ export class AdminService {
 
   Login(data: any) {
     return this.http.post(this.URL + '/user/login', data, {
-      observe: 'body',
-      headers: new HttpHeaders().append('Content-Type', 'application/json'),
+      // observe: 'body',
+      // headers: new HttpHeaders().append('Content-Type', 'application/json'),
     });
   }
   EditProfile(id: any, data: any) {
