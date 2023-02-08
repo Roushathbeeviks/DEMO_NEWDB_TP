@@ -1,0 +1,44 @@
+.container{
+    background-color:  #000d20;
+    height:100%;
+    width:100%;  
+    background-repeat: no-repeat;
+    background-size:cover;
+    position: fixed;
+    
+}
+.row{
+  display: flex;
+ /* justify-content: space-evenly;  */
+margin-right: 10px;
+  padding-top: 10px;
+margin-left: 10px;   
+}
+
+  
+
+.image{
+    /* margin-left: 0px; */
+  /* display: flex;
+  /* align-content: center; */
+  /* justify-content: center; */
+  min-width: 120px;
+  max-height: 105px; 
+ 
+}
+
+.text2{
+  font-size:25px;
+  color:white;
+  position: absolute;
+  /* left:130px;
+  top:45px; */
+  /* text-transform: uppercase; */
+  font-style: italic;
+}
+.message
+{
+    display: flex;
+    align-content: center; 
+  justify-content: center;
+}

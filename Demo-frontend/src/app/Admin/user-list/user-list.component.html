@@ -13,7 +13,7 @@
 
   <div class="tabelC">
     <ngx-datatable
-      style="height: auto"
+      style="height: auto;"
       class="bootstrap"
       [rows]="rows"
       [columns]="columns"
@@ -28,7 +28,6 @@
         name="First Name"
         prop="first_name"
         [width]="150"
-        
         [sortable]="true"></ngx-datatable-column>
         <!-- <ng-template let-column="column" ngx-datatable-header-template>First Name</ng-template> -->
       
@@ -64,10 +63,10 @@
      
       <ngx-datatable-column name="Vessel Mapping"
       [sortable]="false">  
-        <ng-template let-row="row"
+        <ng-template let-row="row" 
         let-value="value"
         ngx-datatable-cell-template>
-          <span><mat-icon (click)="Addvessel(row.username,row.id)" class="adjust">add_box</mat-icon></span>
+          <span ><mat-icon (click)="Addvessel(row.username,row.id)" class="adjust" style=" align-self: center;">add_box</mat-icon></span>
             
         </ng-template>
       </ngx-datatable-column> 

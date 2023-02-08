@@ -16,6 +16,8 @@ import {VoyageFormComponent} from './voyage/voyage-form/voyage-form.component'
 import { AuthGuardGuard } from './auth-guard.guard';
 import { SearchComponent } from './search/search.component';
 import { UpdatePasswordComponent } from './Users/update-password/update-password.component';
+import { AdminHomeComponent } from './Admin/admin-home/admin-home.component';
+import { NoVesselComponent } from './voyage/no-vessel/no-vessel.component';
 
 
 
@@ -34,7 +36,8 @@ const routes: Routes = [
 {path:"voyagetable/:id",component:VoyageTableComponent},
 {path:"voyageform/:id",component:VoyageFormComponent},
 {path:"search/:query",component:SearchComponent},
-{path:"updatepassword",component:UpdatePasswordComponent}
+{path:"updatepassword",component:UpdatePasswordComponent},
+{path:"novessel",component:NoVesselComponent}
 
 
 ];

@@ -69,6 +69,7 @@ import { VesselDeleteComponent } from './modal/vessel-delete/vessel-delete.compo
 import { VoyageDeleteComponent } from './modal/voyage-delete/voyage-delete.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { UpdatePasswordComponent } from './Users/update-password/update-password.component';
+import { NoVesselComponent } from './voyage/no-vessel/no-vessel.component';
 // import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 
@@ -109,6 +110,7 @@ import { UpdatePasswordComponent } from './Users/update-password/update-password
          VesselDeleteComponent,
          VoyageDeleteComponent,
          UpdatePasswordComponent,
+         NoVesselComponent,
    
   
   ],
