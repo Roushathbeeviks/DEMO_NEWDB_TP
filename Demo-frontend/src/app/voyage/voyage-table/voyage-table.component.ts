@@ -92,8 +92,8 @@ EditVoyage(id:any)
   this.dialog.open(EditVoyageComponent,
     {
       data:this.voyageId,
-      // height:"60%",
-      // width:"80%",
+      height:"620px",
+      width:"1020px",
     })
 }
 DeleteVoyage(id:any)

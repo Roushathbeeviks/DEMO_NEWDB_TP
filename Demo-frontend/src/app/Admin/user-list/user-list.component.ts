@@ -74,8 +74,8 @@ var:string=""
     this.vesselmapserv.updateApprovalMessage(this.username)
     this.dialog.open(VesselMappingComponent,{
       data:id,
-      height:"60%",
-      width:"80%",
+      height:"620px",
+      width: "620px",
     })
   }
   exportexcel()
