@@ -16,13 +16,15 @@ export class EditprofileComponent implements OnInit {
   id:any
   EmailCheckmsg:string=""
   status:boolean=true
+  isreadOnly:boolean=true
+  public isDisabled: boolean = false
   // alertOpt: SweetAlertOptions = {};
   constructor(
     private route: Router,
     private formBuilder: FormBuilder,
     private adminserv: AdminService,
     private router:ActivatedRoute,
-    @Inject(MAT_DIALOG_DATA) public data:any
+    @Inject(MAT_DIALOG_DATA) public data:any,
 
   ) {}
 
@@ -43,7 +45,6 @@ export class EditprofileComponent implements OnInit {
 
 
   ngOnInit(): void {
-
    this.adminserv.GetUserById(this.data.data).subscribe((res:any) => {
    console.log("param-id",this.data.data);
    this.Editprofile.patchValue({
@@ -85,7 +86,19 @@ export class EditprofileComponent implements OnInit {
       ],
       
     });
+
+    if (localStorage.getItem('Role') == 'Admin')
+    {
+      this.isreadOnly = false;
+      console.log(localStorage.getItem('Role'))
+    }
+    else{
+      this.isreadOnly = true;
+      console.log(localStorage.getItem('Role'))
+    }
+    
   }
+
   CheckEmail()
   {
     

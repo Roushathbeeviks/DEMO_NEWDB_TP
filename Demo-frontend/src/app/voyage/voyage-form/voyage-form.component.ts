@@ -30,15 +30,18 @@ export class VoyageFormComponent implements OnInit {
     ({
       startport_id:[''],
       destinationport_id:[''],
-      cosp_lat:['',[Validators.required, Validators.minLength(2),Validators.pattern(/^[0-9]+([,.][0-9]+)?$/)],],
-      cosp_long:['',[Validators.required, Validators.minLength(2),Validators.pattern(/^[0-9]+([,.][0-9]+)?$/)],],
-      eosp_lat:['',[Validators.required, Validators.minLength(2),Validators.pattern(/^[0-9]+([,.][0-9]+)?$/)],],
-      eosp_long:['',[Validators.required, Validators.minLength(2),Validators.pattern(/^[0-9]+([,.][0-9]+)?$/)],],
+      cosp_lat:['',[Validators.required, Validators.minLength(2),Validators.maxLength(20),Validators.pattern(/^[0-9]+([.]+[0-9]+)*?$/)],],
+      cosp_long:['',[Validators.required, Validators.minLength(2),Validators.maxLength(20),Validators.pattern(/^[0-9]+([,.][0-9]+)*?$/)],],
+      eosp_lat:['',[Validators.required, Validators.minLength(2),Validators.maxLength(20),Validators.pattern(/^[0-9]+([,.][0-9]+)*?$/)],],
+      eosp_long:['',[Validators.required, Validators.minLength(2),Validators.maxLength(20),Validators.pattern(/^[0-9]+([,.][0-9]+)*?$/)],],
       cosp_time:['',[Validators.required]],
       displacement:['',[Validators.required, Validators.minLength(2),Validators.pattern(/^[0-9]+([,.][0-9]+)?$/)],],
       earliest_eta:['',[Validators.required]],
       just_eta:['',[Validators.required]],
-      vessel_id:[]
+      vessel_id:[],
+      fuel_density:[],
+      lower_calorific:[]
+
     
     });
 

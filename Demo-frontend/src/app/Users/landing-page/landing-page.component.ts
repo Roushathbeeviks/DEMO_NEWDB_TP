@@ -56,21 +56,19 @@ export class LandingPageComponent implements OnInit {
     this.vesselserv.GetVesselById(this.id).subscribe((res: any) => {
       console.log('kk', res);
       this.data = res;
-      let index = 0;
 
-      this.data.forEach((e: any) => {
-        console.log('null', this.a);
-        this.voyageserv.GetVoyagePlanByVesselId(e.id).subscribe((res: any) => {
-          this.data[index]['startportname'] = res.message.length
+      for(let vessel of this.data){
+        console.log('null', vessel);
+        this.voyageserv.GetVoyagePlanByVesselId(vessel.id).subscribe((res: any) => {
+          vessel['startportname'] = res.message.length
             ? res.message[res.message.length - 1].startportname
             : '';
-          this.data[index]['destinationportname'] = res.message.length
+          vessel['destinationportname'] = res.message.length
             ? res.message[res.message.length - 1].destinationportname
             : '';
-          index++;
           this.a = false;
         });
-      });
+      }
     });
   }
 }
