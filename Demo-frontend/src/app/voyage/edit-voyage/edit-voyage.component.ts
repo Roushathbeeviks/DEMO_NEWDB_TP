@@ -1,6 +1,7 @@
 import { Component,Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Route, Router } from '@angular/router';
 import { VesselService } from 'src/app/services/vessel.service';
 import { VoyageplanService } from 'src/app/services/voyageplan.service';
 @Component({
@@ -16,6 +17,7 @@ export class EditVoyageComponent implements OnInit {
   constructor(private voyageserv:VoyageplanService,
     private formBuilder: FormBuilder,
     private vesselserv:VesselService,
+    private route:Router,
     @Inject(MAT_DIALOG_DATA) public data:any
   ) { }
 
@@ -64,18 +66,22 @@ this.voyageserv.GetVoyagePlanByVoyageId(this.data).subscribe((res:any) =>{
   }
   save()
   {
+
+    if(!this.EditVoyageForm.valid) {
+      this.EditVoyageForm.markAllAsTouched();
+    }else{
     this.submitted = true;
   // console.log("Saving...")
   this.voyageserv.EditVoyage(this.data, this.EditVoyageForm.value).subscribe((result:any)=>
   {
-    // console.log("ffff",this.data)
+    
     console.log("result",result)
     this.reloadPage()
     this.submitted = false;
-    
-
   })
+}
  }
+
  reloadPage(): void {
     window.location.reload();
   }

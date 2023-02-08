@@ -28,12 +28,14 @@ export class EditprofileComponent implements OnInit {
 
   check() 
   {
-    
+    if(!this.Editprofile.valid) {
+      this.Editprofile.markAllAsTouched();
+    }else{
    this.adminserv.EditProfile(this.data.data,this.Editprofile.value).subscribe((res:any) => {
     console.log(res);
     this.reloadPage();
    })
-   
+  }
   }
   reloadPage(): void {
     window.location.reload();
