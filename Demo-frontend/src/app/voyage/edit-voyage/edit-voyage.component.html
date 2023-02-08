@@ -191,11 +191,31 @@
         </form>
       </mat-expansion-panel>
       <mat-expansion-panel class="color">
-        <mat-expansion-panel-header class="color2">
+        <mat-expansion-panel-header  class="color2" >
           <mat-panel-title class="colorText">
-            ADDITIONAL VOYAGE CRITERIA
-          </mat-panel-title>
+           ADDITIONAL VOYAGE CRITERIA
+          </mat-panel-title>      
         </mat-expansion-panel-header>
+
+        <form [formGroup]="EditVoyageForm">
+     <div class="display">
+         <div>     
+            <div class="inputLine">
+                  <div class="label"><label>Fuel Density</label></div>
+                  <div > <input  class="input" type="text" formControlName="cosp_time"> </div>
+          </div>
+      </div>
+
+      <div >   
+        <div class="inputLine">
+          <div class="label">  <label>Lower Calorific Value</label></div>
+          <div > <input type="text" class="input" formControlName="displacement"></div>
+        </div>
+     </div>
+    
+      </div>
+     <div style="display:none"> <input type="reset" id="primaryButton"  /></div>
+      </form>
       </mat-expansion-panel>
     </mat-accordion>
 

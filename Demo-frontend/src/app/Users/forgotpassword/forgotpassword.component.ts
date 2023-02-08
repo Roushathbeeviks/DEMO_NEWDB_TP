@@ -39,6 +39,11 @@ export class ForgotpasswordComponent implements OnInit {
     var data={
       email:formData.email
     }
+
+    if(!this.forgotPassword.valid) {
+      this.forgotPassword.markAllAsTouched();
+    }
+    else{
     this.adminserv.ForgotPassword(data).subscribe((res:any)=>
     {
       // console.log(res.status)
@@ -49,4 +54,5 @@ export class ForgotpasswordComponent implements OnInit {
       }
     });
   }
+}
 }

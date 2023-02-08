@@ -27,7 +27,7 @@
        <div class="display">
         <div>
                 <div class="inputLine">
-                  <div  class="label"><label >START PORT NAME</label><span style="color:red;padding-left: 2px;">*</span></div>
+                  <div  class="label"><label >Start Port Name</label><span style="color:red;padding-left: 2px;">*</span></div>
                       <div ><select style="min-width:150px;height: 25px;outline: none;" formControlName="startport_id"  >
                         <option value="">Select Port</option>
                             <option *ngFor="let start of StartPort" value="{{start.id}}">{{start.name}}</option>
@@ -40,7 +40,7 @@
                        <div><input type="text" class="input" formControlName="cosp_lat" style="width:100%">
                        
                        <div class="errors" *ngIf="voyageForm.controls['cosp_lat'].errors?.['required'] && voyageForm.controls['cosp_lat'].touched">This Field is required</div>
-                       <div class="errors" *ngIf="voyageForm.controls['cosp_lat'].errors?.['minlength'] && voyageForm.controls['cosp_lat'].touched">This Field is too short</div>
+                       <div class="errors" *ngIf="voyageForm.controls['cosp_lat'].errors?.['minlength'] && voyageForm.controls['cosp_lat'].touched">Invalid Value</div>
                        <div class="errors" *ngIf="voyageForm.controls['cosp_lat'].errors?.['pattern'] && voyageForm.controls['cosp_lat'].touched">
                         Incorrect value
                        </div> </div>
@@ -51,7 +51,7 @@
                    <div > <input type="text" class="input" formControlName="eosp_lat">
                  
                     <div class="errors" *ngIf="voyageForm.controls['eosp_lat'].errors?.['required'] && voyageForm.controls['eosp_lat'].touched">This Field is required</div>
-                    <div class="errors" *ngIf="voyageForm.controls['eosp_lat'].errors?.['minlength'] && voyageForm.controls['eosp_lat'].touched">This Field is too short</div>
+                    <div class="errors" *ngIf="voyageForm.controls['eosp_lat'].errors?.['minlength'] && voyageForm.controls['eosp_lat'].touched">Invalid Value</div>
                     <div class="errors" *ngIf="voyageForm.controls['eosp_lat'].errors?.['pattern'] && voyageForm.controls['eosp_lat'].touched">
                        Incorrect value
                     </div></div>
@@ -60,7 +60,7 @@
                 </div>
                 <div>
                     <div class="inputLine">
-                        <div class="label"><label >DESTINATION PORT NAME</label><span style="color:red; padding-left: 2px;">*</span></div>
+                        <div class="label"><label >Destination Port Name</label><span style="color:red; padding-left: 2px;">*</span></div>
                        <div> <select style="min-width:150px;height: 25px;outline: none;"  formControlName="destinationport_id" >
                         <option value="">Select Port</option>
                             <option *ngFor="let end of DestinationPort" value="{{end.id}}">{{end.name}}</option>
@@ -71,7 +71,7 @@
                       <div ><input type="text" class="input" formControlName="cosp_long">
                  
                   <div class="errors" *ngIf="voyageForm.controls['cosp_long'].errors?.['required'] && voyageForm.controls['cosp_long'].touched">This Field is required</div>
-                  <div class="errors" *ngIf="voyageForm.controls['cosp_long'].errors?.['minlength'] && voyageForm.controls['cosp_long'].touched">This Field is too short</div>
+                  <div class="errors" *ngIf="voyageForm.controls['cosp_long'].errors?.['minlength'] && voyageForm.controls['cosp_long'].touched">Invalid Value</div>
                   <div class="errors" *ngIf="voyageForm.controls['cosp_long'].errors?.['pattern'] && voyageForm.controls['cosp_long'].touched">
                      Incorrect value
                   </div></div>
@@ -82,7 +82,7 @@
                        <div > <input type="text" class="input" formControlName="eosp_long">
                     
                     <div class="errors" *ngIf="voyageForm.controls['eosp_long'].errors?.['required'] && voyageForm.controls['eosp_long'].touched">This Field is required</div>
-                    <div class="errors" *ngIf="voyageForm.controls['eosp_long'].errors?.['minlength'] && voyageForm.controls['eosp_long'].touched">This Field is too short</div>
+                    <div class="errors" *ngIf="voyageForm.controls['eosp_long'].errors?.['minlength'] && voyageForm.controls['eosp_long'].touched">Invalid Value</div>
                     <div class="errors" *ngIf="voyageForm.controls['eosp_long'].errors?.['pattern'] && voyageForm.controls['eosp_long'].touched">
                        Incorrect value
                     </div>
@@ -106,14 +106,14 @@
                     <div class="display">
                    <div>     
                  <div class="inputLine">
-                        <div class="label"><label>COSP TIME</label> <span style="color:red;padding-left: 2px;">*</span></div>
+                        <div class="label"><label>COSP Time</label> <span style="color:red;padding-left: 2px;">*</span></div>
                         <div > <input  class="input" type="datetime-local" formControlName="cosp_time">
                     
                     <div class="errors" *ngIf="voyageForm.controls['cosp_time'].errors?.['required'] && voyageForm.controls['cosp_time'].touched">This Field is required</div>
                   </div>
                   </div>
                     <div class="inputLine">
-                       <div class="label"> <label>EARLIEST ETA</label> <span style="color:red;padding-left: 2px;">*</span></div>
+                       <div class="label"> <label>Earliest ETA</label> <span style="color:red;padding-left: 2px;">*</span></div>
                         <div><input  class="input" type="datetime-local" formControlName="earliest_eta">
                     
                     <div class="errors" *ngIf="voyageForm.controls['earliest_eta'].errors?.['required'] && voyageForm.controls['earliest_eta'].touched">This Field is required</div>
@@ -122,7 +122,7 @@
                 </div>
                 <div >   
                 <div class="inputLine">
-                  <div class="label">  <label>DISPALCEMENT</label> <span style="color:red;padding-left: 2px;">*</span></div>
+                  <div class="label">  <label>Displacement</label> <span style="color:red;padding-left: 2px;">*</span></div>
                    <div > <input type="text" class="input" formControlName="displacement">
                 
                 <div class="errors" *ngIf="voyageForm.controls['displacement'].errors?.['required'] && voyageForm.controls['displacement'].touched">This Field is required</div>
@@ -132,7 +132,7 @@
               </div>
 
                     <div  class="inputLine">
-                        <div class="label"><label>JUST ETA</label> <span style="color:red;padding-left: 2px;">*</span></div>
+                        <div class="label"><label>Just ETA</label> <span style="color:red;padding-left: 2px;">*</span></div>
                        <div> <input type="datetime-local"  class="input" formControlName="just_eta">
                    
                     <div class="errors" *ngIf="voyageForm.controls['just_eta'].errors?.['required'] && voyageForm.controls['just_eta'].touched">This Field is required</div>
@@ -159,15 +159,15 @@
              <div class="display">
                  <div>     
                     <div class="inputLine">
-                          <div class="label"><label>FUEL DENSITY</label></div>
-                          <div > <input  class="input" type="text" formControlName="cosp_time"> </div>
+                          <div class="label"><label>Fuel Density</label></div>
+                          <div > <input  class="input" type="text" formControlName="fuel_density"> </div>
                   </div>
               </div>
 
               <div >   
                 <div class="inputLine">
-                  <div class="label">  <label>LOWR CALORIFIC VALUE</label></div>
-                  <div > <input type="text" class="input" formControlName="displacement"></div>
+                  <div class="label">  <label>Lower Calorific Value</label></div>
+                  <div > <input type="text" class="input" formControlName="lower_calorific"></div>
                 </div>
              </div>
             
@@ -178,9 +178,9 @@
           </mat-accordion>
           
         <div class="buttons">
+          <input type="button" class="btn"  id="secondaryButton"  onclick="document.getElementById('primaryButton').click()" value="Clear" />   
+          <button class="btn" (click)="navigate()">Cancel</button>
           <button class="btn" (click)="save()">Save</button> 
-          <input type="button" class="btnC"  id="secondaryButton"  onclick="document.getElementById('primaryButton').click()" value="clear" />   
-          <button class="btn" (click)="navigate()">cancel</button>
           
        </div>
     </div >

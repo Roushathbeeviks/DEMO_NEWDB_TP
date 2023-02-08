@@ -38,7 +38,10 @@ export class VoyageFormComponent implements OnInit {
       displacement:['',[Validators.required, Validators.minLength(2),Validators.pattern(/^[0-9]+([,.][0-9]+)?$/)],],
       earliest_eta:['',[Validators.required]],
       just_eta:['',[Validators.required]],
-      vessel_id:[]
+      vessel_id:[],
+      fuel_density:[],
+      lower_calorific:[]
+
     
     });
 

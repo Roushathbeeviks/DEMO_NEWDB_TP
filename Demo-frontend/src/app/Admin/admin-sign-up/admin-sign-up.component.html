@@ -71,7 +71,7 @@
             <div class="inputLine">
               <div>
               <label  class="label">Contact Number</label></div><div>
-              <input formControlName="contact_number" class="input" type="number" id="contact_number" placeholder="Contact Number"/><div class="errors" *ngIf="signup.controls['contact_number'].errors?.['required'] && signup.controls['contact_number'].touched">
+              <input formControlName="contact_number" class="input"  id="contact_number" placeholder="Contact Number"/><div class="errors" *ngIf="signup.controls['contact_number'].errors?.['required'] && signup.controls['contact_number'].touched">
                 Phone number is required
                 </div>
                 <div class="errors" *ngIf="signup.controls['contact_number'].errors?.['minlength'] && signup.controls['contact_number'].errors?.['maxlength']">Phone number should have minimum length</div>
@@ -90,8 +90,10 @@
                 <div class="errors" *ngIf="">Incorrect password</div>
             </div>
             </div>
-            <div style="display: flex;justify-content: end;"><button  type="submit"   class=" btn" >Sign Up</button></div>
-             
+            <div style="display: flex;justify-content: right;">
+              <div style="margin-right: 10px;"><button   class="btn" routerLink="/usermgt" >Cancel</button></div>
+            <div style="display: flex;justify-content: end;"><button  type="submit"   class="btn" >Save</button></div>
+          </div>
               </div> 
               
               </div>  
