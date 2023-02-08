@@ -42,6 +42,10 @@ export class VesselListComponent implements OnInit {
       })
   }
   Submit(){
+    if(!this.VesselForm.valid) {
+      this.VesselForm.markAllAsTouched();
+    }else{
+  
     this.vesselserv.VesselForm(this.VesselForm.value).subscribe((res:any)=>
     {
       // console.log(res)
@@ -55,7 +59,7 @@ export class VesselListComponent implements OnInit {
         this.vesselserv.openSnackBar("Error Saving","error")
       }
     })
-  
+  }
   }
   CheckIMO(e:any){
     this.vesselserv.CheckIMONumber(this.VesselForm.value).subscribe((res:any)=>

@@ -5,33 +5,45 @@
     
     <form [formGroup]="EditVessel" (ngSubmit)="check()" autocomplete="off">
         <div class="card">
+          <!-- <div class="inputLine">
+  <div >
+  <label  class="label">First Name </label></div><div>
+   <input appFirstCap formControlName="first_name" class="input" type="text" id="first_name" placeholder="First Name"/>
+   <div class="errors" *ngIf="signup.controls['first_name'].errors?.['required'] && signup.controls['first_name'].touched">
+    First name is required
+    </div>
+    <div class="errors" *ngIf="signup.controls['first_name'].errors?.['minlength'] && signup.controls['first_name'].touched">First name should have minimum length</div>
+    <div class="errors" *ngIf="signup.controls['first_name'].errors?.['pattern'] && signup.controls['first_name'].touched">First name cannot have numbers</div>
+   </div>
+</div> -->
   
-  <div class="flex">
-          <div class="display">
-            <label>IMO Number<span style="color:red;padding-left: 5px;">*</span></label>
-            <input type="text" formControlName="imo_number" />
+  <div >
+          <div class="inputLine">
+            <div><label class="label">IMO Number<span style="color:red;padding-left: 5px;">*</span></label></div><div>
+            <input type="text" formControlName="imo_number" class="input">
+          </div>
           </div>
   
-          <div>
-            <label>Vessel Type<span style="color:red;padding-left: 5px;">*</span></label>
-            <select  formControlName="vessel_type_id" >
+          <div  class="inputLine">
+            <label class="label">Vessel Type<span style="color:red;padding-left: 5px;">*</span></label>
+            <select  formControlName="vessel_type_id" class="input">
               <option value="">Select  Vessel Type</option>
               <option *ngFor="let vessel of VesselType" value="{{vessel.id}}">{{vessel.name}}</option>
             </select>
           </div> 
   </div>
   
-  <div class="">
-    <div class="display">
-      <label>Vessel name<span style="color:red;padding-left: 5px;">*</span></label>
-      <input type="text" formControlName="name"/>
+  <div >
+    <div  class="inputLine">
+      <label class="label">Vessel name<span style="color:red;padding-left: 5px;">*</span></label>
+      <input type="text" formControlName="name"class="input">
     </div>  
   
          
-          <div class="flag">
-            <label>Flag<span style="color:red;padding-left: 5px;" >*</span></label>
-            <span  style="padding-left: 55px;"> </span>
-            <select id="flags" formControlName="flag_id" >
+          <div class="inputLine">
+            <label class="label">Flag<span style="color:red;padding-left: 5px;" >*</span></label>
+            
+            <select id="flags" formControlName="flag_id"  class="input" >
             <option value="">Select Flag</option>
             <option *ngFor="let flag of Vesselflag" value="{{flag.id}}">{{flag.name}}</option>
             </select>
@@ -41,8 +53,8 @@
    </div>
   </div>
    <div  class="buttons ">
-    <button   mat-dialog-close  class="btn">NO,cancel</button>
-      <button   mat-dialog-close type="submit" class="btn">SAVE</button>
+    <button   mat-dialog-close  class="btnC">Cancel</button>
+      <button   mat-dialog-close type="submit" class="btn">Save</button>
       
   </div>
   

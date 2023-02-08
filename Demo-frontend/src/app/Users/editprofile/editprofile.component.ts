@@ -17,6 +17,7 @@ export class EditprofileComponent implements OnInit {
   EmailCheckmsg:string=""
   status:boolean=true
   isreadOnly:boolean=true
+  public isDisabled: boolean = false
   // alertOpt: SweetAlertOptions = {};
   constructor(
     private route: Router,
@@ -29,12 +30,14 @@ export class EditprofileComponent implements OnInit {
 
   check() 
   {
-    
+    if(!this.Editprofile.valid) {
+      this.Editprofile.markAllAsTouched();
+    }else{
    this.adminserv.EditProfile(this.data.data,this.Editprofile.value).subscribe((res:any) => {
     console.log(res);
     this.reloadPage();
    })
-   
+  }
   }
   reloadPage(): void {
     window.location.reload();

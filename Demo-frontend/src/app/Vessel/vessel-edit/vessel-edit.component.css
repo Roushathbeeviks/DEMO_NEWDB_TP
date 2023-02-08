@@ -16,29 +16,29 @@
 }
 h3
 {
-    color: rgb(190, 190, 29);
+    color: rgb(214, 179, 63);
     margin-top: 4px;
    
     
 }
 .card
 {
-    height: 100%;
-    width: 100%;
+    /* height: 100%;
+    width: 100%; */
     display: flex;
     justify-content: space-between;
-    
+    gap:20px;
    
     
 }
-input {
+/* input {
     background: transparent;
     border: none;
     border-bottom: 1px solid white;
     color: white;
     border-width: none;
    
-}
+} */
 
 /* .flex
 {
@@ -65,7 +65,7 @@ option
     display: flex;
     gap:5px;
     justify-content: flex-end;
-    margin-top: 30px;
+    
     margin-bottom: 10px;
 }
 .display{
@@ -73,10 +73,42 @@ option
 
 }
 .errors{
-    padding-top: 10px;
+    position: fixed;
+    font-size: 11px !important;
+    display: block;
     padding-left: 5px;
     color: red;
     font-weight: 50%;
-    font-size: 15px;
+    padding-left: 5px;
+    height: 11px; 
 }
-
+.label{
+    display: flex;
+   
+    align-items: center;
+    height: 25px;
+    font-size: 12px;
+    border-radius: 4px;
+   
+    width: 150px;padding-left: 5px;;
+}
+.inputLine{
+    display: flex;
+    gap:10px;
+    height: 60px;
+}
+.input{
+    width:150px;
+    height: 25px;
+    font-size: 12px;
+    border-radius: 3px;
+    outline: none;
+}
+input {
+    padding: 1px 2px;
+    border-width: 2px;
+    border-style: none;
+    /* border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133)); */
+    border-image: initial;
+    border-color:none;
+}
