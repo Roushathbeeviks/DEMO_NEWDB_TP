@@ -39,7 +39,16 @@ export class AdminHeaderComponent implements OnInit {
         
     });
   }
-
+  UpdatePassword()
+  {
+    let id=localStorage.getItem('Id') 
+    console.log("#",id)
+    this.dialog.open(UpdatePasswordComponent, {disableClose: true ,
+      data:{
+        data:id
+      }
+    })
+  }
   searchVessel(query:KeyboardEvent){
     if(query){
       const element=query.target as HTMLInputElement;

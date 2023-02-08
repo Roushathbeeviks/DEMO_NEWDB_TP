@@ -87,20 +87,6 @@ const PasswordService = {
   },
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   LoginDetails: (email,res) => {
     let user = email;
     // console.log("Login details mail",user)
