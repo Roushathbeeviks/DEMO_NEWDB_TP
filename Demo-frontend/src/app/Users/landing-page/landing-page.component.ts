@@ -58,7 +58,8 @@ export class LandingPageComponent implements OnInit {
       console.log('kk', res.length);
       this.data = res;
       if(res.length > 0)
-       {  for(let vessel of this.data){
+       {  
+        for(let vessel of this.data){
         console.log('null', vessel);
         this.voyageserv.GetVoyagePlanByVesselId(vessel.id).subscribe((res: any) => {
           vessel['startportname'] = res.message.length
