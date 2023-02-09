@@ -431,14 +431,10 @@ body { margin: 0; font-family: sans-serif; }
             background-image: none;
             border-radius: 4px;
         }
-        .backdropBackground{
-         /* background: #000d20; */
+        /* .backdropBackground{
          backdrop-filter: blur(1px);
-         opacity: 1;
-         /* filter: blur(20px);
-         -webkit-filter: blur(20px); */
-         
-        }
+         opacity: 1; 
+        } */
 /* 
         .dropdown-list{
             padding: 6px 10px !important;

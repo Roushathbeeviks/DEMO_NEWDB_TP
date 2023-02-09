@@ -9,6 +9,7 @@ import {
 import { Validators } from '@angular/forms';
 import { AdminService } from 'src/app/services/admin.service';
 import { VesselService } from 'src/app/services/vessel.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-forgotpassword',
@@ -17,11 +18,13 @@ import { VesselService } from 'src/app/services/vessel.service';
 })
 export class ForgotpasswordComponent implements OnInit {
   forgotPassword: any = FormGroup;
+  action:boolean = false;
   constructor(
     private route: Router,
     private formBuider: FormBuilder,
     private adminserv: AdminService,
-    private vesselserv:VesselService
+    private vesselserv:VesselService,
+    public dialogRef: MatDialogRef<ForgotpasswordComponent>
     
   ) {}
 
@@ -34,27 +37,33 @@ export class ForgotpasswordComponent implements OnInit {
     return this.forgotPassword.get('email') as FormControl;
   }
 
+submit() {
+  var formData=this.forgotPassword.value;
+  var data={
+    email:formData.email
+  }
 
-  submit() {
-    var formData=this.forgotPassword.value;
-    var data={
-      email:formData.email
-    }
-
-    if(!this.forgotPassword.valid) {
-      this.forgotPassword.markAllAsTouched();
+  if(!this.forgotPassword.valid) {
+    this.forgotPassword.markAllAsTouched();
+  }
+  else{
+  this.adminserv.ForgotPassword(data).subscribe((res:any)=>
+  {
+    console.log(res.status)
+    // console.log(data.email)
+    if(res.status === true)
+    {
+      this.dialogRef.close(); 
+      // this.vesselserv.openForgotSnackBar("Email Sent to your Email id","ok")
     }
     else{
-    this.adminserv.ForgotPassword(data).subscribe((res:any)=>
-    {
-      // console.log(res.status)
-      // console.log(data.email)
-      if(res.status === false)
-      {
-        this.vesselserv.openForgotSnackBar("No user exists with this email","ok")
-      }
-      // this.route.navigate()
-    });
-  }
+      this.vesselserv.openForgotSnackBar("No user exists with this email","ok")
+      this.dialogRef.close(); 
+    }
+  });
 }
+}
+
+
+
 }

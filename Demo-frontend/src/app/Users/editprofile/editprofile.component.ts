@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from 'src/app/services/admin.service';
+import { MatDialogRef } from '@angular/material/dialog';
 // import { SweetAlertOptions } from 'sweetalert2';
 @Component({
   selector: 'app-editprofile',
@@ -25,6 +26,7 @@ export class EditprofileComponent implements OnInit {
     private adminserv: AdminService,
     private router:ActivatedRoute,
     @Inject(MAT_DIALOG_DATA) public data:any,
+    public dialogRef: MatDialogRef<EditprofileComponent>
 
   ) {}
 
@@ -35,6 +37,7 @@ export class EditprofileComponent implements OnInit {
     }else{
    this.adminserv.EditProfile(this.data.data,this.Editprofile.value).subscribe((res:any) => {
     console.log(res);
+    this.dialogRef.close(); 
     this.reloadPage();
    })
   }
@@ -70,8 +73,7 @@ export class EditprofileComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.minLength(2),
-          Validators.maxLength(10),
+          Validators.minLength(1),
           Validators.pattern('[a-zA-z].*'),
         ],
       ],

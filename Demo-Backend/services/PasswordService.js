@@ -30,7 +30,7 @@ const PasswordService = {
           // res
           //   .status(404)
           //   .json({Message: "No USER EXISTS WITH THIS EMAIL ID"});
-          res.send({Message: "No USER EXISTS WITH THIS EMAIL ID",status: false})
+          res.send({Message: "No user exists with this email id",status: false})
           // res.send({ message: "Email id already exists", status: true });
         } else {
           var mailOptions = {
@@ -51,6 +51,7 @@ const PasswordService = {
               console.log(info);
             }
           });
+          res.send({Message: "Email Sent Successfully",status: true})
         }
       } else {
         return res.status(500).json(err);

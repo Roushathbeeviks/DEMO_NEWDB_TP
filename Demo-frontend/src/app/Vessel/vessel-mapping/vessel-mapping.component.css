@@ -22,10 +22,11 @@ text-align: center;
   }
   .buttons{
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     padding-top: 10px;
     gap: 5px;
     padding-right: 10px;
+    padding-left: 10px;
   }
   .heading{
     display: flex;
