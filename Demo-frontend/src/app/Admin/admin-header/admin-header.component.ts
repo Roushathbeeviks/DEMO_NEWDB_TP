@@ -80,4 +80,5 @@ export class AdminHeaderComponent implements OnInit {
     this.route.navigate([`../voyagetable/${id}`])
     console.log("ss",id)
   }
+  
 }

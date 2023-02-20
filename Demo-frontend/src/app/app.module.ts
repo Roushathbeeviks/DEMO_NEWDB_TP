@@ -71,6 +71,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { UpdatePasswordComponent } from './Users/update-password/update-password.component';
 import { NoVesselComponent } from './voyage/no-vessel/no-vessel.component';
 // import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 
 @NgModule({
@@ -142,6 +143,7 @@ import { NoVesselComponent } from './voyage/no-vessel/no-vessel.component';
     MatDividerModule,
     CarouselModule,
     NgSelectModule,
+    MatSidenavModule
     // AngularFontAwesomeModule
     // Ng2SearchPipeModule,
     // SwiperModule 

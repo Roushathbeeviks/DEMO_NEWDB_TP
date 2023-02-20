@@ -37,10 +37,54 @@
             <div>
                 <mat-icon>help_outline</mat-icon>
             </div>
-        </a>
-        <a  routerLinkActive="active" href="#" class="color ">
+        </a>-->
+        <a  routerLinkActive="active" href="#" class="color "  routerLink="/adminMessage">
             <div><mat-icon>sms</mat-icon></div>
-         </a> -->
+         </a> 
+          <!--
+         <mat-drawer-container class="example-container" >
+            <div style="position: fixed;">
+                <a type="button" class="color" (click)="drawer.toggle()">
+                  <mat-icon>sms</mat-icon>
+                </a>
+              </div>
+            <mat-drawer #drawer class="example-sidenav" mode="side">
+              <div  #talkjsContainer style="color:white ;">Loading...</div>
+            </mat-drawer>
+          
+            
+          
+          </mat-drawer-container> -->
+
+          
+          
+          <!-- <button href="#" class="color" (onClick)="sidenav.toggle();">
+            <div>
+                <mat-icon>sms</mat-icon>
+            </div>
+        </button>
+          <mat-sidenav-container class="example-container ">
+            <mat-sidenav #sidenav>
+                <div style="height: 100%;width:150px"></div>
+            </mat-sidenav>
+          </mat-sidenav-container> -->
+
+          
+<!-- <mat-sidenav-container>
+
+    <mat-sidenav #sidenav>
+     
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+     
+     
+
+      
+    </mat-sidenav-content>
+  </mat-sidenav-container> -->
+
+          
          <a mat-button [matMenuTriggerFor]="menu" class="color ">
             <mat-icon>person</mat-icon>
         </a>
