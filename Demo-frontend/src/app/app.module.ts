@@ -70,6 +70,7 @@ import { VoyageDeleteComponent } from './modal/voyage-delete/voyage-delete.compo
 import { NgSelectModule } from '@ng-select/ng-select';
 import { UpdatePasswordComponent } from './Users/update-password/update-password.component';
 import { NoVesselComponent } from './voyage/no-vessel/no-vessel.component';
+import { AdminMessageComponent } from './Admin/admin-message/admin-message.component';
 // import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {MatSidenavModule} from '@angular/material/sidenav';
 
@@ -112,6 +113,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
          VoyageDeleteComponent,
          UpdatePasswordComponent,
          NoVesselComponent,
+         AdminMessageComponent,
    
   
   ],
