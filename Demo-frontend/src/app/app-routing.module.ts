@@ -34,7 +34,8 @@ const routes: Routes = [
 {path:"voyagetable/:id",component:VoyageTableComponent},
 {path:"voyageform/:id",component:VoyageFormComponent},
 {path:"search/:query",component:SearchComponent},
-{path:"updatepassword",component:UpdatePasswordComponent}
+{path:"updatepassword",component:UpdatePasswordComponent},
+// {path:"adminMessage",component:admin}
 
 
 ];
