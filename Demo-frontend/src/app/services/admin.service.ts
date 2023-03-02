@@ -45,7 +45,7 @@ export class AdminService {
     return this.http.post(this.URL +'/user/updatepassword',data);
   }
 
-  AllUsers() {
+   AllUsers() {
     return this.http.get(this.URL + '/user/getallusers');
   }
   AllUsersForExcel() {

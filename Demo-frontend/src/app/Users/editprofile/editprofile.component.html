@@ -6,7 +6,7 @@
       <!-- <img style="height:50px;" src="../../assets/MicrosoftTeams-image.png"><br> -->   
         <div class="inputLine">
           <label class="inputLabel">Username</label>
-          <input appFirstCap formControlName="username"  [readonly]="isreadOnly"  class="input" type="text" id="username"/>
+          <input appFirstCap formControlName="username"  [readonly]="isreadOnly"  class="input" type="text" id="username"  >
         </div>
                
         <div  class="inputLine">
@@ -43,7 +43,7 @@
         <div class="inputLine">
           <label class="inputLabel">Contact</label>
           <div>
-          <input formControlName="contact_number" class="input" type="number" id="contact_number" placeholder="Contact Number"/>
+          <input formControlName="contact_number" class="input"  id="contact_number" placeholder="Contact Number"/>
            <div class="errors" *ngIf="Editprofile.controls['contact_number'].errors?.['required'] && Editprofile.controls['contact_number'].touched">
             Phone number is required
             </div>

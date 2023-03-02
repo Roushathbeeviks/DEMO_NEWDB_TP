@@ -53,11 +53,13 @@ export class LandingPageComponent implements OnInit {
     this.id = localStorage.getItem('Id');
     console.log('local storage id', this.id);
 
-    this.vesselserv.GetVesselById(this.id).subscribe((res: any) => {
-      console.log('kk', res);
-      this.data = res;
 
-      for(let vessel of this.data){
+    this.vesselserv.GetVesselById(this.id).subscribe((res: any) => {
+      console.log('kk', res.length);
+      this.data = res;
+      if(res.length > 0)
+       {  
+        for(let vessel of this.data){
         console.log('null', vessel);
         this.voyageserv.GetVoyagePlanByVesselId(vessel.id).subscribe((res: any) => {
           vessel['startportname'] = res.message.length
@@ -69,6 +71,12 @@ export class LandingPageComponent implements OnInit {
           this.a = false;
         });
       }
+        
+       }
+      else{
+        this.route.navigate(['/novessel'])
+    }
     });
+  // }
   }
 }

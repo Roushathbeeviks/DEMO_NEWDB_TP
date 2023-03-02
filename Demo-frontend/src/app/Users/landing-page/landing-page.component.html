@@ -2,13 +2,13 @@
 <div class="container">
   <div class="row">
         <img  class="image " src="../../../assets/synergy-logo.png" alt="">
-      <p *ngIf="a" class="text2" >Vessel not yet assigned. Please contact admin</p>
+      <!-- <p *ngIf="a" class="text2" >Vessel not yet assigned. Please contact admin</p> -->
       <owl-carousel-o [options]="customOptions">
         <ng-container *ngFor="let vessel of data;let i index">
           <ng-template carouselSlide>
             <mat-card  class="example-card" [routerLink]="['/voyagetable/',vessel.id]">
               <div class="cardDiv1">
-                <div class="cardDiv2"><img class="flagImage" src="../../../assets/{{vessel.countryname}}.png"></div>
+                <div class="cardDiv2"><img class="flagImage" src="../../../assets/{{vessel.countryname}}.jpg"></div>
                 <div class="cardDiv3">
                   <div class="title">
                     {{vessel.name}}

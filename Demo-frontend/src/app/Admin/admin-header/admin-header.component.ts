@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ElementRef,ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { LogoutComponent } from 'src/app/logout/logout.component';
@@ -7,6 +7,7 @@ import { EditprofileComponent } from 'src/app/Users/editprofile/editprofile.comp
 import { FormControl, FormGroup } from '@angular/forms';
 import { AdminService } from 'src/app/services/admin.service';
 import { UpdatePasswordComponent } from 'src/app/Users/update-password/update-password.component';
+import { TalkService } from 'src/app/services/talk.service';
 
 
 @Component({
@@ -16,13 +17,15 @@ import { UpdatePasswordComponent } from 'src/app/Users/update-password/update-pa
 })
 export class AdminHeaderComponent implements OnInit {
   id:any
- 
+  private session: any;
+  private inbox: any;
   searchResult:undefined|any;
   
-  constructor(private route:Router,private dialog: MatDialog,private search :AdminService) { }
-   
+  constructor(private route:Router,private dialog: MatDialog,private search :AdminService,private talkService:TalkService ) { }
+  @ViewChild('talkjsContainer') talkjsContainer!: ElementRef; 
 
   ngOnInit(): void {
+    this.createInbox();
   }
   EditDialog()
   {
@@ -80,4 +83,14 @@ export class AdminHeaderComponent implements OnInit {
     this.route.navigate([`../voyagetable/${id}`])
     console.log("ss",id)
   }
+ 
+
+showFiller = false;
+private async createInbox() {
+  const session = await this.talkService.createCurrentSession();
+  this.inbox = await this.talkService.createInbox(session);
+  this.inbox.mount(this.talkjsContainer.nativeElement);
+
+}
+  
 }

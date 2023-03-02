@@ -20,7 +20,7 @@
             <div>
               <div class="inputLine">
                 <div class="label">
-                  <label>START PORT NAME</label
+                  <label>Start Port Name</label
                   ><span style="color: red">*</span>
                 </div>
                 <div >
@@ -46,6 +46,10 @@
               <div class="errors" *ngIf="EditVoyageForm.controls['cosp_lat'].errors?.['required'] && EditVoyageForm.controls['cosp_lat'].touched">
                 This Field is required
               </div>
+              <div class="errors" *ngIf="EditVoyageForm.controls['cosp_lat'].errors?.['minlength'] && EditVoyageForm.controls['cosp_lat'].touched">Invalid Value</div>
+              <div class="errors" *ngIf="EditVoyageForm.controls['cosp_lat'].errors?.['pattern'] && EditVoyageForm.controls['cosp_lat'].touched">
+               Incorrect value
+              </div>
             </div>
             </div>
 
@@ -60,6 +64,10 @@
               <div class="errors" *ngIf="EditVoyageForm.controls['eosp_lat'].errors?.['required'] && EditVoyageForm.controls['eosp_lat'].touched">
                 This Field is required
               </div>
+              <div class="errors" *ngIf="EditVoyageForm.controls['eosp_lat'].errors?.['minlength'] && EditVoyageForm.controls['eosp_lat'].touched">Invalid Value</div>
+              <div class="errors" *ngIf="EditVoyageForm.controls['eosp_lat'].errors?.['pattern'] && EditVoyageForm.controls['eosp_lat'].touched">
+               Incorrect value
+              </div>
               <!-- <span *ngIf="submitted && EditVoyageForm.controls.eosp_lat.errors?.required"></span> -->
             </div>
           </div>
@@ -67,7 +75,7 @@
             <div>
               <div class=" inputLine">
                 <div class="label">
-                  <label>DESTINATION PORT NAME</label
+                  <label>Destination Port Name</label
                   ><span style="color: red">*</span>
                 </div>
                 <div >
@@ -96,6 +104,10 @@
               <div class="errors" *ngIf="EditVoyageForm.controls['cosp_long'].errors?.['required'] && EditVoyageForm.controls['cosp_long'].touched">
                 This Field is required
               </div>
+              <div class="errors" *ngIf="EditVoyageForm.controls['cosp_long'].errors?.['minlength'] && EditVoyageForm.controls['cosp_long'].touched">Invalid Value</div>
+              <div class="errors" *ngIf="EditVoyageForm.controls['cosp_long'].errors?.['pattern'] && EditVoyageForm.controls['cosp_long'].touched">
+               Incorrect value
+              </div>
             </div>
             </div>
 
@@ -112,6 +124,10 @@
                 
              
               <div class="errors" *ngIf="EditVoyageForm.controls['eosp_long'].errors?.['required'] && EditVoyageForm.controls['eosp_long'].touched">This Field is required</div>
+              <div class="errors" *ngIf="EditVoyageForm.controls['eosp_long'].errors?.['minlength'] && EditVoyageForm.controls['eosp_long'].touched">Invalid Value</div>
+              <div class="errors" *ngIf="EditVoyageForm.controls['eosp_long'].errors?.['pattern'] && EditVoyageForm.controls['eosp_long'].touched">
+               Incorrect value
+              </div>
             </div>
           </div>
             </div>
@@ -133,7 +149,7 @@
             <div>
               <div class="inputLine">
                 <div class="label">
-                  <label>COSP TIME</label> <span style="color: red">*</span>
+                  <label>COSP Time</label> <span style="color: red">*</span>
                 </div>
                 <div >
                   <input
@@ -145,7 +161,7 @@
               </div>
               <div class="inputLine">
                 <div class="label">
-                  <label>EARLIEST ETA</label> <span style="color: red">*</span>
+                  <label>Earliest ETA</label> <span style="color: red">*</span>
                 </div>
                 <div >
                   <input
@@ -159,7 +175,7 @@
             <div>
               <div class="inputLine">
                 <div class="label">
-                  <label>DISPALCEMENT</label> <span style="color: red">*</span>
+                  <label>Displacement</label> <span style="color: red">*</span>
                 </div>
                 <div >
                   <input
@@ -167,12 +183,16 @@
                     class="input"
                     formControlName="displacement"
                   />
+                <div class="errors" *ngIf="EditVoyageForm.controls['displacement'].errors?.['required'] && EditVoyageForm.controls['displacement'].touched">This Field is required</div>
+                <div class="errors" *ngIf="EditVoyageForm.controls['displacement'].errors?.['pattern'] && EditVoyageForm.controls['displacement'].touched">
+                   Please Enter Numeric value
                 </div>
+              </div>
               </div>
 
               <div class="inputLine">
                 <div class="label">
-                  <label>JUST ETA</label> <span style="color: red">*</span>
+                  <label>Just ETA</label> <span style="color: red">*</span>
                 </div>
                 <div >
                   <input
@@ -202,14 +222,14 @@
          <div>     
             <div class="inputLine">
                   <div class="label"><label>Fuel Density</label></div>
-                  <div > <input  class="input" type="text" formControlName="cosp_time"> </div>
+                  <div > <input  class="input" type="text" formControlName="fuel_density"> </div>
           </div>
       </div>
 
       <div >   
         <div class="inputLine">
           <div class="label">  <label>Lower Calorific Value</label></div>
-          <div > <input type="text" class="input" formControlName="displacement"></div>
+          <div > <input type="text" class="input" formControlName="lower_calorific"></div>
         </div>
      </div>
     

@@ -31,13 +31,14 @@
     /* text-transform: uppercase; */
     display: flex;
     justify-content: space-between;
-    cursor: pointer;
+    
     margin-top: 5px;
     font-size: 12px;
     font-family: sans-serif;
 }
 a{
     text-decoration: none;
+    cursor: pointer;
 }
 .pass{
     /* color:aliceblue; */
