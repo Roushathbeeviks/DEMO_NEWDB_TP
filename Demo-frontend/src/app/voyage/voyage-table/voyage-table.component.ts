@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+  import { Component, OnInit } from '@angular/core';
 import { MaxLengthValidator } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ColumnMode } from '@swimlane/ngx-datatable';
@@ -53,6 +53,7 @@ export class VoyageTableComponent implements OnInit {
         // console.log("voyage of that vessel",res)
         // console.log("hhhhhhhhh",res.message[0].cosp_time.replace('T', '').replace('Z',''))
         this.rows=res.message
+        console.log("rows",this.rows)
         // 
         
       })

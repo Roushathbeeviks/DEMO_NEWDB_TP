@@ -57,7 +57,6 @@ submit() {
       // this.vesselserv.openForgotSnackBar("Email Sent to your Email id","ok")
     }
     else{
-      this.vesselserv.openForgotSnackBar("No user exists with this email","ok")
       this.dialogRef.close(); 
     }
   });

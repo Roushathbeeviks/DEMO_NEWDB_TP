@@ -62,4 +62,10 @@ export class AdminService {
     //  return this.http.get(this.URL +`/admin/getvessel/${query}`)
     return this.http.get(this.URL +`/admin/getvessel/${query}`)
   }
+  PostLoginHistory(user_id:any) {
+    return this.http.post(this.URL+`/admin/postloginhistory`, user_id)
+  }
+  GetLoginHistory(id:any){
+    return this.http.get(this.URL+`/admin/getloginhistory/${id}`);
+  }
 }

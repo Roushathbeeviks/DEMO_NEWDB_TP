@@ -17,6 +17,7 @@ export class VoyageFormComponent implements OnInit {
   StartPort:any
   DestinationPort:any
   vesselId:any;
+  expanded:string='';
   constructor(
     private voyageserv:VoyageplanService,
     private route:ActivatedRoute,
@@ -41,8 +42,6 @@ export class VoyageFormComponent implements OnInit {
       vessel_id:[],
       fuel_density:[],
       lower_calorific:[]
-
-    
     });
 
     this.voyageserv.GetStartPort().subscribe(startport =>{
@@ -55,8 +54,16 @@ export class VoyageFormComponent implements OnInit {
   }
   save()
  {
+
     if(!this.voyageForm.valid) {
       this.voyageForm.markAllAsTouched();
+      for (var key in this.voyageForm.controls) {
+        if (this.voyageForm.controls[key].valid === false) {
+         console.log([key])
+         this.expanded=key
+         console.log("[key]",this.expanded)
+        }
+      }
     }else{
   this.voyageForm.value.vessel_id=this.vesselId
   this.voyageserv.VoyageForm(this.voyageForm.value).subscribe((res:any)=>

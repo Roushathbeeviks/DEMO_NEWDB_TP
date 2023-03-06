@@ -1,131 +1,6 @@
- <!-- <div id="slider">
-  <div> 
-    <div  *ngFor="let vessel of data">
-    <mat-card class="example-card" routerLink="/vessel">
-      <div class="cardDiv1">
-        <div class="cardDiv2">
-          <img src="../../../assets/JAPAN.png" />
-        </div>
-        <div class="cardDiv3">
-          <div class="title">
-           {{vessel.name}}
-            <br />
-           {{vessel.imo_number}}
-          </div>
-
-          <div class="text">
-            <mat-icon style="color: rgb(64, 187, 64); font-size: 7px"
-              >brightness_1</mat-icon
-            >
-            &nbsp; Online
-          </div>
-        </div>
-      </div>
-    </mat-card>
-  </div>
-  <div *ngFor="let vessel of data;let i=index">
-  <a id="prev" onclick=[i]++ >&#8810;</a>
-  <a id="next" >&#8811;</a>
-</div>
-</div>  -->
-
 <!-- 
-
-
-
-<div class="grid-container">
-  <div  *ngFor="let vessel of data">
-    <div class="grid-item">
-    <mat-card class="example-card" routerLink="/vessel">
-      <div class="cardDiv1">
-        <div class="cardDiv2"><img src="../../../assets/{{vessel.countryname}}.png"></div>
-        <div class="cardDiv3">
-          <div class="title">
-            { <div  *ngFor="let vessel of data">
-            <br>
-            {{vessel.imo_number}}
-          </div>
-      
-      <div class="text">
-         <mat-icon style="color:rgb(64, 187, 64);font-size: 7px;">brightness_1</mat-icon> &nbsp;
-        Online
-    </div>
-    </div>
-  </div>  
-  </mat-card>
-</div>
-</div>
- </div> -->
-
-
-
-<!-- <h2>ji</h2>
-<swiper
-  [slidesPerView]="1"
-  [spaceBetween]="50"
-  [navigation]="true"
-  [pagination]="{ type: 'fraction' }"
-  [centeredSlides]="true"
-  [keyboard]="{
-    enabled: true
-  }"
-  [virtual]="true"
-  class="my-swiper"
->
-  <ng-template *ngFor="let vessel of data">
-    <div class="swiper-slide-container"> 
-      <mat-card class="example-card" routerLink="/vessel">
-        <div class="cardDiv1">
-          <div class="cardDiv2"><img src="../../../assets/{{vessel.countryname}}.png"></div>
-          <div class="cardDiv3">
-            <div class="title">
-              {{vessel.name}}
-              <br>
-              {{vessel.imo_number}}
-            </div>
-        
-        <div class="text">
-           <mat-icon style="color:rgb(64, 187, 64);font-size: 7px;">brightness_1</mat-icon> &nbsp;
-          Online
-      </div>
-      </div>
-    </div>  
-    </mat-card>
-    </div> -->
-  <!-- </ng-template>
-</swiper> --> 
-
-
-<!-- <h5>search</h5>
-
-<div>
-  <input type="text" [(ngModel)]="term"  #searchInput>
-  <button class="btn-search " (click)="submitSearch(searchInput.value)" class="search-box"></button>
-  <div *ngFor = "let item of name |filter:term" >
-    <p>
-      {{item.name}}
-    </p>
-  </div>
-</div> 
-
-
-<h2>slider</h2>
-<div>
-
-</div> -->
-
-
-<!-- <input formControlName="password" class="input" type="password" id="password" placeholder="Password" [type]="hide ? 'password' : 'text'"/>
-              <mat-icon (click)="myFunction()">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
-
-
-              <!-- myFunction() {
-                this.hide = !this.hide;
-              }               -->
-
-              <!-- hide : boolean = true; -->
               <div class="container1">
-                <!-- <div class="container2"> -->
+                <div class="container2">
                   <div class="heading">
                     <h2>USER MANAGEMENT</h2>
                     <div style="display:flex;gap:5px">
@@ -133,3 +8,53 @@
                       </div>
                     </div>
                     </div>
+
+
+
+
+                    <form [formGroup]="myForm" (ngSubmit)="send(myForm)">
+                      <mat-expansion-panel [expanded]="(errorPanles.indexOf('personal') > -1)">
+                        <mat-expansion-panel-header>
+                          <mat-panel-title><b>Personal Details</b></mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div formGroupName="personal">
+                          <div>
+                            <label>First Name :</label>
+                            <input type="text" name="fname" formControlName="fname">
+                          </div>
+                            <span *ngIf="(formSubmitted || myForm.controls['personal'].controls['fname'].touched) && myForm.controls['personal'].controls['fname'].hasError('required')" class="error"> First Name is required
+                          </span>
+                            <div>
+                              <label>Last Name :</label>
+                              <input type="text" name="lname" formControlName="lname">
+                            </div>
+                            </div>
+                      </mat-expansion-panel>
+                    
+                      <mat-expansion-panel [expanded]="(errorPanles.indexOf('work') > -1)">
+                        <mat-expansion-panel-header>
+                          <mat-panel-title><b>Work Details</b></mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div formGroupName="work">
+                          <div>
+                            <label>Department :</label>
+                            <input type="text" name="department" formControlName="department">
+                            </div>
+                            <span *ngIf="(formSubmitted || myForm.controls['work'].controls['department'].touched)&&myForm.controls['work'].controls['department'].hasError('required')" class="error"> Department is required
+                            </span>
+                            <div>
+                              <label>Designation :</label>
+                              <input type="text" name="designation" formControlName="designation">
+                            </div>
+                              <span *ngIf="(formSubmitted || myForm.controls['work'].controls['designation'].touched) && myForm.controls['work'].controls['designation'].hasError('required')" class="error"> Designation is required
+                          </span>
+                            </div>
+                      </mat-expansion-panel>
+                      <button class="btn btn-primary">send</button>
+                    </form> -->
+
+
+
+<h2>HIGH-CHART TRIAL</h2>
+<!-- <div [chart]="chart"></div>
+<button (click)="add()">Add Point!</button> -->

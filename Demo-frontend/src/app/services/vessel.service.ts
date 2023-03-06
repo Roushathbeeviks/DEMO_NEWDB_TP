@@ -91,4 +91,10 @@ CheckVesselName(data:any)
 }
 
 
+//New Change
+GetVesselCount(id:any)
+{
+  return this.http.get(this.URL +`/admin /vessel_count${id}`) 
+}
+
 }
