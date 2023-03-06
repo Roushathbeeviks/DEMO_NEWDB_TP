@@ -53,11 +53,17 @@ export class UpdatePasswordComponent implements OnInit {
        else
        {
         this.vesselserv.openSnackBar("Password Changed","ok")
+        this.reloadPage();
        }
       })
     }
     else{
       this.msg="Mismatch in password"
     }
+    
   }
+  reloadPage(): void {
+    window.location.reload();
+  }
+  
 }
