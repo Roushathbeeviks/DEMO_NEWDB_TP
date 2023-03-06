@@ -6,6 +6,7 @@ const userTasks = require("../task/user.task");
 var auth = require("../services/Authentication");
 const VoyagePlan = require("../services/voyageplan-service");
 const Vessel = require("../services/Vessel-service");
+const LoginHistoryService =  require("../services/Login-History-Services")
 
 router.post("/postvoyageplan", function (req, res) {
   VoyagePlan.VoyagePlanForm(req, res);
@@ -37,8 +38,6 @@ router.get("/startportbyid/:id", function (req, res) {
 router.delete("/deletevoyage/:id", function (req, res) {
   VoyagePlan.DeleteVoyage(req,res);
 })
-
-
 
 
 router.post("/vesselform",function (req, res) {
@@ -101,4 +100,23 @@ router.post("/checkimonumber", function (req, res) {
 router.post("/checkvesselname", function (req, res) {
   Vessel.CheckVesselName(req,res);
 })
+router.get("/vessel_count", function (req, res) {
+  Vessel.GetVesselCount(req,res);
+})
+
+
+router.post("/postloginhistory", function (req, res) {
+  LoginHistoryService.CreateLoginHistory(req,res);
+})
+router.get("/getloginhistory/:id", function (req,res) {
+  LoginHistoryService.GetLoginHistory(req,res)
+});
+
+// router.post("/postlogouthistory", function (req, res) {
+//   LoginHistoryService.CreateLogoutHistory(req,res);
+// })
+// router.get("/getlogouthistory/:id", function (req,res) {
+//   LoginHistoryService.GetLogoutHistory(req,res)
+// });
+
 module.exports = router;

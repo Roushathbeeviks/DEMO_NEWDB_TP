@@ -330,6 +330,21 @@ const Vessel={
             res.send({message:"Internal Error",error});
         })
     },
+    GetVesselCount:(req,res) => {
+        var query=`select count(vessel_id) as vessel_count from  project.vessel_user_mapping where vessel_id=?`
+        connection.query(query,[req.param.id],function(err,result)
+        {
+            if(result)
+            {
+                res.send({message:result});
+            }
+            else
+            {
+                res.send({message:err});   
+
+            }
+        })
+    }
 }
 
 module.exports = Vessel;
