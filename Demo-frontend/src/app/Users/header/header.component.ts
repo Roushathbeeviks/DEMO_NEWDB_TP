@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { LogoutComponent } from 'src/app/logout/logout.component';
 import { AdminService } from 'src/app/services/admin.service';
 import { EditprofileComponent } from '../editprofile/editprofile.component';
+import { UpdatePasswordComponent } from '../update-password/update-password.component';
 
 @Component({
   selector: 'app-header',
@@ -80,6 +81,15 @@ export class HeaderComponent implements OnInit {
     console.log("ss",id)
   }
 
-
+  UpdatePassword()
+  {
+    let id=localStorage.getItem('Id') 
+    console.log("#",id)
+    this.dialog.open(UpdatePasswordComponent, {disableClose: true ,
+      data:{
+        data:id
+      }
+    })
+  }
   
 }

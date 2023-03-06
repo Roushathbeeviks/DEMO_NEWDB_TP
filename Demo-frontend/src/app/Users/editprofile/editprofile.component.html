@@ -1,20 +1,19 @@
 <div class="editProfileContainer">
  <h2 style="color:rgb(214, 179, 63);margin-left: 44px;margin-top: 10px;">EDIT PROFILE</h2>
   <div class="login">
-    
     <form [formGroup]="Editprofile" (ngSubmit)="check()" autocomplete="off">
       <!-- <img style="height:50px;" src="../../assets/MicrosoftTeams-image.png"><br> -->   
         <div class="inputLine">
           <label class="inputLabel">Username</label>
-          <input appFirstCap formControlName="username"  [readonly]="isreadOnly"  class="input" type="text" id="username"  >
-        </div>
-               
+          <input appFirstCap formControlName="username"  [readonly]="isreadOnly"  class="input" type="text" id="username">
+        </div>    
         <div  class="inputLine">
           <label class="inputLabel">First Name</label>
           <div>
            <input  appFirstCap formControlName="first_name" class="input" type="text" id="first_name" placeholder="First Name"/>
           <div class="errors" *ngIf="Editprofile.controls['first_name'].errors?.['required'] && Editprofile.controls['first_name'].touched">
             First name is required
+            
             </div> 
           </div>
         </div>
@@ -26,7 +25,6 @@
               Last name is required
               </div> 
           </div>
-
         </div>
         <div  class="inputLine"> 
           <label class="inputLabel">Email</label>
@@ -39,7 +37,6 @@
               <div *ngIf="status==false" class="errors" >{{EmailCheckmsg}}</div>
           </div>
         </div>
-        
         <div class="inputLine">
           <label class="inputLabel">Contact</label>
           <div>
@@ -52,13 +49,11 @@
               Please enter numbers
               </div>
             </div>
-        </div>
-         
+        </div>   
         <div class="buttons">
           <button mat-dialog-close class="btnC">Cancel</button>
           <button  type="submit"  class="btn" >Save</button>
         </div>
-      
     </form>
 </div>
 </div>

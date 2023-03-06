@@ -61,14 +61,15 @@
         <a href="#" class="color">
             <div><mat-icon>sms</mat-icon></div>
          </a> -->
-         <a  routerLinkActive="active" href="#" class="color "  routerLink="/userMessage">
+         <!-- <a  routerLinkActive="active" href="#" class="color "  routerLink="/userMessage">
             <div><mat-icon>sms</mat-icon></div>
-         </a> 
+         </a>  -->
          <a mat-button [matMenuTriggerFor]="menu" class="color">
             <mat-icon>person</mat-icon>
         </a>
         <mat-menu #menu="matMenu">
             <button mat-menu-item (click)="EditDialog(id)">Edit Profile</button>
+            <button mat-menu-item (click)="UpdatePassword()">Update Password</button>
             <button mat-menu-item (click)="LogoutDialog()">Log Out</button>
        </mat-menu>
     </div>
