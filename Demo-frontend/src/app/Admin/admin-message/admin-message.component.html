@@ -1,4 +1,4 @@
-<div class="sideend">
+  <div class="sideend">
     <div class="example-sidenav-content">
         <button type="button" mat-button (click)="drawer.toggle()">
           Toggle sidenav
@@ -6,15 +6,10 @@
       </div> 
 <mat-drawer-container class="" >
     <mat-drawer #drawer class="example-sidenav" mode="side">
-      <!-- <p>Auto-resizing sidenav</p>
-      <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-      <button (click)="showFiller = !showFiller" mat-raised-button>
-        Toggle extra text
-      </button> -->
-      <div  #talkjsContainer style="height: 500px;">
+      
+      <div  #talkjsContainer style=" position:absolute; width: 100%;height: 100%;padding-top: 0px ;">
         Loading...</div>
-
     </mat-drawer>
   </mat-drawer-container>
 </div>
-  <!-- removed autosize from mat drawer -->
+removed autosize from mat drawer

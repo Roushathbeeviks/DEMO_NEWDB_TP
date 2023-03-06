@@ -18,11 +18,11 @@ export class TalkService {
     });
   }
 
-  async createCurrentSession(userDetails : any) {
+  async createCurrentSession() {
     await Talk.ready;
     const user = {
-      id: userDetails.id,
-      username: userDetails.username,
+      id: 10,
+      username: 'Admin',
       role: 'default'
     };
     this.currentUser = await this.createUser(user);
@@ -41,13 +41,13 @@ export class TalkService {
     return conversation;
   }
 
-  async createInbox(session: Talk.Session, otherApplicationUser:any) {
+  async createInbox(session: Talk.Session) {
 
-   /* let otherApplicationUser = {
-      id: 8,
-      username: 'this.adminserv.GetUserById',
+    let otherApplicationUser = {
+      id: 6,
+      username: 'user3',
       role: 'default'
-    };*/
+    };
     otherApplicationUser['role'] ='default';
     const conversation = await this.getOrCreateConversation(session, otherApplicationUser);
     const inbox = session.createInbox();

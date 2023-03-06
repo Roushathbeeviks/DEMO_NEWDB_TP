@@ -38,23 +38,23 @@
                 <mat-icon>help_outline</mat-icon>
             </div>
         </a>-->
-        <a  routerLinkActive="active" href="#" class="color "  routerLink="/adminMessage">
+        
+        <!-- <a  routerLinkActive="active" href="#" class="color "  routerLink="/adminMessage">
             <div><mat-icon>sms</mat-icon></div>
-         </a> 
-          <!--
+         </a>  -->
+
+         <!-- <a  routerLinkActive="active"  class="color "    (click)="drawer.toggle()">
+            <div><mat-icon>sms</mat-icon></div>
+         </a>  -->
+          
          <mat-drawer-container class="example-container" >
             <div style="position: fixed;">
-                <a type="button" class="color" (click)="drawer.toggle()">
-                  <mat-icon>sms</mat-icon>
-                </a>
+                
               </div>
             <mat-drawer #drawer class="example-sidenav" mode="side">
-              <div  #talkjsContainer style="color:white ;">Loading...</div>
+              <div #talkjsContainer class="insideBox">Loading...</div>
             </mat-drawer>
-          
-            
-          
-          </mat-drawer-container> -->
+         </mat-drawer-container>
 
           
           
@@ -90,7 +90,7 @@
         </a>
         <mat-menu #menu="matMenu">
             <button mat-menu-item (click)="EditDialog()">Edit Profile</button>
-            <!-- <button mat-menu-item (click)="UpdatePassword()">Update Password</button> -->
+            <button mat-menu-item (click)="UpdatePassword()">Update Password</button>
             <button mat-menu-item (click)="LogoutDialog()">Log Out</button>
        </mat-menu>&nbsp;
        

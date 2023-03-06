@@ -4,7 +4,7 @@ import { VesselService } from 'src/app/services/vessel.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { VoyageplanService } from 'src/app/services/voyageplan.service';
 import { ViewChild, ElementRef } from '@angular/core';
-import { TalkService } from 'src/app/services/talk.service';
+// import { TalkService } from 'src/app/services/talk.service';
 import Talk from 'talkjs';
 @Component({
   selector: 'app-admin-land',
@@ -51,7 +51,7 @@ export class AdminLandComponent implements OnInit {
   value: any
 
   constructor(private route: Router,
-    private vesselserv: VesselService, private voyageserv: VoyageplanService, private talkService: TalkService) { 
+    private vesselserv: VesselService, private voyageserv: VoyageplanService, ) { 
     
      
     }

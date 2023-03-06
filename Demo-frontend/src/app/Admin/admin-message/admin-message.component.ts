@@ -16,7 +16,7 @@ export class AdminMessageComponent implements OnInit {
   @ViewChild('talkjsContainer') talkjsContainer!: ElementRef;
 
   ngOnInit(): void {
-    this.adminserv.AllUsers().subscribe((res: any) => {
+   /* this.adminserv.AllUsers().subscribe((res: any) => {
       for (let i = 0; i <= res.message.length - 2; i++) {
         let count = 1;
         console.log("mesg", res.message[i])
@@ -25,14 +25,15 @@ export class AdminMessageComponent implements OnInit {
         count += 1;
       }
     }
-    )
+    ) */
+    this.createInbox();
   }
   showFiller = false;
-  private async createInbox(user: any) {
-    const session = await this.talkService.createCurrentSession(user);
-    this.inbox = await this.talkService.createInbox(session, user);
-      this.inbox.mount(this.talkjsContainer.nativeElement);
-   
+  private async createInbox() {
+    const session = await this.talkService.createCurrentSession();
+    this.inbox = await this.talkService.createInbox(session);
+    this.inbox.mount(this.talkjsContainer.nativeElement);
+
   }
 
 }

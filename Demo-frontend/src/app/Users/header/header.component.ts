@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { LogoutComponent } from 'src/app/logout/logout.component';
@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
   searchResult:undefined|any
   constructor(private dialog: MatDialog,private adminserv:AdminService,private route:Router,private router:Router,private search :AdminService) { }
 
+  
   ngOnInit(): void {
     this.id=localStorage.getItem('Id')
        this.adminserv.AllUsers().subscribe((res:any) =>{
@@ -78,4 +79,7 @@ export class HeaderComponent implements OnInit {
     this.route.navigate([`../voyagetable/${id}`])
     console.log("ss",id)
   }
+
+
+  
 }

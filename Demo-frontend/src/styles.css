@@ -463,8 +463,12 @@ body { margin: 0; font-family: sans-serif; }
             color: #000;
           
         } */
-        .Inbox.hub-underlay {
+        
+
+
+
+        /* .Inbox.hub-underlay {
             width: 100%;
             height: 95% !important;
             overflow: hidden;
-        }
+        } */

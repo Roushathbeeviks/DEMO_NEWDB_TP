@@ -1,4 +1,4 @@
-/* .example-container {
+.example-container {
     width: 500px;
     height: 100%;
     border: 1px solid rgba(0, 0, 0, 0.5);
@@ -12,7 +12,7 @@
   }
   
   .example-sidenav {
-    /* background-color: aqua; */
+    
     padding: 20px;
     width:550px;
   }
@@ -32,3 +32,4 @@
     z-index: 2;
     overflow: hidden;
 }
+
