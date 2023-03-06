@@ -25,6 +25,8 @@ import { YearChartComponent } from './Charts/year-chart/year-chart.component';
 
 
 
+
+
 const routes: Routes = [
 {path:'',component:LoginComponent},
 {path:'land',component:LandingPageComponent,canActivate:[AuthGuardGuard]},
@@ -44,7 +46,11 @@ const routes: Routes = [
 {path:"novessel",component:NoVesselComponent},
 {path:"monthly-chart",component:MonthlyChartComponent},
 {path:"year-chart",component:YearChartComponent},
-{path:"trial",component:TrialComponent}
+{path:"trial",component:TrialComponent},
+
+
+
+
 ];
 
 @NgModule({

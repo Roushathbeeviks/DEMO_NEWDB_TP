@@ -37,16 +37,60 @@
             <div>
                 <mat-icon>help_outline</mat-icon>
             </div>
-        </a>
-        <a  routerLinkActive="active" href="#" class="color ">
+        </a>-->
+        
+        <!-- <a  routerLinkActive="active" href="#" class="color "  routerLink="/adminMessage">
             <div><mat-icon>sms</mat-icon></div>
-         </a> -->
+         </a>  -->
+
+         <!-- <a  routerLinkActive="active"  class="color "    (click)="drawer.toggle()">
+            <div><mat-icon>sms</mat-icon></div>
+         </a>  -->
+<!--           
+         <mat-drawer-container class="example-container" >
+            <div style="position: fixed;">
+                
+              </div>
+            <mat-drawer #drawer class="example-sidenav" mode="side">
+              <div #talkjsContainer class="insideBox">Loading...</div>
+            </mat-drawer>
+         </mat-drawer-container> -->
+
+          
+          
+          <!-- <button href="#" class="color" (onClick)="sidenav.toggle();">
+            <div>
+                <mat-icon>sms</mat-icon>
+            </div>
+        </button>
+          <mat-sidenav-container class="example-container ">
+            <mat-sidenav #sidenav>
+                <div style="height: 100%;width:150px"></div>
+            </mat-sidenav>
+          </mat-sidenav-container> -->
+
+          
+<!-- <mat-sidenav-container>
+
+    <mat-sidenav #sidenav>
+     
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+     
+     
+
+      
+    </mat-sidenav-content>
+  </mat-sidenav-container> -->
+
+          
          <a mat-button [matMenuTriggerFor]="menu" class="color ">
             <mat-icon>person</mat-icon>
         </a>
         <mat-menu #menu="matMenu">
             <button mat-menu-item (click)="EditDialog()">Edit Profile</button>
-            <!-- <button mat-menu-item (click)="UpdatePassword()">Update Password</button> -->
+            <button mat-menu-item (click)="UpdatePassword()">Update Password</button>
             <button mat-menu-item (click)="LogoutDialog()">Log Out</button>
        </mat-menu>&nbsp;
        

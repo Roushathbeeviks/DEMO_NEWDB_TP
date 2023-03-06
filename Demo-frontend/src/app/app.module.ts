@@ -68,6 +68,8 @@ import { MonthlyChartComponent } from './Charts/monthly-chart/monthly-chart.comp
 import { VesselUserChartComponent } from './Charts/vessel-user-chart/vessel-user-chart.component';
 import { YearChartComponent } from './Charts/year-chart/year-chart.component';
 // import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import {MatSidenavModule} from '@angular/material/sidenav';
+
 
 @NgModule({
   declarations: [

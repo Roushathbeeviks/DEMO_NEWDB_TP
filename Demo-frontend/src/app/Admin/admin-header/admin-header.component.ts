@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ElementRef,ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { LogoutComponent } from 'src/app/logout/logout.component';
@@ -16,13 +16,15 @@ import { UpdatePasswordComponent } from 'src/app/Users/update-password/update-pa
 })
 export class AdminHeaderComponent implements OnInit {
   id:any
- 
+  private session: any;
+  private inbox: any;
   searchResult:undefined|any;
   
-  constructor(private route:Router,private dialog: MatDialog,private search :AdminService) { }
-   
+  constructor(private route:Router,private dialog: MatDialog,private search :AdminService ) { }
+  @ViewChild('talkjsContainer') talkjsContainer!: ElementRef; 
 
   ngOnInit(): void {
+   
   }
   EditDialog()
   {
@@ -80,4 +82,8 @@ export class AdminHeaderComponent implements OnInit {
     this.route.navigate([`../voyagetable/${id}`])
     console.log("ss",id)
   }
+ 
+
+showFiller = false;
+
 }
