@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminMessageComponent } from './admin-message.component';
+import { MonthlyChartComponent } from './monthly-chart.component';
 
-describe('AdminMessageComponent', () => {
-  let component: AdminMessageComponent;
-  let fixture: ComponentFixture<AdminMessageComponent>;
+describe('MonthlyChartComponent', () => {
+  let component: MonthlyChartComponent;
+  let fixture: ComponentFixture<MonthlyChartComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdminMessageComponent ]
+      declarations: [ MonthlyChartComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AdminMessageComponent);
+    fixture = TestBed.createComponent(MonthlyChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

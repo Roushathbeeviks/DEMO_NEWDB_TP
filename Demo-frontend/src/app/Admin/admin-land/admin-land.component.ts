@@ -5,7 +5,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import { VoyageplanService } from 'src/app/services/voyageplan.service';
 import { ViewChild, ElementRef } from '@angular/core';
 // import { TalkService } from 'src/app/services/talk.service';
-import Talk from 'talkjs';
+
 @Component({
   selector: 'app-admin-land',
   templateUrl: './admin-land.component.html',

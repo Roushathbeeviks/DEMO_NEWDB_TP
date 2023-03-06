@@ -11,7 +11,7 @@
 
     <div class="container2">
           <mat-accordion class="example-headers-align disabled">
-            <mat-expansion-panel class="color" *ngFor="let item of [1]; first as isFirst" [expanded]="isFirst" >
+            <mat-expansion-panel class="color" *ngFor="let item of [1]; first as isFirst" [expanded]="isFirst || expanded"  >
               <mat-expansion-panel-header class="color2" >
                 <mat-panel-title class="colorText" >
                  VOYAGE DETAILS
@@ -94,8 +94,7 @@
             <div style="display:none"> <input type="reset" id="primaryButton"  /></div>
             </form> 
             </mat-expansion-panel>
-
-            <mat-expansion-panel class="color">
+            <mat-expansion-panel class="color" [expanded]="expanded">
                 <mat-expansion-panel-header  class="color2" >
                   <mat-panel-title class="colorText">
                    WAYPOINTS
@@ -180,7 +179,7 @@
         <div class="buttons">
           <button class="btn"  id="secondaryButton"  onclick="document.getElementById('primaryButton').click()" value="Clear" > Clear </button> 
           <button class="btn" (click)="navigate()">Cancel</button>
-          <button class="btn" (click)="save()">Save</button> 
+          <button class="btn" (click)="save()" voyageForm>Save</button> 
           
           
        </div>

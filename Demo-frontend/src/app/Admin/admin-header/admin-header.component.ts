@@ -7,7 +7,6 @@ import { EditprofileComponent } from 'src/app/Users/editprofile/editprofile.comp
 import { FormControl, FormGroup } from '@angular/forms';
 import { AdminService } from 'src/app/services/admin.service';
 import { UpdatePasswordComponent } from 'src/app/Users/update-password/update-password.component';
-import { TalkService } from 'src/app/services/talk.service';
 
 
 @Component({
@@ -21,11 +20,11 @@ export class AdminHeaderComponent implements OnInit {
   private inbox: any;
   searchResult:undefined|any;
   
-  constructor(private route:Router,private dialog: MatDialog,private search :AdminService,private talkService:TalkService ) { }
+  constructor(private route:Router,private dialog: MatDialog,private search :AdminService ) { }
   @ViewChild('talkjsContainer') talkjsContainer!: ElementRef; 
 
   ngOnInit(): void {
-    this.createInbox();
+   
   }
   EditDialog()
   {
@@ -86,11 +85,5 @@ export class AdminHeaderComponent implements OnInit {
  
 
 showFiller = false;
-private async createInbox() {
-  const session = await this.talkService.createCurrentSession();
-  this.inbox = await this.talkService.createInbox(session);
-  this.inbox.mount(this.talkjsContainer.nativeElement);
 
-}
-  
 }

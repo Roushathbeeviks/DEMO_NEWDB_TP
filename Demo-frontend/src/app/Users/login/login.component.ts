@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   public avail: boolean = true;
   visible :boolean=true;
   x :undefined|any;
+  t:any
   constructor(
     private route: Router,
     private adminserv: AdminService,
@@ -53,20 +54,25 @@ export class LoginComponent implements OnInit {
 
     this.adminserv.Login(data).subscribe((res: any) => {
       if (res.status) {
-        console.log(res);
+        console.log(res.Id);
         let role = res.Detail;
         if (role == 'admin') {
           localStorage.setItem('username',data.username);
           localStorage.setItem('Id',res['Id']);
           localStorage.setItem('token', res['token']);
           localStorage.setItem('Role', 'Admin');
+          this.t=new Date();
+          localStorage.setItem('Login Time',this.t);
           this.route.navigate(['/adminLand']);
         } else {
           localStorage.setItem('token', res['token']);
           localStorage.setItem('Id',res['Id']);
           localStorage.setItem('username',data.username);
           localStorage.setItem('Role', 'User');
-          this.route.navigate(['/land']);
+          this.t=new Date();
+          localStorage.setItem('Login Time', this.t.toDateString());
+          this.route.navigate(['/land']);  
+   
         }
       } else {
         this.msg = res?.message;

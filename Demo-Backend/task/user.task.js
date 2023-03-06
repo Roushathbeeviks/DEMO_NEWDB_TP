@@ -69,15 +69,6 @@ GetDecryptPassword:(username)=>
   });
 })
 
-
-
-//   connection.query(query, param, function (error, results) {
-//     // return results[0].password
-//     console.log("1",results[0].password)
-//     // console.log("2",results)
-//   });
-
-// // })
 },
 
 

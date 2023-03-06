@@ -4,9 +4,7 @@
     background-color: #000d20;
     justify-content: space-between;
     flex-wrap: wrap;
-    cursor: pointer;
-    
-  
+    cursor: pointer; 
 }
 .headerBody1{
     display: flex;
