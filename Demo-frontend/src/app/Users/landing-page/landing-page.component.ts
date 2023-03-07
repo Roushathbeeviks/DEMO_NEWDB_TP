@@ -55,24 +55,6 @@ export class LandingPageComponent implements OnInit {
     this.id = localStorage.getItem('Id');
     console.log('local storage id', this.id);
 
-
-    var data = {
-      user_id:localStorage.getItem('Id'),
-      login_date:new Date().toISOString()
-      .replace('T', ' ')
-      .replace('Z', '')
-    };
-  
-    console.log("data login_date",new Date().toISOString()
-    .replace('T', ' ')
-    .replace('Z', ''));
-
-this.adminserv.PostLoginHistory(data).subscribe((data:any)=>
-{
-  console.log('post data',data.message)
-})
-
-
     this.vesselserv.GetVesselById(this.id).subscribe((res: any) => {
       console.log('kk', res.length);
       this.data = res;
