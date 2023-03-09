@@ -1,1 +1,6 @@
-
+.chart{
+    position: relative;
+    overflow: hidden;
+    max-height: 360px;
+    background-color:black;
+}
