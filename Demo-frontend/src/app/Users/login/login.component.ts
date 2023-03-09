@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
     private dialog:MatDialog
   ) {}
 
+
   ngOnInit(): void {
     this.LoginForm = this.formBuider.group({
       username: [null, [Validators.required]],
@@ -71,6 +72,24 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('Role', 'User');
           this.t=new Date();
           localStorage.setItem('Login Time', this.t.toDateString());
+  
+            //Post login time in to db
+            var logindetails = {
+                user_id:localStorage.getItem('Id'),
+                login_date:new Date().toISOString()
+                .replace('T', ' ')
+                .replace('Z', '')
+              };
+            
+              console.log("s1 data login_date",new Date().toISOString()
+              .replace('T', ' ')
+              .replace('Z', ''));
+            
+            this.adminserv.PostLoginHistory(logindetails).subscribe((data:any)=>
+            {
+              console.log('s2 post data',data.message)
+            })
+  
           this.route.navigate(['/land']);  
    
         }
