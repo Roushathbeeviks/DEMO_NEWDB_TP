@@ -22,7 +22,7 @@
               <div >
               <label  class="label">First Name </label></div><div>
                <input appFirstCap formControlName="first_name" class="input" type="text" id="first_name" placeholder="First Name"/>
-               <div class="errors" *ngIf="signup.controls['first_name'].errors?.['required'] && signup.controls['first_name'].touched">
+                <div class="errors" *ngIf="signup.controls['first_name'].errors?.['required'] && signup.controls['first_name'].touched">
                 First name is required
                 </div>
                 <div class="errors" *ngIf="signup.controls['first_name'].errors?.['minlength'] && signup.controls['first_name'].touched">First name should have minimum length</div>

@@ -5,27 +5,24 @@
                 <div class="logo">
                     <i class="material-icons">travel_explore</i>
                 </div>
-                <div class="size" >MY FLEET</div>
+                <div class="size">MY FLEET</div>
             </a>
-    </div>
-    <div class="headerBody2">
-        <!-- <a class="color">
-            <div class="search">
-                <div style="display: flex; justify-content: center;gap:10px">
-                    <input type="text" class="input-search" (keyup)="searchVessel($event)"  placeholder="Search vessel" #searchInput>
-                  <button class="btn-search " (click)="submitSearch(searchInput.value)" class="search-box"> <i class="material-icons">search</i></button>
-                
+            
+            <a mat-button [matMenuTriggerFor]="chart" class="color">
+                <div class="logo">
+                    <i class="material-icons"  >bar_chart</i>
                 </div>
-             
-              </div> 
-              <ul class="searchClass" *ngIf="searchResult" >
-                <li *ngFor="let srch of searchResult">
-                    <a style="text-decoration:none; color:white" [routerLink]="'../voyagetable/'+ srch.id" ><div >{{srch.name}}</div></a>
+                <div class="size">STATISTICS</div>
+            </a>
+            <mat-menu #chart="matMenu">
+                <button mat-menu-item routerLink="/monthly-chart">Monthly</button>
+                <button mat-menu-item routerLink="/year-chart">Vessel-User</button>
+           </mat-menu>
 
-                </li>
-              </ul>
-        </a> -->
+    </div>
 
+    
+    <div class="headerBody2">
         <a class="color2">
             <div class="search">
                 <div style="display: flex; justify-content: center;gap:10px">
@@ -43,16 +40,16 @@
         </a>
 
 
-   <!-- TRIAL FOR CHART  -->
+<!-- TRIAL FOR CHART 
 
-    <!-- <a mat-button [matMenuTriggerFor]="trial" class="color">
+    <a mat-button [matMenuTriggerFor]="trial" class="color">
         <mat-icon>help_outline</mat-icon>
    </a>
    <mat-menu #trial="matMenu">
        <button mat-menu-item routerLink="/monthly-chart">Monthly</button>
        <button mat-menu-item routerLink="/year-chart">Vessel-User</button>
-  </mat-menu>
-         -->
+  </mat-menu> -->
+        
         <!-- <a href="#" class="color">
             <div>
                 <mat-icon>help_outline</mat-icon>
