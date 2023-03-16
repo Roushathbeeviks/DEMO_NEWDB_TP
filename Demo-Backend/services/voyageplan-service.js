@@ -2,13 +2,13 @@ const connection = require("../db/connection");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 var auth = require("./Authentication");
-var VoyageTAsks = require("../task/voyage.task");
+var VoyageTasks = require("../task/voyage.task");
 
 const VoyagePlan = {
   VoyagePlanForm: (req, res) => {
     let voyage = req.body;
     // console.log("voyage",voyage)
-    VoyageTAsks.insertVoyage(voyage).then((results, err) => {
+    VoyageTasks.insertVoyage(voyage).then((results, err) => {
       if (results) {
         res.send({ message:results,success:true });
       } else {
@@ -87,7 +87,7 @@ const VoyagePlan = {
     const newearliest_eta=req.body.earliest_eta;
     const newjust_eta=req.body.just_eta;
 
-    var X=VoyageTAsks.EditVoyage(id,newstartport_id,newdestinationport_id,newcosp_lat,newcosp_long,neweosp_lat,neweosp_long,newcosp_time,newdisplacement,newearliest_eta,newjust_eta)     
+    var X=VoyageTasks.EditVoyage(id,newstartport_id,newdestinationport_id,newcosp_lat,newcosp_long,neweosp_lat,neweosp_long,newcosp_time,newdisplacement,newearliest_eta,newjust_eta)     
      if(X)
       {
          return res.json({message:"Updated the voyage"});

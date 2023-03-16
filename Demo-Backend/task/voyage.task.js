@@ -27,6 +27,7 @@ const VoyageTasks = {
       connection.query(query, param, function (error, results) {
         if (error) reject(error);
         resolve(true);
+        // console.log("dddd")
       });
     });
   },
