@@ -472,11 +472,12 @@ body { margin: 0; font-family: sans-serif; }
             height: 95% !important;
             overflow: hidden;
         } */
-        /* rect {
-            fill: rgb(199, 58, 58) !important;
+         rect {
+            fill: #000d20  !important;
            
-        }
-        text {
+        } 
+        
+        /* text {
             text-anchor: middle;
             transform: translate(0, 0);
             opacity: 1;
@@ -484,4 +485,24 @@ body { margin: 0; font-family: sans-serif; }
             cursor: default;
             font-size: 11px;
             fill: rgb(255, 255, 255);
-        } */
+        }  */
+        .highcharts-subtitle{
+            fill: rgb(197, 190, 190) !important;
+        }
+        .highcharts-title{
+            fill: white !important;
+        }
+        .highcharts-axis-title{
+            fill: white !important;
+            color:  white !important;
+        }
+        .highcharts-axis-labels{
+            fill: white !important;
+            color:  white !important;
+        }
+        
+        .text{
+            fill: white !important;
+            color:  white !important;
+        }
+        

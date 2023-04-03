@@ -1,6 +1,22 @@
 .chart{
     position: relative;
     overflow: hidden;
-    max-height: 360px;
-    background-color:black;
+     max-height: 93%; 
+     max-width: 99%;
+     padding-left: 4px;
+    /* background-color:black; */
+    overflow: hidden;
+}
+.chart{
+    height: 100%;
+    overflow: hidden !important;
+   
+}
+.bg{
+    background-color: #000d20 !important;
+    height:100%
+}
+.color{
+    background-color:#000d20;
+    color:white;
 }

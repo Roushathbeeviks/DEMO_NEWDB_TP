@@ -80,16 +80,27 @@ chart3:any
       },
         xAxis: {
             categories: ['January','Febuary','March','April','May','June','July','August','September','October','November','December'],
+            labels: {
+              style: {
+                  color: 'rgb(223, 222, 226)'
+              }
+          }
         },
         yAxis: {
             title: {
                
                 text:'Usage'
-            }
+            },
+            labels: {
+              style: {
+                  color: 'rgb(223, 222, 226)'
+              }
+          }
         },
         tooltip: {
             headerFormat: '<b>{point.key}</b><br>',
-            pointFormat: 'Usage: {point.y}'
+            pointFormat: 'Usage: {point.y}',
+            borderColor:'rgb(58, 120, 201)',
         },
         // title: {
         //     text: 'Monthly',
@@ -137,6 +148,11 @@ chart3:any
   xAxis: {
       categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
           'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+          labels: {
+            style: {
+                color: 'rgb(223, 222, 226)'
+            }
+        },
       accessibility: {
           description: 'Months of the year'
       }
@@ -148,7 +164,10 @@ chart3:any
       labels: {
           formatter: function () {
               return this.value + '';
-          }
+          },
+          style: {
+            color: 'rgb(223, 222, 226)'
+        }
       }
   },
   tooltip: {
@@ -159,17 +178,46 @@ chart3:any
       spline: {
           marker: {
               radius: 4,
-              lineColor: '#666666',
+              lineColor: 'rgb(223, 222, 226)',
               lineWidth: 1
           }
       }
   },
+  legend: {
+    itemStyle: {
+       fontSize:'12px',
+       font: ' sans-serif',
+       color: '#A0A0A0'
+    },
+    itemHoverStyle: {
+       color: 'rgb(223, 222, 226)' //rgb(58, 120, 201)
+    },
+    itemHiddenStyle: {
+       color: '#444'
+    }
+
+},
   series: [{
     type: 'spline',
       name: '2022',
-      marker:  {
-          symbol: 'square'
+      color: {
+        linearGradient: {
+          x1: 0,
+          x2: 0,
+          y1: 0,
+          y2: 1
+        },
+        stops: [
+          [0, 'green'],
+          [1, '#ffffff']
+        ]
       },
+      
+      marker:  {
+          symbol: 'square',
+          
+      },
+      
       data: [this.jan,this.feb,this.mar,this.apr,this.may,this.jun,this.jul,this.aug,this.sep,this.oct,this.nov,this.dec]
 
   }, {
@@ -178,7 +226,8 @@ chart3:any
       marker: {
           symbol: 'diamond'
       },
-      data: [this.jan2,this.feb2,this.mar2,this.apr2,this.may2,this.jun2,this.jul2,this.aug2,this.sep2,this.oct2,this.nov2,this.dec2]
+      data: [this.jan2,this.feb2,this.mar2,this.apr2,this.may2,this.jun2,this.jul2,this.aug2,this.sep2,this.oct2,this.nov2,this.dec2],
+      
   }]
     })
   })
