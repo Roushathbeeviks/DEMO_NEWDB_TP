@@ -7,8 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 // import { Options } from 'highcharts/highcharts.src';
 import { Options } from 'highcharts';
 import highcharts3D from 'highcharts/highcharts-3d.src';
-import * as more from 'highcharts/highcharts-3d.src';
-
+import * as Highcharts3d from "highcharts/highcharts-3d";
 
 @Component({
   selector: 'app-monthly-chart',
@@ -29,12 +28,10 @@ sep:any=0
 oct:any=0
 nov:any=0
 dec:any=0
-
 chartOptions:any= {};
 logDetails:any=FormGroup;
 id:any
 chart:any
-
 
   constructor(private route:ActivatedRoute,private vesselserv:VesselService,private adminserv:AdminService) { }
 
@@ -52,18 +49,30 @@ chart:any
           chart: {
               renderTo: 'container',
               type: 'column',
-              options3d: 
-              {
+              options3d: {
                 enabled: true,
-                alpha: 150, 
-            }
+                alpha: 10,
+                beta: 30,
+                depth: 250,
+                viewDistance: 5,
+                fitToPlot: false,
+                frame: {
+                  bottom: {
+                    size: 1,
+                    color: "rgba(0,0,0,0.02)"
+                  },
+                  back: {
+                    size: 1,
+                    color: "rgba(0,0,0,0.04)"
+                  }
+                }
+              }
           },
           xAxis: {
               categories: ['January','Febuary','March','April','May','June','July','August','September','October','November','December'],
           },
           yAxis: {
-              title: {
-                 
+              title: { 
                   text:'Usage'
               }
           },
@@ -99,8 +108,7 @@ chart:any
       });
   
     })
-     
-  
+
   }
   Counts()
   {
@@ -170,11 +178,7 @@ chart:any
                       this.count++
                       this.dec=this.dec+this.count
                    } 
-  
-          
-              }
-  
-             
+              } 
               // this.count=res.message.length
               // this.count.push(res.message.length)
               // console.log("counting",this.count)

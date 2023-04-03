@@ -31,7 +31,7 @@ const LoginHistoryService={
            if(error){
              reject (error)
            }
-           console.log("Login",results)
+          //  console.log("Login",results)
            res.send({ message: results });
          });
        })

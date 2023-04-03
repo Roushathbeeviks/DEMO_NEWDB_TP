@@ -1,13 +1,124 @@
-<!-- <h2>VESSEL-USER GRAPH</h2>
-    <div [chart]="chart3"></div> -->
-    <app-admin-header></app-admin-header>
-<p style="margin-bottom: 0px;">ACTIVITY CHART-2023(MONTHLY)</p>
-    <div [chart]="charts" class="chart"></div>
-    
-    <hr>
-<p style="margin-bottom: 0px;">ACTIVITY CHART-2022 vs 2023</p>
-    <div [chart]="chart" class="chart"></div>
 
-<hr>
+<form [formGroup]="voyageForm" (ngSubmit)="send(voyageForm)">
+	<mat-expansion-panel [expanded]="(errorPanles.indexOf('voyagedetails') > -1)">
+		<mat-expansion-panel-header>
+			<mat-panel-title><b>VOYAGE DETAILS</b></mat-panel-title>
+		</mat-expansion-panel-header>
+		<div formGroupName="voyagedetails">
+        <div class="display">
+         <div>
+                 <div class="inputLine">
+                   <div  class="label"><label >Start Port Name</label><span style="color:red;padding-left: 2px;">*</span></div>
+                       <div ><select style="min-width:150px;height: 25px;outline: none;" formControlName="startport_id"  >
+                         <option value="">Select Port</option>
+                             <option *ngFor="let start of StartPort" value="{{start.id}}">{{start.name}}</option>
+                         </select></div>
+                   </div>
+ 
+ 
+                   <div class="inputLine">
+                        <div  class="label"> <label >COSP Lat</label> <span style="color:red;padding-left: 2px;">*</span></div>
+                        <div><input type="text" class="input" formControlName="cosp_lat" style="width:100%">
+                        
+                        <div class="errors" *ngIf="voyageForm.controls['voyagedetails'].controls['cosp_lat'].errors?.['required'] && voyageForm.controls['voyagedetails'].controls['cosp_lat'].touched">This Field is required</div>
+                        <div class="errors" *ngIf="voyageForm.controls['voyagedetails'].controls['cosp_lat'].errors?.['minlength'] && voyageForm.controls['voyagedetails'].controls['cosp_lat'].touched">Invalid Value</div>
+                        <div class="errors" *ngIf="voyageForm.controls['voyagedetails'].controls['cosp_lat'].errors?.['pattern'] && voyageForm.controls['voyagedetails'].controls['cosp_lat'].touched">
+                         Incorrect value
+                        </div> </div>
+                      </div>
+               
+                 <div class="inputLine">
+                     <div  class="label"> <label >EOSP Lat</label> <span style="color:red;padding-left: 2px;">*</span></div>
+                    <div > <input type="text" class="input" formControlName="eosp_lat">
+                  
+                     <div class="errors" *ngIf="voyageForm.controls['voyagedetails'].controls['eosp_lat'].errors?.['required'] && voyageForm.controls['voyagedetails'].controls['eosp_lat'].touched">This Field is required</div>
+                     <div class="errors" *ngIf="voyageForm.controls['voyagedetails'].controls['eosp_lat'].errors?.['minlength'] && voyageForm.controls['voyagedetails'].controls['eosp_lat'].touched">Invalid Value</div>
+                     <div class="errors" *ngIf="voyageForm.controls['voyagedetails'].controls['eosp_lat'].errors?.['pattern'] && voyageForm.controls['voyagedetails'].controls['eosp_lat'].touched">
+                        Incorrect value
+                     </div></div>
+                   </div>
+                
+                 </div>
+                 <div>
+                     <div class="inputLine">
+                         <div class="label"><label >Destination Port Name</label><span style="color:red; padding-left: 2px;">*</span></div>
+                        <div> <select style="min-width:150px;height: 25px;outline: none;"  formControlName="destinationport_id" >
+                         <option value="">Select Port</option>
+                             <option *ngFor="let end of DestinationPort" value="{{end.id}}">{{end.name}}</option>
+                         </select></div>
+                   </div>
+                   <div class="inputLine">
+                     <div class="label">  <label >COSP Lon</label> <span style="color:red;padding-left: 2px;">*</span></div>
+                       <div ><input type="text" class="input" formControlName="cosp_long">
+                  
+                   <div class="errors" *ngIf="voyageForm.controls['voyagedetails'].controls['cosp_long'].errors?.['required'] && voyageForm.controls['voyagedetails'].controls['cosp_long'].touched">This Field is required</div>
+                   <div class="errors" *ngIf="voyageForm.controls['voyagedetails'].controls['cosp_long'].errors?.['minlength'] && voyageForm.controls['voyagedetails'].controls['cosp_long'].touched">Invalid Value</div>
+                   <div class="errors" *ngIf="voyageForm.controls['voyagedetails'].controls['cosp_long'].errors?.['pattern'] && voyageForm.controls['voyagedetails'].controls['cosp_long'].touched">
+                      Incorrect value
+                   </div></div>
+                 </div>
+ 
+                     <div class="inputLine">
+                        <div class="label"> <label>EOSP Lon</label> <span style="color:red;padding-left: 2px;">*</span></div>
+                        <div > <input type="text" class="input" formControlName="eosp_long">
+                     
+                     <div class="errors" *ngIf="voyageForm.controls['voyagedetails'].controls['eosp_long'].errors?.['required'] && voyageForm.controls['voyagedetails'].controls['eosp_long'].touched">This Field is required</div>
+                     <div class="errors" *ngIf="voyageForm.controls['voyagedetails'].controls['eosp_long'].errors?.['minlength'] && voyageForm.controls['voyagedetails'].controls['eosp_long'].touched">Invalid Value</div>
+                     <div class="errors" *ngIf="voyageForm.controls['voyagedetails'].controls['eosp_long'].errors?.['pattern'] && voyageForm.controls['voyagedetails'].controls['eosp_long'].touched">
+                        Incorrect value
+                     </div>
+                   </div>
+                   </div>
+             </div>   
+             
+             </div>
+             </div>
+	</mat-expansion-panel>
 
+	<mat-expansion-panel [expanded]="(errorPanles.indexOf('waypoints') > -1)">
+		<mat-expansion-panel-header>
+			<mat-panel-title><b>WAYPOINTS</b></mat-panel-title>
+		</mat-expansion-panel-header>
+		<div formGroupName="waypoints">
+            <div class="display">
+                <div>     
+              <div class="inputLine">
+                     <div class="label"><label>COSP Time</label> <span style="color:red;padding-left: 2px;">*</span></div>
+                     <div > <input  class="input" type="datetime-local" formControlName="cosp_time">
+                 
+                 <div class="errors" *ngIf="voyageForm.controls['waypoints'].controls['cosp_time'].errors?.['required'] && voyageForm.controls['waypoints'].controls['cosp_time'].touched">This Field is required</div>
+               </div>
+               </div>
+                 <div class="inputLine">
+                    <div class="label"> <label>Earliest ETA</label> <span style="color:red;padding-left: 2px;">*</span></div>
+                     <div><input  class="input" type="datetime-local" formControlName="earliest_eta">
+                 
+                 <div class="errors" *ngIf="voyageForm.controls['waypoints'].controls['earliest_eta'].errors?.['required'] && voyageForm.controls['waypoints'].controls['earliest_eta'].touched">This Field is required</div>
+               </div>
+             </div>
+             </div>
+             <div >   
+             <div class="inputLine">
+               <div class="label">  <label>Displacement</label> <span style="color:red;padding-left: 2px;">*</span></div>
+                <div > <input type="text" class="input" formControlName="displacement">
+             
+             <div class="errors" *ngIf="voyageForm.controls['waypoints'].controls['displacement'].errors?.['required'] && voyageForm.controls['waypoints'].controls['displacement'].touched">This Field is required</div>
+             <div class="errors" *ngIf="voyageForm.controls['waypoints'].controls['displacement'].errors?.['pattern'] && voyageForm.controls['waypoints'].controls['displacement'].touched">
+                Please Enter Numeric value
+             </div></div>
+           </div>
 
+                 <div  class="inputLine">
+                     <div class="label"><label>Just ETA</label> <span style="color:red;padding-left: 2px;">*</span></div>
+                    <div> <input type="datetime-local"  class="input" formControlName="just_eta">
+                
+                 <div class="errors" *ngIf="voyageForm.controls['waypoints'].controls['just_eta'].errors?.['required'] && voyageForm.controls['waypoints'].controls['just_eta'].touched">This Field is required</div>
+                 </div>
+               </div>
+               </div>
+           
+             </div>
+             </div>
+	</mat-expansion-panel>
+	<button class="btn btn-primary">send</button>
+</form>

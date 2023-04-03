@@ -70,10 +70,6 @@ GetDecryptPassword:(username)=>
 })
 
 },
-
-
-
-
 //   UpdateUser:(Userid,
 //     firstname,
 //     lastname,

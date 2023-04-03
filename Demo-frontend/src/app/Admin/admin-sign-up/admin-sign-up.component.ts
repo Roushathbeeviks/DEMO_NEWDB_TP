@@ -79,7 +79,6 @@ export class AdminSignUpComponent implements OnInit {
   reloadPage(): void {
     window.location.reload();
   }
-
   ngOnInit(): void {
     this.signup = this.formBuilder.group({
       username: ['', [Validators.required, Validators.minLength(2)]],

@@ -13,11 +13,6 @@ const userService = {
   doCreate: (req, res) =>
    {
     let users = req.body;
-    // let password = Password.encrypt(req.body.password)
-    // // let password=password2.toString();
-    // let decrypt=Password.decrypt(Password.encrypt(req.body.password))
-    
-
     userTasks.getUserByEmailId(users.email).then(async(user) => {
         if (user.length > 0) 
         {
@@ -28,7 +23,6 @@ const userService = {
            userTasks.insertUser(users).then((results,err) => {
             if (results) 
             {
-
               PasswordService.LoginDetails(users.email,res)
               // console.log("result1 in inserting user",results)
               // console.log("result3 in mail in user variable",users.email)
