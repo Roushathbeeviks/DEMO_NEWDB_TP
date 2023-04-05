@@ -1,3 +1,10 @@
-<app-header></app-header>
+
+<div *ngIf="login">
+    <app-admin-header></app-admin-header>
+</div>
+<div *ngIf="!login">
+    <app-header></app-header>
+</div>
+
 <h2>ACTIVITY CHART-2023(MONTHLY)</h2>
     <div [chart]="charts"></div>

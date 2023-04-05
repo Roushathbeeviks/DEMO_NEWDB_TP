@@ -63,7 +63,23 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token', res['token']);
           localStorage.setItem('Role', 'Admin');
           this.t=new Date();
-          localStorage.setItem('Login Time',this.t);
+          localStorage.setItem('Login Time',this.t.toDateString());
+             //Post login time in to db
+             var logindetails = {
+              user_id:localStorage.getItem('Id'),
+              login_date:new Date().toISOString()
+              .replace('T', ' ')
+              .replace('Z', '')
+            };
+          
+            console.log("admin data login_date",new Date().toISOString()
+            .replace('T', ' ')
+            .replace('Z', ''));
+          
+          this.adminserv.PostLoginHistory(logindetails).subscribe((data:any)=>
+          {
+            console.log('s2 post data',data.message)
+          })
           this.route.navigate(['/adminLand']);
         } else {
           localStorage.setItem('token', res['token']);

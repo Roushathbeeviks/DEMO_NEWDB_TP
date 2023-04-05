@@ -35,13 +35,23 @@ export class YearChartComponent implements OnInit {
   nov2:any=0
   dec2:any=0
   
-
+login:any;
   id:any
   chart:any
   charts:any
   constructor(private adminserv:AdminService) { }
 
   ngOnInit(): void {
+
+    if (localStorage.getItem('Role') == 'Admin') {
+       this.login=true
+    }
+    // else{
+    //     this.login=="user"
+    // }
+
+
+
         /*USER ID*/
   this.id=localStorage.getItem('Id');
   console.log("ID",this.id)
